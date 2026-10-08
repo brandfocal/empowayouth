@@ -17,30 +17,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
+import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
 
-interface PartnerSponsor {
-  id: string;
-  name: string;
-  logo: string;
-}
-
-const partnerSponsors: PartnerSponsor[] = [
-  { id: 'cathsseta', name: 'CATHSSETA', logo: '/sponsors/white/cathsseta.png' },
-  { id: 'foodbev', name: 'FoodBev SETA', logo: '/sponsors/white/foodbev.png' },
-  { id: 'merseta', name: 'merSETA', logo: '/sponsors/white/merseta.png' },
-  { id: 'wrseta', name: 'W&RSETA', logo: '/sponsors/white/wrseta.png' },
-  { id: 'standard-bank', name: 'Standard Bank', logo: '/sponsors/white/standard-bank.png' },
-  { id: 'absa', name: 'Absa', logo: '/sponsors/white/absa.png' },
-  { id: 'nedbank', name: 'Nedbank', logo: '/sponsors/white/nedbank-logo.png' },
-  { id: 'fnb', name: 'FNB', logo: '/sponsors/white/fnb.png' },
-  { id: 'african-bank', name: 'African Bank', logo: '/sponsors/white/african-bank-logo.png' },
-  { id: 'afrika-tikkun', name: 'Afrika Tikkun', logo: '/sponsors/white/afrika-tikkun-logo.png' },
-  { id: 'harambee', name: 'Harambee', logo: '/sponsors/white/harambee.png' },
-  { id: 'yes', name: 'YES', logo: '/sponsors/white/yes.png' },
-  { id: 'pyei', name: 'PYEI', logo: '/sponsors/white/pyei-logo.png' },
-  { id: 'mtn', name: 'MTN', logo: '/sponsors/white/mtn.png' },
-  { id: 'arena-holdings', name: 'Arena Holdings', logo: '/sponsors/white/arena-holdings-logo.png' },
-];
 
 const stats = [
   { value: 98000, suffix: '+', label: 'Young people activated' },
@@ -363,52 +341,7 @@ export default function PartnerWithUsPage() {
           </p>
 
           {/* Marquee Window */}
-          <div className="relative my-14 overflow-hidden border-y border-white/10 py-7">
-            {/* Gradient Edge Vignettes */}
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--pt-ink)] to-transparent"
-              aria-hidden="true"
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[var(--pt-ink)] to-transparent"
-              aria-hidden="true"
-            />
-
-            <div className="ey-partner-marquee-track">
-              <div className="flex shrink-0 items-center gap-4 pr-4">
-                {partnerSponsors.map((partner) => (
-                  <div
-                    key={`partner-a-${partner.id}`}
-                    className="ey-partner-logo-item"
-                    title={partner.name}
-                  >
-                    <img
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      className="ey-partner-logo-img"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="flex shrink-0 items-center gap-4 pr-4" aria-hidden="true">
-                {partnerSponsors.map((partner) => (
-                  <div
-                    key={`partner-b-${partner.id}`}
-                    className="ey-partner-logo-item"
-                    title={partner.name}
-                  >
-                    <img
-                      src={partner.logo}
-                      alt=""
-                      className="ey-partner-logo-img"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <PartnerLogoMarquee className="my-14 py-7" />
 
           {/* Stats Grid */}
           <div ref={statsRef} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

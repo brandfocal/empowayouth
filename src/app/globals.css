@@ -1391,7 +1391,7 @@ html, body {
 .ey-marquee-row {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   width: max-content;
   will-change: transform;
 }
@@ -1415,41 +1415,11 @@ html, body {
   animation-play-state: paused;
 }
 
+.ey-logo-card,
 .ey-partner-logo-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 80px;
-  padding: 8px 12px;
-  border: none;
-  background: transparent;
-  transition: transform 250ms ease;
-}
-
-.ey-partner-logo-item:hover {
-  background: transparent;
-  transform: translateY(-2px) scale(1.08);
-}
-
-.ey-partner-logo-img {
-  max-width: 145px;
-  max-height: 52px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.9;
-  transition: opacity 250ms ease, transform 250ms ease;
-}
-
-.ey-partner-logo-item:hover .ey-partner-logo-img {
-  opacity: 1;
-}
-
-.ey-logo-card {
-  width: 150px;
+  width: 140px;
   min-height: 80px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
@@ -1458,21 +1428,25 @@ html, body {
   transition: transform 250ms ease;
 }
 
-.ey-logo-card:hover {
+.ey-logo-card:hover,
+.ey-partner-logo-item:hover {
   background: transparent;
   transform: translateY(-2px) scale(1.08);
 }
 
-.ey-logo-card img {
+.ey-logo-card img,
+.ey-partner-logo-img {
   max-width: 100%;
-  height: 50px;
-  max-height: 50px;
+  height: 52px;
+  max-height: 52px;
+  width: auto;
   object-fit: contain;
   opacity: 0.9;
   transition: opacity 250ms ease, transform 250ms ease;
 }
 
-.ey-logo-card:hover img {
+.ey-logo-card:hover img,
+.ey-partner-logo-item:hover .ey-partner-logo-img {
   opacity: 1;
 }
 

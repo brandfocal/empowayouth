@@ -6,6 +6,7 @@ import {
   useEmpowaYouthImpactCounters,
   useEmpowaYouthBentoCardAnimations,
 } from '@/hooks/use-scroll-animations';
+import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
 
 const pillars = [
   {
@@ -31,23 +32,6 @@ const pillars = [
   },
 ];
 
-const partners = [
-  { id: 'cathsseta', name: 'Cathsseta', image: '/sponsors/white/cathsseta.png' },
-  { id: 'foodbev', name: 'Foodbev', image: '/sponsors/white/foodbev.png' },
-  { id: 'merseta', name: 'Merseta', image: '/sponsors/white/merseta.png' },
-  { id: 'wrseta', name: 'W&RSETA', image: '/sponsors/white/wrseta.png' },
-  { id: 'standard-bank', name: 'Standard Bank', image: '/sponsors/white/standard-bank.png' },
-  { id: 'absa', name: 'Absa', image: '/sponsors/white/absa.png' },
-  { id: 'nedbank', name: 'Nedbank', image: '/sponsors/white/nedbank-logo.png' },
-  { id: 'fnb', name: 'FNB', image: '/sponsors/white/fnb.png' },
-  { id: 'african-bank', name: 'African Bank', image: '/sponsors/white/african-bank-logo.png' },
-  { id: 'afrika-tikkun', name: 'Afrika Tikkun', image: '/sponsors/white/afrika-tikkun-logo.png' },
-  { id: 'harambee', name: 'Harambee', image: '/sponsors/white/harambee.png' },
-  { id: 'yes', name: 'YES', image: '/sponsors/white/yes.png' },
-  { id: 'pyei', name: 'PYEI', image: '/sponsors/white/pyei-logo.png' },
-  { id: 'mtn', name: 'MTN', image: '/sponsors/white/mtn.png' },
-  { id: 'arena-holdings', name: 'Arena Holdings', image: '/sponsors/white/arena-holdings-logo.png' },
-];
 
 export default function Home() {
   useEmpowaYouthScrollAnimations();
@@ -345,20 +329,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="ey-marquee-window" aria-label="EmpowaYouth partners">
-                <div className="ey-marquee-row ey-marquee-row-left">
-                  {partners.map((partner) => (
-                    <figure key={`row-one-${partner.id}`} className="ey-logo-card">
-                      <img src={partner.image} alt={`${partner.name} logo`} />
-                    </figure>
-                  ))}
-                  {partners.map((partner) => (
-                    <figure key={`row-one-duplicate-${partner.id}`} className="ey-logo-card" aria-hidden="true">
-                      <img src={partner.image} alt="" />
-                    </figure>
-                  ))}
-                </div>
-              </div>
+              <PartnerLogoMarquee />
             </div>
           </div>
         </div>
