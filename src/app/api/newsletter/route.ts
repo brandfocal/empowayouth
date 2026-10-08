@@ -34,12 +34,37 @@ export async function POST(req: NextRequest) {
       input_4: updates,
     };
 
-    const gfResponse = await fetch(GF_NEWSLETTER_URL, {
+    const consumerKey = (
+      process.env.GF_CONSUMER_KEY ||
+      process.env.GRAVITY_FORMS_CONSUMER_KEY ||
+      ''
+    ).trim();
+    const consumerSecret = (
+      process.env.GF_CONSUMER_SECRET ||
+      process.env.GRAVITY_FORMS_CONSUMER_SECRET ||
+      ''
+    ).trim();
+
+    const urlObj = new URL(GF_NEWSLETTER_URL);
+    if (consumerKey && consumerSecret && !urlObj.searchParams.has('consumer_key')) {
+      urlObj.searchParams.set('consumer_key', consumerKey);
+      urlObj.searchParams.set('consumer_secret', consumerSecret);
+    }
+
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': 'EmpowaYouth-NextJS-Client/1.0',
+    };
+
+    if (consumerKey && consumerSecret) {
+      const token = Buffer.from(`${consumerKey}:${consumerSecret}`).toString('base64');
+      headers['Authorization'] = `Basic ${token}`;
+    }
+
+    const gfResponse = await fetch(urlObj.toString(), {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
+      headers,
       body: JSON.stringify(payload),
     });
 
@@ -59,9 +84,14 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const validationMsg = data.validation_messages
+    let validationMsg = data.validation_messages
       ? Object.values(data.validation_messages).join(', ')
       : data.message || 'Form validation failed.';
+
+    if (data.code === 'rest_no_route' || String(validationMsg).includes('No route was found')) {
+      validationMsg =
+        'Gravity Forms REST API is not currently active on cms.empowayouth.co.za. Please ensure the REST API is enabled in WordPress Admin (Forms > Settings > REST API).';
+    }
 
     return NextResponse.json(
       {
