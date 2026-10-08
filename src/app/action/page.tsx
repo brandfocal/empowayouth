@@ -514,7 +514,7 @@ export default function TakeActionPage() {
       {/* Volunteer Sign-Up Modal */}
       {isVolunteerModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 p-4 sm:p-6 backdrop-blur-sm overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-labelledby="volunteer-modal-title"

@@ -313,7 +313,7 @@ export default function MediaPage() {
       {/* Video Modal Player */}
       {selectedVideo && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-0 sm:p-4"
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 p-0 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="video-modal-title"
