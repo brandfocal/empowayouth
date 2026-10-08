@@ -413,7 +413,7 @@ export default function MediaPage() {
             <a href="#media" className={primaryButtonClass} style={buttonFontStyle}>
               <span>Read More Stories</span>
             </a>
-            <Link href="/#partners" className={ghostIconButtonClass} style={buttonFontStyle}>
+            <Link href="/contact" className={ghostIconButtonClass} style={buttonFontStyle}>
               <span>Get Involved</span>
             </Link>
           </div>
@@ -712,7 +712,7 @@ export default function MediaPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="mailto:info@empowaworx.co.za?subject=Direct%20Media%20Inquiry"
+              href="/contact"
               className={directMediaCtaClass}
               style={buttonFontStyle}
             >
