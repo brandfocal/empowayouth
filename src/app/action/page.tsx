@@ -110,13 +110,24 @@ export default function TakeActionPage() {
   const [isVolunteerSubmitted, setIsVolunteerSubmitted] = useState(false);
   const [isVolunteerSubmitting, setIsVolunteerSubmitting] = useState(false);
 
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
+  const [newsletterForm, setNewsletterForm] = useState({
+    fullName: '',
+    email: '',
+    topics: [] as string[],
+  });
+  const [isNewsletterSubmitted, setIsNewsletterSubmitted] = useState(false);
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+
   useEffect(() => {
+    const isAnyModalOpen = isVolunteerModalOpen || isNewsletterModalOpen;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isVolunteerModalOpen) {
-        setIsVolunteerModalOpen(false);
+      if (e.key === 'Escape') {
+        if (isVolunteerModalOpen) setIsVolunteerModalOpen(false);
+        if (isNewsletterModalOpen) setIsNewsletterModalOpen(false);
       }
     };
-    if (isVolunteerModalOpen) {
+    if (isAnyModalOpen) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
     } else {
@@ -126,7 +137,7 @@ export default function TakeActionPage() {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isVolunteerModalOpen]);
+  }, [isVolunteerModalOpen, isNewsletterModalOpen]);
 
   return (
     <main className="min-h-screen bg-[var(--pt-ink)] text-[var(--pt-paper)]">
@@ -225,16 +236,17 @@ export default function TakeActionPage() {
                     aria-hidden="true"
                   />
                 </button>
-                <Link
-                  href="/#events"
-                  className="ey-rect-button ey-rect-button-primary group justify-between"
+                <button
+                  type="button"
+                  onClick={() => setIsNewsletterModalOpen(true)}
+                  className="ey-rect-button ey-rect-button-secondary group justify-between cursor-pointer"
                 >
-                  <span>Register to Attend</span>
+                  <span>Subscribe to our Newsletter</span>
                   <ArrowRight
                     className="transition-transform duration-200 ease-out group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -743,6 +755,179 @@ export default function TakeActionPage() {
                       )}
                     </button>
                   </div>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Newsletter Subscription Modal */}
+      {isNewsletterModalOpen && (
+        <div
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 p-4 sm:p-6 backdrop-blur-sm overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="newsletter-modal-title"
+          onClick={() => setIsNewsletterModalOpen(false)}
+        >
+          <div
+            className="relative my-auto w-full max-w-lg rounded-2xl border border-white/15 bg-[var(--pt-ink)] p-6 sm:p-8 text-[var(--pt-paper)] shadow-2xl transition-all"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsNewsletterModalOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[var(--pt-paper)] transition-colors hover:border-[var(--pt-accent)] hover:bg-[var(--pt-accent)] hover:text-white focus:outline-none cursor-pointer"
+              aria-label="Close newsletter modal"
+            >
+              <X size={18} aria-hidden="true" />
+            </button>
+
+            {isNewsletterSubmitted ? (
+              <div className="py-6 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--pt-accent)]/15 text-[var(--pt-accent)]">
+                  <CheckCircle2 size={36} aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-bold tracking-tight text-[var(--pt-paper)]">
+                  You&apos;re on the list!
+                </h3>
+                <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[var(--pt-muted)]">
+                  Thank you for subscribing, {newsletterForm.fullName || 'friend'}. We&apos;ve added{' '}
+                  <span className="font-semibold text-[var(--pt-accent)]">{newsletterForm.email}</span> to our monthly dispatch. Look out for opportunity drops, summit announcements, and stories of youth transformation.
+                </p>
+                <div className="mt-8 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsNewsletterModalOpen(false);
+                      setIsNewsletterSubmitted(false);
+                      setNewsletterForm({
+                        fullName: '',
+                        email: '',
+                        topics: [],
+                      });
+                    }}
+                    className="ey-button ey-button-light-filled px-8 cursor-pointer"
+                  >
+                    <span>Done</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <header className="mb-6">
+                  <p className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
+                    <span className="inline-block h-[2px] w-5 bg-[var(--pt-accent)]" aria-hidden="true" />
+                    <span>Stay Connected</span>
+                  </p>
+                  <h2
+                    id="newsletter-modal-title"
+                    className="text-2xl font-extrabold uppercase tracking-tight text-[var(--pt-paper)] sm:text-3xl"
+                  >
+                    Subscribe to Our <span className="ey-heading-italic">Newsletter</span>
+                  </h2>
+                  <p className="mt-2 text-xs leading-relaxed text-[var(--pt-muted)] sm:text-sm">
+                    Get first access to bursaries, learnerships, summit activations, and entrepreneurial opportunities.
+                  </p>
+                </header>
+
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setIsNewsletterSubmitting(true);
+                    setTimeout(() => {
+                      setIsNewsletterSubmitting(false);
+                      setIsNewsletterSubmitted(true);
+                    }, 500);
+                  }}
+                  className="space-y-4"
+                >
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="newsletter-name" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      Your Name
+                    </label>
+                    <input
+                      id="newsletter-name"
+                      type="text"
+                      value={newsletterForm.fullName}
+                      onChange={(e) => setNewsletterForm({ ...newsletterForm, fullName: e.target.value })}
+                      placeholder="e.g. Lerato Ndlovu"
+                      className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="newsletter-email" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      Email Address *
+                    </label>
+                    <input
+                      id="newsletter-email"
+                      required
+                      type="email"
+                      value={newsletterForm.email}
+                      onChange={(e) => setNewsletterForm({ ...newsletterForm, email: e.target.value })}
+                      placeholder="lerato@example.com"
+                      className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      What updates are you most interested in?
+                    </label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {[
+                        'Job & Learnership Alerts',
+                        'Bursaries & Skills Programmes',
+                        'Summits & Events',
+                        'Funding & Pitch Competitions',
+                      ].map((topic) => {
+                        const isSelected = newsletterForm.topics.includes(topic);
+                        return (
+                          <button
+                            key={topic}
+                            type="button"
+                            onClick={() => {
+                              const newTopics = isSelected
+                                ? newsletterForm.topics.filter((t) => t !== topic)
+                                : [...newsletterForm.topics, topic];
+                              setNewsletterForm({ ...newsletterForm, topics: newTopics });
+                            }}
+                            className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[var(--pt-accent)] text-white shadow-sm'
+                                : 'border border-white/15 bg-white/5 text-[var(--pt-muted)] hover:border-white/30 hover:text-[var(--pt-paper)]'
+                            }`}
+                          >
+                            {isSelected ? '✓ ' : '+ '}
+                            {topic}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isNewsletterSubmitting}
+                      className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-[var(--pt-accent)] px-7 py-3 text-sm font-bold tracking-[0.02em] text-white transition-all hover:scale-[1.01] hover:bg-[color-mix(in_srgb,var(--pt-accent)_84%,var(--pt-ink))] focus:outline-none disabled:opacity-50 cursor-pointer"
+                    >
+                      {isNewsletterSubmitting ? (
+                        <span>Subscribing...</span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          <span>Subscribe to Newsletter</span>
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </span>
+                      )}
+                    </button>
+                  </div>
+                  <p className="text-center text-[11px] text-[var(--pt-muted)]/80">
+                    No spam ever. You can unsubscribe at any time.
+                  </p>
                 </form>
               </div>
             )}
