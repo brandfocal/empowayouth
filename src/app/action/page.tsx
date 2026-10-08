@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, X } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 
 interface PartnerMandate {
@@ -97,6 +97,37 @@ export default function TakeActionPage() {
   const [expandedYouthFaq, setExpandedYouthFaq] = useState<string | null>(null);
   const [expandedPartnerFaq, setExpandedPartnerFaq] = useState<string | null>(null);
 
+  const [isVolunteerModalOpen, setIsVolunteerModalOpen] = useState(false);
+  const [volunteerForm, setVolunteerForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    location: '',
+    interests: [] as string[],
+    availability: 'Weekends & Summit Weeks',
+    notes: '',
+  });
+  const [isVolunteerSubmitted, setIsVolunteerSubmitted] = useState(false);
+  const [isVolunteerSubmitting, setIsVolunteerSubmitting] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isVolunteerModalOpen) {
+        setIsVolunteerModalOpen(false);
+      }
+    };
+    if (isVolunteerModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isVolunteerModalOpen]);
+
   return (
     <main className="min-h-screen bg-[var(--pt-ink)] text-[var(--pt-paper)]">
       {/* Hero Section */}
@@ -183,16 +214,17 @@ export default function TakeActionPage() {
             <div className="flex flex-col justify-end gap-8">
               <div className="h-px w-full bg-[var(--pt-dark-divider)]" />
               <div className="flex flex-col flex-wrap items-stretch gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-stretch xl:flex-row xl:items-center">
-                <a
-                  href="mailto:info@empowaworx.co.za?subject=Volunteer%20Application%20-%20EmpowaYouth"
-                  className="ey-rect-button ey-rect-button-primary group justify-between"
+                <button
+                  type="button"
+                  onClick={() => setIsVolunteerModalOpen(true)}
+                  className="ey-rect-button ey-rect-button-primary group justify-between cursor-pointer"
                 >
                   <span>Sign Up to Volunteer</span>
                   <ArrowRight
                     className="transition-transform duration-200 ease-out group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </a>
+                </button>
                 <Link
                   href="/#events"
                   className="ey-rect-button ey-rect-button-primary group justify-between"
@@ -478,6 +510,245 @@ export default function TakeActionPage() {
           </a>
         </div>
       </section>
+
+      {/* Volunteer Sign-Up Modal */}
+      {isVolunteerModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-6 backdrop-blur-sm overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="volunteer-modal-title"
+          onClick={() => setIsVolunteerModalOpen(false)}
+        >
+          <div
+            className="relative my-auto w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl border border-white/15 bg-[var(--pt-ink)] p-6 sm:p-8 text-[var(--pt-paper)] shadow-2xl transition-all"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsVolunteerModalOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[var(--pt-paper)] transition-colors hover:border-[var(--pt-accent)] hover:bg-[var(--pt-accent)] hover:text-white focus:outline-none"
+              aria-label="Close volunteer modal"
+            >
+              <X size={18} aria-hidden="true" />
+            </button>
+
+            {isVolunteerSubmitted ? (
+              <div className="py-6 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--pt-accent)]/15 text-[var(--pt-accent)]">
+                  <CheckCircle2 size={36} aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-bold tracking-tight text-[var(--pt-paper)]">
+                  You&apos;re in, {volunteerForm.fullName || 'Champion'}!
+                </h3>
+                <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[var(--pt-muted)]">
+                  Thank you for raising your hand to empower South African youth. Our regional volunteer coordinator will connect with you via WhatsApp and email ahead of upcoming summits and activations.
+                </p>
+                <div className="mt-8 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsVolunteerModalOpen(false);
+                      setIsVolunteerSubmitted(false);
+                      setVolunteerForm({
+                        fullName: '',
+                        email: '',
+                        phone: '',
+                        location: '',
+                        interests: [],
+                        availability: 'Weekends & Summit Weeks',
+                        notes: '',
+                      });
+                    }}
+                    className="ey-button ey-button-light-filled px-8"
+                  >
+                    <span>Done</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <header className="mb-6">
+                  <p className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
+                    <span className="inline-block h-[2px] w-5 bg-[var(--pt-accent)]" aria-hidden="true" />
+                    <span>Join The Movement</span>
+                  </p>
+                  <h2
+                    id="volunteer-modal-title"
+                    className="text-2xl font-extrabold uppercase tracking-tight text-[var(--pt-paper)] sm:text-3xl"
+                  >
+                    Sign Up to <span className="ey-heading-italic">Volunteer</span>
+                  </h2>
+                  <p className="mt-2 text-xs leading-relaxed text-[var(--pt-muted)] sm:text-sm">
+                    Lend your energy, skills, and heart to impact youth across townships and communities.
+                  </p>
+                </header>
+
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setIsVolunteerSubmitting(true);
+                    setTimeout(() => {
+                      setIsVolunteerSubmitting(false);
+                      setIsVolunteerSubmitted(true);
+                    }, 500);
+                  }}
+                  className="space-y-4"
+                >
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="volunteer-name" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                        Full Name *
+                      </label>
+                      <input
+                        id="volunteer-name"
+                        required
+                        type="text"
+                        value={volunteerForm.fullName}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, fullName: e.target.value })}
+                        placeholder="e.g. Thabo Molefe"
+                        className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="volunteer-email" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                        Email Address *
+                      </label>
+                      <input
+                        id="volunteer-email"
+                        required
+                        type="email"
+                        value={volunteerForm.email}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, email: e.target.value })}
+                        placeholder="thabo@example.com"
+                        className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="volunteer-phone" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                        WhatsApp / Phone *
+                      </label>
+                      <input
+                        id="volunteer-phone"
+                        required
+                        type="tel"
+                        value={volunteerForm.phone}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, phone: e.target.value })}
+                        placeholder="+27 82 123 4567"
+                        className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="volunteer-location" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                        Township / City *
+                      </label>
+                      <input
+                        id="volunteer-location"
+                        required
+                        type="text"
+                        value={volunteerForm.location}
+                        onChange={(e) => setVolunteerForm({ ...volunteerForm, location: e.target.value })}
+                        placeholder="e.g. Tembisa, Gauteng"
+                        className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      Areas of Interest (Select all that apply)
+                    </label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {[
+                        'Event Coordination',
+                        'Youth Mentorship',
+                        'Media & Content',
+                        'Registration & Logistics',
+                        'Workshop Support',
+                      ].map((interest) => {
+                        const isSelected = volunteerForm.interests.includes(interest);
+                        return (
+                          <button
+                            key={interest}
+                            type="button"
+                            onClick={() => {
+                              const newInterests = isSelected
+                                ? volunteerForm.interests.filter((i) => i !== interest)
+                                : [...volunteerForm.interests, interest];
+                              setVolunteerForm({ ...volunteerForm, interests: newInterests });
+                            }}
+                            className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[var(--pt-accent)] text-white shadow-sm'
+                                : 'border border-white/15 bg-white/5 text-[var(--pt-muted)] hover:border-white/30 hover:text-[var(--pt-paper)]'
+                            }`}
+                          >
+                            {isSelected ? '✓ ' : '+ '}
+                            {interest}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="volunteer-availability" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      Availability
+                    </label>
+                    <select
+                      id="volunteer-availability"
+                      value={volunteerForm.availability}
+                      onChange={(e) => setVolunteerForm({ ...volunteerForm, availability: e.target.value })}
+                      className="w-full rounded-md border border-white/15 bg-[var(--pt-ink)] px-3.5 py-2.5 text-sm text-[var(--pt-paper)] focus:border-[var(--pt-accent)] focus:outline-none"
+                    >
+                      <option value="Weekends & Summit Weeks">Weekends &amp; Summit Weeks</option>
+                      <option value="Weekdays">Weekdays</option>
+                      <option value="Flexible / On-Call">Flexible / On-Call</option>
+                    </select>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="volunteer-notes" className="text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)]">
+                      Why do you want to volunteer? (Optional)
+                    </label>
+                    <textarea
+                      id="volunteer-notes"
+                      rows={2}
+                      value={volunteerForm.notes}
+                      onChange={(e) => setVolunteerForm({ ...volunteerForm, notes: e.target.value })}
+                      placeholder="Share a short note on your motivation or past experience..."
+                      className="w-full rounded-md border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)]/50 focus:border-[var(--pt-accent)] focus:outline-none resize-none"
+                    />
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isVolunteerSubmitting}
+                      className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-[var(--pt-accent)] px-7 py-3 text-sm font-bold tracking-[0.02em] text-white transition-all hover:scale-[1.01] hover:bg-[color-mix(in_srgb,var(--pt-accent)_84%,var(--pt-ink))] focus:outline-none disabled:opacity-50 cursor-pointer"
+                    >
+                      {isVolunteerSubmitting ? (
+                        <span>Submitting Application...</span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          <span>Submit Volunteer Sign-Up</span>
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </span>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
