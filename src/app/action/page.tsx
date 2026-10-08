@@ -118,6 +118,7 @@ export default function TakeActionPage() {
   });
   const [isNewsletterSubmitted, setIsNewsletterSubmitted] = useState(false);
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+  const [newsletterError, setNewsletterError] = useState<string | null>(null);
 
   useEffect(() => {
     const isAnyModalOpen = isVolunteerModalOpen || isNewsletterModalOpen;
@@ -817,6 +818,7 @@ export default function TakeActionPage() {
                     onClick={() => {
                       setIsNewsletterModalOpen(false);
                       setIsNewsletterSubmitted(false);
+                      setNewsletterError(null);
                       setNewsletterForm({
                         fullName: '',
                         email: '',
@@ -847,14 +849,97 @@ export default function TakeActionPage() {
                   </p>
                 </header>
 
+                {newsletterError && (
+                  <div
+                    role="alert"
+                    className="mb-4 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-200"
+                  >
+                    {newsletterError}
+                  </div>
+                )}
+
                 <form
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
                     setIsNewsletterSubmitting(true);
-                    setTimeout(() => {
+                    setNewsletterError(null);
+
+                    // Mapped to Gravity Forms Form ID: 45
+                    // Name ID: 1 -> input_1
+                    // Email Address ID: 3 -> input_3
+                    // What updates are you most interested in? ID: 4 -> input_4
+                    const payload = {
+                      input_1: newsletterForm.fullName.trim(),
+                      input_3: newsletterForm.email.trim(),
+                      input_4: newsletterForm.topics.join(', '),
+                    };
+
+                    try {
+                      // 1. Submit through Next.js proxy route to prevent CORS issues
+                      const res = await fetch('/api/newsletter', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                      });
+
+                      const data = await res.json().catch(() => ({}));
+
+                      if (res.ok && data.success) {
+                        setIsNewsletterSubmitted(true);
+                        return;
+                      }
+
+                      // If specific validation message was returned by Gravity Forms
+                      if (data.error && !data.error.includes('Server error')) {
+                        setNewsletterError(data.error);
+                        return;
+                      }
+
+                      // 2. Direct client-side submission fallback to Gravity Forms endpoint
+                      const directRes = await fetch(
+                        'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/45/submissions',
+                        {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(payload),
+                        }
+                      );
+                      const directData = await directRes.json().catch(() => ({}));
+
+                      if (directRes.ok && directData.is_valid !== false) {
+                        setIsNewsletterSubmitted(true);
+                        return;
+                      }
+
+                      const errMsg =
+                        directData.validation_messages
+                          ? Object.values(directData.validation_messages).join(', ')
+                          : directData.message || data.error || 'Failed to complete subscription. Please verify your details.';
+                      setNewsletterError(errMsg);
+                    } catch (err) {
+                      console.error('Newsletter submission error:', err);
+                      // Final attempt via direct client call
+                      try {
+                        const directRes = await fetch(
+                          'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/45/submissions',
+                          {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload),
+                          }
+                        );
+                        const directData = await directRes.json().catch(() => ({}));
+                        if (directRes.ok && directData.is_valid !== false) {
+                          setIsNewsletterSubmitted(true);
+                          return;
+                        }
+                      } catch {
+                        // ignore secondary error
+                      }
+                      setNewsletterError('Could not reach the submission server. Please try again.');
+                    } finally {
                       setIsNewsletterSubmitting(false);
-                      setIsNewsletterSubmitted(true);
-                    }, 500);
+                    }
                   }}
                   className="space-y-4"
                 >
@@ -864,6 +949,7 @@ export default function TakeActionPage() {
                     </label>
                     <input
                       id="newsletter-name"
+                      name="input_1"
                       type="text"
                       value={newsletterForm.fullName}
                       onChange={(e) => setNewsletterForm({ ...newsletterForm, fullName: e.target.value })}
@@ -878,6 +964,7 @@ export default function TakeActionPage() {
                     </label>
                     <input
                       id="newsletter-email"
+                      name="input_3"
                       required
                       type="email"
                       value={newsletterForm.email}
