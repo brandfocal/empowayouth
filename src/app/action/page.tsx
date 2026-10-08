@@ -809,8 +809,7 @@ export default function TakeActionPage() {
                   You&apos;re on the list!
                 </h3>
                 <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[var(--pt-muted)]">
-                  Thank you for subscribing, {newsletterForm.fullName || 'friend'}. We&apos;ve added{' '}
-                  <span className="font-semibold text-[var(--pt-accent)]">{newsletterForm.email}</span> to our monthly dispatch. Look out for opportunity drops, summit announcements, and stories of youth transformation.
+                  Thank you for subscribing. Look out for opportunity drops, summit announcements, and stories of youth transformation.
                 </p>
                 <div className="mt-8 flex justify-center">
                   <button

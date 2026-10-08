@@ -79,7 +79,9 @@ export async function POST(req: NextRequest) {
     if (gfResponse.ok && data.is_valid !== false) {
       return NextResponse.json({
         success: true,
-        message: data.confirmation_message || 'Thank you for subscribing!',
+        message:
+          data.confirmation_message ||
+          'Thank you for subscribing. Look out for opportunity drops, summit announcements, and stories of youth transformation.',
         data,
       });
     }
