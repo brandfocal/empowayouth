@@ -61,6 +61,9 @@ export default function ImpactPage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             grid.classList.add('ey-visible');
+            grid.querySelectorAll('.ey-impact-bento-card').forEach((card) => {
+              card.classList.add('ey-visible');
+            });
             gridObserver.unobserve(entry.target);
           }
         });
@@ -126,33 +129,32 @@ export default function ImpactPage() {
         .ey-impact-bento-dashboard-cta:hover, .ey-impact-bento-dashboard-cta:focus-visible { background: var(--pt-accent); border-color: var(--pt-accent); color: var(--pt-paper); transform: scale(1.02); box-shadow: 0 8px 22px color-mix(in srgb, var(--pt-accent) 24%, transparent); }
         .ey-impact-scale-cta { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--pt-accent); border-radius: 8px; background: var(--pt-accent); color: var(--pt-paper); padding: 14px 28px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; box-shadow: 0 14px 34px color-mix(in srgb, var(--pt-accent) 26%, transparent); transition: background 200ms ease-out, color 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out; }
         .ey-impact-scale-cta:hover, .ey-impact-scale-cta:focus-visible { background: color-mix(in srgb, var(--pt-accent) 88%, var(--pt-paper)); border-color: color-mix(in srgb, var(--pt-accent) 88%, var(--pt-paper)); color: var(--pt-paper); transform: scale(1.02); box-shadow: 0 18px 44px color-mix(in srgb, var(--pt-accent) 34%, transparent); }
-        .ey-impact-bento-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+        .ey-impact-bento-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
         .ey-impact-bento-card { position: relative; min-width: 0; min-height: 220px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; border: 1px solid var(--pt-dark-divider); border-radius: 12px; background: color-mix(in srgb, var(--pt-paper) 5%, transparent); opacity: 0; transform: translateY(24px); transition: opacity 500ms cubic-bezier(.16, 1, .3, 1), transform 500ms cubic-bezier(.16, 1, .3, 1), background 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out; }
-        .ey-impact-bento-grid.ey-visible .ey-impact-bento-card { opacity: 1; transform: translateY(0); }
+        .ey-impact-bento-grid.ey-visible .ey-impact-bento-card, .ey-impact-bento-card.ey-visible { opacity: 1; transform: translateY(0); }
         .ey-impact-bento-card:hover { background: color-mix(in srgb, var(--pt-accent) 10%, transparent); border-color: color-mix(in srgb, var(--pt-accent) 40%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pt-accent) 16%, transparent); }
-        .ey-impact-bento-card-a { grid-column: auto; background: color-mix(in srgb, var(--pt-accent) 6%, transparent); min-height: 220px; padding: 32px; }
-        .ey-impact-bento-photo-card { grid-column: 1 / -1; min-height: 240px; padding: 0; display: block; }
-        .ey-impact-bento-photo-card:hover { background: color-mix(in srgb, var(--pt-paper) 5%, transparent); }
-        .ey-impact-bento-photo-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in srgb, var(--pt-ink) 84%, transparent) 0%, color-mix(in srgb, var(--pt-ink) 48%, transparent) 38%, transparent 100%); pointer-events: none; }
-        .ey-impact-bento-photo { width: 100%; height: 240px; display: block; object-fit: cover; }
-        .ey-impact-bento-photo-caption { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; display: flex; flex-direction: column; gap: 6px; }
+        .ey-impact-bento-card-feature { grid-column: span 2; background: rgba(232, 131, 42, .06); min-height: 240px; padding: 34px; }
+        .ey-impact-bento-card-community { grid-column: span 2; min-height: 240px; background: rgba(244, 240, 232, .05); }
+        .ey-impact-bento-card-feature .ey-impact-number,
+        .ey-impact-bento-card-feature .ey-impact-bento-number { font-size: clamp(52px, 6vw, 80px); }
+        .ey-impact-photo-card { grid-column: 1 / -1; min-height: 240px; height: 240px; padding: 0; border: 1px solid var(--pt-dark-divider); border-radius: 12px; overflow: hidden; background: var(--pt-ink); position: relative; }
+        .ey-impact-photo-card:hover { background: color-mix(in srgb, var(--pt-paper) 5%, transparent); }
+        .ey-impact-photo-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+        .ey-impact-photo-overlay { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; padding: 28px; background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent); }
+        .ey-impact-photo-quote { margin: 0; color: var(--pt-paper); font-size: 18px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; display: flex; flex-direction: column; gap: 4px; }
+        .ey-impact-photo-caption { color: var(--pt-muted); font-size: 13px; font-weight: 500; font-style: normal; }
         .ey-impact-bento-quote { margin: 0; color: var(--pt-paper); font-size: 18px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; text-wrap: balance; }
         .ey-impact-bento-caption { color: var(--pt-muted); font-size: 13px; font-weight: 500; line-height: 1.4; text-wrap: pretty; }
         .ey-impact-bento-icon { width: 32px; height: 32px; display: grid; place-items: center; color: var(--pt-muted); }
         .ey-impact-bento-icon svg { width: 20px; height: 20px; display: block; stroke: currentColor; }
         .ey-impact-bento-stat { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
-        .ey-impact-bento-number { font-size: clamp(36px, 3vw, 52px); font-weight: 800; color: var(--pt-accent); letter-spacing: -.05em; line-height: 1; white-space: nowrap; display: block; }
-        .ey-impact-bento-card-a .ey-impact-bento-number { font-size: clamp(52px, 6vw, 80px); }
-        .ey-impact-bento-label { display: block; margin: 0; color: var(--pt-muted); font-size: 10px; font-weight: 600; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; text-wrap: balance; }
+        .ey-impact-number, .ey-impact-bento-number { font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--pt-accent); letter-spacing: -.04em; line-height: 1; white-space: nowrap; display: block; }
+        .ey-impact-bento-label { display: block; margin: 0; color: rgba(244, 240, 232, .54); font-size: 11px; font-weight: 600; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; text-wrap: balance; }
         .ey-impact-bento-tagline { max-width: 600px; margin: 20px 0 0; color: var(--pt-muted); font-size: 15px; font-style: italic; font-weight: 400; line-height: 1.7; letter-spacing: .005em; text-wrap: pretty; }
         .ey-beyond { background: var(--pt-paper); color: var(--pt-ink); padding-block: clamp(80px, 8vw, 112px); }
-        .ey-beyond-grid { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(40px, 6vw, 72px); align-items: center; }
-        .ey-beyond-intro { max-width: 420px; }
-        .ey-beyond-grid > div:first-child { align-self: end; }
-        .ey-beyond-grid > div:nth-child(2) { grid-column: 1; grid-row: 2; width: 100%; max-width: 440px; justify-self: start; }
-        .ey-beyond-grid > div:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+        .ey-beyond-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 72px); align-items: center; }
         .ey-beyond-heading { color: var(--pt-ink); }
-        .ey-beyond-quote { max-width: 1000px; margin: 0; color: var(--pt-ink); font-family: var(--font-heading); font-size: clamp(1.6rem, 2.8vw, 3rem); font-weight: 800; letter-spacing: -.05em; line-height: .95; text-transform: uppercase; text-wrap: balance; }
+        .ey-beyond-quote { max-width: 1000px; margin: 32px 0 0; color: var(--pt-ink); font-family: var(--font-heading); font-size: clamp(1.6rem, 2.8vw, 3rem); font-weight: 800; letter-spacing: -.05em; line-height: .95; text-transform: uppercase; text-wrap: balance; }
         .ey-beyond-note { max-width: 600px; margin: 28px 0 0; border-left: 4px solid var(--pt-accent); padding-left: 20px; color: var(--pt-ink); font-size: clamp(14px, 1.4vw, 16px); font-weight: 700; letter-spacing: -.025em; line-height: 1.15; text-transform: uppercase; text-wrap: balance; }
         .ey-impact-final { background: var(--pt-ink); padding: clamp(40px, 8vw, 112px) var(--pt-container-pad); }
         .ey-impact-final-inner { width: 100%; max-width: var(--pt-container); margin: 0 auto; }
@@ -164,11 +166,10 @@ export default function ImpactPage() {
         .ey-impact-final-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
         @media (max-width: 960px) {
           .ey-impact-bento-shell, .ey-beyond-grid { grid-template-columns: 1fr; }
-          .ey-beyond-grid > div:first-child, .ey-beyond-grid > div:nth-child(2), .ey-beyond-grid > div:nth-child(3) { grid-column: 1; grid-row: auto; }
+          .ey-beyond-grid { gap: 40px; align-items: start; }
           .ey-impact-bento-copy { max-width: 620px; }
           .ey-impact-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-          .ey-impact-bento-photo-card { grid-column: 1 / -1; }
-          .ey-beyond-grid { align-items: start; }
+          .ey-impact-bento-card-feature, .ey-impact-bento-card-community, .ey-impact-photo-card { grid-column: 1 / -1; }
         }
         @media (max-width: 640px) {
           .ey-impact-section-container { padding-inline: 16px; }
@@ -183,13 +184,12 @@ export default function ImpactPage() {
           .ey-impact-bento-shell { gap: 36px; }
           .ey-impact-bento-cta { width: 100%; padding-inline: 24px; }
           .ey-impact-bento-grid { grid-template-columns: 1fr; gap: 20px; }
-          .ey-impact-bento-card, .ey-impact-bento-photo-card { grid-column: 1 / -1; }
+          .ey-impact-bento-card, .ey-impact-photo-card, .ey-impact-bento-card-feature, .ey-impact-bento-card-community { grid-column: 1 / -1; }
           .ey-impact-bento-card { min-height: 190px; padding: 24px; }
-          .ey-impact-bento-card-a { min-height: 190px; }
-          .ey-impact-bento-card-a .ey-impact-bento-number { font-size: clamp(42px, 15vw, 58px); }
-          .ey-impact-bento-photo-card { padding: 0; }
-          .ey-impact-bento-photo { height: 240px; }
-          .ey-impact-bento-photo-caption { left: 20px; right: 20px; }
+          .ey-impact-bento-card-feature { min-height: 190px; }
+          .ey-impact-bento-card-feature .ey-impact-number,
+          .ey-impact-bento-card-feature .ey-impact-bento-number { font-size: clamp(42px, 15vw, 58px); }
+          .ey-impact-photo-card { padding: 0; min-height: 240px; height: 240px; }
           .ey-beyond-grid { gap: 32px; }
           .ey-beyond-note { margin-top: 28px; }
           .ey-impact-bento-dashboard-cta-row { justify-content: center; }
@@ -241,7 +241,7 @@ export default function ImpactPage() {
                 <a href="#impact" className="ey-hero-cta-primary">
                   <span>Explore The Impact</span>
                 </a>
-                <Link href="/#partners" className="ey-hero-cta-secondary">
+                <Link href="/partner" className="ey-hero-cta-secondary">
                   <span>Join The Movement</span>
                 </Link>
               </div>
@@ -273,84 +273,79 @@ export default function ImpactPage() {
             <div className="ey-impact-bento-dashboard">
               <div ref={bentoGridRef} className="ey-impact-bento-grid" aria-label="EmpowaYouth impact statistics">
                 <article
-                  className="ey-impact-bento-card ey-impact-bento-card-a ey-impact-bento-stat-card"
+                  className="ey-impact-bento-card ey-impact-bento-card-feature ey-impact-bento-stat-card ey-anim-stat-cell"
                   data-value="98000"
                   data-suffix="+"
                   style={{ transitionDelay: '0ms' }}
                 >
                   <div className="ey-impact-bento-stat">
-                    <span className="ey-impact-bento-number">0+</span>
-                    <h3 className="ey-impact-bento-label">Youth Impacted</h3>
+                    <strong className="ey-impact-number ey-impact-bento-number">
+                      <span>98,000+</span>
+                    </strong>
+                    <span className="ey-impact-bento-label">Youth Impacted</span>
                   </div>
                 </article>
 
                 <article
-                  className="ey-impact-bento-card ey-impact-bento-stat-card"
+                  className="ey-impact-bento-card ey-impact-bento-stat-card ey-anim-stat-cell"
                   data-value="690"
                   data-suffix="+"
                   style={{ transitionDelay: '80ms' }}
                 >
-                  <span className="ey-impact-bento-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1" />
-                      <path d="M4 7h16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" />
-                      <path d="M4 12h16" />
-                    </svg>
-                  </span>
                   <div className="ey-impact-bento-stat">
-                    <span className="ey-impact-bento-number">0+</span>
-                    <h3 className="ey-impact-bento-label">Jobs Created</h3>
+                    <strong className="ey-impact-number ey-impact-bento-number">
+                      <span>690+</span>
+                    </strong>
+                    <span className="ey-impact-bento-label">Jobs Created</span>
                   </div>
                 </article>
 
                 <article
-                  className="ey-impact-bento-card ey-impact-bento-stat-card"
+                  className="ey-impact-bento-card ey-impact-bento-stat-card ey-anim-stat-cell"
                   data-value="120"
                   data-suffix="+"
                   style={{ transitionDelay: '160ms' }}
                 >
-                  <span className="ey-impact-bento-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-                      <circle cx="9.5" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  </span>
                   <div className="ey-impact-bento-stat">
-                    <span className="ey-impact-bento-number">0+</span>
-                    <h3 className="ey-impact-bento-label">Partner Organisations</h3>
+                    <strong className="ey-impact-number ey-impact-bento-number">
+                      <span>120+</span>
+                    </strong>
+                    <span className="ey-impact-bento-label">Partner Organisations</span>
                   </div>
                 </article>
 
                 <article
-                  className="ey-impact-bento-card ey-impact-bento-stat-card"
+                  className="ey-impact-bento-card ey-impact-bento-card-community ey-impact-bento-stat-card ey-anim-stat-cell"
                   data-value="45"
                   data-suffix="+"
                   style={{ transitionDelay: '240ms' }}
                 >
                   <div className="ey-impact-bento-stat">
-                    <span className="ey-impact-bento-number">0+</span>
-                    <h3 className="ey-impact-bento-label">Communities Reached</h3>
-                    <p className="ey-impact-bento-tagline">
-                      Built with local leaders, delivered where opportunity is needed most.
-                    </p>
+                    <strong className="ey-impact-number ey-impact-bento-number">
+                      <span>45+</span>
+                    </strong>
+                    <span className="ey-impact-bento-label">Communities Reached</span>
                   </div>
+                  <p className="ey-impact-bento-quote">
+                    <span>&ldquo;Every township has talent. Our work is to make sure opportunity can find it.&rdquo;</span>
+                  </p>
                 </article>
 
                 <figure
-                  className="ey-impact-bento-card ey-impact-bento-photo-card"
+                  className="ey-impact-bento-card ey-impact-photo-card ey-impact-bento-photo-card"
                   style={{ transitionDelay: '320ms' }}
                 >
                   <img
                     className="ey-impact-bento-photo"
                     src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&q=80"
-                    alt="A diverse youth community gathering outdoors"
+                    alt="Diverse African youth gathered in a community empowerment setting"
                   />
-                  <figcaption className="ey-impact-bento-photo-caption">
-                    <span className="ey-impact-bento-quote">Every young person deserves a fair shot.</span>
-                    <span className="ey-impact-bento-caption">EmpowaYouth Community</span>
-                  </figcaption>
+                  <div className="ey-impact-photo-overlay" aria-hidden="true">
+                    <p className="ey-impact-photo-quote">
+                      <span>Every young person deserves a fair shot.</span>
+                      <span className="ey-impact-photo-caption">&mdash; EmpowaYouth Community</span>
+                    </p>
+                  </div>
                 </figure>
               </div>
 
@@ -366,21 +361,13 @@ export default function ImpactPage() {
         {/* Beyond the Numbers Section */}
         <section aria-labelledby="beyond-heading" className="ey-beyond">
           <div className="ey-impact-section-container ey-beyond-grid">
-            <div className="ey-beyond-intro">
-              <p className="ey-kicker">
-                <span>Beyond the Numbers</span>
-              </p>
-              <h2 id="beyond-heading" className="ey-section-heading ey-beyond-heading">
-                <span>Beyond the </span>
-                <span className="ey-heading-italic">Numbers</span>
-              </h2>
-            </div>
             <div
               style={{
                 position: 'relative',
                 overflow: 'hidden',
-                aspectRatio: '2/3',
-                minHeight: '320px',
+                aspectRatio: '3/4',
+                borderRadius: '12px',
+                minHeight: '380px',
               }}
             >
               <img
@@ -396,6 +383,13 @@ export default function ImpactPage() {
               />
             </div>
             <div>
+              <p className="ey-kicker">
+                <span>Beyond the Numbers</span>
+              </p>
+              <h2 id="beyond-heading" className="ey-section-heading ey-beyond-heading">
+                <span>Beyond the </span>
+                <span className="ey-heading-italic">Numbers</span>
+              </h2>
               <blockquote className="ey-beyond-quote">
                 Confidence restored. Futures redirected. Entire households lifted.
               </blockquote>
@@ -423,7 +417,7 @@ export default function ImpactPage() {
           </p>
           <div className="ey-impact-final-actions">
             <Link
-              href="mailto:info@empowaworx.co.za?subject=Help%20Scale%20Our%20Impact"
+              href="/partner"
               className="ey-impact-scale-cta"
             >
               <span>Help Us Scale Our Impact</span>
