@@ -117,6 +117,8 @@ export default function ContactPage() {
   useEmpowaYouthScrollAnimations();
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [form, setForm] = useState<FormValues>(emptyForm);
   const [activeTab, setActiveTab] = useState(faqTabs[0].id);
   const [openItem, setOpenItem] = useState<string | null>(faqTabs[0].items[0].id);
@@ -130,9 +132,93 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    // Mapped to Gravity Forms Form ID: 47 (Contact Form)
+    // Full Name ID: 1 -> input_1
+    // Email Address ID: 3 -> input_3
+    // Phone Number ID: 4 -> input_4
+    // Inquiry Type ID: 5 -> input_5
+    // Organisation / Company ID: 6 -> input_6
+    // Message ID: 7 -> input_7
+    const payload = {
+      input_1: form.name.trim(),
+      input_3: form.email.trim(),
+      input_4: form.phone.trim(),
+      input_5: form.inquiry.trim(),
+      input_6: form.organisation.trim(),
+      input_7: form.message.trim(),
+    };
+
+    try {
+      // 1. Submit through Next.js proxy route to prevent CORS issues
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        setSubmitted(true);
+        return;
+      }
+
+      // If specific validation message was returned by Gravity Forms
+      if (data.error && !data.error.includes('Server error')) {
+        setErrorMessage(data.error);
+        return;
+      }
+
+      // 2. Direct client-side submission fallback to Gravity Forms endpoint
+      const directRes = await fetch(
+        'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/47/submissions',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
+      const directData = await directRes.json().catch(() => ({}));
+
+      if (directRes.ok && directData.is_valid !== false) {
+        setSubmitted(true);
+        return;
+      }
+
+      const errMsg =
+        directData.validation_messages
+          ? Object.values(directData.validation_messages).join(', ')
+          : directData.message || data.error || 'Failed to submit inquiry. Please verify your details.';
+      setErrorMessage(errMsg);
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      // Final attempt via direct client call
+      try {
+        const directRes = await fetch(
+          'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/47/submissions',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          }
+        );
+        const directData = await directRes.json().catch(() => ({}));
+        if (directRes.ok && directData.is_valid !== false) {
+          setSubmitted(true);
+          return;
+        }
+      } catch {
+        // ignore secondary error
+      }
+      setErrorMessage('Could not reach the submission server. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -397,6 +483,7 @@ export default function ContactPage() {
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
+                      setErrorMessage(null);
                       setForm(emptyForm);
                     }}
                   >
@@ -405,9 +492,18 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
+                  {errorMessage && (
+                    <div
+                      role="alert"
+                      className="mb-4 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-200"
+                    >
+                      {errorMessage}
+                    </div>
+                  )}
                   <label>
                     <span>Full Name</span>
                     <input
+                      name="input_1"
                       type="text"
                       placeholder="Your full name"
                       required
@@ -418,6 +514,7 @@ export default function ContactPage() {
                   <label>
                     <span>Email Address</span>
                     <input
+                      name="input_3"
                       type="email"
                       placeholder="your@email.com"
                       required
@@ -428,6 +525,7 @@ export default function ContactPage() {
                   <label>
                     <span>Phone Number</span>
                     <input
+                      name="input_4"
                       type="tel"
                       placeholder="+27 xx xxx xxxx"
                       value={form.phone}
@@ -437,6 +535,7 @@ export default function ContactPage() {
                   <label>
                     <span>Inquiry Type</span>
                     <select
+                      name="input_5"
                       required
                       value={form.inquiry}
                       onChange={(event) => updateField('inquiry', event.target.value)}
@@ -452,6 +551,7 @@ export default function ContactPage() {
                   <label>
                     <span>Organisation / Company</span>
                     <input
+                      name="input_6"
                       type="text"
                       placeholder="Your organisation or institution"
                       value={form.organisation}
@@ -461,6 +561,7 @@ export default function ContactPage() {
                   <label>
                     <span>Message</span>
                     <textarea
+                      name="input_7"
                       rows={4}
                       placeholder="Tell us more about your inquiry..."
                       value={form.message}
@@ -468,8 +569,13 @@ export default function ContactPage() {
                     />
                   </label>
                   <div className="ey-form-actions">
-                    <button className="ey-submit" type="submit">
-                      <span>Send Inquiry</span>
+                    <button
+                      className="ey-submit"
+                      type="submit"
+                      disabled={isSubmitting}
+                      style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                    >
+                      <span>{isSubmitting ? 'Sending Inquiry...' : 'Send Inquiry'}</span>
                       <span aria-hidden="true">→</span>
                     </button>
                     <p className="ey-trust-line">
