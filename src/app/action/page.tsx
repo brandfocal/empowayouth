@@ -418,8 +418,8 @@ export default function TakeActionPage() {
 
               {/* Action Buttons for Partners */}
               <div className="mt-8 flex flex-col flex-wrap items-stretch gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-stretch xl:flex-row xl:items-center">
-                <a
-                  href="mailto:info@empowaworx.co.za?subject=Discuss%20ESD%2FSED%20Partnerships%20-%20EmpowaYouth"
+                <Link
+                  href="/contact#contact-form"
                   className="ey-rect-button ey-rect-button-primary group justify-between"
                 >
                   <span>Discuss ESD/SED Partnerships</span>
@@ -427,17 +427,7 @@ export default function TakeActionPage() {
                     className="transition-transform duration-200 ease-out group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </a>
-                <a
-                  href="mailto:info@empowaworx.co.za?subject=Connect%20on%20SETA%20Pipelines%20-%20EmpowaYouth"
-                  className="ey-rect-button ey-rect-button-secondary group justify-between"
-                >
-                  <span>Connect on SETA Pipelines</span>
-                  <ArrowRight
-                    className="transition-transform duration-200 ease-out group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </a>
+                </Link>
               </div>
 
               {/* Partner FAQs */}
@@ -510,8 +500,8 @@ export default function TakeActionPage() {
               monetisation model.
             </h2>
           </div>
-          <a
-            href="mailto:info@empowaworx.co.za?subject=National%20Masterplan%20Inquiry%20-%20EmpowaYouth"
+          <Link
+            href="/contact#contact-form"
             className="ey-rect-button ey-rect-button-secondary group shrink-0"
           >
             <span>Connect with us</span>
@@ -519,7 +509,7 @@ export default function TakeActionPage() {
               className="transition-transform duration-200 ease-out group-hover:translate-x-1"
               aria-hidden="true"
             />
-          </a>
+          </Link>
         </div>
       </section>
 
