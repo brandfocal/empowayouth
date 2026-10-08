@@ -327,14 +327,35 @@ export default function TakeActionPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-            <div>
-              <h2 className="pt-section-heading max-w-2xl text-[var(--pt-ink)]">
-                The future isn&apos;t sponsored. It&apos;s <span className="ey-heading-italic">co-authored</span>.
-              </h2>
-              <p className="mt-5 max-w-xl border-l-2 border-[var(--pt-accent)] pl-5 text-[15px] font-normal leading-[1.7] tracking-[0.005em] text-[var(--pt-muted)]">
-                ESG imperatives, Enterprise and Supplier Development (ESD) strategies, SETA skills pipelines, and
-                Socio-Economic Development (SED) mandates.
-              </p>
+            <div className="flex flex-col">
+              <div>
+                <h2 className="pt-section-heading max-w-2xl text-[var(--pt-ink)]">
+                  The future isn&apos;t sponsored. It&apos;s <span className="ey-heading-italic">co-authored</span>.
+                </h2>
+                <p className="mt-5 max-w-xl border-l-2 border-[var(--pt-accent)] pl-5 text-[15px] font-normal leading-[1.7] tracking-[0.005em] text-[var(--pt-muted)]">
+                  ESG imperatives, Enterprise and Supplier Development (ESD) strategies, SETA skills pipelines, and
+                  Socio-Economic Development (SED) mandates.
+                </p>
+              </div>
+
+              {/* Youth Themed Vertical Image */}
+              <div className="relative mt-8 overflow-hidden rounded-2xl border border-[var(--pt-light-divider)] bg-[var(--pt-paper)] shadow-md md:mt-10">
+                <div className="aspect-[3/4] w-full overflow-hidden">
+                  <img
+                    src="/images/youth-partner-portrait.jpg"
+                    alt="Young South African leader and entrepreneur representing youth empowerment"
+                    className="h-full w-full object-cover object-top transition-transform duration-700 ease-out hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent p-6 pt-16 text-white">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--pt-accent)]">
+                    Next-Gen Talent
+                  </p>
+                  <p className="mt-1 text-sm font-medium leading-snug text-white/90">
+                    Empowering ambitious youth across South Africa into high-impact careers and enterprises.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div>
