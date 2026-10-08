@@ -109,6 +109,7 @@ export default function TakeActionPage() {
   });
   const [isVolunteerSubmitted, setIsVolunteerSubmitted] = useState(false);
   const [isVolunteerSubmitting, setIsVolunteerSubmitting] = useState(false);
+  const [volunteerError, setVolunteerError] = useState<string | null>(null);
 
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   const [newsletterForm, setNewsletterForm] = useState({
@@ -545,7 +546,10 @@ export default function TakeActionPage() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="volunteer-modal-title"
-          onClick={() => setIsVolunteerModalOpen(false)}
+          onClick={() => {
+            setIsVolunteerModalOpen(false);
+            setVolunteerError(null);
+          }}
         >
           <div
             className="relative my-auto w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl border border-white/15 bg-[var(--pt-ink)] p-6 sm:p-8 text-[var(--pt-paper)] shadow-2xl transition-all"
@@ -554,7 +558,10 @@ export default function TakeActionPage() {
             {/* Close Button */}
             <button
               type="button"
-              onClick={() => setIsVolunteerModalOpen(false)}
+              onClick={() => {
+                setIsVolunteerModalOpen(false);
+                setVolunteerError(null);
+              }}
               className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[var(--pt-paper)] transition-colors hover:border-[var(--pt-accent)] hover:bg-[var(--pt-accent)] hover:text-white focus:outline-none"
               aria-label="Close volunteer modal"
             >
@@ -578,6 +585,7 @@ export default function TakeActionPage() {
                     onClick={() => {
                       setIsVolunteerModalOpen(false);
                       setIsVolunteerSubmitted(false);
+                      setVolunteerError(null);
                       setVolunteerForm({
                         fullName: '',
                         email: '',
@@ -612,14 +620,105 @@ export default function TakeActionPage() {
                   </p>
                 </header>
 
+                {volunteerError && (
+                  <div
+                    role="alert"
+                    className="mb-4 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-200"
+                  >
+                    {volunteerError}
+                  </div>
+                )}
+
                 <form
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
                     setIsVolunteerSubmitting(true);
-                    setTimeout(() => {
+                    setVolunteerError(null);
+
+                    // Mapped to Gravity Forms Form ID: 46 (Volunteer Sign up form)
+                    // Full Name ID: 1 -> input_1
+                    // Email Address ID: 3 -> input_3
+                    // WhatsApp / Phone ID: 4 -> input_4
+                    // Township / City ID: 5 -> input_5
+                    // Areas of Interest ID: 6 -> input_6
+                    // Availability ID: 7 -> input_7
+                    // Why do you want to volunteer? ID: 8 -> input_8
+                    const payload = {
+                      input_1: volunteerForm.fullName.trim(),
+                      input_3: volunteerForm.email.trim(),
+                      input_4: volunteerForm.phone.trim(),
+                      input_5: volunteerForm.location.trim(),
+                      input_6: volunteerForm.interests.join(', '),
+                      input_7: volunteerForm.availability.trim(),
+                      input_8: volunteerForm.notes.trim(),
+                    };
+
+                    try {
+                      // 1. Submit through Next.js proxy route to prevent CORS issues
+                      const res = await fetch('/api/volunteer', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                      });
+
+                      const data = await res.json().catch(() => ({}));
+
+                      if (res.ok && data.success) {
+                        setIsVolunteerSubmitted(true);
+                        return;
+                      }
+
+                      // If specific validation message was returned by Gravity Forms
+                      if (data.error && !data.error.includes('Server error')) {
+                        setVolunteerError(data.error);
+                        return;
+                      }
+
+                      // 2. Direct client-side submission fallback to Gravity Forms endpoint
+                      const directRes = await fetch(
+                        'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/46/submissions',
+                        {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(payload),
+                        }
+                      );
+                      const directData = await directRes.json().catch(() => ({}));
+
+                      if (directRes.ok && directData.is_valid !== false) {
+                        setIsVolunteerSubmitted(true);
+                        return;
+                      }
+
+                      const errMsg =
+                        directData.validation_messages
+                          ? Object.values(directData.validation_messages).join(', ')
+                          : directData.message || data.error || 'Failed to submit volunteer application. Please verify your details.';
+                      setVolunteerError(errMsg);
+                    } catch (err) {
+                      console.error('Volunteer submission error:', err);
+                      // Final attempt via direct client call
+                      try {
+                        const directRes = await fetch(
+                          'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/46/submissions',
+                          {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload),
+                          }
+                        );
+                        const directData = await directRes.json().catch(() => ({}));
+                        if (directRes.ok && directData.is_valid !== false) {
+                          setIsVolunteerSubmitted(true);
+                          return;
+                        }
+                      } catch {
+                        // ignore secondary error
+                      }
+                      setVolunteerError('Could not reach the submission server. Please try again.');
+                    } finally {
                       setIsVolunteerSubmitting(false);
-                      setIsVolunteerSubmitted(true);
-                    }, 500);
+                    }
                   }}
                   className="space-y-4"
                 >
@@ -630,6 +729,7 @@ export default function TakeActionPage() {
                       </label>
                       <input
                         id="volunteer-name"
+                        name="input_1"
                         required
                         type="text"
                         value={volunteerForm.fullName}
@@ -645,6 +745,7 @@ export default function TakeActionPage() {
                       </label>
                       <input
                         id="volunteer-email"
+                        name="input_3"
                         required
                         type="email"
                         value={volunteerForm.email}
@@ -662,6 +763,7 @@ export default function TakeActionPage() {
                       </label>
                       <input
                         id="volunteer-phone"
+                        name="input_4"
                         required
                         type="tel"
                         value={volunteerForm.phone}
@@ -677,6 +779,7 @@ export default function TakeActionPage() {
                       </label>
                       <input
                         id="volunteer-location"
+                        name="input_5"
                         required
                         type="text"
                         value={volunteerForm.location}
@@ -730,6 +833,7 @@ export default function TakeActionPage() {
                     </label>
                     <select
                       id="volunteer-availability"
+                      name="input_7"
                       value={volunteerForm.availability}
                       onChange={(e) => setVolunteerForm({ ...volunteerForm, availability: e.target.value })}
                       className="w-full rounded-md border border-white/15 bg-[var(--pt-ink)] px-3.5 py-2.5 text-sm text-[var(--pt-paper)] focus:border-[var(--pt-accent)] focus:outline-none"
@@ -746,6 +850,7 @@ export default function TakeActionPage() {
                     </label>
                     <textarea
                       id="volunteer-notes"
+                      name="input_8"
                       rows={2}
                       value={volunteerForm.notes}
                       onChange={(e) => setVolunteerForm({ ...volunteerForm, notes: e.target.value })}
