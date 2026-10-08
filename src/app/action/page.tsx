@@ -156,12 +156,12 @@ export default function TakeActionPage() {
             <a href="#youth" className="ey-button ey-button-light-filled">
               <span>Get Involved</span>
             </a>
-            <a
-              href="#partners"
+            <Link
+              href="/partner"
               className="inline-flex min-h-12 items-center justify-center !rounded-[6px] border-[1.5px] border-[rgba(244,240,232,0.35)] bg-transparent px-7 py-3.5 text-[14px] font-bold leading-[1.2] tracking-[0.02em] text-[var(--pt-paper)] no-underline transition-all duration-200 ease-out hover:border-[var(--pt-accent)] hover:bg-white/5 hover:text-[var(--pt-paper)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pt-accent)]"
             >
               <span>Partner With Us</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
