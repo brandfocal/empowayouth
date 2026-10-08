@@ -375,7 +375,7 @@ export default function PartnerWithUsPage() {
             />
 
             <div className="ey-partner-marquee-track">
-              <div className="flex shrink-0 items-center gap-6 pr-6">
+              <div className="flex shrink-0 items-center gap-4 pr-4">
                 {partnerSponsors.map((partner) => (
                   <div
                     key={`partner-a-${partner.id}`}
@@ -391,7 +391,7 @@ export default function PartnerWithUsPage() {
                   </div>
                 ))}
               </div>
-              <div className="flex shrink-0 items-center gap-6 pr-6" aria-hidden="true">
+              <div className="flex shrink-0 items-center gap-4 pr-4" aria-hidden="true">
                 {partnerSponsors.map((partner) => (
                   <div
                     key={`partner-b-${partner.id}`}

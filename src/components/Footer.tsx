@@ -14,15 +14,6 @@ export interface FooterColumn {
 
 export const defaultFooterColumns: FooterColumn[] = [
   {
-    id: 'events',
-    heading: 'Events',
-    links: [
-      { id: 'vaal-2026', label: 'Vaal 2026', href: '/#events' },
-      { id: 'tembisa-2025', label: 'Tembisa 2025', href: '/#events' },
-      { id: 'all-events', label: 'All Events', href: '/#events' },
-    ],
-  },
-  {
     id: 'about',
     heading: 'About',
     links: [
@@ -123,42 +114,7 @@ export function Footer({
         <div className="ey-footer-divider" aria-hidden="true" />
 
         <div className="ey-footer-grid">
-          {columns.map((column) => (
-            <nav key={column.id} aria-label={column.heading}>
-              <h3 className="ey-footer-heading">{column.heading}</h3>
-              <ul className="ey-footer-link-list">
-                {column.links.map((link) => (
-                  <li key={link.id}>
-                    <Link className="ey-footer-link" href={link.href}>
-                      <span>{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-
-          <div className="ey-footer-social-column">
-            <h3 className="ey-footer-heading">Follow Us</h3>
-            <ul className="ey-social-list">
-              {socials.map((social) => (
-                <li key={social.id}>
-                  <a
-                    className="ey-social-link"
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                  >
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                      <path d={social.path} />
-                    </svg>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* Column 1: Contact */}
           <address className="not-italic">
             <h3 className="ey-footer-heading">Contact</h3>
             <p className="ey-contact-copy text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
@@ -183,7 +139,51 @@ export function Footer({
             <a className="ey-footer-contact-link block text-xs" href={`mailto:${contactEmail}`}>
               <span>{contactEmail}</span>
             </a>
+            <Link
+              href="/contact"
+              className="ey-footer-link mt-3 inline-block text-xs font-semibold text-[var(--pt-accent)] transition-colors hover:underline"
+            >
+              <span>Reach Out &rarr;</span>
+            </Link>
           </address>
+
+          {/* Columns: About & Connect */}
+          {columns.map((column) => (
+            <nav key={column.id} aria-label={column.heading}>
+              <h3 className="ey-footer-heading">{column.heading}</h3>
+              <ul className="ey-footer-link-list">
+                {column.links.map((link) => (
+                  <li key={link.id}>
+                    <Link className="ey-footer-link" href={link.href}>
+                      <span>{link.label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+          {/* Column 4: Follow Us */}
+          <div className="ey-footer-social-column">
+            <h3 className="ey-footer-heading">Follow Us</h3>
+            <ul className="ey-social-list">
+              {socials.map((social) => (
+                <li key={social.id}>
+                  <a
+                    className="ey-social-link"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d={social.path} />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="ey-footer-divider" aria-hidden="true" />

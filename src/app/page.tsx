@@ -89,8 +89,8 @@ export default function Home() {
               </p>
               <div className="ey-hero-panel">
                 <div className="ey-hero-ctas ey-hero-animate ey-hero-animate-4">
-                  <Link className="ey-button ey-button-dark-filled ey-hero-path" href="/#events" title="Find upcoming summits and pitch competitions">
-                    <span>Find Opportunities</span>
+                  <Link className="ey-button ey-button-dark-filled ey-hero-path" href="/offerings" title="Explore our interventions and offerings">
+                    <span>Our Interventions</span>
                   </Link>
                   <Link className="ey-button ey-button-dark-outline ey-hero-path" href="/#partners" title="Explore partnership and ESG value">
                     <span>Partner With Us</span>
@@ -98,10 +98,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="ey-hero-scroll" aria-hidden="true">
-            <span className="ey-hero-scroll-line" />
-            <span className="ey-hero-scroll-label">Scroll</span>
           </div>
         </div>
       </section>
@@ -325,7 +321,7 @@ export default function Home() {
                   <strong>200+</strong>
                   <span>Brand Partners</span>
                 </p>
-                <h2 id="ey-partners-title" className="ey-section-heading">
+                <h2 id="ey-partners-title" className="ey-section-heading text-[var(--pt-paper)]">
                   <span>Trusted By The </span>
                   <span className="ey-heading-italic">Best</span>
                   <span>.</span>
