@@ -110,7 +110,7 @@ export default function OfferingsPage() {
                 <span>Explore Offerings</span>
               </a>
               <Link
-                href="/#partners"
+                href="/partner"
                 className="ey-prefooter-cta inline-flex min-h-12 items-center justify-center border border-[rgba(244,240,232,0.35)] px-7 py-3 text-sm font-bold tracking-[0.02em] text-[var(--pt-paper)] no-underline transition-colors duration-200 ease-out hover:border-[var(--pt-paper)] hover:bg-white/5"
               >
                 <span>Partner With Us</span>
@@ -196,14 +196,8 @@ export default function OfferingsPage() {
           </p>
           <div className="ey-prefooter-actions flex flex-wrap items-center gap-3.5">
             <Link
-              href="mailto:info@empowaworx.co.za?subject=Sponsor%20an%20Intervention"
+              href="/partner"
               className="button-bold"
-            >
-              <span>Sponsor an Intervention</span>
-            </Link>
-            <Link
-              href="/#partners"
-              className="ey-prefooter-cta inline-flex min-h-12 items-center justify-center border border-[rgba(244,240,232,0.35)] px-7 py-3 text-sm font-bold tracking-[0.02em] text-[var(--pt-paper)] no-underline transition-colors duration-200 ease-out hover:border-[var(--pt-paper)] hover:bg-white/5"
             >
               <span>Partner With Us</span>
             </Link>
