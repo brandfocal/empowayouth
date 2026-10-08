@@ -214,9 +214,12 @@ export default function ImpactPage() {
             style={{ zIndex: 1 }}
             aria-hidden="true"
           />
-          <div
-            className="absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] border-[70px] border-[color-mix(in_srgb,var(--pt-accent)_20%,transparent)] md:h-[620px] md:w-[620px] md:border-[100px]"
+          {/* Decorative brand icon overlay */}
+          <img
+            src="/logo/empowayouth-icon.png"
+            alt=""
             aria-hidden="true"
+            className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] select-none object-contain opacity-20 md:h-[620px] md:w-[620px]"
           />
           <div aria-hidden="true" className="ey-hero-mark ey-hero-mark-large" />
           <div aria-hidden="true" className="ey-hero-mark ey-hero-mark-small" />

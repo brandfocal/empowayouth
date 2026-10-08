@@ -167,9 +167,12 @@ export default function PartnerWithUsPage() {
           className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.30)_0%,rgba(11,15,14,0.55)_35%,rgba(11,15,14,0.85)_70%,rgba(11,15,14,0.98)_100%)]"
           aria-hidden="true"
         />
-        <div
-          className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] rounded-full border-[70px] border-[color-mix(in_srgb,var(--pt-accent)_20%,transparent)] md:h-[620px] md:w-[620px] md:border-[100px]"
+        {/* Decorative brand icon overlay */}
+        <img
+          src="/logo/empowayouth-icon.png"
+          alt=""
           aria-hidden="true"
+          className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] select-none object-contain opacity-20 md:h-[620px] md:w-[620px]"
         />
 
         <div className="ey-hero-content relative z-10 mx-auto w-full max-w-[var(--pt-container)]">

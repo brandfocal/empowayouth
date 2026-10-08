@@ -148,9 +148,12 @@ export default function ContactPage() {
           className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.25)_0%,rgba(11,15,14,0.45)_30%,rgba(11,15,14,0.80)_65%,rgba(11,15,14,0.97)_100%)] pointer-events-none"
           aria-hidden="true"
         />
-        <div
-          className="absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] rounded-full border-[70px] border-[color-mix(in_srgb,var(--pt-accent)_20%,transparent)] pointer-events-none md:h-[620px] md:w-[620px] md:border-[100px]"
+        {/* Decorative brand icon overlay */}
+        <img
+          src="/logo/empowayouth-icon.png"
+          alt=""
           aria-hidden="true"
+          className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] select-none object-contain opacity-20 md:h-[620px] md:w-[620px]"
         />
         <div className="ey-hero-content relative z-10 mx-auto w-full max-w-[var(--pt-container)]">
           <p className="mb-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)]">

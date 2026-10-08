@@ -391,9 +391,12 @@ export default function MediaPage() {
           style={{ zIndex: 1 }}
           aria-hidden="true"
         />
-        <div
-          className="absolute right-[-44%] top-[18%] z-[1] h-[320px] w-[320px] border-[54px] border-[color-mix(in_srgb,var(--pt-accent)_20%,transparent)] sm:right-[-18%] md:right-[-8%] md:h-[620px] md:w-[620px] md:border-[100px]"
+        {/* Decorative brand icon overlay */}
+        <img
+          src="/logo/empowayouth-icon.png"
+          alt=""
           aria-hidden="true"
+          className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] select-none object-contain opacity-20 md:h-[620px] md:w-[620px]"
         />
 
         <div className="relative z-[2] mx-auto w-full max-w-[var(--pt-container)]">
