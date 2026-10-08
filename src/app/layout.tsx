@@ -11,9 +11,15 @@ export const metadata: Metadata = {
   description:
     "EmpowaYouth — INSPIRED | CONNECTED | TRANSFORMED. We connect ambitious young South Africans aged 18 to 34 to the mentors, networks, and skills that turn potential into lasting economic power.",
   icons: {
-    icon: "/logo/empowayouth-icon.png",
-    shortcut: "/logo/empowayouth-icon.png",
-    apple: "/logo/empowayouth-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo/empowayouth-icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo/empowayouth-icon.png", sizes: "600x600", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
