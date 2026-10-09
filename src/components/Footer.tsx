@@ -21,6 +21,7 @@ export const defaultFooterColumns: FooterColumn[] = [
       { id: 'team', label: 'Team', href: '/#pillars' },
       { id: 'partners', label: 'Partner With Us', href: '/partner' },
       { id: 'impact', label: 'Impact', href: '/impact' },
+      { id: 'gallery', label: 'Gallery', href: '/gallery' },
     ],
   },
   {
