@@ -32,6 +32,14 @@ export default function GalleryPage() {
 
   const [selectedEditionId, setSelectedEditionId] = useState<string>('all');
   const [mediaType, setMediaType] = useState<FilterMediaType>('all');
+  const [expandedEditions, setExpandedEditions] = useState<Record<string, boolean>>({});
+
+  const toggleExpand = (editionId: string) => {
+    setExpandedEditions((prev) => ({
+      ...prev,
+      [editionId]: !prev[editionId],
+    }));
+  };
 
   // Modal states
   const [activeVideo, setActiveVideo] = useState<{
@@ -390,62 +398,84 @@ export default function GalleryPage() {
             )}
 
             {/* Sub-Section B: Photo Gallery */}
-            {(mediaType === 'all' || mediaType === 'images') && (
-              <section className="mt-14">
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <ImageIcon className="h-5 w-5 text-[var(--pt-accent)]" />
-                    <h3 className="text-xl font-bold uppercase tracking-tight text-[var(--pt-paper)]">
-                      Photo Gallery ({edition.images.length})
-                    </h3>
-                  </div>
-                  <span className="text-xs text-[var(--pt-muted)]">
-                    Click to enlarge &amp; view slideshow
-                  </span>
-                </div>
+            {(mediaType === 'all' || mediaType === 'images') && (() => {
+              const isExpanded = !!expandedEditions[edition.id];
+              const displayedImages = isExpanded ? edition.images : edition.images.slice(0, 16);
 
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
-                  {edition.images.map((img, imgIdx) => (
-                    <div
-                      key={img.id}
-                      onClick={() =>
-                        setActiveImage({
-                          image: img,
-                          editionIndex: editionIdx,
-                          imageIndex: imgIdx,
-                          totalImages: edition.images.length,
-                          imagesList: edition.images,
-                        })
-                      }
-                      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-black/40 transition-all duration-300 hover:border-[var(--pt-accent)]"
-                    >
-                      <img
-                        src={img.url}
-                        alt={img.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                      {/* Category Pill */}
-                      <span className="absolute left-2.5 top-2.5 rounded bg-black/60 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[var(--pt-accent)] backdrop-blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        {img.category}
-                      </span>
-
-                      {/* Info on hover */}
-                      <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <p className="line-clamp-1 text-xs font-bold text-white">
-                          {img.title}
-                        </p>
-                        <p className="line-clamp-1 text-[11px] text-[var(--pt-muted)]">
-                          {img.caption}
-                        </p>
-                      </div>
+              return (
+                <section className="mt-14">
+                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <ImageIcon className="h-5 w-5 text-[var(--pt-accent)]" />
+                      <h3 className="text-xl font-bold uppercase tracking-tight text-[var(--pt-paper)]">
+                        Photo Gallery ({edition.images.length})
+                      </h3>
                     </div>
-                  ))}
-                </div>
-              </section>
-            )}
+                    <span className="text-xs text-[var(--pt-muted)]">
+                      Click any photo to enlarge &amp; view slideshow
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
+                    {displayedImages.map((img, imgIdx) => (
+                      <div
+                        key={img.id}
+                        onClick={() =>
+                          setActiveImage({
+                            image: img,
+                            editionIndex: editionIdx,
+                            imageIndex: imgIdx,
+                            totalImages: edition.images.length,
+                            imagesList: edition.images,
+                          })
+                        }
+                        className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-black/40 transition-all duration-300 hover:border-[var(--pt-accent)]"
+                      >
+                        <img
+                          src={img.thumbnail || img.url}
+                          alt={img.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                        {/* Category Pill */}
+                        <span className="absolute left-2.5 top-2.5 rounded bg-black/60 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[var(--pt-accent)] backdrop-blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          {img.category}
+                        </span>
+
+                        {/* Info on hover */}
+                        <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          <p className="line-clamp-1 text-xs font-bold text-white">
+                            {img.title}
+                          </p>
+                          <p className="line-clamp-1 text-[11px] text-[var(--pt-muted)]">
+                            {img.caption}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {edition.images.length > 16 && (
+                    <div className="mt-8 text-center">
+                      <button
+                        type="button"
+                        onClick={() => toggleExpand(edition.id)}
+                        className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-wider text-[var(--pt-paper)] transition-all hover:border-[var(--pt-accent)] hover:bg-white/10"
+                      >
+                        <span>
+                          {isExpanded
+                            ? 'Show Less'
+                            : `Show All ${edition.images.length} Photos (+${edition.images.length - 16} more)`}
+                        </span>
+                      </button>
+                    </div>
+                  )}
+                </section>
+              );
+            })()}
           </article>
         ))}
       </div>
