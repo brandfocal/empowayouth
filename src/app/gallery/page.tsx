@@ -650,8 +650,10 @@ export default function GalleryPage() {
       {/* ======================================================== */}
       <section className="border-t border-white/10 bg-black/40 px-4 py-20 sm:px-6 md:px-8 lg:px-[var(--pt-container-pad)] text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
-            Join The Skills Revolution
+          <p className="mb-3 flex items-center justify-center gap-2 text-center text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
+            <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
+            <span>Join The Skills Revolution</span>
+            <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
           </p>
           <h2 className="text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[var(--pt-paper)]">
             Be Part of Our Next Movement
