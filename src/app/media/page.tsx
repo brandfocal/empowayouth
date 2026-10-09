@@ -29,30 +29,31 @@ const tvItems = [
     id: 'empowering-unemployed-youth',
     title: 'Empowering the Unemployed Youth',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3374.jpg',
-    youtubeId: null,
+    image: 'https://img.youtube.com/vi/qamNvO04eA8/hqdefault.jpg',
+    youtubeId: 'qamNvO04eA8',
   },
   {
     id: 'expropriation-act-opportunities',
     title: 'Expropriation Act Presents Opportunities for Youth – Minister Chikunga',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3360.jpg',
-    youtubeId: null,
+    image: 'https://img.youtube.com/vi/aBj9PRskA-w/hqdefault.jpg',
+    youtubeId: 'aBj9PRskA-w',
   },
   {
     id: 'gauteng-film-commission-opportunities',
     title: 'Gauteng Film Commission Helping Youth With Opportunities',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3118.jpg',
-    youtubeId: null,
+    image: 'https://img.youtube.com/vi/mdl_eE48Qu4/hqdefault.jpg',
+    youtubeId: 'mdl_eE48Qu4',
   },
   {
     id: 'gfc-tackling-youth-unemployment',
     title: 'Gauteng Film Commission – Tackling Youth Unemployment – Tumi Lebaka Weighs In',
     outlet: 'SABC News',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3216.jpg',
-    youtubeId: null,
+    image: 'https://img.youtube.com/vi/wT8LtzJZd0Y/hqdefault.jpg',
+    youtubeId: 'wT8LtzJZd0Y',
   },
+  /* Hidden for now:
   {
     id: 'teta-ceo-morning-show',
     title: 'Transport Education Training Authority CEO: Mrs Maphefo Anno-Frempong on The Morning Show',
@@ -60,74 +61,75 @@ const tvItems = [
     image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3222.jpg',
     youtubeId: null,
   },
+  */
   {
     id: 'mlambo-ngcuka-women-barriers',
     title: "Mlambo-Ngcuka: It's important for women to break barriers in male-dominated fields",
     outlet: 'NEWZROOM AFRIKA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3230.jpg',
+    image: 'https://img.youtube.com/vi/JzMXegBxG-Y/hqdefault.jpg',
     youtubeId: 'JzMXegBxG-Y',
   },
   {
     id: 'women-in-agriculture',
     title: 'Women in Agriculture | Opportunities and funding for women',
     outlet: 'ENCA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3242.jpg',
+    image: 'https://img.youtube.com/vi/a_cUS1NO0O0/hqdefault.jpg',
     youtubeId: 'a_cUS1NO0O0',
   },
   {
     id: 'mpumalanga-outreach',
     title: 'EmpowaYouth outreach programme empowers unemployed young people in Mpumalanga',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2986.jpg',
+    image: 'https://img.youtube.com/vi/AE37gSGKEy0/hqdefault.jpg',
     youtubeId: 'AE37gSGKEy0',
   },
   {
     id: 'empowayouth-week-better-future',
     title: 'Empowayouth week | Building a better future for the youth',
     outlet: 'ENCA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3058.jpg',
+    image: 'https://img.youtube.com/vi/AM1yPCViGpk/hqdefault.jpg',
     youtubeId: 'AM1yPCViGpk',
   },
   {
     id: 'support-programme-solution',
     title: 'EmpowaYouth support programme a possible solution to high unemployment rate',
     outlet: 'NEWSROOM AFRIKA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2984.jpg',
+    image: 'https://img.youtube.com/vi/OAw3QvtnMuU/hqdefault.jpg',
     youtubeId: 'OAw3QvtnMuU',
   },
   {
     id: 'orange-farm-launch',
     title: 'Discussion | NYDA joins Empowaworx to launch the 2022 Orange Farm Empowa Youth week',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2979.jpg',
+    image: 'https://img.youtube.com/vi/yovdeoAXRDw/hqdefault.jpg',
     youtubeId: 'yovdeoAXRDw',
   },
   {
     id: 'north-west-weekend-campaign',
     title: 'Empowa Youth Weekend Campaign North West',
     outlet: 'NEWSROOM AFRIKA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2957.jpg',
+    image: 'https://img.youtube.com/vi/YDvfvCyixPM/hqdefault.jpg',
     youtubeId: 'YDvfvCyixPM',
   },
   {
     id: 'agripreneurs-kgalaletso-tlhoaele',
     title: 'Calls for young people to consider being agripreneurs: Kgalaletso Tlhoaele',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2906.jpg',
+    image: 'https://img.youtube.com/vi/wJO1Y2BCjbQ/hqdefault.jpg',
     youtubeId: 'wJO1Y2BCjbQ',
   },
   {
     id: 'mahikeng-youth-empowerment',
     title: 'Youth empowerment programme in Mahikeng',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2893.jpg',
+    image: 'https://img.youtube.com/vi/_ww45OMAygY/hqdefault.jpg',
     youtubeId: '_ww45OMAygY',
   },
   {
     id: 'qonce-teta-weekend',
     title: 'Last day of the TETA EmpowaYouth Weekend held in Qonce',
     outlet: 'NEWSROOM AFRIKA',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2879.jpg',
+    image: 'https://img.youtube.com/vi/BeBZXOCEskI/hqdefault.jpg',
     youtubeId: 'BeBZXOCEskI',
   },
 ];
@@ -450,7 +452,7 @@ export default function MediaPage() {
                   onClick={() => setSelectedVideo(item)}
                 >
                   <img
-                    src={item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/maxresdefault.jpg` : item.image}
+                    src={item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : item.image}
                     alt=""
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover"
