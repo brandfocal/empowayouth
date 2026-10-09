@@ -108,17 +108,17 @@ export default function GalleryPage() {
       {/* 1. HERO SECTION                                          */}
       {/* ======================================================== */}
       <section
-        className="relative flex min-h-[60svh] flex-col justify-end overflow-hidden border-b border-white/10 bg-[var(--pt-ink)] px-4 pb-16 pt-[clamp(120px,16vw,190px)] sm:px-6 md:px-8 lg:px-[var(--pt-container-pad)]"
+        className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden border-b border-white/10 bg-[var(--pt-ink)] px-4 pb-12 pt-[clamp(112px,20vw,200px)] sm:px-6 md:px-8 md:pb-20 lg:px-[var(--pt-container-pad)] lg:pb-[clamp(80px,8vw,120px)]"
         id="gallery-hero"
       >
         {/* Background visual overlay */}
         <img
-          src="https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8155.jpg"
-          alt="Orange Farm youth assembly"
-          className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-25"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/10/DSC_8709.jpg"
+          alt="TETA EmpowaYouth Week attendees and celebration"
+          className="absolute inset-0 z-0 h-full w-full object-cover object-center"
         />
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.40)_0%,rgba(11,15,14,0.75)_50%,rgba(11,15,14,0.98)_100%)]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.25)_0%,rgba(11,15,14,0.45)_30%,rgba(11,15,14,0.80)_65%,rgba(11,15,14,0.97)_100%)]"
           aria-hidden="true"
         />
         {/* Brand watermark icon */}
@@ -126,7 +126,7 @@ export default function GalleryPage() {
           src="/logo/empowayouth-icon.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-5%] top-[12%] z-[1] h-[360px] w-[360px] select-none object-contain opacity-15 md:h-[520px] md:w-[520px]"
+          className="pointer-events-none absolute right-[-8%] top-[18%] z-[1] h-[420px] w-[420px] select-none object-contain opacity-20 md:h-[620px] md:w-[620px]"
         />
 
         <div className="relative z-10 mx-auto w-full max-w-[var(--pt-container)]">

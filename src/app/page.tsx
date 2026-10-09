@@ -187,7 +187,11 @@ export default function Home() {
 
       {/* Impact Section */}
       <section id="impact" className="ey-impact" aria-labelledby="ey-impact-title">
-        <div className="ey-impact-bg" aria-hidden="true" />
+        <div
+          className="ey-impact-bg"
+          aria-hidden="true"
+          style={{ backgroundImage: "url('https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_2957.jpg')" }}
+        />
         <div className="ey-impact-sweep" aria-hidden="true" />
         <div className="ey-impact-inner">
           <div className="ey-impact-bento-layout">
@@ -273,8 +277,8 @@ export default function Home() {
                 style={{ transitionDelay: '320ms' }}
               >
                 <img
-                  src="/images/youth-community-empowerment.jpg"
-                  alt="Diverse South African youth gathered in a community empowerment setting"
+                  src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/hundred-thousand.jpg"
+                  alt="Every young person deserves a fair shot — EmpowaYouth Community"
                 />
                 <div className="ey-impact-photo-overlay" aria-hidden="true">
                   <p className="ey-impact-photo-quote">

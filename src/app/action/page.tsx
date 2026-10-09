@@ -146,7 +146,7 @@ export default function TakeActionPage() {
       {/* Hero Section */}
       <section className="ey-hero relative overflow-hidden" id="hero">
         <img
-          src="/images/summit-crowd-movement.jpg"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_5086.jpg"
           alt="Young people taking action together in the youth movement"
           style={{
             position: 'absolute',
@@ -163,7 +163,7 @@ export default function TakeActionPage() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(to bottom, rgba(11,15,14,0.5) 0%, rgba(11,15,14,0.72) 55%, rgba(11,15,14,0.97) 100%)',
+              'linear-gradient(to bottom, rgba(11,15,14,0.25) 0%, rgba(11,15,14,0.45) 30%, rgba(11,15,14,0.80) 65%, rgba(11,15,14,0.97) 100%)',
             zIndex: 1,
           }}
           className="pointer-events-none"

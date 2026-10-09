@@ -204,7 +204,7 @@ export default function ImpactPage() {
         {/* Hero Section */}
         <section className="ey-hero">
           <img
-            src="/images/impact-hero-celebration.jpg"
+            src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8098.jpg"
             alt="Community members and youth celebrating impact"
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ zIndex: 0 }}
@@ -340,8 +340,8 @@ export default function ImpactPage() {
                 >
                   <img
                     className="ey-impact-bento-photo"
-                    src="/images/youth-community-empowerment.jpg"
-                    alt="Diverse African youth gathered in a community empowerment setting"
+                    src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8141.jpg"
+                    alt="Diverse African youth gathered in an EmpowaYouth community empowerment setting"
                   />
                   <div className="ey-impact-photo-overlay" aria-hidden="true">
                     <p className="ey-impact-photo-quote">

@@ -381,7 +381,7 @@ export default function MediaPage() {
         className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-[var(--pt-ink)] px-4 pb-10 pt-[clamp(112px,24vw,200px)] text-[var(--pt-paper)] sm:px-6 md:px-8 md:pb-20 lg:px-[var(--pt-container-pad)] lg:pb-[clamp(80px,8vw,120px)]"
       >
         <img
-          src="/images/media-hero-broadcasting.jpg"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_5582.jpg"
           alt="Young South African journalists and media broadcast team"
           className="absolute inset-0 h-full w-full object-cover object-top"
           style={{ zIndex: 0 }}

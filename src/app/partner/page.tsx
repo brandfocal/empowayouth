@@ -250,12 +250,12 @@ export default function PartnerWithUsPage() {
         id="hero"
       >
         <img
-          src="https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8155.jpg"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_4962.jpg"
           alt="South African youth engaged in empowerment summits"
           className="absolute inset-0 z-0 h-full w-full object-cover object-center"
         />
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.30)_0%,rgba(11,15,14,0.55)_35%,rgba(11,15,14,0.85)_70%,rgba(11,15,14,0.98)_100%)]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.25)_0%,rgba(11,15,14,0.45)_30%,rgba(11,15,14,0.80)_65%,rgba(11,15,14,0.97)_100%)]"
           aria-hidden="true"
         />
         {/* Decorative brand icon overlay */}
@@ -300,7 +300,7 @@ export default function PartnerWithUsPage() {
       {/* Value Section (The Why) */}
       <section id="value" className="relative overflow-hidden bg-[var(--pt-ink)] px-4 py-20 md:px-[var(--pt-container-pad)] md:py-32">
         <img
-          src="https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8138.jpg"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_5688.jpg"
           alt=""
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-10"
