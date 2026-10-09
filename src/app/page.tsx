@@ -14,21 +14,21 @@ const pillars = [
     label: '01',
     title: 'Inspired',
     body: 'We ignite the belief that your postcode is not your destiny. Through mentorship, storytelling, and exposure, young people discover what they’re capable of — and dare to pursue it.',
-    backgroundImage: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&q=80',
+    backgroundImage: '/images/home-pillar-inspired.jpg',
   },
   {
     id: 'connected',
     label: '02',
     title: 'Connected',
     body: 'Opportunity lives in rooms most young people are never invited into. We change that — forging direct links between township talent and the CEOs, investors, and policymakers who hold the keys.',
-    backgroundImage: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80',
+    backgroundImage: '/images/home-pillar-connected.jpg',
   },
   {
     id: 'transformed',
     label: '03',
     title: 'Transformed',
     body: 'Inspiration without action is just a feeling. We equip young people with hard skills, enterprise training, and real work experience so potential becomes livelihood.',
-    backgroundImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1400&q=80',
+    backgroundImage: '/images/home-pillar-transformed.jpg',
   },
 ];
 
@@ -273,8 +273,8 @@ export default function Home() {
                 style={{ transitionDelay: '320ms' }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&q=80"
-                  alt="Diverse African youth gathered in a community empowerment setting"
+                  src="/images/youth-community-empowerment.jpg"
+                  alt="Diverse South African youth gathered in a community empowerment setting"
                 />
                 <div className="ey-impact-photo-overlay" aria-hidden="true">
                   <p className="ey-impact-photo-quote">
@@ -294,8 +294,8 @@ export default function Home() {
           <div className="ey-partners-layout">
             <figure className="ey-partners-portrait ey-observe">
               <img
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-                alt="A confident young African person in a community empowerment setting"
+                src="/images/youth-ambassador-portrait.jpg"
+                alt="A confident young South African leader and youth ambassador"
               />
             </figure>
 

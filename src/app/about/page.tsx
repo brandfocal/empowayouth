@@ -23,10 +23,8 @@ const sectionHeadingClassName =
 const displayHeadingClassName =
   'font-extrabold uppercase leading-[0.95] tracking-[-0.05em] [text-wrap:balance]';
 
-const heroImageUrl =
-  'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1600&auto=format&fit=crop';
-const ecosystemImageUrl =
-  'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&auto=format&fit=crop';
+const heroImageUrl = '/images/about-hero-leaders.jpg';
+const ecosystemImageUrl = '/images/about-ecosystem-partners.jpg';
 
 const ecosystemItems = [
   {

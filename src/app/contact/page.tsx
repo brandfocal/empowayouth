@@ -226,8 +226,8 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="ey-contact-hero relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-[var(--pt-ink)] px-4 pb-12 pt-[clamp(120px,18vw,200px)] text-[var(--pt-paper)] sm:px-6 md:px-8 md:pb-20 lg:px-[var(--pt-container-pad)] lg:pb-[clamp(80px,8vw,112px)]">
         <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&auto=format&fit=crop"
-          alt="A team connecting around a table"
+          src="/images/contact-hero-welcome.jpg"
+          alt="EmpowaYouth coordinators welcoming participants at registration lounge"
           className="absolute inset-0 z-0 h-full w-full object-cover object-top"
         />
         <div
@@ -353,8 +353,8 @@ export default function ContactPage() {
       <section className="ey-contact-section">
         <div className="ey-contact-editorial-hero">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&auto=format&fit=crop"
-            alt="Energetic crowd of young people gathered together"
+            src="/images/summit-crowd-movement.jpg"
+            alt="Energetic crowd of young people gathered together at summit"
             className="ey-contact-editorial-image"
           />
           <div className="ey-contact-editorial-overlay" aria-hidden="true" />

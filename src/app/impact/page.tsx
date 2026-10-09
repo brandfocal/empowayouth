@@ -204,8 +204,8 @@ export default function ImpactPage() {
         {/* Hero Section */}
         <section className="ey-hero">
           <img
-            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&auto=format&fit=crop"
-            alt="Community members coming together for impact"
+            src="/images/impact-hero-celebration.jpg"
+            alt="Community members and youth celebrating impact"
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ zIndex: 0 }}
           />
@@ -340,7 +340,7 @@ export default function ImpactPage() {
                 >
                   <img
                     className="ey-impact-bento-photo"
-                    src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&q=80"
+                    src="/images/youth-community-empowerment.jpg"
                     alt="Diverse African youth gathered in a community empowerment setting"
                   />
                   <div className="ey-impact-photo-overlay" aria-hidden="true">
@@ -374,8 +374,8 @@ export default function ImpactPage() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&auto=format&fit=crop"
-                alt="Young leaders collaborating"
+                src="/images/impact-beyond-numbers.jpg"
+                alt="Empowered young South African innovator and entrepreneur"
                 style={{
                   width: '100%',
                   height: '100%',

@@ -79,7 +79,7 @@ export default function OfferingsPage() {
         }}
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&auto=format&fit=crop"
+          src="/images/offerings-hero-skills.jpg"
           alt="Young people in a programme workshop"
           className="absolute inset-0 h-full w-full object-cover object-top"
           style={{ zIndex: 0 }}

@@ -648,22 +648,22 @@ export default function GalleryPage() {
       {/* ======================================================== */}
       {/* 6. CALL TO ACTION SECTION                                */}
       {/* ======================================================== */}
-      <section className="border-t border-white/10 bg-black/40 px-4 py-20 sm:px-6 md:px-8 lg:px-[var(--pt-container-pad)] text-center">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-3 flex items-center justify-center gap-2 text-center text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
+      <section className="border-t border-white/10 bg-black/40 px-4 py-20 text-center sm:px-6 md:px-8 lg:px-[var(--pt-container-pad)]">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center text-center">
+          <p className="mb-3 flex w-full items-center justify-center gap-2 text-center text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
             <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
             <span>Join The Skills Revolution</span>
             <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
           </p>
-          <h2 className="text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[var(--pt-paper)]">
+          <h2 className="w-full text-center text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[var(--pt-paper)]">
             Be Part of Our Next Movement
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[var(--pt-muted)]">
+          <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-[var(--pt-muted)]">
             Whether you represent a corporate partner looking to fulfill your ESG and ESD mandates,
             or an ambitious youth looking to register for upcoming summits, discover your pathway today.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4">
             <Link
               href="/partner"
               className="ey-button ey-button-light-filled inline-flex items-center gap-2"

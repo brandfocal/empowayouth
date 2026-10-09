@@ -146,8 +146,8 @@ export default function TakeActionPage() {
       {/* Hero Section */}
       <section className="ey-hero relative overflow-hidden" id="hero">
         <img
-          src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1600&auto=format&fit=crop"
-          alt="Young people taking action together"
+          src="/images/summit-crowd-movement.jpg"
+          alt="Young people taking action together in the youth movement"
           style={{
             position: 'absolute',
             inset: 0,
