@@ -128,8 +128,11 @@ const speakers = [
 const years = 5;
 
 export default function AboutPage() {
+  const [activeSpeaker, setActiveSpeaker] = useState<number>(0);
   const [hoveredSpeaker, setHoveredSpeaker] = useState<number | null>(null);
   useEmpowaYouthScrollAnimations();
+
+  const currentSpeakerIndex = hoveredSpeaker !== null ? hoveredSpeaker : activeSpeaker;
 
   return (
     <main id="about" className="max-w-full overflow-x-hidden">
@@ -308,130 +311,166 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Previous Speakers Carousel */}
-          <section
-            className="bg-[var(--pt-ink)] py-[clamp(56px,9vw,112px)] overflow-hidden mt-[clamp(64px,8vw,96px)] ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen max-w-[100vw] box-border"
-            aria-labelledby="previous-speakers-heading"
-            onMouseLeave={() => setHoveredSpeaker(null)}
-          >
-            <div className="max-w-[min(var(--pt-container),100%)] mx-auto px-[var(--pt-container-pad)] mb-[clamp(40px,5vw,56px)]">
-              <p className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.16em] uppercase text-[var(--pt-accent)] mb-5">
-                <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
-                <span>Previous Speakers</span>
-              </p>
-              <div className="flex items-end justify-between gap-6 flex-wrap">
-                <h2
-                  id="previous-speakers-heading"
-                  className="font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)] [text-wrap:balance] text-[clamp(2.5rem,6vw,5.5rem)] m-0"
-                >
-                  <span>Voices That </span>
-                  <span className="font-light italic text-[1.08em] tracking-[-0.02em] text-[var(--pt-accent)]">
-                    Moved
-                  </span>
-                  <span> The Room.</span>
-                </h2>
-                <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-[var(--pt-muted)] shrink-0 pb-2">
-                  Scroll to explore &rarr;
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="speakers-track flex gap-2 overflow-x-auto snap-x snap-mandatory cursor-grab px-[var(--pt-container-pad)] max-w-full box-border"
-              aria-label="Previous speakers carousel"
+      {/* Previous Speakers Full-Width Responsive Accordion */}
+      <section
+        className="w-full bg-[var(--pt-ink)] py-[clamp(56px,8vw,104px)] overflow-hidden"
+        aria-labelledby="previous-speakers-heading"
+        onMouseLeave={() => setHoveredSpeaker(null)}
+      >
+        <div className="max-w-[var(--pt-container)] mx-auto px-[var(--pt-container-pad)] mb-[clamp(28px,4vw,48px)]">
+          <p className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.16em] uppercase text-[var(--pt-accent)] mb-4">
+            <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
+            <span>Previous Speakers</span>
+          </p>
+          <div className="flex items-end justify-between gap-6 flex-wrap">
+            <h2
+              id="previous-speakers-heading"
+              className="font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)] [text-wrap:balance] text-[clamp(2rem,5vw,5rem)] m-0"
             >
-              {speakers.map((speaker, speakerIndex) => (
+              <span>Voices That </span>
+              <span className="font-light italic text-[1.08em] tracking-[-0.02em] text-[var(--pt-accent)]">
+                Moved
+              </span>
+              <span> The Room.</span>
+            </h2>
+            <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-[var(--pt-muted)] shrink-0 pb-2">
+              <span className="hidden sm:inline">Hover or click to expand</span>
+              <span className="sm:hidden">Tap to expand</span> &rarr;
+            </p>
+          </div>
+        </div>
+
+        {/* Accordion Row: all 5 fit in the viewport across all screen sizes */}
+        <div className="max-w-[var(--pt-container)] mx-auto px-[var(--pt-container-pad)]">
+          <div
+            className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] select-none"
+            role="tablist"
+            aria-label="Previous speakers gallery"
+          >
+            {speakers.map((speaker, speakerIndex) => {
+              const isCurrent = currentSpeakerIndex === speakerIndex;
+
+              return (
                 <article
                   key={speaker.name}
-                  className="relative shrink-0 aspect-[2/3] overflow-hidden snap-start cursor-pointer transition-[width] duration-400 ease-out"
-                  style={{
-                    width:
-                      hoveredSpeaker === speakerIndex
-                        ? 'clamp(320px,32vw,420px)'
-                        : 'clamp(260px,25vw,340px)',
-                  }}
+                  role="tab"
+                  aria-selected={isCurrent}
+                  tabIndex={0}
+                  onClick={() => setActiveSpeaker(speakerIndex)}
                   onMouseEnter={() => setHoveredSpeaker(speakerIndex)}
                   onMouseLeave={() => setHoveredSpeaker(null)}
-                  onFocus={() => setHoveredSpeaker(speakerIndex)}
-                  onBlur={() => setHoveredSpeaker(null)}
-                  tabIndex={0}
+                  onFocus={() => setActiveSpeaker(speakerIndex)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setActiveSpeaker(speakerIndex);
+                    }
+                  }}
+                  className={`group relative h-full overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-[flex-grow,flex-basis] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+                    isCurrent
+                      ? 'flex-[3.5] sm:flex-[3] md:flex-[2.8] min-w-0'
+                      : 'flex-[1] min-w-0'
+                  }`}
                   aria-label={`${speaker.name}, ${speaker.role}`}
                 >
                   <img
                     src={speaker.imageUrl}
                     alt={`${speaker.name} portrait`}
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-[transform,filter] duration-600 ease-out"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-[transform,filter] duration-700 ease-out"
                     style={{
-                      transform: hoveredSpeaker === speakerIndex ? 'scale(1.04)' : 'scale(1.0)',
-                      filter:
-                        hoveredSpeaker === speakerIndex
-                          ? 'brightness(0.7)'
-                          : 'brightness(0.45) grayscale(0.3)',
+                      transform: isCurrent ? 'scale(1.05)' : 'scale(1.0)',
+                      filter: isCurrent
+                        ? 'brightness(0.78) contrast(1.05)'
+                        : 'brightness(0.35) grayscale(0.4)',
                     }}
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-transparent to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-[rgba(11,15,14,0.35)] to-transparent pointer-events-none"
                     aria-hidden="true"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-7">
-                    <span
-                      className="block text-[10px] font-bold tracking-[0.14em] text-[var(--pt-accent)] mb-2 transition-opacity duration-200"
-                      style={{ opacity: hoveredSpeaker === speakerIndex ? 1 : 0.6 }}
-                    >
+                  <div
+                    className={`absolute inset-0 rounded-xl sm:rounded-2xl border transition-colors duration-300 pointer-events-none ${
+                      isCurrent
+                        ? 'border-[rgba(232,131,42,0.6)] shadow-[0_0_24px_rgba(232,131,42,0.2)]'
+                        : 'border-[rgba(244,240,232,0.08)] group-hover:border-[rgba(244,240,232,0.2)]'
+                    }`}
+                    aria-hidden="true"
+                  />
+
+                  {/* Collapsed state display (vertical name on small widths) */}
+                  <div
+                    className={`absolute inset-0 flex flex-col justify-between items-center py-3.5 sm:py-5 px-1 pointer-events-none transition-opacity duration-300 ${
+                      isCurrent ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
+                    aria-hidden={isCurrent}
+                  >
+                    <span className="text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)]">
                       {String(speakerIndex + 1).padStart(2, '0')}
                     </span>
-                    <h3
-                      className="text-[clamp(16px,2vw,22px)] font-extrabold tracking-[-0.04em] uppercase leading-none text-[var(--pt-paper)] mb-1.5 transition-transform duration-280"
-                      style={{
-                        transform:
-                          hoveredSpeaker === speakerIndex ? 'translateY(0)' : 'translateY(6px)',
-                      }}
-                    >
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[rgba(244,240,232,0.7)] [writing-mode:vertical-rl] rotate-180 truncate max-h-[200px] sm:max-h-[260px]">
                       {speaker.name}
-                    </h3>
-                    <p
-                      className="text-[11px] font-medium tracking-[0.08em] uppercase text-[var(--pt-accent)] transition-all duration-280"
-                      style={{
-                        opacity: hoveredSpeaker === speakerIndex ? 1 : 0,
-                        transform:
-                          hoveredSpeaker === speakerIndex ? 'translateY(0)' : 'translateY(8px)',
-                      }}
-                    >
-                      {speaker.role}
-                    </p>
-                    <p
-                      className="text-xs leading-relaxed text-[rgba(244,240,232,0.65)] mt-2.5 transition-all duration-300"
-                      style={{
-                        opacity: hoveredSpeaker === speakerIndex ? 1 : 0,
-                        transform:
-                          hoveredSpeaker === speakerIndex ? 'translateY(0)' : 'translateY(10px)',
-                      }}
-                    >
-                      {speaker.topic}
-                    </p>
+                    </span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[rgba(244,240,232,0.3)] group-hover:bg-[var(--pt-accent)] transition-colors" />
                   </div>
+
+                  {/* Expanded state display */}
                   <div
-                    className="absolute top-5 right-5 w-2 h-2 rounded-full bg-[var(--pt-accent)] transition-all duration-200"
-                    style={{
-                      opacity: hoveredSpeaker === speakerIndex ? 1 : 0,
-                      transform: hoveredSpeaker === speakerIndex ? 'scale(1)' : 'scale(0)',
-                    }}
-                    aria-hidden="true"
-                  />
+                    className={`absolute inset-0 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 pointer-events-none transition-opacity duration-300 ${
+                      isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                    aria-hidden={!isCurrent}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)] bg-[rgba(11,15,14,0.7)] backdrop-blur-sm px-2.5 py-1 rounded-full border border-[rgba(232,131,42,0.35)]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)] animate-pulse" />
+                        <span>{String(speakerIndex + 1).padStart(2, '0')}</span>
+                      </span>
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--pt-muted)] hidden md:inline">
+                        Featured Speaker
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1">
+                        {speaker.name}
+                      </h3>
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
+                        {speaker.role}
+                      </p>
+                      <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.8)] line-clamp-2 sm:line-clamp-3">
+                        {speaker.topic}
+                      </p>
+                    </div>
+                  </div>
                 </article>
+              );
+            })}
+          </div>
+
+          {/* Dots Indicator & Summary */}
+          <div className="mt-6 flex justify-between items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2" aria-label="Speaker navigation dots">
+              {speakers.map((s, i) => (
+                <button
+                  key={s.name}
+                  type="button"
+                  onClick={() => setActiveSpeaker(i)}
+                  aria-label={`View speaker ${i + 1}: ${s.name}`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    currentSpeakerIndex === i
+                      ? 'w-8 bg-[var(--pt-accent)]'
+                      : 'w-2 bg-[rgba(244,240,232,0.25)] hover:bg-[rgba(244,240,232,0.5)]'
+                  }`}
+                />
               ))}
             </div>
-
-            <div className="max-w-[min(var(--pt-container),100%)] mx-auto mt-8 px-[var(--pt-container-pad)] flex justify-between items-center gap-5 flex-wrap">
-              <p className="text-xs text-[var(--pt-muted)] tracking-wider">
-                {speakers.length} speakers across {years} annual summits
-              </p>
-              <p className="text-xs text-[var(--pt-muted)] tracking-wider">
-                EmpowaYouth Summit Series
-              </p>
-            </div>
-          </section>
+            <p className="text-xs text-[var(--pt-muted)] tracking-wider">
+              {speakers.length} speakers across {years} annual summits
+            </p>
+          </div>
         </div>
       </section>
     </main>
