@@ -137,9 +137,10 @@ export default function ImpactPage() {
         .ey-impact-bento-card-community { grid-column: span 2; min-height: 240px; background: rgba(244, 240, 232, .05); }
         .ey-impact-bento-card-feature .ey-impact-number,
         .ey-impact-bento-card-feature .ey-impact-bento-number { font-size: clamp(52px, 6vw, 80px); }
-        .ey-impact-photo-card { grid-column: 1 / -1; min-height: 240px; height: 240px; padding: 0; border: 1px solid var(--pt-dark-divider); border-radius: 12px; overflow: hidden; background: var(--pt-ink); position: relative; }
+        .ey-impact-photo-card { grid-column: 1 / -1; min-height: 240px; height: 240px; padding: 0; border: 1px solid var(--pt-dark-divider); border-radius: 16px; overflow: hidden; background: var(--pt-ink); position: relative; }
         .ey-impact-photo-card:hover { background: color-mix(in srgb, var(--pt-paper) 5%, transparent); }
-        .ey-impact-photo-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+        .ey-impact-photo-card img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 700ms cubic-bezier(0, 0, 0.2, 1); }
+        .ey-impact-photo-card:hover img { transform: scale(1.05); }
         .ey-impact-photo-overlay { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; padding: 28px; background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent); }
         .ey-impact-photo-quote { margin: 0; color: var(--pt-paper); font-size: 18px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; display: flex; flex-direction: column; gap: 4px; }
         .ey-impact-photo-caption { color: var(--pt-muted); font-size: 13px; font-weight: 500; font-style: normal; }
@@ -335,11 +336,11 @@ export default function ImpactPage() {
                 </article>
 
                 <figure
-                  className="ey-impact-bento-card ey-impact-photo-card ey-impact-bento-photo-card"
+                  className="ey-impact-bento-card ey-impact-photo-card ey-impact-bento-photo-card group overflow-hidden rounded-2xl"
                   style={{ transitionDelay: '320ms' }}
                 >
                   <img
-                    className="ey-impact-bento-photo"
+                    className="ey-impact-bento-photo h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                     src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8141.jpg"
                     alt="Diverse African youth gathered in an EmpowaYouth community empowerment setting"
                   />
@@ -365,17 +366,19 @@ export default function ImpactPage() {
         <section aria-labelledby="beyond-heading" className="ey-beyond">
           <div className="ey-impact-section-container ey-beyond-grid">
             <div
+              className="group overflow-hidden rounded-2xl"
               style={{
                 position: 'relative',
                 overflow: 'hidden',
                 aspectRatio: '3/4',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 minHeight: '380px',
               }}
             >
               <img
                 src="/images/impact-beyond-numbers.jpg"
                 alt="Empowered young South African innovator and entrepreneur"
+                className="transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                 style={{
                   width: '100%',
                   height: '100%',

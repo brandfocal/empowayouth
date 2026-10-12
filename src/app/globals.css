@@ -1239,7 +1239,7 @@ html, body {
   height: 240px;
   padding: 0;
   border: 1px solid var(--pt-dark-divider);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   background: var(--pt-ink);
 }
@@ -1249,6 +1249,12 @@ html, body {
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 700ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ey-impact-photo-card:hover img,
+.ey-impact-photo-card img:hover {
+  transform: scale(1.05);
 }
 
 .ey-impact-photo-overlay {
@@ -1289,7 +1295,7 @@ html, body {
   aspect-ratio: 3/4;
   margin: 0;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
   background: rgba(244, 240, 232, 0.05);
 }
 
@@ -1299,6 +1305,12 @@ html, body {
   min-height: 480px;
   display: block;
   object-fit: cover;
+  transition: transform 700ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ey-partners-portrait:hover img,
+.ey-partners-portrait img:hover {
+  transform: scale(1.05);
 }
 
 .ey-partners-trust {

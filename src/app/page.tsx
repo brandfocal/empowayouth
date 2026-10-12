@@ -273,12 +273,13 @@ export default function Home() {
               </li>
 
               <li
-                className="ey-impact-bento-card ey-impact-photo-card"
+                className="ey-impact-bento-card ey-impact-photo-card group overflow-hidden rounded-2xl"
                 style={{ transitionDelay: '320ms' }}
               >
                 <img
                   src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/hundred-thousand.jpg"
                   alt="Every young person deserves a fair shot — EmpowaYouth Community"
+                  className="transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                 />
                 <div className="ey-impact-photo-overlay" aria-hidden="true">
                   <p className="ey-impact-photo-quote">
@@ -296,10 +297,11 @@ export default function Home() {
       <section id="partners" className="ey-partners" aria-labelledby="ey-partners-title">
         <div className="ey-partners-inner">
           <div className="ey-partners-layout">
-            <figure className="ey-partners-portrait ey-observe">
+            <figure className="ey-partners-portrait ey-observe group overflow-hidden rounded-2xl">
               <img
                 src="/images/youth-ambassador-portrait.jpg"
                 alt="A confident young South African leader and youth ambassador"
+                className="transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
               />
             </figure>
 

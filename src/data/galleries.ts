@@ -147,6 +147,45 @@ export const vaal2026Videos: GalleryVideo[] = [
   },
 ];
 
+export const ekurhuleni2025Videos: GalleryVideo[] = [
+  {
+    id: 'ekurhuleni25-vid-1',
+    title: 'EKHURULENI EMPOWAYOUTH - FULL VERSION',
+    description: 'Official full feature documentary and broadcast overview of EmpowaYouth Week in Ekurhuleni 2025 — spotlighting youth empowerment, pitching battles, and career opportunities.',
+    duration: '05:05',
+    thumbnail: 'https://img.youtube.com/vi/t_D0YtTAjC0/hqdefault.jpg',
+    youtubeId: 't_D0YtTAjC0',
+    tag: 'Full Feature',
+  },
+  {
+    id: 'ekurhuleni25-vid-2',
+    title: 'EKHURULENI EMPOWAYOUTH - DAY ONE',
+    description: 'Day 1 highlights from EmpowaYouth Week Ekurhuleni 2025 — official opening ceremony, leadership keynotes, and initial delegate orientation.',
+    duration: '02:07',
+    thumbnail: 'https://img.youtube.com/vi/Qldd76QdZIA/hqdefault.jpg',
+    youtubeId: 'Qldd76QdZIA',
+    tag: 'Day 1 Highlights',
+  },
+  {
+    id: 'ekurhuleni25-vid-3',
+    title: 'EKHURULENI EMPOWAYOUTH - DAY TWO',
+    description: 'Day 2 recap from EmpowaYouth Week Ekurhuleni 2025 — skills development masterclasses, sector clinics, and interactive partner exhibition booths.',
+    duration: '02:09',
+    thumbnail: 'https://img.youtube.com/vi/AeNPV5cBrqM/hqdefault.jpg',
+    youtubeId: 'AeNPV5cBrqM',
+    tag: 'Day 2 Highlights',
+  },
+  {
+    id: 'ekurhuleni25-vid-4',
+    title: 'EKHURULENI EMPOWAYOUTH - DAY THREE',
+    description: 'Day 3 grand finale and entrepreneurship pitching competition highlights from EmpowaYouth Week Ekurhuleni 2025.',
+    duration: '02:35',
+    thumbnail: 'https://img.youtube.com/vi/RvjJvng2jdk/hqdefault.jpg',
+    youtubeId: 'RvjJvng2jdk',
+    tag: 'Day 3 Finale',
+  },
+];
+
 export const galleriesData: GalleryEdition[] = [
   // ==========================================
   // 1. VAAL – 2026
@@ -172,6 +211,32 @@ export const galleriesData: GalleryEdition[] = [
       { label: 'Grand Finale Run', value: '6h 20m' },
     ],
     videos: vaal2026Videos,
+    images: [],
+  },
+  // ==========================================
+  // 2. EKURHULENI – 2025
+  // ==========================================
+  {
+    id: 'ekurhuleni-2025',
+    slug: 'ekurhuleni-2025',
+    title: 'EmpowaYouth Week',
+    edition: 'Ekurhuleni – 2025',
+    year: 2025,
+    location: 'Ekurhuleni, Gauteng',
+    partner: 'City of Ekurhuleni & Industry Partners',
+    badge: 'Regional Edition 2025',
+    headline: '3 Days of High-Impact Skills Training, Enterprise Funding, and Youth Career Pathways',
+    description:
+      'The 2025 edition of EmpowaYouth Week in Ekurhuleni brought transformative training, enterprise pitching competitions, accredited masterclasses, and direct career advisory pods to thousands of ambitious youth across the East Rand. Watch the daily recaps and full broadcast overview below.',
+    heroImage: 'https://img.youtube.com/vi/t_D0YtTAjC0/hqdefault.jpg',
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLY6BpHjPJzWc',
+    stats: [
+      { label: 'Event Days', value: '3 Days' },
+      { label: 'Broadcast Features', value: '4 Videos' },
+      { label: 'Region', value: 'Ekurhuleni' },
+      { label: 'Focus', value: 'Skills & Enterprise' },
+    ],
+    videos: ekurhuleni2025Videos,
     images: [],
   },
   // ==========================================

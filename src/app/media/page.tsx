@@ -442,11 +442,11 @@ export default function MediaPage() {
             {tvItems.map((item) => (
               <article
                 key={item.id}
-                className="group flex flex-col border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.025)] transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[rgba(232,131,42,0.45)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.28)]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.025)] transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[rgba(232,131,42,0.45)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.28)]"
               >
                 <button
                   type="button"
-                  className={`relative aspect-video w-full cursor-pointer overflow-hidden bg-[var(--pt-ink)] text-left ${focusRingClass}`}
+                  className={`relative aspect-video w-full cursor-pointer overflow-hidden rounded-t-2xl bg-[var(--pt-ink)] text-left ${focusRingClass}`}
                   aria-label={item.youtubeId ? `Open video: ${item.title}` : `Open video: ${item.title}. Video not available online`}
                   title={item.youtubeId ? undefined : 'Video not available online'}
                   onClick={() => setSelectedVideo(item)}
@@ -455,7 +455,7 @@ export default function MediaPage() {
                     src={item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : item.image}
                     alt=""
                     aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
                   <div className="relative z-[1] flex h-full w-full items-center justify-center p-8">
@@ -503,7 +503,7 @@ export default function MediaPage() {
             {printItems.map((item) => (
               <article
                 key={item.id}
-                className="group flex min-h-[250px] flex-col border border-[var(--pt-light-divider)] bg-white/40 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-[rgba(232,131,42,0.5)] hover:shadow-xl focus-within:-translate-y-1"
+                className="group flex min-h-[250px] flex-col overflow-hidden rounded-2xl border border-[var(--pt-light-divider)] bg-white/40 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-[rgba(232,131,42,0.5)] hover:shadow-xl focus-within:-translate-y-1"
               >
                 <a
                   href={item.url}
@@ -512,12 +512,12 @@ export default function MediaPage() {
                   className={`flex h-full flex-col text-current no-underline ${focusRingClass}`}
                   aria-label={`Read ${item.headline} on ${item.publication}`}
                 >
-                  <div className="aspect-[16/9] w-full overflow-hidden">
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-t-2xl">
                     <img
                       src={item.image}
                       alt=""
                       aria-hidden="true"
-                      className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
@@ -558,11 +558,11 @@ export default function MediaPage() {
           />
 
           {/* Featured Hero Radio Item */}
-          <article className="relative mt-10 flex min-h-[clamp(340px,56vw,680px)] items-end overflow-hidden md:mt-14">
+          <article className="group relative mt-10 flex min-h-[clamp(340px,56vw,680px)] items-end overflow-hidden rounded-2xl border border-[rgba(244,240,232,0.12)] md:mt-14">
             <img
               src="https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3374.jpg"
               alt="EmpowaYouth radio interview feature"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
             />
             <div
               className="absolute inset-0"
@@ -605,9 +605,14 @@ export default function MediaPage() {
             {horizontalRadioFeatureItems.map((item) => (
               <article
                 key={item.id}
-                className="relative flex min-h-[clamp(260px,36vw,440px)] flex-col justify-end overflow-hidden"
+                className="group relative flex min-h-[clamp(260px,36vw,440px)] flex-col justify-end overflow-hidden rounded-2xl border border-[rgba(244,240,232,0.12)]"
               >
-                <img src={item.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+                <img
+                  src={item.image}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
+                />
                 <div
                   className="absolute inset-0"
                   style={{

@@ -155,9 +155,14 @@ export default function GalleryPage() {
                 <span>EmpowaYouth Week </span>
                 <span className="ey-heading-italic text-[var(--pt-accent)]">Vaal 2026</span>
               </>
+            ) : selectedEditionId === 'ekurhuleni-2025' ? (
+              <>
+                <span>EmpowaYouth Week </span>
+                <span className="ey-heading-italic text-[var(--pt-accent)]">Ekurhuleni 2025</span>
+              </>
             ) : selectedEditionId !== 'all' ? (
               <>
-                <span>TETA EmpowaYouth Week </span>
+                <span>{galleriesData.find((g) => g.id === selectedEditionId)?.title || 'EmpowaYouth Week'}{' '}</span>
                 <span className="ey-heading-italic text-[var(--pt-accent)]">
                   {galleriesData.find((g) => g.id === selectedEditionId)?.edition}
                 </span>
@@ -175,7 +180,9 @@ export default function GalleryPage() {
           <p className="max-w-[720px] text-[16px] font-normal leading-[1.75] tracking-[0.005em] text-[var(--pt-muted)] [text-wrap:pretty]">
             {selectedEditionId === 'vaal-2026'
               ? 'Watch over 27 hours of complete live-streamed broadcasts from all 5 days of EmpowaYouth Week in the Vaal — featuring keynote addresses, pitching competitions, masterclasses, and transformative youth opportunities.'
-              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal 2026 and Orange Farm editions.'}
+              : selectedEditionId === 'ekurhuleni-2025'
+              ? 'Watch the full documentary feature and daily recap broadcasts from all 3 days of EmpowaYouth Week in Ekurhuleni — bringing skills, pitch battles, and career opportunities to East Rand youth.'
+              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal 2026, Ekurhuleni 2025, and Orange Farm editions.'}
           </p>
 
           {/* Quick Stats Strip */}
@@ -187,12 +194,12 @@ export default function GalleryPage() {
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-[var(--pt-paper)]">27+ Hours</span>
-              <span>Vaal 2026 Livestreams</span>
+              <span>Livestreams &amp; Features</span>
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">4 Editions</span>
-              <span>Vaal 2026, 2023, 2022 &amp; 2021</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">5 Editions</span>
+              <span>Vaal 2026, Ekurhuleni 2025, 2023, 2022 &amp; 2021</span>
             </div>
           </div>
         </div>
@@ -380,14 +387,14 @@ export default function GalleryPage() {
                           editionTitle: `${edition.title} (${edition.edition})`,
                         })
                       }
-                      className="group cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--pt-accent)] hover:shadow-[0_12px_30px_rgba(232,131,42,0.15)]"
+                      className="group cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--pt-accent)] hover:shadow-[0_12px_30px_rgba(232,131,42,0.15)]"
                     >
                       {/* Video Thumbnail */}
                       <div className="relative aspect-video w-full overflow-hidden bg-black/60">
                         <img
                           src={vid.thumbnail}
                           alt={vid.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                          className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -458,13 +465,13 @@ export default function GalleryPage() {
                             imagesList: edition.images,
                           })
                         }
-                        className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-black/40 transition-all duration-300 hover:border-[var(--pt-accent)]"
+                        className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/40 transition-all duration-300 hover:border-[var(--pt-accent)]"
                       >
                         <img
                           src={img.thumbnail || img.url}
                           alt={img.title}
                           loading="lazy"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
                         />
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -662,7 +669,7 @@ export default function GalleryPage() {
               <img
                 src={activeImage.image.url}
                 alt={activeImage.image.title}
-                className="max-h-[70vh] max-w-full rounded-lg object-contain shadow-2xl"
+                className="max-h-[70vh] max-w-full rounded-2xl object-contain shadow-2xl"
               />
             </div>
 
