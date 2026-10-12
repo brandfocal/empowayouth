@@ -97,36 +97,31 @@ const speakers = [
     name: 'Panyaza Lesufi',
     role: 'Public leadership',
     topic: 'Policy Reform',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop',
+    imageUrl: '/past_speakers/Panyaza-Lesufi.jpg',
   },
   {
     name: 'Somizi Mhlongo',
     role: 'Culture & media voice',
     topic: 'Creative Economy',
-    imageUrl:
-      'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&auto=format&fit=crop',
+    imageUrl: '/past_speakers/Somizi-Mhlongo.jpg',
   },
   {
     name: 'Lebo M',
     role: 'Composer & producer',
     topic: 'Pan-African Leadership',
-    imageUrl:
-      'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop',
+    imageUrl: '/past_speakers/Lebo-M.jpg',
   },
   {
     name: 'Dr. David Molapo',
     role: 'Leadership speaker',
     topic: 'Youth Entrepreneurship',
-    imageUrl:
-      'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&auto=format&fit=crop',
+    imageUrl: '/past_speakers/Dr.-David-Molapo.jpg',
   },
   {
     name: 'Prof. Tshilidzi Marwala',
     role: 'AI & innovation leader',
     topic: 'Digital Africa',
-    imageUrl:
-      'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&auto=format&fit=crop',
+    imageUrl: '/past_speakers/Prof.-Tshilidzi-Marwala.jpg',
   },
 ];
 
