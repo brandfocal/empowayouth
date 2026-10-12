@@ -170,7 +170,7 @@ export default function GalleryPage() {
           <p className="max-w-[720px] text-[16px] font-normal leading-[1.75] tracking-[0.005em] text-[var(--pt-muted)] [text-wrap:pretty]">
             {selectedEditionId !== 'all'
               ? galleriesData.find((g) => g.id === selectedEditionId)?.description
-              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal, Ekurhuleni, North West, Limpopo, and Orange Farm editions.'}
+              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal, Ekurhuleni, North West, KZN, Limpopo, and Orange Farm editions.'}
           </p>
 
           {/* Quick Stats Strip */}
@@ -186,8 +186,8 @@ export default function GalleryPage() {
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">7 Editions</span>
-              <span>Vaal, Ekurhuleni, North West, Limpopo &amp; Orange Farm</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">8 Editions</span>
+              <span>Vaal, Ekurhuleni, North West, KZN, Limpopo &amp; Orange Farm</span>
             </div>
           </div>
         </div>
