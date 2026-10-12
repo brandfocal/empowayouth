@@ -186,6 +186,57 @@ export const ekurhuleni2025Videos: GalleryVideo[] = [
   },
 ];
 
+export const northWest2023Videos: GalleryVideo[] = [
+  {
+    id: 'nw23-vid-1',
+    title: 'EYW NW Experience',
+    description: 'Official highlight recap showing the transformative energy, youth participation, and impact of EmpowaYouth Week in North West.',
+    duration: '04:42',
+    thumbnail: 'https://img.youtube.com/vi/nMwd9_z8px8/hqdefault.jpg',
+    youtubeId: 'nMwd9_z8px8',
+    tag: 'Highlights Experience',
+  },
+  {
+    id: 'nw23-vid-2',
+    title: 'EYW NW Day 2 Reel',
+    description: 'Day 2 recap reel capturing the workshop sessions, student delegates, and exhibition energy from EmpowaYouth Week North West.',
+    duration: '00:55',
+    thumbnail: 'https://img.youtube.com/vi/t1uitCdRVSs/hqdefault.jpg',
+    youtubeId: 't1uitCdRVSs',
+    tag: 'Day 2 Reel',
+  },
+];
+
+export const limpopo2022Videos: GalleryVideo[] = [
+  {
+    id: 'limpopo22-vid-1',
+    title: 'EYW Limpopo Experience',
+    description: 'Official highlight experience and documentary recap from the EmpowaYouth Weekend 2022 in Limpopo.',
+    duration: '03:49',
+    thumbnail: 'https://img.youtube.com/vi/VgpyNdfBOYo/hqdefault.jpg',
+    youtubeId: 'VgpyNdfBOYo',
+    tag: 'Highlights Experience',
+  },
+  {
+    id: 'limpopo22-vid-2',
+    title: 'EYW Limpopo Day 1 — Frans Ramonyatse',
+    description: 'Day 1 address and leadership masterclass featuring Frans Ramonyatse at EmpowaYouth Weekend Limpopo.',
+    duration: '11:06',
+    thumbnail: 'https://img.youtube.com/vi/3oW08ircvS4/hqdefault.jpg',
+    youtubeId: '3oW08ircvS4',
+    tag: 'Day 1 Keynote',
+  },
+  {
+    id: 'limpopo22-vid-3',
+    title: 'EmpowaYouth Limpopo — Nyiko Baloyi',
+    description: 'Inspiring speaker session and youth entrepreneurship insights with Nyiko Baloyi at EmpowaYouth Weekend Limpopo.',
+    duration: '16:49',
+    thumbnail: 'https://img.youtube.com/vi/AKzyRdnEet8/hqdefault.jpg',
+    youtubeId: 'AKzyRdnEet8',
+    tag: 'Speaker Session',
+  },
+];
+
 export const galleriesData: GalleryEdition[] = [
   // ==========================================
   // 1. VAAL – 2026
@@ -240,7 +291,33 @@ export const galleriesData: GalleryEdition[] = [
     images: [],
   },
   // ==========================================
-  // 2. ORANGE FARM – 2023
+  // 3. NORTH WEST – 2023
+  // ==========================================
+  {
+    id: 'north-west-2023',
+    slug: 'north-west-2023',
+    title: 'EmpowaYouth Week',
+    edition: 'North West – 2023',
+    year: 2023,
+    location: 'North West Province',
+    partner: 'North West Provincial & Industry Partners',
+    badge: 'Provincial Edition 2023',
+    headline: 'Empowering North West Youth through Skills Development, Innovation Masterclasses, and Economic Inclusion',
+    description:
+      'The EmpowaYouth Week in North West brought together thousands of passionate youth, industry mentors, and training authorities for high-impact workshops, career guidance, and entrepreneurship enablement. Watch the experience highlights and daily reels below.',
+    heroImage: 'https://img.youtube.com/vi/nMwd9_z8px8/hqdefault.jpg',
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLonp0XsaNY5InTMSSuDxL6UhEIG2pd0az',
+    stats: [
+      { label: 'Event Edition', value: 'North West' },
+      { label: 'Broadcast Features', value: '2 Videos' },
+      { label: 'Region', value: 'North West' },
+      { label: 'Focus', value: 'Skills Revolution' },
+    ],
+    videos: northWest2023Videos,
+    images: [],
+  },
+  // ==========================================
+  // 4. ORANGE FARM – 2023
   // ==========================================
   {
     id: 'orange-farm-2023',
@@ -600,7 +677,34 @@ export const galleriesData: GalleryEdition[] = [
   },
 
   // ==========================================
-  // 2. ORANGE FARM – 2022
+  // 5. LIMPOPO – 2022
+  // ==========================================
+  {
+    id: 'limpopo-2022',
+    slug: 'limpopo-2022',
+    title: 'EmpowaYouth Weekend',
+    edition: 'Limpopo – 2022',
+    year: 2022,
+    location: 'Limpopo Province',
+    partner: 'Limpopo Provincial & Industry Partners',
+    badge: 'Regional Edition 2022',
+    headline: 'Activating Limpopo Youth with Entrepreneurship Mentorship, Skills Masterclasses, and Economic Opportunities',
+    description:
+      'The 2022 edition of the EmpowaYouth Weekend in Limpopo connected youth with inspirational speakers, entrepreneurship clinics, and real pathways to skills and employment. Watch the experience recap and key speaker sessions below.',
+    heroImage: 'https://img.youtube.com/vi/VgpyNdfBOYo/hqdefault.jpg',
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLonp0XsaNY5JQaNmOgdV-lB_D9somAtPl',
+    stats: [
+      { label: 'Event Edition', value: 'Limpopo' },
+      { label: 'Broadcast Features', value: '3 Videos' },
+      { label: 'Region', value: 'Limpopo' },
+      { label: 'Focus', value: 'Youth & Enterprise' },
+    ],
+    videos: limpopo2022Videos,
+    images: [],
+  },
+
+  // ==========================================
+  // 6. ORANGE FARM – 2022
   // ==========================================
   {
     id: 'orange-farm-2022',

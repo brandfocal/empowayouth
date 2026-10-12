@@ -150,17 +150,7 @@ export default function GalleryPage() {
           </div>
 
           <h1 className="mb-6 max-w-5xl text-[clamp(2.8rem,7vw,6.5rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.04em] text-[var(--pt-paper)] [text-wrap:balance]">
-            {selectedEditionId === 'vaal-2026' ? (
-              <>
-                <span>EmpowaYouth Week </span>
-                <span className="ey-heading-italic text-[var(--pt-accent)]">Vaal 2026</span>
-              </>
-            ) : selectedEditionId === 'ekurhuleni-2025' ? (
-              <>
-                <span>EmpowaYouth Week </span>
-                <span className="ey-heading-italic text-[var(--pt-accent)]">Ekurhuleni 2025</span>
-              </>
-            ) : selectedEditionId !== 'all' ? (
+            {selectedEditionId !== 'all' ? (
               <>
                 <span>{galleriesData.find((g) => g.id === selectedEditionId)?.title || 'EmpowaYouth Week'}{' '}</span>
                 <span className="ey-heading-italic text-[var(--pt-accent)]">
@@ -178,11 +168,9 @@ export default function GalleryPage() {
           </h1>
 
           <p className="max-w-[720px] text-[16px] font-normal leading-[1.75] tracking-[0.005em] text-[var(--pt-muted)] [text-wrap:pretty]">
-            {selectedEditionId === 'vaal-2026'
-              ? 'Watch over 27 hours of complete live-streamed broadcasts from all 5 days of EmpowaYouth Week in the Vaal — featuring keynote addresses, pitching competitions, masterclasses, and transformative youth opportunities.'
-              : selectedEditionId === 'ekurhuleni-2025'
-              ? 'Watch the full documentary feature and daily recap broadcasts from all 3 days of EmpowaYouth Week in Ekurhuleni — bringing skills, pitch battles, and career opportunities to East Rand youth.'
-              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal 2026, Ekurhuleni 2025, and Orange Farm editions.'}
+            {selectedEditionId !== 'all'
+              ? galleriesData.find((g) => g.id === selectedEditionId)?.description
+              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal, Ekurhuleni, North West, Limpopo, and Orange Farm editions.'}
           </p>
 
           {/* Quick Stats Strip */}
@@ -198,8 +186,8 @@ export default function GalleryPage() {
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">5 Editions</span>
-              <span>Vaal 2026, Ekurhuleni 2025, 2023, 2022 &amp; 2021</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">7 Editions</span>
+              <span>Vaal, Ekurhuleni, North West, Limpopo &amp; Orange Farm</span>
             </div>
           </div>
         </div>
@@ -224,7 +212,7 @@ export default function GalleryPage() {
                   : 'border border-white/10 bg-white/5 text-[var(--pt-paper)] hover:border-white/20 hover:bg-white/10'
               }`}
             >
-              All Years
+              All Editions
             </button>
             {galleriesData.map((edition) => (
               <button
@@ -237,7 +225,7 @@ export default function GalleryPage() {
                     : 'border border-white/10 bg-white/5 text-[var(--pt-paper)] hover:border-white/20 hover:bg-white/10'
                 }`}
               >
-                {edition.year}
+                {edition.edition}
               </button>
             ))}
           </div>
