@@ -150,33 +150,49 @@ export default function GalleryPage() {
           </div>
 
           <h1 className="mb-6 max-w-5xl text-[clamp(2.8rem,7vw,6.5rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.04em] text-[var(--pt-paper)] [text-wrap:balance]">
-            <span>TETA EmpowaYouth Week </span>
-            <span className="ey-heading-italic text-[var(--pt-accent)]">
-              Orange Farm
-            </span>
+            {selectedEditionId === 'vaal-2026' ? (
+              <>
+                <span>EmpowaYouth Week </span>
+                <span className="ey-heading-italic text-[var(--pt-accent)]">Vaal 2026</span>
+              </>
+            ) : selectedEditionId !== 'all' ? (
+              <>
+                <span>TETA EmpowaYouth Week </span>
+                <span className="ey-heading-italic text-[var(--pt-accent)]">
+                  {galleriesData.find((g) => g.id === selectedEditionId)?.edition}
+                </span>
+              </>
+            ) : (
+              <>
+                <span>EmpowaYouth Week </span>
+                <span className="ey-heading-italic text-[var(--pt-accent)]">
+                  Gallery &amp; Broadcast Archive
+                </span>
+              </>
+            )}
           </h1>
 
           <p className="max-w-[720px] text-[16px] font-normal leading-[1.75] tracking-[0.005em] text-[var(--pt-muted)] [text-wrap:pretty]">
-            Experience the milestones, youth energy, pitch competitions, and transformative transport
-            skills opportunities delivered across the 2023, 2022, and 2021 editions in Orange Farm,
-            powered by the Transport Education Training Authority (TETA).
+            {selectedEditionId === 'vaal-2026'
+              ? 'Watch over 27 hours of complete live-streamed broadcasts from all 5 days of EmpowaYouth Week in the Vaal — featuring keynote addresses, pitching competitions, masterclasses, and transformative youth opportunities.'
+              : 'Experience the milestones, multi-hour livestream recordings, youth energy, pitch competitions, and transformative skills opportunities delivered across the Vaal 2026 and Orange Farm editions.'}
           </p>
 
           {/* Quick Stats Strip */}
           <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6 text-xs text-[var(--pt-muted)]">
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">17,200+</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">25,000+</span>
               <span>Total Youth Activated</span>
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-paper)]">900+</span>
-              <span>Placements &amp; Bursaries</span>
+              <span className="font-extrabold text-[var(--pt-paper)]">27+ Hours</span>
+              <span>Vaal 2026 Livestreams</span>
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">3 Editions</span>
-              <span>2023, 2022 &amp; 2021</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">4 Editions</span>
+              <span>Vaal 2026, 2023, 2022 &amp; 2021</span>
             </div>
           </div>
         </div>
@@ -329,16 +345,29 @@ export default function GalleryPage() {
             {/* Sub-Section A: Videos */}
             {(mediaType === 'all' || mediaType === 'videos') && (
               <section className="mt-12">
-                <div className="mb-6 flex items-center justify-between">
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <Film className="h-5 w-5 text-[var(--pt-accent)]" />
                     <h3 className="text-xl font-bold uppercase tracking-tight text-[var(--pt-paper)]">
                       Videos &amp; Broadcast Highlights ({edition.videos.length})
                     </h3>
                   </div>
-                  <span className="text-xs text-[var(--pt-muted)]">
-                    Click any card to play
-                  </span>
+                  <div className="flex flex-wrap items-center gap-3">
+                    {edition.playlistUrl && (
+                      <a
+                        href={edition.playlistUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-red-500/40 bg-red-500/10 px-3.5 py-1 text-xs font-bold text-red-400 transition-colors hover:bg-red-500/20 hover:text-white"
+                      >
+                        <span>Full YouTube Playlist</span>
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                    <span className="text-xs text-[var(--pt-muted)]">
+                      Click any card to play
+                    </span>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -398,7 +427,7 @@ export default function GalleryPage() {
             )}
 
             {/* Sub-Section B: Photo Gallery */}
-            {(mediaType === 'all' || mediaType === 'images') && (() => {
+            {(mediaType === 'all' || mediaType === 'images') && edition.images.length > 0 && (() => {
               const isExpanded = !!expandedEditions[edition.id];
               const displayedImages = isExpanded ? edition.images : edition.images.slice(0, 16);
 
@@ -476,6 +505,24 @@ export default function GalleryPage() {
                 </section>
               );
             })()}
+
+            {mediaType === 'images' && edition.images.length === 0 && (
+              <div className="mt-10 rounded-xl border border-white/10 bg-white/5 p-8 text-center">
+                <ImageIcon className="mx-auto h-8 w-8 text-[var(--pt-accent)] opacity-60" />
+                <h4 className="mt-3 text-lg font-bold text-[var(--pt-paper)]">Photos Currently Being Curated</h4>
+                <p className="mt-2 text-sm text-[var(--pt-muted)]">
+                  The complete multi-hour livestream recordings for this edition are available in the Videos tab above.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setMediaType('videos')}
+                  className="mt-4 inline-flex items-center gap-2 rounded-md bg-[var(--pt-accent)] px-4 py-2 text-xs font-bold text-white transition-opacity hover:opacity-90"
+                >
+                  <Film className="h-4 w-4" />
+                  <span>Switch to Videos ({edition.videos.length})</span>
+                </button>
+              </div>
+            )}
           </article>
         ))}
       </div>

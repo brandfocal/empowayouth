@@ -33,11 +33,149 @@ export interface GalleryEdition {
   stats: { label: string; value: string }[];
   videos: GalleryVideo[];
   images: GalleryImage[];
+  playlistUrl?: string;
 }
+
+export const vaal2026Videos: GalleryVideo[] = [
+  {
+    id: 'vaal26-vid-1',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 1 (Morning Kickoff)",
+    description: 'Day 1 morning launch broadcast, welcoming delegates and thousands of ambitious youth across the Vaal region.',
+    duration: '01:20:18',
+    thumbnail: 'https://img.youtube.com/vi/4tWzntnFPNY/hqdefault.jpg',
+    youtubeId: '4tWzntnFPNY',
+    tag: 'Day 1 Kickoff',
+  },
+  {
+    id: 'vaal26-vid-2',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 1 (Main Plenary)",
+    description: 'Day 1 official opening plenary session with opening dignitaries, partner leaders, and youth dialogues.',
+    duration: '03:14:52',
+    thumbnail: 'https://img.youtube.com/vi/TTtFt0t3HOQ/hqdefault.jpg',
+    youtubeId: 'TTtFt0t3HOQ',
+    tag: 'Day 1 Plenary',
+  },
+  {
+    id: 'vaal26-vid-3',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 1 (Afternoon Session)",
+    description: 'Day 1 afternoon plenary, career readiness clinics, and interactive student engagement sessions.',
+    duration: '01:44:33',
+    thumbnail: 'https://img.youtube.com/vi/zA4rtI6YEBw/hqdefault.jpg',
+    youtubeId: 'zA4rtI6YEBw',
+    tag: 'Day 1 Afternoon',
+  },
+  {
+    id: 'vaal26-vid-4',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 2 (Morning Session)",
+    description: 'Day 2 morning live broadcast featuring economic empowerment discussions and technical skills sessions.',
+    duration: '03:04:12',
+    thumbnail: 'https://img.youtube.com/vi/qglBkXVXK3s/hqdefault.jpg',
+    youtubeId: 'qglBkXVXK3s',
+    tag: 'Day 2 Morning',
+  },
+  {
+    id: 'vaal26-vid-5',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 2 (Afternoon Session)",
+    description: 'Day 2 afternoon interactive workshops, practical training demonstrations, and stakeholder panels.',
+    duration: '02:07:44',
+    thumbnail: 'https://img.youtube.com/vi/ztPBGRCEwNo/hqdefault.jpg',
+    youtubeId: 'ztPBGRCEwNo',
+    tag: 'Day 2 Afternoon',
+  },
+  {
+    id: 'vaal26-vid-6',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 2 (Keynote Segment)",
+    description: 'Day 2 keynote address on driving youth employability and sustainable skills growth across the Vaal.',
+    duration: '06:35',
+    thumbnail: 'https://img.youtube.com/vi/xAAtyHEQ4T4/hqdefault.jpg',
+    youtubeId: 'xAAtyHEQ4T4',
+    tag: 'Day 2 Keynote',
+  },
+  {
+    id: 'vaal26-vid-7',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 2 (Stream Segment)",
+    description: 'Day 2 live stream broadcast segment from the main auditorium stage.',
+    duration: '00:04',
+    thumbnail: 'https://img.youtube.com/vi/YAvRGtcLvDg/hqdefault.jpg',
+    youtubeId: 'YAvRGtcLvDg',
+    tag: 'Day 2 Segment',
+  },
+  {
+    id: 'vaal26-vid-8',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 2 (Interviews & Highlights)",
+    description: 'Day 2 attendee reflections, stakeholder interviews, and exhibition floor activations.',
+    duration: '08:23',
+    thumbnail: 'https://img.youtube.com/vi/2ZYrusYPQXg/hqdefault.jpg',
+    youtubeId: '2ZYrusYPQXg',
+    tag: 'Day 2 Highlights',
+  },
+  {
+    id: 'vaal26-vid-9',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 3 (Morning Plenary)",
+    description: 'Day 3 morning plenary connecting Vaal youth with accredited bursaries and industry partners.',
+    duration: '02:58:15',
+    thumbnail: 'https://img.youtube.com/vi/R729tF5dkF4/hqdefault.jpg',
+    youtubeId: 'R729tF5dkF4',
+    tag: 'Day 3 Morning',
+  },
+  {
+    id: 'vaal26-vid-10',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 3 (Afternoon Session)",
+    description: 'Day 3 afternoon broadcast covering enterprise funding, pitching preparation, and sector insights.',
+    duration: '03:08:22',
+    thumbnail: 'https://img.youtube.com/vi/tb18dXD3lOA/hqdefault.jpg',
+    youtubeId: 'tb18dXD3lOA',
+    tag: 'Day 3 Afternoon',
+  },
+  {
+    id: 'vaal26-vid-11',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 4 (Full Day Broadcast)",
+    description: 'Day 4 live broadcast featuring deep-dive technical masterclasses, recruiter panels, and youth mentoring.',
+    duration: '02:53:48',
+    thumbnail: 'https://img.youtube.com/vi/aUDQ03GMUIQ/hqdefault.jpg',
+    youtubeId: 'aUDQ03GMUIQ',
+    tag: 'Day 4 Full Day',
+  },
+  {
+    id: 'vaal26-vid-12',
+    title: "EmpowaYouth Week Vaal' 2026 — Day 5 (Grand Finale)",
+    description: 'Day 5 grand finale live broadcast — pitching competition winners, certificate awards, and celebrations.',
+    duration: '06:20:14',
+    thumbnail: 'https://img.youtube.com/vi/WY8PxcydrmY/hqdefault.jpg',
+    youtubeId: 'WY8PxcydrmY',
+    tag: 'Day 5 Grand Finale',
+  },
+];
 
 export const galleriesData: GalleryEdition[] = [
   // ==========================================
-  // 1. ORANGE FARM – 2023
+  // 1. VAAL – 2026
+  // ==========================================
+  {
+    id: 'vaal-2026',
+    slug: 'vaal-2026',
+    title: 'EmpowaYouth Week',
+    edition: 'Vaal – 2026',
+    year: 2026,
+    location: 'Vaal, Gauteng',
+    partner: 'Vaal Regional & Industry Stakeholders',
+    badge: 'Latest Edition 2026',
+    headline: '5 Days of Live Impact, Enterprise Pitching, and Accredited Skills Pathways',
+    description:
+      'The 2026 edition of EmpowaYouth Week in the Vaal united youth with direct access to industry captains, skills bursaries, entrepreneurship funding battles, and live masterclasses. Watch the complete multi-hour livestream recordings from every single day of the week below.',
+    heroImage: 'https://img.youtube.com/vi/WY8PxcydrmY/hqdefault.jpg',
+    playlistUrl: 'https://www.youtube.com/playlist?list=PLCw2jEjBGMr3TcoMxl0XiwqRjCWrhhBOg',
+    stats: [
+      { label: 'Broadcast Days', value: '5 Days' },
+      { label: 'Live Stream Hours', value: '27+ Hours' },
+      { label: 'Broadcast Sessions', value: '12 Streams' },
+      { label: 'Grand Finale Run', value: '6h 20m' },
+    ],
+    videos: vaal2026Videos,
+    images: [],
+  },
+  // ==========================================
+  // 2. ORANGE FARM – 2023
   // ==========================================
   {
     id: 'orange-farm-2023',
