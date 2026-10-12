@@ -254,7 +254,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team & Voices Section */}
-      <section className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] pt-[clamp(80px,9vw,112px)]" id="voices">
+      <section className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] py-[clamp(80px,9vw,112px)]" id="voices">
         <div className="mx-auto max-w-[var(--pt-container)] px-[var(--pt-container-pad)]">
           <div className="flex flex-col justify-between gap-6 border-b-2 border-[var(--pt-light-divider)] pb-8 md:flex-row md:items-end">
             <div>
