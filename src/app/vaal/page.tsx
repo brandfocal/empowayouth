@@ -209,7 +209,7 @@ export default function VaalEmpowaYouthWeekPage() {
       name: 'Simphiwe Masiza',
       role: 'Founder & Executive Producer, Empowaworx',
       topic: 'Economic Engineering & National Power Shift',
-      imageUrl: '/images/about-hero-leaders.jpg',
+      imageUrl: '/team/simphiwe-masiza.jpg',
       bio: 'Architect of EmpowaYouth, EmpowaWomen, and EmpowaEntrepreneurs. Wits and GIBS alumnus who turns vision into measurable economic velocity.',
     },
     {
@@ -971,7 +971,7 @@ export default function VaalEmpowaYouthWeekPage() {
             <div className="rounded-3xl border border-white/15 bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-10 flex flex-col sm:flex-row gap-6 items-start">
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/50">
                 <img
-                  src="/images/about-hero-leaders.jpg"
+                  src="/team/simphiwe-masiza.jpg"
                   alt="Simphiwe Masiza"
                   className="w-full h-full object-cover object-top"
                 />

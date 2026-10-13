@@ -49,46 +49,28 @@ const ecosystemItems = [
 
 const teamMembers = [
   {
-    name: 'Thabo Nkosi',
-    role: 'Co-Founder & CEO',
-    bio: 'Builds partnerships that turn youth ambition into durable pathways.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=400&auto=format&fit=crop&face',
+    name: 'Simphiwe Masiza',
+    role: 'Founder & Executive Producer',
+    bio: 'Architect of the EmpowaYouth movement, turning youth ambition into durable economic velocity.',
+    imageUrl: '/team/simphiwe-masiza.jpg',
   },
   {
-    name: 'Lerato Dlamini',
-    role: 'Director of Programmes',
-    bio: 'Designs programmes that meet young people where momentum begins.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&auto=format&fit=crop',
+    name: 'Anita Tirkey',
+    role: 'Team Member',
+    bio: 'Dedicated to empowering South African youth and driving impactful initiatives.',
+    imageUrl: '/team/Anita-Tirkey.jpg',
   },
   {
-    name: 'Sipho Mokoena',
-    role: 'Head of Partnerships',
-    bio: 'Connects business, government, and community around shared delivery.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop',
+    name: 'Bonnie Maponya',
+    role: 'Team Member',
+    bio: 'Committed to youth development, economic inclusion, and community transformation.',
+    imageUrl: '/team/Bonnie-Maponya.jpg',
   },
   {
-    name: 'Amara Osei',
-    role: 'Creative Director',
-    bio: 'Shapes the stories, stages, and visual language of the movement.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop',
-  },
-  {
-    name: 'Zinhle Khumalo',
-    role: 'Head of Impact & Research',
-    bio: 'Tracks what works and translates evidence into better opportunity.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=400&auto=format&fit=crop',
-  },
-  {
-    name: 'Kagiso Sithole',
-    role: 'Events & Activations Lead',
-    bio: 'Turns gatherings into catalysts for confidence, access, and action.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&auto=format&fit=crop',
+    name: 'Carshiefa Sissing',
+    role: 'Team Member',
+    bio: 'Passionate about skills alignment, enterprise building, and sustainable youth pathways.',
+    imageUrl: '/team/Carshiefa-Sissing.jpg',
   },
 ];
 
@@ -273,7 +255,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid max-w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 lg:gap-8">
+          <div className="mt-10 grid max-w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {teamMembers.map((member) => (
               <article
                 key={member.name}
