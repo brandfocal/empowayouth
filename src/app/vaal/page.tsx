@@ -48,7 +48,7 @@ export default function VaalEmpowaYouthWeekPage() {
   const [partnerSubmitted, setPartnerSubmitted] = useState(false);
   const [sponsorSubmitted, setSponsorSubmitted] = useState(false);
 
-  // Form input states
+  // Form input states (matching CMS registration fields)
   const [delegateForm, setDelegateForm] = useState({
     firstName: '',
     lastName: '',
@@ -109,7 +109,7 @@ export default function VaalEmpowaYouthWeekPage() {
     });
   };
 
-  // 5-Day Programme Data
+  // 5-Day Programme Data (Exact sectors and focus from CMS link)
   const programmeDays = [
     {
       day: 1,
@@ -117,17 +117,18 @@ export default function VaalEmpowaYouthWeekPage() {
       sector: 'Health, Wellness & The Care Economy',
       theme: 'Healing the Economy: Careers in Care, Health & Humanity',
       icon: HeartPulse,
-      accentColor: 'from-rose-500/20 to-orange-500/10 border-rose-500/30 text-rose-400',
       tag: 'Care Economy',
       powerStatement:
-        'Health is the new wealth. The Care Economy is a trillion-dollar global sector waiting for Africa’s next generation of healers, innovators, and human-first entrepreneurs.',
+        'Health is the new wealth, and the Care Economy is a trillion-dollar global sector waiting for Africa’s next generation of healers, innovators, and human-first entrepreneurs.',
+      summary:
+        'Launching scalable careers in preventative care, mental health services, longevity science, wellness tech, and professional caregiving, sectors rapidly expanding across Africa.',
       outcomes: [
-        'Healthcare Career Fast-Track: Direct pipelines into nursing, sports science, trauma support, and occupational wellness.',
-        'Mental Health Enterprise Labs: Transforming community wellness into scalable, fundable youth-led initiatives.',
-        'Wellness Tech Incubator: Exposure to mobile diagnostics, triage software, and community healthtech disruptors.',
-        'Direct Executive Access: Mentorship sessions with private hospital leaders, medical foundations, and health NGOs.',
+        'Healthcare Career Fast-Track: Direct pathways into medicine, nursing, physiotherapy, sports science, and occupational therapy.',
+        'Mental Health Enterprise Labs: Turning mental wellness into a scalable business opportunity.',
+        'Wellness Tech Incubator: Exposure to startups disrupting healthcare with apps, wearables, and AI.',
+        'Industry Access: Networking with CEOs, medical specialists, NGO leaders, and private hospital executives.',
       ],
-      targetAudience: 'Life sciences graduates, community health workers, psychology students, and wellness innovators.',
+      targetAudience: 'Life sciences graduates, pre-med students, community health workers, and wellness innovators.',
     },
     {
       day: 2,
@@ -135,17 +136,18 @@ export default function VaalEmpowaYouthWeekPage() {
       sector: 'AI, Digital Economy & Deep Tech',
       theme: 'Code the Future: AI, Innovation & the 4IR Workforce',
       icon: Cpu,
-      accentColor: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/30 text-cyan-400',
       tag: 'Digital & AI',
       powerStatement:
         'The 4th Industrial Revolution will not wait for Africa. We either write the code, or we get coded out of the future.',
+      summary:
+        'Unlocking the 4IR by fuelling youth-led innovation in fintech, automation, data science, cybersecurity, platform technologies, and digital infrastructure. This is the new backbone of productivity.',
       outcomes: [
-        'Live Hackathon Arena: Solving township logistics, micro-payment routing, and community health bottlenecks.',
-        'Fintech Power Sessions: Face-to-face engagements with South Africa’s leading retail and neo-banking disruptors.',
-        'Next-Gen Tech Diagnostics: Skills testing in cybersecurity, cloud infrastructure, full-stack dev, and data analysis.',
-        'AI in Enterprise Masterclass: How early-stage founders leverage automated AI models to accelerate customer retention.',
+        'Live AI Coding Arenas: Youth coding real-world solutions in fintech, logistics, and health.',
+        'Fintech Power Sessions: Meeting the banks, digital lenders, and payment disruptors.',
+        'Next-Gen Careers: Cybersecurity, data science, cloud architecture, blockchain innovation.',
+        'AI in Business Masterclass: From predictive analytics to automated customer engagement.',
       ],
-      targetAudience: 'Self-taught coders, STEM graduates, digital creatives, data analysts, and tech startup founders.',
+      targetAudience: 'Self-taught coders, STEM graduates, digital creatives, data analysts, and tech founders.',
     },
     {
       day: 3,
@@ -153,15 +155,16 @@ export default function VaalEmpowaYouthWeekPage() {
       sector: 'Creative & Film Economy',
       theme: 'Frame the Future: Youth in Film, Content & Storytelling',
       icon: Film,
-      accentColor: 'from-amber-500/20 to-orange-500/10 border-amber-500/30 text-amber-400',
       tag: 'Creative IP',
       powerStatement:
         'Whoever owns the story owns the culture. Whoever owns the IP owns the wealth. Turning African content into commercial capital.',
+      summary:
+        'Monetising Africa’s cultural capital. Empowering storytellers, digital creators, filmmakers, animators, game developers, and designers to build scalable IP and creative enterprise, turning content into capital.',
       outcomes: [
-        'Content Monetisation & IP Rights: Masterclasses on copyright law, streaming royalties, licensing, and sync publishing.',
-        'Hands-On Production Labs: Live camera rigging, spatial audio mixing, animation pipelines, and colour grading workshops.',
-        'Creator-to-CEO Roadmaps: Structuring personal brands into scalable production agencies and commercial studios.',
-        'Studio & Streamer Immersion: Direct portfolio pitches to streaming commissioning editors and broadcast executives.',
+        'Content Monetisation Workshops: How to make your art pay, and keep the rights.',
+        'Production Labs: Film, sound, animation, editing, hands-on, real-time creation.',
+        'Creator-to-CEO Roadmap: Building brands that attract global audiences and buyers.',
+        'Industry Immersion: Networking with streaming giants, production houses, and ad agencies.',
       ],
       targetAudience: 'Filmmakers, writers, animators, digital creators, sound engineers, actors, and media entrepreneurs.',
     },
@@ -169,17 +172,18 @@ export default function VaalEmpowaYouthWeekPage() {
       day: 4,
       badge: 'Day 04',
       sector: 'Green Economy, Sustainability & AgriTech',
-      theme: 'Regenerate: Green Jobs, Agribusiness & Circular Economics',
+      theme: 'Regenerate: Green Jobs, Agribusiness & the Circular Economy',
       icon: Leaf,
-      accentColor: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-400',
       tag: 'Green Economy',
       powerStatement:
-        'The climate crisis is our challenge; green enterprise is our economic answer. Risk transformed into lasting resilience.',
+        'Climate crisis is the challenge, green enterprise is the answer. The future belongs to those who can grow, build, and innovate sustainably.',
+      summary:
+        'Mobilising youth to lead climate solutions, from smart agriculture and waste-to-energy ventures to circular economy models and renewable tech. This is risk transformed into economic resilience.',
       outcomes: [
-        'Urban Farming Innovations: Precision hydroponics, vertical farming, and commercial crop scaling in township spaces.',
-        'Climate Innovation Labs: Practical career pathways into solar installation, recycling economics, and waste-to-energy.',
-        'Agri-Processing Value Chains: Moving from raw harvest into commercial packaging, distribution, and retail supply.',
-        'Circular Economy Blueprint: Sustainable business models turning industrial by-products into high-value consumer products.',
+        'Urban Farming Hackathons: Food security meets entrepreneurship.',
+        'Climate Innovation Labs: Waste-to-energy, green construction, and eco-engineering.',
+        'Agri-Processing Value Chains: Turning local produce into global products.',
+        'Circular Economy Blueprint: Monetising sustainability in every industry.',
       ],
       targetAudience: 'Emerging farmers, green engineers, environmental graduates, and sustainability innovators.',
     },
@@ -189,75 +193,86 @@ export default function VaalEmpowaYouthWeekPage() {
       sector: 'Entrepreneurship, Funding & Innovation Ecosystems',
       theme: 'Fund the Future: From Hustle to High-Growth Startups',
       icon: DollarSign,
-      accentColor: 'from-yellow-500/20 to-orange-500/10 border-yellow-500/30 text-yellow-400',
       tag: 'Deal Room & Funding',
       powerStatement:
-        'Hustle is not enough. To win in today’s economy, youth founders need systems, scalability, and serious growth capital.',
+        'Hustle is not enough. To win, you need systems, scale, and serious capital.',
+      summary:
+        'Creating a national deal flow of fundable youth-led businesses. From pitch stages to ESD pipelines and VC showcases, this is where real money meets real solutions, and youth founders scale their vision.',
       outcomes: [
-        'Live Dragons’ Den Pitch Stage: Shortlisted youth enterprises pitch before corporate ESD executives and angel investors.',
-        'Investor Readiness Bootcamp: Financial auditing, pitch deck perfection, and compliance verification clinics.',
-        'Corporate ESD Deal Room: Instant procurement matching between township suppliers and major corporate supply chains.',
-        'Grand Finale Awards: Recognition of standout innovators, placement announcements, and bursary awards.',
+        'Investor Readiness Bootcamp: Perfect your pitch and land the cheque.',
+        'Startup Clinics: Legal, branding, and growth hacking for early-stage ventures.',
+        'VC & Angel Network Access: Meet the funders who can accelerate your idea.',
+        'Township-to-Global Case Studies: Real stories of entrepreneurs who scaled beyond borders.',
       ],
       targetAudience: 'Township entrepreneurs, early-stage founders, informal business operators, and innovators ready to scale.',
     },
   ];
 
-  // 5-Part Pre-Summit Masterclass Labs
+  // 5-Part Pre-Summit Masterclass Power Labs (From CMS link)
   const masterclasses = [
     {
       number: '01',
-      title: 'Health & Care Economy Masterclass',
-      sector: 'Healthcare, Nursing & Wellness Innovations',
-      highlight: 'Navigating Accreditation, Private Sector Pipelines & Healthtech',
+      title: 'Health, Wellness & the Care Economy',
+      sector: 'Healing the Economy: Careers in Care, Health & Humanity',
+      powerStatement:
+        'Health is the new wealth, and the Care Economy is a trillion-dollar global sector waiting for Africa’s next generation of healers, innovators, and human-first entrepreneurs.',
       bullets: [
-        'Navigating healthcare procurement and accredited paramedic & nursing pathways',
-        'Commercializing community mental health & wellness digital solutions',
-        'Direct fireside dialogue with provincial health officials and private clinic directors',
+        'Healthcare Career Fast-Track: Direct pathways into medicine, nursing, physiotherapy, sports science, and occupational therapy',
+        'Mental Health Enterprise Labs: Turning mental wellness into a scalable business opportunity',
+        'Wellness Tech Incubator: Exposure to startups disrupting healthcare with apps, wearables, and AI',
+        'Industry Access: Networking with CEOs, medical specialists, NGO leaders, and private hospital executives',
       ],
     },
     {
       number: '02',
-      title: 'Digital Economy & AI Masterclass',
-      sector: 'Cybersecurity, Cloud & Artificial Intelligence',
-      highlight: 'From Coding Scripts to Commercial SaaS Software',
+      title: 'AI, Tech & the Digital Economy',
+      sector: 'Code the Future: AI, Innovation & the 4IR Workforce',
+      powerStatement:
+        'The 4th Industrial Revolution will not wait for Africa. We either write the code, or we get coded out of the future.',
       bullets: [
-        'Building scalable software solutions for township and SME operational hurdles',
-        'Accelerating entry into high-paying remote global technology jobs',
-        'Hands-on portfolio code audits with senior fintech software architects',
+        'Live AI Coding Arenas: Youth coding real-world solutions in fintech, logistics, and health',
+        'Fintech Power Sessions: Meeting the banks, digital lenders, and payment disruptors',
+        'Next-Gen Careers: Cybersecurity, data science, cloud architecture, blockchain innovation',
+        'AI in Business Masterclass: From predictive analytics to automated customer engagement',
       ],
     },
     {
       number: '03',
-      title: 'Creative Economy Masterclass',
-      sector: 'Film, Streaming, Audio & Intellectual Property',
-      highlight: 'Protecting Copyright & Unlocking Commercial Sync Licensing',
+      title: 'Film, Media & the Creative Economy',
+      sector: 'Frame the Future: Youth in Film, Content & Storytelling',
+      powerStatement:
+        'Whoever owns the story owns the culture. Whoever owns the IP owns the wealth.',
       bullets: [
-        'Structuring music publishing, streaming splits, and film distribution contracts',
-        'Pitching original film concepts to major broadcasters and video-on-demand networks',
-        'Accessing provincial film grants and international co-production subsidies',
+        'Content Monetisation Workshops: How to make your art pay, and keep the rights',
+        'Production Labs: Film, sound, animation, editing, hands-on, real-time creation',
+        'Creator-to-CEO Roadmap: Building brands that attract global audiences and buyers',
+        'Industry Immersion: Networking with streaming giants, production houses, and ad agencies',
       ],
     },
     {
       number: '04',
-      title: 'Green Economy & AgriTech Masterclass',
-      sector: 'Sustainable Energy, Hydroponics & Circular Enterprise',
-      highlight: 'Precision Agriculture, Solar Micro-Grids & Carbon Markets',
+      title: 'Green Economy, Sustainability & AgriTech',
+      sector: 'Regenerate: Green Jobs, Agribusiness & the Circular Economy',
+      powerStatement:
+        'Climate crisis is the challenge, green enterprise is the answer. The future belongs to those who can grow, build, and innovate sustainably.',
       bullets: [
-        'Financial models for rooftop solar and independent energy service cooperatives',
-        'Securing commercial retail supply contracts with major supermarket brands',
-        'Accessing climate resilience grants and blended development funding',
+        'Urban Farming Hackathons: Food security meets entrepreneurship',
+        'Climate Innovation Labs: Waste-to-energy, green construction, and eco-engineering',
+        'Agri-Processing Value Chains: Turning local produce into global products',
+        'Circular Economy Blueprint: Monetising sustainability in every industry',
       ],
     },
     {
       number: '05',
-      title: 'Funding & Enterprise Scaling Masterclass',
-      sector: 'ESD, Venture Capital & Corporate Procurement',
-      highlight: 'Pitch Deck Precision, Tax Compliance & Investor Term Sheets',
+      title: 'Entrepreneurship, Funding & Innovation Ecosystems',
+      sector: 'Fund the Future: From Hustle to High-Growth Startups',
+      powerStatement:
+        'Hustle is not enough. To win, you need systems, scale, and serious capital.',
       bullets: [
-        'De-risking early-stage businesses to qualify for corporate ESD supplier pipelines',
-        'Navigating corporate B-BBEE Scorecard budgets and grant allocation criteria',
-        '1-on-1 legal compliance and company registry review with chartered accountants',
+        'Investor Readiness Bootcamp: Perfect your pitch and land the cheque',
+        'Startup Clinics: Legal, branding, and growth hacking for early-stage ventures',
+        'VC & Angel Network Access: Meet the funders who can accelerate your idea',
+        'Township-to-Global Case Studies: Real stories of entrepreneurs who scaled beyond borders',
       ],
     },
   ];
@@ -322,7 +337,6 @@ export default function VaalEmpowaYouthWeekPage() {
           className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.4)_0%,rgba(11,15,14,0.65)_35%,rgba(11,15,14,0.92)_70%,rgba(11,15,14,1)_100%)]"
           aria-hidden="true"
         />
-        {/* Subtle decorative radial glow */}
         <div
           className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,131,42,0.18)_0%,transparent_70%)] pointer-events-none z-[2]"
           aria-hidden="true"
@@ -332,7 +346,7 @@ export default function VaalEmpowaYouthWeekPage() {
           {/* Eyebrow Kicker */}
           <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
             <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
-            <span>Upcoming Flagship Activation &bull; Sebokeng Zone 14</span>
+            <span>Flagship Regional Activation &bull; Sebokeng, Zone 14</span>
           </p>
 
           {/* Main Display Headline */}
@@ -348,11 +362,12 @@ export default function VaalEmpowaYouthWeekPage() {
             </span>
           </h1>
 
+          {/* Editorial Subtitle (Direct from CMS source) */}
           <p className="mt-6 max-w-2xl text-[16px] sm:text-[18px] font-normal leading-[1.7] text-[rgba(244,240,232,0.85)] [text-wrap:pretty]">
-            Not an event — a national economic reset. A catalytic ecosystem uniting 10,000+ ambitious young South Africans with corporate boardrooms, accredited skills pipelines, Dragons’ Den funding, and verified job offers across five high-growth frontiers.
+            EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
           </p>
 
-          {/* Quick Specifications Strip (Glassmorphic Bar - NO DATES) */}
+          {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.65)] p-5 backdrop-blur-md">
             <div className="flex flex-col">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
@@ -370,17 +385,17 @@ export default function VaalEmpowaYouthWeekPage() {
             </div>
             <div className="flex flex-col">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Attendance
+                <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Attendance
               </span>
-              <strong className="text-sm font-bold text-white">10,000+ Delegates</strong>
+              <strong className="text-sm font-bold text-white">10,000+ Youth</strong>
               <span className="text-xs text-[var(--pt-muted)]">2,000+ Youth Daily</span>
             </div>
             <div className="flex flex-col">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Profile
+                <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
               </span>
               <strong className="text-sm font-bold text-white">NEET &amp; Graduates</strong>
-              <span className="text-xs text-[var(--pt-muted)]">Founders &amp; Jobseekers</span>
+              <span className="text-xs text-[var(--pt-muted)]">Jobseekers &amp; Founders</span>
             </div>
           </div>
 
@@ -391,7 +406,7 @@ export default function VaalEmpowaYouthWeekPage() {
               onClick={() => setActiveFormTab('delegate')}
               className="ey-button ey-button-dark-filled inline-flex items-center justify-center gap-2"
             >
-              <span>1. Register Free Pass</span>
+              <span>1. Register Free Delegate Pass</span>
               <ArrowRight className="h-4 w-4" />
             </a>
 
@@ -415,7 +430,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 2. PROVEN TRACK RECORD / STATS STRIP (KEY STATS BANNER)  */}
+      {/* 2. PROVEN TRACK RECORD / STATS STRIP (FROM CMS SOURCE)   */}
       {/* ======================================================== */}
       <section className="border-b border-[rgba(244,240,232,0.08)] bg-[#070a09] py-12 px-[var(--pt-container-pad)]">
         <div className="mx-auto max-w-[var(--pt-container)]">
@@ -425,7 +440,7 @@ export default function VaalEmpowaYouthWeekPage() {
               <span>Proven Power to Deliver &bull; Auditable National Track Record</span>
             </p>
             <span className="text-xs text-[var(--pt-muted)] tracking-wider">
-              Empowering 8 Provinces &bull; 10+ Years Rewriting the Youth Economy
+              Empowering 8 Provinces &bull; Engineering Scalable, Auditable Outcomes
             </span>
           </div>
 
@@ -435,10 +450,10 @@ export default function VaalEmpowaYouthWeekPage() {
                 198,000<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
-                Youth Reached Nationally
+                Youth Reached
               </p>
               <p className="mt-1 text-[11px] text-[var(--pt-muted)]">
-                Townships &amp; peri-urban areas activated
+                Mobilised across 8 provinces
               </p>
             </div>
 
@@ -450,7 +465,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 Direct Job Placements
               </p>
               <p className="mt-1 text-[11px] text-[var(--pt-muted)]">
-                Signed employment contracts with vetted partners
+                Verified placements with vetted employers
               </p>
             </div>
 
@@ -459,10 +474,10 @@ export default function VaalEmpowaYouthWeekPage() {
                 150<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
-                Enterprises Funded
+                Township Enterprises Funded
               </p>
               <p className="mt-1 text-[11px] text-[var(--pt-muted)]">
-                Non-dilutive seed grants &amp; corporate ESD deals
+                Seed capital, mentorship &amp; ESD integration
               </p>
             </div>
 
@@ -474,7 +489,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 Accredited Skills Certifications
               </p>
               <p className="mt-1 text-[11px] text-[var(--pt-muted)]">
-                SETA &amp; industry-endorsed qualifications
+                Sector-aligned qualifications delivered
               </p>
             </div>
           </div>
@@ -502,22 +517,22 @@ export default function VaalEmpowaYouthWeekPage() {
               </h2>
             </div>
             <p className="text-[16px] font-normal leading-[1.7] text-[var(--pt-muted)] md:max-w-[420px]">
-              Where industrial heritage meets urgent youth opportunity. Breaking the geographic barriers of inequality.
+              Why the Vaal? Why now? Transforming abandoned potential into a generation of skilled, employed, and entrepreneurial young South Africans.
             </p>
           </div>
 
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-            {/* Left Column: Context, Narrative & Founder Quote */}
+            {/* Left Column: Context, Narrative & Founder Quote (From CMS link) */}
             <div className="lg:col-span-7">
               <p className="text-[17px] leading-[1.75] text-[#2c3834] [text-wrap:pretty]">
-                In the Vaal region, where youth unemployment sits stubbornly above <strong className="text-[var(--pt-ink)] font-extrabold">41%</strong> and specific township wards endure joblessness exceeding <strong className="text-[var(--pt-accent)] font-extrabold">90%</strong>, we are not addressing a conventional social gap — we are confronting an economic state of emergency.
+                In the Vaal, where unemployment sits above <strong className="text-[var(--pt-ink)] font-extrabold">41%</strong> and some communities endure joblessness exceeding <strong className="text-[var(--pt-accent)] font-extrabold">90%</strong>, we are not facing a standard challenge — we are in an economic state of emergency. EmpowaYouth exists to flip the script, transforming abandoned potential into a generation of skilled, employed, and entrepreneurial young South Africans who will drive the nation’s economic future.
               </p>
 
               <p className="mt-4 text-[16px] leading-[1.75] text-[#475751] [text-wrap:pretty]">
-                Once the industrial manufacturing backbone of South Africa, the Vaal region has weathered decades of factory closures, broken corporate pipelines, and structural neglect. Yet within Sebokeng, Sharpeville, Evaton, and Boipatong reside thousands of ambitious graduates, artisans, and self-taught coders ready to power national re-industrialisation.
+                Once a manufacturing powerhouse, the Vaal has been hit by industrial decline, disinvestment, and broken talent pipelines. But this crisis is also a once-in-a-generation opportunity. In every unemployed graduate, every unlinked artisan, and every disconnected coder lies untapped human capital capable of fuelling sector growth, driving innovation, and generating profitability.
               </p>
 
-              {/* Founder Quote Card */}
+              {/* Founder Quote Card (Exact from CMS link) */}
               <div className="mt-8 rounded-2xl border-l-4 border-l-[var(--pt-accent)] border border-[rgba(11,15,14,0.08)] bg-[#f9f7f2] p-6 sm:p-7 shadow-sm">
                 <p className="text-base sm:text-lg font-medium italic leading-relaxed text-[var(--pt-ink)]">
                   &ldquo;This is not about speeches, it’s about economic engineering in real time. Every job secured, every enterprise funded, every skill certified is a direct step towards rebuilding South Africa’s economic future.&rdquo;
@@ -541,41 +556,41 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
               </div>
 
-              {/* 4 Pillars of Transformation */}
+              {/* 4 Pillars of Transformation (Exact from CMS link lines 293-304) */}
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
                   <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Pillar 1: Talent Mobilisation
+                    Youth
                   </span>
                   <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Activating township talent through verified platforms and high-stakes market access, bypassing empty awareness slogans.
+                    Activating their potential through real platforms, not empty promises.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
                   <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Pillar 2: Direct Employment
+                    Jobs
                   </span>
                   <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Connecting young jobseekers into verified employment, learnerships, and apprenticeships across the 5 core focus industries.
+                    Placing young people into meaningful employment across sectors, industries, and regions.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
                   <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Pillar 3: Enterprise Funding
+                    Township Enterprises
                   </span>
                   <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Deploying non-dilutive seed funding, ESD supplier integration, and commercial mentorship into township founders.
+                    Backing youth-led businesses with capital, mentorship, and market access to scale where it matters most.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
                   <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Pillar 4: Accredited Skills
+                    Accredited Skills Certifications
                   </span>
                   <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Delivering certified masterclasses and practical digital toolkits that make delegates immediately employable.
+                    Equipping unemployed youth and graduates with the tools to enter, thrive, and lead in the economy of tomorrow.
                   </p>
                 </div>
               </div>
@@ -591,7 +606,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   How We Rewrite the Economic Script
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--pt-muted)]">
-                  A high-velocity delivery model engineered to eliminate friction between unemployed graduates, township enterprises, corporate boardrooms, and funding authorities.
+                  What began as a one-day jobs summit in Orange Farm has evolved into the country’s most formidable youth economic force, mobilising hundreds of thousands of young people, funding township enterprises, and delivering scalable skills pipelines.
                 </p>
 
                 <ul className="mt-6 space-y-4">
@@ -599,28 +614,28 @@ export default function VaalEmpowaYouthWeekPage() {
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
                     <div>
                       <strong className="block text-sm text-white">Live On-Site Recruitment</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Corporate HR and recruiters interview delegates and extend employment offers on-site.</span>
+                      <span className="text-xs text-[var(--pt-muted)]">Direct transactions, contracts, and employment offers delivered on the ground.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
                     <div>
-                      <strong className="block text-sm text-white">Dragons’ Den Deal Room</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Township SMMEs pitch directly for non-dilutive grant funding and supplier contracts.</span>
+                      <strong className="block text-sm text-white">Live Pitch Stages &amp; Deal Room</strong>
+                      <span className="text-xs text-[var(--pt-muted)]">Youth enterprises go head-to-head, securing venture capital, ESD funding, and market partnerships.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
                     <div>
-                      <strong className="block text-sm text-white">Accredited Practical Credentials</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Delegates earn verified micro-credentials that directly elevate CV employability.</span>
+                      <strong className="block text-sm text-white">Sector-Aligned Skills Pipelines</strong>
+                      <span className="text-xs text-[var(--pt-muted)]">Certified qualifications that directly meet the demands of the future economy.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
                     <div>
-                      <strong className="block text-sm text-white">Auditable B-BBEE Compliance</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Corporate sponsors receive verifiable socio-economic development documentation.</span>
+                      <strong className="block text-sm text-white">Auditable B-BBEE &amp; ESD Returns</strong>
+                      <span className="text-xs text-[var(--pt-muted)]">Verifiable socio-economic development documentation and corporate impact evidence.</span>
                     </div>
                   </li>
                 </ul>
@@ -647,7 +662,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 4. THE 5-DAY PROGRAMME: INTERACTIVE SECTOR FRONTIERS     */}
+      {/* 4. THE 5-DAY PROGRAMME: FIVE DAYS. FIVE INDUSTRIES.      */}
       {/* ======================================================== */}
       <section
         id="programme"
@@ -658,16 +673,16 @@ export default function VaalEmpowaYouthWeekPage() {
             <div>
               <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
                 <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
-                <span>02 / The Summit Programme</span>
+                <span>02 / Programme Highlights</span>
               </p>
               <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
-                <span>Five Days. Five Sectors. </span>
-                <span className="ey-heading-italic">One Reset</span>
+                <span>Five Days. Five Industries. </span>
+                <span className="ey-heading-italic">One National Reset</span>
                 <span>.</span>
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[var(--pt-muted)] max-w-md">
-              Each day is a standalone economic summit dedicated to South Africa’s highest-potential sectors. Select a day below to explore.
+              Sebokeng becomes South Africa’s most powerful marketplace of opportunity, directly connecting more than 10,000 youth to jobs, funding, training, and supplier networks across the five fastest-growing economic sectors.
             </p>
           </div>
 
@@ -701,10 +716,10 @@ export default function VaalEmpowaYouthWeekPage() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                   <span className="rounded-full bg-[var(--pt-accent)]/20 border border-[var(--pt-accent)]/40 px-3.5 py-1 text-xs font-extrabold uppercase text-[var(--pt-accent)]">
-                    {currentDayData.badge} &bull; Full-Day Focus
+                    {currentDayData.badge} &bull; Sector Activation
                   </span>
                   <span className="text-xs font-semibold text-[var(--pt-muted)]">
-                    08:00 – 15:00 Daily &bull; Koinonia Bible Church
+                    08:00 – 15:00 Daily &bull; Koinonia Bible Church, Sebokeng
                   </span>
                 </div>
 
@@ -713,6 +728,10 @@ export default function VaalEmpowaYouthWeekPage() {
                 </h3>
                 <p className="mt-2 text-base sm:text-lg font-semibold text-[var(--pt-accent)]">
                   {currentDayData.theme}
+                </p>
+
+                <p className="mt-3 text-sm leading-relaxed text-[var(--pt-paper)]/80">
+                  {currentDayData.summary}
                 </p>
 
                 <div className="my-6 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-6">
@@ -725,7 +744,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
 
                 <h4 className="text-xs font-extrabold uppercase tracking-widest text-[var(--pt-muted)] mb-3">
-                  Key Outcomes &amp; Core Activities
+                  Key Outcomes &amp; Activities
                 </h4>
                 <ul className="space-y-3.5">
                   {currentDayData.outcomes.map((outcome, idx) => (
@@ -742,7 +761,7 @@ export default function VaalEmpowaYouthWeekPage() {
               {/* Right Column: Delegate Specs & Fast Track CTA */}
               <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-6 sm:p-8">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)]">
-                  Target Demographic
+                  Target Audience
                 </span>
                 <p className="mt-2 text-sm font-semibold text-white leading-relaxed">
                   {currentDayData.targetAudience}
@@ -750,24 +769,24 @@ export default function VaalEmpowaYouthWeekPage() {
 
                 <div className="mt-6 border-t border-[rgba(244,240,232,0.1)] pt-6">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-muted)]">
-                    What Delegates Walk Away With:
+                    Live Economic Activation:
                   </span>
                   <ul className="mt-3 space-y-2.5 text-xs text-[rgba(244,240,232,0.8)]">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[var(--pt-accent)] shrink-0" />
+                      <span>Direct on-site employment interviews &amp; CV submission</span>
+                    </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[var(--pt-accent)] shrink-0" />
                       <span>Accredited certificate of participation</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[var(--pt-accent)] shrink-0" />
-                      <span>Direct CV submission into partner employer pipelines</span>
+                      <span>Live pitch stages, bursary pools &amp; seed capital access</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[var(--pt-accent)] shrink-0" />
-                      <span>1-on-1 mentorship with industry executives</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-[var(--pt-accent)] shrink-0" />
-                      <span>Eligibility for seed funding &amp; bursary pools</span>
+                      <span>Direct networking with C-Suite executives &amp; industry mentors</span>
                     </li>
                   </ul>
                 </div>
@@ -797,7 +816,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 5. ANATOMY OF THE EXPERIENCE: BENTO GRID ARCHITECTURE    */}
+      {/* 5. 5 CORE DELIVERY PILLARS (EXACT FROM CMS LINK)         */}
       {/* ======================================================== */}
       <section className="py-20 sm:py-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#090d0c]">
         <div className="mx-auto max-w-[var(--pt-container)]">
@@ -813,12 +832,12 @@ export default function VaalEmpowaYouthWeekPage() {
               <span>.</span>
             </h2>
             <p className="mt-4 text-sm sm:text-base text-[var(--pt-muted)]">
-              Multi-dimensional touchpoints engineered to convert inspiration into measurable economic output.
+              Where innovation meets access, and opportunity becomes tangible. Every day is a live economic activation — transactions, contracts, and employment offers delivered on the ground.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Bento Card 1 */}
+            {/* Bento Card 1 (CMS lines 305-307) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -826,16 +845,15 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">01</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Dialogue &amp; Policy
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">100+ Power Panels</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                100+ Power Panels &amp; Sector Dialogues
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Engage directly with national Ministers, corporate CEOs, trailblazing founders, and policy architects in high-stakes conversations across ten critical sectors.
+                Engage directly with Ministers, CEOs, trailblazing Founders, and Policy Architects in high-stakes conversations that shape policy, unlock markets, and redefine the youth economy across ten critical sectors.
               </p>
             </article>
 
-            {/* Bento Card 2 */}
+            {/* Bento Card 2 (CMS lines 308-310) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -843,16 +861,15 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">02</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Interactive Immersion
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">40+ Experiential Demo Labs</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                40+ Experiential Zones
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Step into interactive technology sandboxes, coding hubs, drone piloting demos, agricultural rigs, and artisan skills accelerators.
+                Step into the future through interactive Demo Labs, real-time Skills Accelerators, Employment Hubs, and Startup Showcases, where innovation meets access, and opportunity becomes tangible.
               </p>
             </article>
 
-            {/* Bento Card 3 */}
+            {/* Bento Card 3 (CMS lines 311-313) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -860,16 +877,15 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">03</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Ecosystem Scale
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">200+ Partners Activated</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                200+ Strategic Partners Activated
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Major banks, SETAs, multinational employers, provincial departments, and venture funds deliver on-site bursaries, jobs, and mentorship.
+                Corporates, government, funders, and ecosystem builders deliver live opportunities, from job placements and bursaries to enterprise funding, mentorship, ESD integration, and digital upskilling.
               </p>
             </article>
 
-            {/* Bento Card 4 */}
+            {/* Bento Card 4 (CMS lines 317-319) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -877,16 +893,15 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">04</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Venture Capital
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">Pitch Stages &amp; Deal Room</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                Pitch Stages &amp; Deal Room
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Township enterprises go head-to-head on live pitch stages, competing for equity-free seed grants and corporate supply chain onboarding contracts.
+                High-growth youth enterprises go head-to-head on dedicated Pitch Stages, securing investment, incubation, and visibility from corporate ESD executives and venture funds.
               </p>
             </article>
 
-            {/* Bento Card 5 */}
+            {/* Bento Card 5 (CMS lines 317-319) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -894,16 +909,15 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">05</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Recruitment Matching
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">Career Clinics &amp; HR Pods</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                Career Clinics &amp; HR Pods
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                One-on-one resume diagnostics, professional headshot studio, live mock interviews, and instant recruitment talent matching.
+                Career Clinics connect job-seeking youth with top HR leaders, recruiters, and mentors for personalised, actionable pathways to employment, CV reviews, and live hiring matches.
               </p>
             </article>
 
-            {/* Bento Card 6 */}
+            {/* Bento Card 6 (CMS lines 314-316) */}
             <article className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center justify-between mb-5">
                 <div className="h-12 w-12 rounded-xl bg-[var(--pt-accent)]/15 border border-[var(--pt-accent)]/30 flex items-center justify-center text-[var(--pt-accent)]">
@@ -911,12 +925,11 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">06</span>
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                Youth Identity
-              </span>
-              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">Live Creative Immersion</h3>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                Live Performances &amp; Cultural Immersions
+              </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Leading cultural luminaries, spoken word artists, and sonic pioneers ignite the main stage, turning creative identity into collective pride.
+                South Africa’s top artists, storytellers, and cultural icons come alive on stage, amplifying youth identity, creativity, and voice, transforming inspiration into activation.
               </p>
             </article>
           </div>
@@ -924,7 +937,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 6. PRE-SUMMIT MASTERCLASS LABS (PRE-SUMMIT COHORTS)      */}
+      {/* 6. PRE-SUMMIT MASTERCLASS LABS (EXACT FROM CMS LINK)     */}
       {/* ======================================================== */}
       <section
         id="masterclass"
@@ -934,35 +947,35 @@ export default function VaalEmpowaYouthWeekPage() {
           <div className="mb-12">
             <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
               <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
-              <span>04 / Pre-Summit Cohorts</span>
+              <span>04 / Pre-Summit Power Labs</span>
             </p>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
                 <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
                   <span>Five Power Labs. </span>
-                  <span className="ey-heading-italic">Specialized Tracks</span>
+                  <span className="ey-heading-italic">Five Sectors</span>
                   <span>.</span>
                 </h2>
                 <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-xl">
-                  Intensive preparatory cohorts arming delegates with deep technical skills and immediate executive access.
+                  One Mission: Build the Workforce That Will Own the Future. These are power labs designed to plug youth directly into high-growth industries, equip them with skills that pay, and connect them to decision-makers.
                 </p>
               </div>
 
-              {/* Masterclass Specs Pill */}
+              {/* Masterclass Specs Pill (CMS lines 338-354 - NO CALENDAR DATES) */}
               <div className="flex flex-wrap items-center gap-4 bg-[rgba(244,240,232,0.04)] border border-[rgba(244,240,232,0.1)] rounded-2xl p-4 text-xs">
                 <div>
-                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Intake</span>
+                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Audience</span>
                   <strong className="font-bold text-white">100 Youth / Session</strong>
                 </div>
                 <div className="w-px h-8 bg-white/10" />
                 <div>
-                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Daily Timing</span>
+                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Time</span>
                   <strong className="font-bold text-white">10:00 – 13:00</strong>
                 </div>
                 <div className="w-px h-8 bg-white/10" />
                 <div>
                   <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Format</span>
-                  <strong className="font-bold text-white">Hybrid Live &amp; Stream</strong>
+                  <strong className="font-bold text-white">Hybrid (Live &amp; Stream)</strong>
                 </div>
               </div>
             </div>
@@ -977,17 +990,20 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-extrabold text-[var(--pt-accent)]">
-                      LAB #{mc.number}
+                      POWER LAB #{mc.number}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-paper)]/70 bg-white/5 px-2.5 py-1 rounded">
-                      {mc.sector}
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] bg-[var(--pt-accent)]/10 border border-[var(--pt-accent)]/30 px-2.5 py-1 rounded">
+                      Specialized Cohort
                     </span>
                   </div>
                   <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-1">
                     {mc.title}
                   </h3>
-                  <p className="text-xs font-medium text-[var(--pt-accent)] mb-4">
-                    {mc.highlight}
+                  <p className="text-xs font-semibold text-[var(--pt-accent)] mb-3">
+                    {mc.sector}
+                  </p>
+                  <p className="text-xs italic leading-relaxed text-[var(--pt-paper)]/75 mb-4 border-l-2 border-[var(--pt-accent)] pl-3">
+                    &ldquo;{mc.powerStatement}&rdquo;
                   </p>
 
                   <ul className="space-y-2.5 text-xs text-[rgba(244,240,232,0.85)] border-t border-[rgba(244,240,232,0.1)] pt-4">
@@ -1017,7 +1033,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 7. LEADERSHIP & KEYNOTE VOICES (WITH EXPANDING ACCORDION) */}
+      {/* 7. LEADERSHIP & KEYNOTE VOICES (SIMPHIWE MASIZA & ACCORDION) */}
       {/* ======================================================== */}
       <section
         id="leadership"
@@ -1031,20 +1047,19 @@ export default function VaalEmpowaYouthWeekPage() {
               <span>05 / Leadership &amp; Keynote Voices</span>
             </p>
             <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
-              <span>Architects of the </span>
+              <span>Architect of the </span>
               <span className="ey-heading-italic">Movement</span>
               <span>.</span>
             </h2>
             <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-xl">
-              Meet the executive leadership guiding Vaal EmpowaYouth Week alongside distinguished keynote voices who champion South Africa’s youth economy.
+              Executive leadership guiding Vaal EmpowaYouth Week alongside distinguished keynote voices who champion South Africa’s youth economy.
             </p>
           </div>
 
-          {/* Core Executive Leadership Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {/* Simphiwe Masiza */}
-            <article className="group relative rounded-3xl border border-[rgba(244,240,232,0.12)] bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-10 flex flex-col sm:flex-row gap-6 items-start transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/60">
+          {/* Simphiwe Masiza Executive Card (Exact bio from CMS link lines 545-548) */}
+          <div className="mb-16 max-w-4xl">
+            <article className="group relative rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-start shadow-2xl transition-all duration-300 hover:border-[var(--pt-accent)]/50">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/70 shadow-lg">
                 <img
                   src="/team/simphiwe-masiza.jpg"
                   alt="Simphiwe Masiza"
@@ -1052,38 +1067,20 @@ export default function VaalEmpowaYouthWeekPage() {
                 />
               </div>
               <div className="relative">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
                   Founder &amp; Executive Producer
                 </span>
-                <h3 className="text-2xl font-extrabold uppercase text-[var(--pt-paper)] mt-1">
+                <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-[var(--pt-paper)] mt-1.5">
                   Simphiwe Masiza
                 </h3>
-                <p className="text-xs text-white/60 mb-3">Empowaworx &bull; The Speakers Firm</p>
-                <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                  Visionary architect of EmpowaYouth, EmpowaWomen, and EmpowaEntrepreneurs. Wits and GIBS alumnus who turns vision into measurable economic velocity. Redefining how nations mobilize young people, capital, and market systems.
+                <p className="text-xs text-[var(--pt-accent)] mb-4 font-semibold">
+                  Founder &amp; CEO, Empowaworx &bull; The Speakers Firm
                 </p>
-              </div>
-            </article>
-
-            {/* Mbali Mavuso */}
-            <article className="group relative rounded-3xl border border-[rgba(244,240,232,0.12)] bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-10 flex flex-col sm:flex-row gap-6 items-start transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/60">
-                <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop"
-                  alt="Mbali Mavuso"
-                  className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="relative">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
-                  Lead Event Manager &bull; Programme Director
-                </span>
-                <h3 className="text-2xl font-extrabold uppercase text-[var(--pt-paper)] mt-1">
-                  Mbali Mavuso
-                </h3>
-                <p className="text-xs text-white/60 mb-3">Vaal EmpowaYouth Week</p>
-                <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                  Powerhouse strategist with over a decade of scaled national activations for Eskom 49M, TOTAL CSI, and Tiger Brands. Turns logistical precision into unforgettable experiences that inspire action and unlock corporate sponsorship value.
+                <p className="text-sm leading-relaxed text-[var(--pt-paper)]/85 mb-3">
+                  Simphiwe Masiza is the visionary Founder and CEO of Empowaworx and The Speakers Firm — two powerhouse brands at the forefront of South Africa’s integrated marketing, reputation leadership, and impact ecosystem. As the architect of groundbreaking platforms like EmpowaYouth, EmpowaWomen, and EmpowaEntrepreneurs, he is redefining how nations mobilize people, capital, and ideas for lasting transformation.
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--pt-muted)]">
+                  A sought-after international keynote speaker, author, and trailblazing entrepreneur, Simphiwe is known for turning vision into velocity. Armed with academic excellence from WITS and GIBS, his platforms fuel opportunity, unlock capital, and engineer inclusive economic growth.
                 </p>
               </div>
             </article>
@@ -1238,7 +1235,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 8. PARTNERSHIP & SPONSORSHIP OPPORTUNITIES (VALUE PROPS) */}
+      {/* 8. PARTNERSHIP & SPONSORSHIP (EXACT TEXT FROM CMS LINK)  */}
       {/* ======================================================== */}
       <section
         id="partner-opportunities"
@@ -1256,12 +1253,12 @@ export default function VaalEmpowaYouthWeekPage() {
               <span>?</span>
             </h2>
             <p className="mt-4 text-sm sm:text-base text-[var(--pt-muted)] leading-relaxed">
-              This is not a charitable event sponsorship. It is a strategic acquisition of influence, auditable compliance value, and direct talent access in South Africa’s highest-velocity transformation engine.
+              This is not an invitation to sponsor an event; it is a catalytic engine of national transformation. A high-impact economic activation designed to bridge township youth into the future economy.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-            {/* Value Prop 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+            {/* Value Prop 1 (Exact from CMS line 321) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 01
@@ -1270,33 +1267,46 @@ export default function VaalEmpowaYouthWeekPage() {
                 Strategic ESG, CSI &amp; ESD Impact
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Deliver auditable B-BBEE scorecard contributions in enterprise development, socio-economic investment, and skills training. Receive verified evidence packs for job creation and community upliftment.
+                Deliver measurable, mission-aligned transformation where it matters most, in youth employment, enterprise development, and inclusive economic growth. This is not a tick-box exercise. It is high-return, high-visibility impact that directly advances your Environmental, Social &amp; Governance (ESG) priorities, fulfils your Corporate Social Investment (CSI) objectives, and maximises Enterprise and Supplier Development (ESD) scorecard contributions.
               </p>
             </article>
 
-            {/* Value Prop 2 */}
+            {/* Value Prop 2 (Exact from CMS line 323) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 02
               </div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-3">
-                Pipeline Tomorrow’s Workforce
+                Build the Workforce of the Future
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Access thousands of vetted, enthusiastic, future-ready graduates, artisans, and tech specialists. Pre-screen delegates on the ground for corporate internships, learnerships, and permanent placements.
+                From AI engineers and digital storytellers to skilled artisans and data analysts, this is where tomorrow’s workforce is discovered, shaped, and deployed at scale. Be first in line to access, mentor, and pipeline exceptional young talent into your organisation and sector, ensuring you’re not just meeting future skills demand, but owning the competitive edge in the talent economy.
               </p>
             </article>
 
-            {/* Value Prop 3 */}
+            {/* Value Prop 3 (Exact from CMS line 326) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 03
               </div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-3">
-                Unrivalled National Brand Authority
+                Unrivalled Brand Reach &amp; Stakeholder Engagement
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Position your leadership alongside national Ministers, provincial dignitaries, and 10,000+ energized youth delegates. High-frequency media broadcast across TV, radio, print, and digital platforms.
+                Position your organisation in front of national ministers, policy architects, investors, funders, and a dynamic youth market ready to engage. Across every touchpoint — media, government, civil society, and community, your brand leads the conversation.
+              </p>
+            </article>
+
+            {/* Value Prop 4 (Exact from CMS line 329) */}
+            <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
+              <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
+                04
+              </div>
+              <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-3">
+                Purpose-Led Transformation with Legacy Returns
+              </h3>
+              <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
+                This is not charity. This is not compliance. This is catalytic transformation with your brand as the architect, powering real lives, shifting economic systems, and leaving a legacy built on scale, substance, and national relevance.
               </p>
             </article>
           </div>
@@ -1306,7 +1316,7 @@ export default function VaalEmpowaYouthWeekPage() {
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="w-8 h-px bg-[var(--pt-accent)]" />
               <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-muted)]">
-                Trusted by 200+ Brand Partners Across South Africa
+                Trusted by 200+ Strategic Partners Across South Africa
               </p>
               <span className="w-8 h-px bg-[var(--pt-accent)]" />
             </div>
@@ -1316,17 +1326,17 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 9. BROADCAST & NATIONAL MEDIA AMPLIFICATION STRIP        */}
+      {/* 9. BROADCAST & NATIONAL MEDIA AMPLIFICATION (FROM CMS)   */}
       {/* ======================================================== */}
       <section className="py-14 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#070a09]">
         <div className="mx-auto max-w-[var(--pt-container)]">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-1">
-                National Broadcast Spotlight
+                National Media Spotlight
               </p>
               <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
-                Amplified Across South Africa’s Premier News Networks
+                Covered Across South Africa’s Premier News &amp; Radio Networks
               </h3>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-white/80">
@@ -1337,6 +1347,7 @@ export default function VaalEmpowaYouthWeekPage() {
               <span className="rounded-lg border border-white/10 bg-white/5 px-3.5 py-2">RADIO 2000</span>
               <span className="rounded-lg border border-white/10 bg-white/5 px-3.5 py-2">702</span>
               <span className="rounded-lg border border-white/10 bg-white/5 px-3.5 py-2">YFM</span>
+              <span className="rounded-lg border border-white/10 bg-white/5 px-3.5 py-2">JOZI FM</span>
             </div>
           </div>
         </div>
@@ -1360,7 +1371,7 @@ export default function VaalEmpowaYouthWeekPage() {
               <span>.</span>
             </h2>
             <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-lg mx-auto">
-              Select your track below to register for a free delegate pass, partner as an employer, or enquire about corporate ESD sponsorship.
+              Whether your mission is to secure personal employment, hire exceptional young talent, or deploy high-impact ESD &amp; CSI funding, register your intention below.
             </p>
           </div>
 
@@ -1375,7 +1386,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   : 'text-[var(--pt-paper)]/70 hover:text-white'
               }`}
             >
-              1. Youth Delegate
+              1. Delegate Registration
             </button>
             <button
               type="button"
@@ -1386,7 +1397,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   : 'text-[var(--pt-paper)]/70 hover:text-white'
               }`}
             >
-              2. Corporate Partner
+              2. Partner Registration
             </button>
             <button
               type="button"
@@ -1397,11 +1408,11 @@ export default function VaalEmpowaYouthWeekPage() {
                   : 'text-[var(--pt-paper)]/70 hover:text-white'
               }`}
             >
-              3. Sponsor &amp; Fund
+              3. Sponsorship &amp; Funding
             </button>
           </div>
 
-          {/* TAB 1: YOUTH DELEGATE REGISTRATION */}
+          {/* TAB 1: YOUTH DELEGATE REGISTRATION (Exact fields from CMS lines 84-215) */}
           {activeFormTab === 'delegate' && (
             <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 shadow-2xl">
               {delegateSubmitted ? (
@@ -1411,22 +1422,22 @@ export default function VaalEmpowaYouthWeekPage() {
                   </div>
                   <h3 className="text-2xl font-extrabold uppercase text-white">Delegate Registration Received!</h3>
                   <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you, {delegateForm.firstName || 'Delegate'}. Your pass for Vaal EmpowaYouth Week has been recorded. Our team will contact you with admission passes, transport pickup points, and schedule updates.
+                    Thank you, {delegateForm.firstName || 'Delegate'}. Your free pass for Vaal EmpowaYouth Week has been recorded. Our team will contact you with admission confirmation, transport pickup points, and schedule updates.
                   </p>
                   <button
                     type="button"
                     onClick={() => setDelegateSubmitted(false)}
                     className="mt-6 rounded-lg border border-white/20 px-6 py-2.5 text-xs font-bold uppercase text-white hover:bg-white/10 cursor-pointer"
                   >
-                    Submit Another Delegate
+                    Submit Another Registration
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleDelegateSubmit} className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">Free Delegate Registration</h3>
+                    <h3 className="text-xl font-extrabold uppercase text-white">Delegate Registration</h3>
                     <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Free admission for NEET youth, matriculants, graduates, artisans, and emerging founders.
+                      Free admission for NEET youth, unemployed graduates, job seekers, entrepreneurs, and matriculants.
                     </p>
                   </div>
 
@@ -1490,7 +1501,7 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Phone *
+                        Contact Number(s) *
                       </label>
                       <input
                         type="tel"
@@ -1506,7 +1517,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Township / Area of Residence *
+                        Address [Township of Residence] *
                       </label>
                       <input
                         type="text"
@@ -1519,7 +1530,7 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Gender
+                        Gender *
                       </label>
                       <select
                         value={delegateForm.gender}
@@ -1533,10 +1544,25 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                   </div>
 
-                  {/* Industry Interests */}
+                  {/* Motivation field (Direct from CMS line 103) */}
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                      In 50 words tell us why you want to attend EmpowaYouth Week *
+                    </label>
+                    <textarea
+                      rows={2}
+                      required
+                      placeholder="Tell us about your background, career ambition, or business goals..."
+                      value={delegateForm.motivation}
+                      onChange={(e) => setDelegateForm({ ...delegateForm, motivation: e.target.value })}
+                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                    />
+                  </div>
+
+                  {/* Industry Interests (Direct from CMS line 129) */}
                   <div>
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-2">
-                      Sectors of Interest (Select up to 3)
+                      Which industries are you most interested in? * (Choose up to 3)
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {[
@@ -1572,11 +1598,41 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                   </div>
 
+                  {/* Entrepreneurship Questions (Direct from CMS lines 165-198) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                        Are you an entrepreneur? *
+                      </label>
+                      <select
+                        value={delegateForm.isEntrepreneur}
+                        onChange={(e) => setDelegateForm({ ...delegateForm, isEntrepreneur: e.target.value })}
+                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                      >
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
+                        Is your company registered? *
+                      </label>
+                      <select
+                        value={delegateForm.isRegistered}
+                        onChange={(e) => setDelegateForm({ ...delegateForm, isRegistered: e.target.value })}
+                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                      >
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <button
                     type="submit"
                     className="ey-button ey-button-dark-filled w-full text-center py-4 flex items-center justify-center gap-2"
                   >
-                    <span>Complete Free Delegate Registration</span>
+                    <span>Submit Free Delegate Registration</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </form>
@@ -1584,7 +1640,7 @@ export default function VaalEmpowaYouthWeekPage() {
             </div>
           )}
 
-          {/* TAB 2: CORPORATE PARTNER / EMPLOYER FORM */}
+          {/* TAB 2: CORPORATE PARTNER REGISTRATION */}
           {activeFormTab === 'partner' && (
             <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 shadow-2xl">
               {partnerSubmitted ? (
@@ -1592,9 +1648,9 @@ export default function VaalEmpowaYouthWeekPage() {
                   <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-5">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-2xl font-extrabold uppercase text-white">Partner Enquiry Received!</h3>
+                  <h3 className="text-2xl font-extrabold uppercase text-white">Partner Registration Received!</h3>
                   <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you. Mbali Mavuso and the Empowaworx team will reach out within 24 hours with the corporate exhibition prospectus, talent matchmaking specs, and floorplan.
+                    Thank you, {partnerForm.contactName || 'Partner'}. Your partnership expression has been received. Our coordination team will reach out within 24 hours with the exhibition floorplan, employer onboarding pack, and sector options.
                   </p>
                   <button
                     type="button"
@@ -1607,9 +1663,9 @@ export default function VaalEmpowaYouthWeekPage() {
               ) : (
                 <form onSubmit={handlePartnerSubmit} className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">Corporate &amp; Employer Partnership</h3>
+                    <h3 className="text-xl font-extrabold uppercase text-white">Partnership Registration</h3>
                     <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Activate on-site recruitment pods, exhibition stands, or headline sector power panels.
+                      Join South Africa’s leading employers, bold funders, and ecosystem builders to turn vision into measurable economic change.
                     </p>
                   </div>
 
@@ -1629,7 +1685,7 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Key Contact Name *
+                        Key Contact Person *
                       </label>
                       <input
                         type="text"
@@ -1658,7 +1714,7 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Phone Number *
+                        Contact Phone *
                       </label>
                       <input
                         type="tel"
@@ -1723,7 +1779,7 @@ export default function VaalEmpowaYouthWeekPage() {
                     type="submit"
                     className="ey-button ey-button-dark-filled w-full text-center py-4 flex items-center justify-center gap-2"
                   >
-                    <span>Submit Employer Partnership Request</span>
+                    <span>Submit Partner Registration</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </form>
@@ -1741,7 +1797,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   </div>
                   <h3 className="text-2xl font-extrabold uppercase text-white">Sponsorship Prospectus Dispatched</h3>
                   <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you, {sponsorForm.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza. The official B-BBEE ESD, CSI, and branding sponsorship tiers pack will be delivered to your inbox shortly.
+                    Thank you, {sponsorForm.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza and the EmpowaYouth sponsorship desk. The official B-BBEE ESD, CSI, and branding tiers pack will be delivered to your inbox shortly.
                   </p>
                   <button
                     type="button"
@@ -1756,7 +1812,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   <div>
                     <h3 className="text-xl font-extrabold uppercase text-white">Sponsorship &amp; ESD Funding Desk</h3>
                     <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Direct capital, enterprise supplier development, and CSI contributions into verifiable township impact.
+                      Direct capital, enterprise supplier development, and CSI contributions into verifiable township transformation.
                     </p>
                   </div>
 
@@ -1881,7 +1937,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 11. DIRECT COORDINATION DESK & VENUE DIRECTORY           */}
+      {/* 11. DIRECT COORDINATION DESK & VENUE DIRECTORY (FROM CMS) */}
       {/* ======================================================== */}
       <section className="py-20 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#060807]">
         <div className="mx-auto max-w-[var(--pt-container)]">
@@ -1901,9 +1957,9 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                   <div className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-5">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                      Programme Lead &bull; Event Operations
+                      Event Operations &bull; Media &amp; Partnerships
                     </span>
-                    <strong className="text-white text-sm block">Mbali Mavuso</strong>
+                    <strong className="text-white text-sm block">Empowaworx Team</strong>
                     <div className="mt-2.5 space-y-1.5 text-[rgba(244,240,232,0.75)]">
                       <p className="flex items-center gap-2">
                         <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
@@ -1911,11 +1967,11 @@ export default function VaalEmpowaYouthWeekPage() {
                       </p>
                       <p className="flex items-center gap-2">
                         <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="tel:+27728821840" className="hover:text-white transition">+27 (0) 72 882 1840</a>
+                        <a href="tel:+27728221840" className="hover:text-white transition">+27 72 822 1840</a>
                       </p>
                       <p className="flex items-center gap-2">
                         <Mail className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="mailto:mbali@empowaworx.co.za" className="hover:text-white transition">mbali@empowaworx.co.za</a>
+                        <a href="mailto:info@empowayouth.co.za" className="hover:text-white transition">info@empowayouth.co.za</a>
                       </p>
                     </div>
                   </div>
@@ -1928,11 +1984,11 @@ export default function VaalEmpowaYouthWeekPage() {
                     <div className="mt-2.5 space-y-1.5 text-[rgba(244,240,232,0.75)]">
                       <p className="flex items-center gap-2">
                         <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <span>364 Pine Avenue, Ferndale, Randburg</span>
+                        <span>364 Pine Avenue, Ferndale, Randburg, 2196</span>
                       </p>
                       <p className="flex items-center gap-2">
                         <Mail className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="mailto:info@empowayouth.co.za" className="hover:text-white transition">info@empowayouth.co.za</a>
+                        <a href="mailto:info@empowaworx.co.za" className="hover:text-white transition">info@empowaworx.co.za</a>
                       </p>
                       <p className="flex items-center gap-2">
                         <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
@@ -1959,7 +2015,7 @@ export default function VaalEmpowaYouthWeekPage() {
                   Partner With Us
                 </a>
                 <a
-                  href="mailto:mbali@empowaworx.co.za?subject=Vaal%20EmpowaYouth%20Week%20Sponsorship%20Enquiry"
+                  href="mailto:info@empowayouth.co.za?subject=Vaal%20EmpowaYouth%20Week%20Sponsorship%20Enquiry"
                   className="w-full text-center rounded-md border border-white/20 bg-white/5 py-3.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] hover:bg-white/10 transition"
                 >
                   Email Sponsorship Desk
