@@ -16,6 +16,7 @@ export const defaultNavItems: NavItem[] = [
   { label: 'Impact', href: '/impact' },
   { label: 'Media & Insights', href: '/media' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Vaal Week', href: '/vaal' },
   { label: 'Partner With Us', href: '/partner' },
   { label: 'Take Action', href: '/action' },
   { label: 'Contact Us', href: '/contact' },

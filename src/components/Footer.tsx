@@ -19,6 +19,7 @@ export const defaultFooterColumns: FooterColumn[] = [
     links: [
       { id: 'our-story', label: 'Our Story', href: '/#pillars' },
       { id: 'team', label: 'Team', href: '/#pillars' },
+      { id: 'vaal-week', label: 'Vaal EmpowaYouth Week', href: '/vaal' },
       { id: 'partners', label: 'Partner With Us', href: '/partner' },
       { id: 'impact', label: 'Impact', href: '/impact' },
       { id: 'gallery', label: 'Gallery', href: '/gallery' },
