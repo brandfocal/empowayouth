@@ -56,19 +56,19 @@ const teamMembers = [
   },
   {
     name: 'Anita Tirkey',
-    role: 'Team Member',
+    role: 'Speaker & Programme Lead',
     bio: 'Dedicated to empowering South African youth and driving impactful initiatives.',
     imageUrl: '/team/Anita-Tirkey.jpg',
   },
   {
     name: 'Bonnie Maponya',
-    role: 'Team Member',
+    role: 'Acting Managing Executive',
     bio: 'Committed to youth development, economic inclusion, and community transformation.',
     imageUrl: '/team/Bonnie-Maponya.jpg',
   },
   {
     name: 'Carshiefa Sissing',
-    role: 'Team Member',
+    role: 'Digital & Audience Growth Lead',
     bio: 'Passionate about skills alignment, enterprise building, and sustainable youth pathways.',
     imageUrl: '/team/Carshiefa-Sissing.jpg',
   },
