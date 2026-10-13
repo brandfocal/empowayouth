@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import {
   ArrowRight,
   CheckCircle2,
@@ -215,47 +214,43 @@ export default function VaalEmpowaYouthWeekPage() {
     },
   ];
 
-  // Real Youth Beneficiaries & Testimonials from the official CMS
-  const youthTestimonials = [
-    {
-      name: 'Amanda Ncoza',
-      township: 'Drieziek Extension 2, Orange Farm',
-      role: 'Founder, Amanda Ncoza Bakery',
-      badge: 'Township Enterprise',
-      image: '/images/youth/Amanda-Ncoza-Bakery-screenshot.jpg',
-      quote:
-        'EmpowaYouth backed my bakery with commercial baking infrastructure and supplier networks right here in the township. We went from struggling with equipment to employing four local youth full-time.',
-      outcome: '4 Permanent Township Jobs Created',
-    },
+  // Real Youth Beneficiaries & Testimonial Videos from @empowayouth YouTube channel
+  const testimonialVideos = [
     {
       name: 'Winnie Lamane',
+      role: "Owner, 'The Shack' Meat & Grill",
       township: 'Sebokeng, Zone 14',
-      role: 'Founder, The Shack Food & Hospitality',
-      badge: 'Pitch Stage Finalist',
-      image: '/images/youth/winnie-testimonial-screenshot.jpg',
-      quote:
-        'Stepping onto the EmpowaEntrepreneurs pitch stage put my business directly in front of enterprise development heads. That live session unlocked our seed capital and gave us the confidence to expand.',
+      badge: 'EmpowaEntrepreneurs Finalist',
       outcome: 'R100,000 Seed Capital & Tooling',
+      youtubeId: 'jlcnWfviNWw',
+      title: "Owner of 'The Shack' Meat & Grill, Winnie Lamane - EmpowaEntrepreneurs",
+    },
+    {
+      name: 'Amanda Ncoza',
+      role: 'Founder, Amanda Bakery',
+      township: 'Drieziek Extension 2, Orange Farm',
+      badge: 'Township Enterprise',
+      outcome: '4 Permanent Township Jobs Created',
+      youtubeId: '-h_Uie5ntjQ',
+      title: 'EYW week beneficiary Amanda Bakery',
     },
     {
       name: 'Kelebogile M.',
-      township: 'Evaton West, Vaal',
       role: 'Junior Cloud & AI Practitioner',
+      township: 'Evaton West, Vaal',
       badge: 'Tech Masterclass Alum',
-      image: '/images/youth/kelebogile-screenshot.jpg',
-      quote:
-        'I had self-taught coding skills but zero corporate visibility. The AI and digital masterclasses gave me an accredited certification and direct interviews with enterprise recruiters.',
       outcome: 'Accredited Cloud Certification & Placement',
+      youtubeId: 'L4DwCepQtC4',
+      title: 'EYW Beneficiary Keolebogile',
     },
     {
       name: 'Bonisiwe S.',
-      township: 'Orange Farm, Extension 4',
       role: 'Community Health Coordinator',
+      township: 'Orange Farm, Extension 4',
       badge: 'Care Economy Graduate',
-      image: '/images/youth/Bonisiwe-screenshot.jpg',
-      quote:
-        'Being in the marquee with thousands of ambitious peers and shaking hands with industry CEOs proved that our postcode does not define our limits. The care economy track gave me a real career pathway.',
       outcome: 'Direct Healthcare Industry Placement',
+      youtubeId: '9Z17llSEZFc',
+      title: 'EYW Beneficiary Bonisiwe',
     },
   ];
 
@@ -328,49 +323,37 @@ export default function VaalEmpowaYouthWeekPage() {
     },
   ];
 
-  // Distinguished Keynote Speakers (matching About page interactive accordion)
-  const keynoteSpeakers = [
+  // Previous Speakers (matching About page interactive accordion)
+  const previousSpeakers = [
     {
-      name: 'Asanda Luwaca',
-      role: 'Executive Chairperson, NYDA',
-      focus: 'National Youth Development Architecture',
-      imageUrl: '/past_speakers/asanda-luwaca.jpg',
-      quote: 'Empowering young South Africans requires bold institutional alignment and relentless delivery.',
+      name: 'Panyaza Lesufi',
+      role: 'Public leadership',
+      topic: 'Policy Reform',
+      imageUrl: '/past_speakers/Panyaza-Lesufi.jpg',
     },
     {
-      name: 'Tbo Touch',
-      role: 'Media Entrepreneur & Broadcaster',
-      focus: 'Creative Economy & Digital Media',
-      imageUrl: '/past_speakers/tbo-touch.jpg',
-      quote: 'The youth must stop waiting for a seat at the table and build their own industries.',
+      name: 'Somizi Mhlongo',
+      role: 'Culture & media voice',
+      topic: 'Creative Economy',
+      imageUrl: '/past_speakers/Somizi-Mhlongo.jpg',
+    },
+    {
+      name: 'Lebo M',
+      role: 'Composer & producer',
+      topic: 'Pan-African Leadership',
+      imageUrl: '/past_speakers/Lebo-M.jpg',
+    },
+    {
+      name: 'Dr. David Molapo',
+      role: 'Leadership speaker',
+      topic: 'Youth Entrepreneurship',
+      imageUrl: '/past_speakers/Dr.-David-Molapo.jpg',
     },
     {
       name: 'Prof. Tshilidzi Marwala',
-      role: 'Rector, United Nations University',
-      focus: '4IR, AI & Scientific Leadership',
-      imageUrl: '/past_speakers/prof-tshilidzi-marwala.jpg',
-      quote: 'Artificial intelligence is not the future; it is the present operating system of productivity.',
-    },
-    {
-      name: 'Dr. Maphefo Anno-Frempong',
-      role: 'CEO, TETA',
-      focus: 'Transport, Logistics & Artisanal Skills',
-      imageUrl: '/past_speakers/dr-maphefo-anno-frempong.jpg',
-      quote: 'Transport and supply chains remain the bedrock of inclusive township economic mobility.',
-    },
-    {
-      name: 'Mr. Buti Manamela',
-      role: 'Deputy Minister, Higher Education & Innovation',
-      focus: 'Technical Vocational Skills & Innovation',
-      imageUrl: '/past_speakers/mr-buti-manamela.jpg',
-      quote: 'Practical skills and technical qualifications are the most direct route to dignified employment.',
-    },
-    {
-      name: 'Bonang Mohale',
-      role: 'Chairman, The Bidvest Group',
-      focus: 'Inclusive Capitalism & Enterprise Leadership',
-      imageUrl: '/past_speakers/bonang-mohale.jpg',
-      quote: 'Business cannot be a bystander in a society defined by widespread youth exclusion.',
+      role: 'AI & innovation leader',
+      topic: 'Digital Africa',
+      imageUrl: '/past_speakers/Prof.-Tshilidzi-Marwala.jpg',
     },
   ];
 
@@ -383,139 +366,109 @@ export default function VaalEmpowaYouthWeekPage() {
       {/* ======================================================== */}
       <section
         id="hero"
-        className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-gradient-to-b from-[#0e1412] via-[#090d0c] to-[var(--pt-ink)]"
+        className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[var(--pt-ink)]"
       >
+        {/* Hero Background Image with Editorial Dark Overlay */}
+        <img
+          src="/images/youth/IMG_2727.jpg"
+          alt="Young people gathered at EmpowaYouth Week marquee"
+          className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.72)_0%,rgba(11,15,14,0.86)_40%,rgba(11,15,14,0.96)_80%,rgba(11,15,14,1)_100%)]"
+          aria-hidden="true"
+        />
+
         {/* Ambient Warm Underglow */}
         <div
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,131,42,0.2)_0%,transparent_70%)] pointer-events-none z-[2]"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,131,42,0.25)_0%,transparent_70%)] pointer-events-none z-[2]"
           aria-hidden="true"
         />
 
         <div className="relative z-[3] mx-auto w-full max-w-[var(--pt-container)]">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* Left Column: Headlines, Context & Direct Actions */}
-            <div className="lg:col-span-7">
-              {/* Eyebrow Kicker */}
-              <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
-                <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
-                <span>Flagship Regional Activation &bull; Sebokeng, Zone 14</span>
-              </p>
+          <div className="max-w-4xl">
+            {/* Eyebrow Kicker */}
+            <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
+              <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
+              <span>Flagship Regional Activation</span>
+            </p>
 
-              {/* Main Display Headline */}
-              <h1
-                id="vaal-hero-title"
-                className="text-[clamp(2.5rem,6.2vw,5.6rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-[var(--pt-paper)] [text-wrap:balance]"
-              >
-                <span>Vaal EmpowaYouth </span>
-                <span className="ey-heading-italic">Week</span>
-                <span>.</span>
-                <span className="block text-white/90 text-[clamp(1.1rem,2.2vw,1.9rem)] font-bold tracking-tight mt-3 sm:mt-4">
-                  Powering South Africa’s Youth Economy.
+            {/* Main Display Headline */}
+            <h1
+              id="vaal-hero-title"
+              className="text-[clamp(2.5rem,6.2vw,5.6rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-[var(--pt-paper)] [text-wrap:balance]"
+            >
+              <span>Vaal EmpowaYouth </span>
+              <span className="ey-heading-italic">Week</span>
+              <span>.</span>
+              <span className="block text-white/90 text-[clamp(1.1rem,2.2vw,1.9rem)] font-bold tracking-tight mt-3 sm:mt-4">
+                Powering South Africa’s Youth Economy.
+              </span>
+            </h1>
+
+            {/* Editorial Subtitle (Direct from CMS source) */}
+            <p className="mt-6 text-[16px] sm:text-[18px] font-normal leading-[1.7] text-[rgba(244,240,232,0.85)] [text-wrap:pretty] max-w-2xl">
+              EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
+            </p>
+
+            {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.7)] p-4 sm:p-5 backdrop-blur-md">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Venue
                 </span>
-              </h1>
-
-              {/* Editorial Subtitle (Direct from CMS source) */}
-              <p className="mt-6 text-[16px] sm:text-[18px] font-normal leading-[1.7] text-[rgba(244,240,232,0.85)] [text-wrap:pretty] max-w-2xl">
-                EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
-              </p>
-
-              {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.7)] p-4 sm:p-5 backdrop-blur-md">
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
-                    <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Venue
-                  </span>
-                  <strong className="text-xs sm:text-sm font-bold text-white">Koinonia Bible Church</strong>
-                  <span className="text-[11px] text-[var(--pt-muted)]">Sebokeng, Zone 14</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
-                    <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
-                  </span>
-                  <strong className="text-xs sm:text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
-                  <span className="text-[11px] text-[var(--pt-muted)]">5 Action-Packed Days</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
-                    <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Turnout
-                  </span>
-                  <strong className="text-xs sm:text-sm font-bold text-white">10,000+ Youth</strong>
-                  <span className="text-[11px] text-[var(--pt-muted)]">2,000+ Youth Daily</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
-                    <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
-                  </span>
-                  <strong className="text-xs sm:text-sm font-bold text-white">NEET &amp; Graduates</strong>
-                  <span className="text-[11px] text-[var(--pt-muted)]">Jobseekers &amp; Founders</span>
-                </div>
+                <strong className="text-xs sm:text-sm font-bold text-white">Koinonia Bible Church</strong>
+                <span className="text-[11px] text-[var(--pt-muted)]">Sebokeng, Zone 14</span>
               </div>
-
-              {/* Three Visible Action Paths */}
-              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:items-center">
-                <a
-                  href="#participate"
-                  onClick={() => setActiveFormTab('delegate')}
-                  className="ey-button ey-button-dark-filled inline-flex items-center justify-center gap-2"
-                >
-                  <span>1. Register Free Delegate Pass</span>
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-
-                <a
-                  href="#participate"
-                  onClick={() => setActiveFormTab('partner')}
-                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[var(--pt-accent)] bg-[rgba(232,131,42,0.12)] text-sm font-bold uppercase tracking-wider text-[var(--pt-accent)] transition-all duration-200 hover:bg-[var(--pt-accent)] hover:text-white"
-                >
-                  <span>2. Partner as Employer</span>
-                </a>
-
-                <a
-                  href="#participate"
-                  onClick={() => setActiveFormTab('sponsor')}
-                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[rgba(244,240,232,0.2)] bg-[rgba(244,240,232,0.05)] text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] transition-all duration-200 hover:border-white hover:bg-[rgba(244,240,232,0.12)]"
-                >
-                  <span>3. Enquire for Sponsorship</span>
-                </a>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
+                <span className="text-[11px] text-[var(--pt-muted)]">5 Action-Packed Days</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Turnout
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-white">10,000+ Youth</strong>
+                <span className="text-[11px] text-[var(--pt-muted)]">2,000+ Youth Daily</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-white">NEET &amp; Graduates</strong>
+                <span className="text-[11px] text-[var(--pt-muted)]">Jobseekers &amp; Founders</span>
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Reflecting the Youth */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#182320] to-[var(--pt-ink)] shadow-2xl group">
-                <div className="aspect-[4/5] sm:aspect-[4/4.4] w-full overflow-hidden relative">
-                  <img
-                    src="/images/youth/feature_image_26.jpg"
-                    alt="Young South Africans ready to lead the future economy at EmpowaYouth"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/25 to-black/10" />
+            {/* Three Visible Action Paths */}
+            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:items-center">
+              <a
+                href="#participate"
+                onClick={() => setActiveFormTab('delegate')}
+                className="ey-button ey-button-dark-filled inline-flex items-center justify-center gap-2"
+              >
+                <span>1. Register Free Delegate Pass</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
 
-                  {/* Floating Tag Top Right */}
-                  <div className="absolute top-4 right-4 rounded-full bg-[rgba(11,15,14,0.85)] border border-[rgba(244,240,232,0.2)] px-3.5 py-1.5 backdrop-blur-md flex items-center gap-2 shadow-lg">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[11px] font-bold text-white uppercase tracking-wider">
-                      10,000+ Young Leaders
-                    </span>
-                  </div>
+              <a
+                href="#participate"
+                onClick={() => setActiveFormTab('partner')}
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[var(--pt-accent)] bg-[rgba(232,131,42,0.12)] text-sm font-bold uppercase tracking-wider text-[var(--pt-accent)] transition-all duration-200 hover:bg-[var(--pt-accent)] hover:text-white"
+              >
+                <span>2. Partner as Employer</span>
+              </a>
 
-                  {/* Floating Bottom Card */}
-                  <div className="absolute bottom-4 inset-x-4 rounded-2xl bg-[rgba(11,15,14,0.85)] border border-[rgba(244,240,232,0.18)] p-4 sm:p-5 backdrop-blur-md shadow-xl">
-                    <p className="text-[11px] font-bold text-[var(--pt-accent)] uppercase tracking-wider">
-                      Sebokeng &bull; Zone 14 Flagship Summit
-                    </p>
-                    <p className="text-sm sm:text-base font-extrabold text-white mt-1">
-                      Powering Township Talent into Industry
-                    </p>
-                    <div className="mt-2.5 flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-white/10 text-[11px] text-[var(--pt-muted)]">
-                      <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> 100% Free Admission
-                      </span>
-                      <span className="text-white/80 font-medium">Koinonia Bible Church</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="#participate"
+                onClick={() => setActiveFormTab('sponsor')}
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[rgba(244,240,232,0.2)] bg-[rgba(244,240,232,0.05)] text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] transition-all duration-200 hover:border-white hover:bg-[rgba(244,240,232,0.12)]"
+              >
+                <span>3. Enquire for Sponsorship</span>
+              </a>
             </div>
           </div>
         </div>
@@ -529,7 +482,7 @@ export default function VaalEmpowaYouthWeekPage() {
           <div className="mb-6 flex items-center justify-between flex-wrap gap-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] flex items-center gap-2">
               <span className="w-5 h-[2px] bg-[var(--pt-accent)]" />
-              <span>Proven Power to Deliver &bull; Auditable National Track Record</span>
+              <span>Proven Power to Deliver</span>
             </p>
             <span className="text-xs text-[var(--pt-muted)] tracking-wider">
               Empowering 8 Provinces &bull; Engineering Scalable, Auditable Outcomes
@@ -632,7 +585,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div className="mt-5 flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--pt-accent)] shrink-0">
                     <img
-                      src="/images/youth/summary.jpg"
+                      src="/team/simphiwe-masiza.jpg"
                       alt="Simphiwe Masiza"
                       className="w-full h-full object-cover object-top"
                     />
@@ -714,7 +667,7 @@ export default function VaalEmpowaYouthWeekPage() {
               <div className="group relative rounded-3xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-xl bg-black">
                 <div className="aspect-[16/10] w-full overflow-hidden">
                   <img
-                    src="/images/youth/DSC_8709.jpg"
+                    src="/images/youth/DSC_5402.jpg"
                     alt="Youth delegate taking selfie with executive mentor"
                     className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
                   />
@@ -762,7 +715,6 @@ export default function VaalEmpowaYouthWeekPage() {
           {/* Interactive Day Selection Pills */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-10">
             {programmeDays.map((item) => {
-              const Icon = item.icon;
               const isSelected = activeDay === item.day;
 
               return (
@@ -784,11 +736,6 @@ export default function VaalEmpowaYouthWeekPage() {
                     >
                       {item.badge}
                     </span>
-                    <Icon
-                      className={`h-4 w-4 ${
-                        isSelected ? 'text-[var(--pt-accent)]' : 'text-[var(--pt-muted)] group-hover:text-white'
-                      }`}
-                    />
                   </div>
                   <strong className="text-xs sm:text-sm font-bold text-white line-clamp-2 uppercase">
                     {item.sector}
@@ -809,9 +756,6 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                   <span className="rounded-full bg-[var(--pt-accent)]/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] border border-[var(--pt-accent)]/30">
                     {currentDayData.badge} &bull; {currentDayData.tag}
-                  </span>
-                  <span className="text-xs font-semibold text-[var(--pt-muted)]">
-                    08:00 – 15:00 Daily &bull; Koinonia Bible Church, Sebokeng
                   </span>
                 </div>
 
@@ -864,9 +808,6 @@ export default function VaalEmpowaYouthWeekPage() {
                     <span className="rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
                       {currentDayData.tag}
                     </span>
-                    <span className="text-[11px] font-bold text-white/90 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                      Sebokeng Zone 14
-                    </span>
                   </div>
                 </div>
 
@@ -899,25 +840,6 @@ export default function VaalEmpowaYouthWeekPage() {
                       <span>Direct networking with C-Suite executives &amp; industry mentors</span>
                     </li>
                   </ul>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-[rgba(244,240,232,0.1)]">
-                  <a
-                    href="#participate"
-                    onClick={() => {
-                      setActiveFormTab('delegate');
-                      setDelegateForm((prev) => ({
-                        ...prev,
-                        industries: [currentDayData.sector],
-                      }));
-                    }}
-                    className="ey-button ey-button-dark-filled w-full text-center"
-                  >
-                    <span>Register for {currentDayData.tag}</span>
-                  </a>
-                  <p className="mt-2.5 text-center text-[10px] text-[var(--pt-muted)]">
-                    Free admission &bull; Vetted entry &bull; Koinonia Bible Church
-                  </p>
                 </div>
               </div>
             </div>
@@ -1121,9 +1043,6 @@ export default function VaalEmpowaYouthWeekPage() {
                     <span className="text-xs font-extrabold text-[var(--pt-accent)]">
                       POWER LAB {lab.number}
                     </span>
-                    <span className="text-[11px] font-semibold text-[var(--pt-muted)]">
-                      10:00 – 13:00
-                    </span>
                   </div>
                   <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-2">
                     {lab.title}
@@ -1143,23 +1062,6 @@ export default function VaalEmpowaYouthWeekPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[rgba(244,240,232,0.08)]">
-                  <a
-                    href="#participate"
-                    onClick={() => {
-                      setActiveFormTab('delegate');
-                      setDelegateForm((prev) => ({
-                        ...prev,
-                        industries: [lab.title],
-                      }));
-                    }}
-                    className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[var(--pt-accent)] hover:underline"
-                  >
-                    <span>Enrol In Lab {lab.number}</span>
-                    <ArrowRight className="h-3 w-3" />
-                  </a>
                 </div>
               </div>
             ))}
@@ -1196,7 +1098,7 @@ export default function VaalEmpowaYouthWeekPage() {
             <article className="group relative rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-start shadow-2xl transition-all duration-300 hover:border-[var(--pt-accent)]/50">
               <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/70 shadow-lg">
                 <img
-                  src="/images/youth/summary.jpg"
+                  src="/team/simphiwe-masiza.jpg"
                   alt="Simphiwe Masiza"
                   className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
                 />
@@ -1221,15 +1123,17 @@ export default function VaalEmpowaYouthWeekPage() {
             </article>
           </div>
 
-          {/* Distinguished Keynotes: Interactive Expandable Accordion */}
+          {/* Previous Speakers: Interactive Expandable Accordion */}
           <div className="pt-8 border-t border-[rgba(244,240,232,0.1)]">
             <div className="flex items-end justify-between gap-6 flex-wrap mb-6">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                  Historic Keynotes
+                  Previous Speakers
                 </span>
                 <h4 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
-                  Voices That Moved The Room
+                  <span>Voices That </span>
+                  <span className="ey-heading-italic">Moved</span>
+                  <span> The Room.</span>
                 </h4>
               </div>
               <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-[var(--pt-muted)] shrink-0 pb-1">
@@ -1238,13 +1142,13 @@ export default function VaalEmpowaYouthWeekPage() {
               </p>
             </div>
 
-            {/* Accordion Row */}
+            {/* Accordion Row: all 5 fit in the viewport across all screen sizes */}
             <div
               className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] select-none"
               role="tablist"
-              aria-label="Keynote speakers gallery"
+              aria-label="Previous speakers gallery"
             >
-              {keynoteSpeakers.map((speaker, speakerIndex) => {
+              {previousSpeakers.map((speaker, speakerIndex) => {
                 const isCurrent = currentSpeakerIndex === speakerIndex;
 
                 return (
@@ -1285,49 +1189,85 @@ export default function VaalEmpowaYouthWeekPage() {
                       className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-[rgba(11,15,14,0.35)] to-transparent pointer-events-none"
                       aria-hidden="true"
                     />
-
-                    {/* Collapsed Vertical Label */}
                     <div
-                      className={`absolute inset-0 p-3 flex flex-col justify-between items-center transition-opacity duration-300 ${
+                      className={`absolute inset-0 rounded-xl sm:rounded-2xl border transition-colors duration-300 pointer-events-none ${
+                        isCurrent
+                          ? 'border-[rgba(232,131,42,0.6)] shadow-[0_0_24px_rgba(232,131,42,0.2)]'
+                          : 'border-[rgba(244,240,232,0.08)] group-hover:border-[rgba(244,240,232,0.2)]'
+                      }`}
+                      aria-hidden="true"
+                    />
+
+                    {/* Collapsed state display (vertical name on small widths) */}
+                    <div
+                      className={`absolute inset-0 flex flex-col justify-between items-center py-3.5 sm:py-5 px-1 pointer-events-none transition-opacity duration-300 ${
                         isCurrent ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
+                      aria-hidden={isCurrent}
                     >
-                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
+                      <span className="text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)]">
                         {String(speakerIndex + 1).padStart(2, '0')}
                       </span>
-                      <span
-                        className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap"
-                        style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-                      >
+                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[rgba(244,240,232,0.7)] [writing-mode:vertical-rl] rotate-180 truncate max-h-[200px] sm:max-h-[260px]">
                         {speaker.name}
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[rgba(244,240,232,0.3)] group-hover:bg-[var(--pt-accent)] transition-colors" />
                     </div>
 
-                    {/* Expanded Content Panel */}
+                    {/* Expanded state display */}
                     <div
-                      className={`absolute bottom-0 inset-x-0 p-5 sm:p-7 flex flex-col justify-end transition-all duration-500 ${
-                        isCurrent
-                          ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-4 pointer-events-none'
+                      className={`absolute inset-0 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 pointer-events-none transition-opacity duration-300 ${
+                        isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
                       }`}
+                      aria-hidden={!isCurrent}
                     >
-                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
-                        {speaker.focus}
-                      </span>
-                      <h5 className="text-xl sm:text-2xl font-extrabold uppercase text-white tracking-tight mt-1">
-                        {speaker.name}
-                      </h5>
-                      <p className="text-xs sm:text-sm font-medium text-[rgba(244,240,232,0.85)] mt-0.5">
-                        {speaker.role}
-                      </p>
-                      <p className="mt-3 text-xs italic text-[rgba(244,240,232,0.7)] border-l-2 border-[var(--pt-accent)] pl-3 leading-relaxed hidden sm:block">
-                        &ldquo;{speaker.quote}&rdquo;
-                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)] bg-[rgba(11,15,14,0.7)] backdrop-blur-sm px-2.5 py-1 rounded-full border border-[rgba(232,131,42,0.35)]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)] animate-pulse" />
+                          <span>{String(speakerIndex + 1).padStart(2, '0')}</span>
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--pt-muted)] hidden md:inline">
+                          Featured Speaker
+                        </span>
+                      </div>
+
+                      <div>
+                        <h5 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1">
+                          {speaker.name}
+                        </h5>
+                        <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
+                          {speaker.role}
+                        </p>
+                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.8)] line-clamp-2 sm:line-clamp-3">
+                          {speaker.topic}
+                        </p>
+                      </div>
                     </div>
                   </article>
                 );
               })}
+            </div>
+
+            {/* Dots Indicator & Summary */}
+            <div className="mt-6 flex justify-between items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2" aria-label="Speaker navigation dots">
+                {previousSpeakers.map((s, i) => (
+                  <button
+                    key={s.name}
+                    type="button"
+                    onClick={() => setActiveSpeaker(i)}
+                    aria-label={`View speaker ${i + 1}: ${s.name}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentSpeakerIndex === i
+                        ? 'w-8 bg-[var(--pt-accent)]'
+                        : 'w-2 bg-[rgba(244,240,232,0.25)] hover:bg-[rgba(244,240,232,0.5)]'
+                    }`}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-[var(--pt-muted)] font-medium tracking-wider uppercase">
+                {previousSpeakers.length} Previous Keynote Voices
+              </p>
             </div>
           </div>
         </div>
@@ -1358,39 +1298,40 @@ export default function VaalEmpowaYouthWeekPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {youthTestimonials.map((youth, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {testimonialVideos.map((video) => (
               <article
-                key={idx}
-                className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-2xl"
+                key={video.youtubeId}
+                className="group relative rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl"
               >
                 <div>
-                  {/* Photo Header */}
-                  <div className="aspect-[4/3] w-full overflow-hidden relative bg-black">
-                    <img
-                      src={youth.image}
-                      alt={`${youth.name} testimonial`}
-                      className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  {/* YouTube Video Player Embed */}
+                  <div className="relative aspect-video w-full bg-black overflow-hidden">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                      title={video.title}
+                      className="absolute inset-0 w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.9)] via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-md">
-                      {youth.badge}
-                    </span>
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-lg font-extrabold uppercase text-[var(--pt-paper)]">
-                      {youth.name}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-sm">
+                        {video.badge}
+                      </span>
+                      <span className="text-[11px] text-[var(--pt-muted)] font-medium">
+                        {video.township}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-extrabold uppercase text-[var(--pt-paper)] mt-2">
+                      {video.name}
                     </h3>
                     <p className="text-xs text-[var(--pt-accent)] font-semibold mt-0.5">
-                      {youth.role}
-                    </p>
-                    <p className="text-[11px] text-[var(--pt-muted)] mb-4">
-                      {youth.township}
-                    </p>
-
-                    <p className="text-xs leading-relaxed text-[var(--pt-paper)]/85 italic border-l-2 border-[var(--pt-accent)] pl-3">
-                      &ldquo;{youth.quote}&rdquo;
+                      {video.role}
                     </p>
                   </div>
                 </div>
@@ -1398,8 +1339,8 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div className="p-6 pt-0">
                   <div className="pt-4 border-t border-[rgba(244,240,232,0.08)] flex items-center gap-2">
                     <BadgeCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span className="text-[11px] font-bold text-white/90">
-                      {youth.outcome}
+                    <span className="text-xs font-bold text-white/90">
+                      {video.outcome}
                     </span>
                   </div>
                 </div>
@@ -1588,56 +1529,9 @@ export default function VaalEmpowaYouthWeekPage() {
             </button>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            {/* Visual Invitation Side Card */}
-            <div className="lg:col-span-4 rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] p-6 overflow-hidden">
-              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-5 border border-white/10">
-                <img
-                  src="/images/youth/feature_image_27.jpg"
-                  alt="Young woman welcoming delegates to EmpowaYouth"
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                  100% Free Delegate Pass
-                </span>
-              </div>
-
-              <h4 className="text-base font-extrabold uppercase text-white mb-2">
-                Why Reserve Your Spot?
-              </h4>
-              <ul className="space-y-3 text-xs text-[rgba(244,240,232,0.8)]">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
-                  <span>Free access to 100+ C-suite keynote panels &amp; masterclasses.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
-                  <span>Direct on-site interviews with verified corporate employers.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
-                  <span>Live pitch stage entry for township founders with seed prizes.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
-                  <span>Official Certificate of Participation delivered post-event.</span>
-                </li>
-              </ul>
-
-              <div className="mt-6 p-4 rounded-xl bg-[rgba(232,131,42,0.1)] border border-[var(--pt-accent)]/30">
-                <p className="text-[11px] font-bold text-[var(--pt-accent)] uppercase">
-                  Location &amp; Entry
-                </p>
-                <p className="text-xs text-white mt-0.5 font-medium">
-                  Koinonia Bible Church &bull; Sebokeng, Zone 14
-                </p>
-              </div>
-            </div>
-
-            {/* Forms Right Column */}
-            <div className="lg:col-span-8 rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[#101715] p-8 sm:p-10 shadow-2xl">
-              {/* TAB 1: YOUTH DELEGATE FORM (EXACT FIELDS FROM CMS LINK) */}
+          {/* Forms Centered Container */}
+          <div className="max-w-3xl mx-auto rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[#101715] p-6 sm:p-10 shadow-2xl">
+            {/* TAB 1: YOUTH DELEGATE FORM (EXACT FIELDS FROM CMS LINK) */}
               {activeFormTab === 'delegate' && (
                 <div>
                   <div className="mb-6">
@@ -2151,7 +2045,6 @@ export default function VaalEmpowaYouthWeekPage() {
               )}
             </div>
           </div>
-        </div>
       </section>
 
       {/* ======================================================== */}
@@ -2235,20 +2128,6 @@ export default function VaalEmpowaYouthWeekPage() {
         </div>
       </section>
 
-      {/* ======================================================== */}
-      {/* 13. BOTTOM NAVIGATION STRIP                              */}
-      {/* ======================================================== */}
-      <div className="py-8 px-[var(--pt-container-pad)] bg-[#040605] text-center border-t border-white/5">
-        <div className="mx-auto max-w-[var(--pt-container)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--pt-muted)]">
-          <p>&copy; EmpowaYouth &bull; A Catalyst for Generational Economic Justice.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="hover:text-white transition">Home</Link>
-            <Link href="/about" className="hover:text-white transition">About Movement</Link>
-            <Link href="/offerings" className="hover:text-white transition">Interventions</Link>
-            <Link href="/contact" className="hover:text-white transition">Contact</Link>
-          </div>
-        </div>
-      </div>
     </main>
   );
 }
