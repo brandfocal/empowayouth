@@ -27,6 +27,8 @@ import {
   TrendingUp,
   Layers,
   Award,
+  Quote,
+  BadgeCheck,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
@@ -109,7 +111,7 @@ export default function VaalEmpowaYouthWeekPage() {
     });
   };
 
-  // 5-Day Programme Data (Exact sectors and focus from CMS link)
+  // 5-Day Programme Data with authentic youth images from CMS
   const programmeDays = [
     {
       day: 1,
@@ -118,6 +120,7 @@ export default function VaalEmpowaYouthWeekPage() {
       theme: 'Healing the Economy: Careers in Care, Health & Humanity',
       icon: HeartPulse,
       tag: 'Care Economy',
+      image: '/images/youth/feature_image_3.jpg',
       powerStatement:
         'Health is the new wealth, and the Care Economy is a trillion-dollar global sector waiting for Africa’s next generation of healers, innovators, and human-first entrepreneurs.',
       summary:
@@ -137,6 +140,7 @@ export default function VaalEmpowaYouthWeekPage() {
       theme: 'Code the Future: AI, Innovation & the 4IR Workforce',
       icon: Cpu,
       tag: 'Digital & AI',
+      image: '/images/youth/feature_image_10-1.jpg',
       powerStatement:
         'The 4th Industrial Revolution will not wait for Africa. We either write the code, or we get coded out of the future.',
       summary:
@@ -156,6 +160,7 @@ export default function VaalEmpowaYouthWeekPage() {
       theme: 'Frame the Future: Youth in Film, Content & Storytelling',
       icon: Film,
       tag: 'Creative IP',
+      image: '/images/youth/feature_image_17.jpg',
       powerStatement:
         'Whoever owns the story owns the culture. Whoever owns the IP owns the wealth. Turning African content into commercial capital.',
       summary:
@@ -175,6 +180,7 @@ export default function VaalEmpowaYouthWeekPage() {
       theme: 'Regenerate: Green Jobs, Agribusiness & the Circular Economy',
       icon: Leaf,
       tag: 'Green Economy',
+      image: '/images/youth/DSC_8709.jpg',
       powerStatement:
         'Climate crisis is the challenge, green enterprise is the answer. The future belongs to those who can grow, build, and innovate sustainably.',
       summary:
@@ -194,6 +200,7 @@ export default function VaalEmpowaYouthWeekPage() {
       theme: 'Fund the Future: From Hustle to High-Growth Startups',
       icon: DollarSign,
       tag: 'Deal Room & Funding',
+      image: '/images/youth/hundred-thousand.jpg',
       powerStatement:
         'Hustle is not enough. To win, you need systems, scale, and serious capital.',
       summary:
@@ -205,6 +212,50 @@ export default function VaalEmpowaYouthWeekPage() {
         'Township-to-Global Case Studies: Real stories of entrepreneurs who scaled beyond borders.',
       ],
       targetAudience: 'Township entrepreneurs, early-stage founders, informal business operators, and innovators ready to scale.',
+    },
+  ];
+
+  // Real Youth Beneficiaries & Testimonials from the official CMS
+  const youthTestimonials = [
+    {
+      name: 'Amanda Ncoza',
+      township: 'Drieziek Extension 2, Orange Farm',
+      role: 'Founder, Amanda Ncoza Bakery',
+      badge: 'Township Enterprise',
+      image: '/images/youth/Amanda-Ncoza-Bakery-screenshot.jpg',
+      quote:
+        'EmpowaYouth backed my bakery with commercial baking infrastructure and supplier networks right here in the township. We went from struggling with equipment to employing four local youth full-time.',
+      outcome: '4 Permanent Township Jobs Created',
+    },
+    {
+      name: 'Winnie Lamane',
+      township: 'Sebokeng, Zone 14',
+      role: 'Founder, The Shack Food & Hospitality',
+      badge: 'Pitch Stage Finalist',
+      image: '/images/youth/winnie-testimonial-screenshot.jpg',
+      quote:
+        'Stepping onto the EmpowaEntrepreneurs pitch stage put my business directly in front of enterprise development heads. That live session unlocked our seed capital and gave us the confidence to expand.',
+      outcome: 'R100,000 Seed Capital & Tooling',
+    },
+    {
+      name: 'Kelebogile M.',
+      township: 'Evaton West, Vaal',
+      role: 'Junior Cloud & AI Practitioner',
+      badge: 'Tech Masterclass Alum',
+      image: '/images/youth/kelebogile-screenshot.jpg',
+      quote:
+        'I had self-taught coding skills but zero corporate visibility. The AI and digital masterclasses gave me an accredited certification and direct interviews with enterprise recruiters.',
+      outcome: 'Accredited Cloud Certification & Placement',
+    },
+    {
+      name: 'Bonisiwe S.',
+      township: 'Orange Farm, Extension 4',
+      role: 'Community Health Coordinator',
+      badge: 'Care Economy Graduate',
+      image: '/images/youth/Bonisiwe-screenshot.jpg',
+      quote:
+        'Being in the marquee with thousands of ambitious peers and shaking hands with industry CEOs proved that our postcode does not define our limits. The care economy track gave me a real career pathway.',
+      outcome: 'Direct Healthcare Industry Placement',
     },
   ];
 
@@ -238,10 +289,10 @@ export default function VaalEmpowaYouthWeekPage() {
     },
     {
       number: '03',
-      title: 'Film, Media & the Creative Economy',
+      title: 'The Creative Economy & Film',
       sector: 'Frame the Future: Youth in Film, Content & Storytelling',
       powerStatement:
-        'Whoever owns the story owns the culture. Whoever owns the IP owns the wealth.',
+        'Whoever owns the story owns the culture. Whoever owns the IP owns the wealth. Turning African content into commercial capital.',
       bullets: [
         'Content Monetisation Workshops: How to make your art pay, and keep the rights',
         'Production Labs: Film, sound, animation, editing, hands-on, real-time creation',
@@ -264,7 +315,7 @@ export default function VaalEmpowaYouthWeekPage() {
     },
     {
       number: '05',
-      title: 'Entrepreneurship, Funding & Innovation Ecosystems',
+      title: 'Township Entrepreneurship & Innovation',
       sector: 'Fund the Future: From Hustle to High-Growth Startups',
       powerStatement:
         'Hustle is not enough. To win, you need systems, scale, and serious capital.',
@@ -277,154 +328,195 @@ export default function VaalEmpowaYouthWeekPage() {
     },
   ];
 
-  // Keynote Speakers for Accordion (matching About page previous speakers)
+  // Distinguished Keynote Speakers (matching About page interactive accordion)
   const keynoteSpeakers = [
     {
-      name: 'Panyaza Lesufi',
-      role: 'Public Leadership & Policy Reform',
-      topic: 'Civic Mandate & Township Economic Revitalisation',
-      imageUrl: '/past_speakers/Panyaza-Lesufi.jpg',
-      bio: 'Championing systemic institutional reforms and driving bold policy mandates that redirect economic infrastructure into township communities.',
+      name: 'Asanda Luwaca',
+      role: 'Executive Chairperson, NYDA',
+      focus: 'National Youth Development Architecture',
+      imageUrl: '/past_speakers/asanda-luwaca.jpg',
+      quote: 'Empowering young South Africans requires bold institutional alignment and relentless delivery.',
     },
     {
-      name: 'Somizi Mhlongo',
-      role: 'Culture & Creative Economy Leader',
-      topic: 'Monetising Cultural Capital & Creative Hustle',
-      imageUrl: '/past_speakers/Somizi-Mhlongo.jpg',
-      bio: 'Media titan demonstrating how authentic African cultural expression translates into multi-generational enterprise, personal brand power, and commercial equity.',
-    },
-    {
-      name: 'Lebo M',
-      role: 'Global Composer & Executive Producer',
-      topic: 'Pan-African Cultural IP & International Scale',
-      imageUrl: '/past_speakers/Lebo-M.jpg',
-      bio: 'Grammy-winning musical mastermind behind The Lion King, teaching young creatives how to safeguard intellectual property and navigate global entertainment syndication.',
-    },
-    {
-      name: 'Dr. David Molapo',
-      role: 'Leadership Architect & Author',
-      topic: 'Mindset Transformation & Enterprise Tenacity',
-      imageUrl: '/past_speakers/Dr.-David-Molapo.jpg',
-      bio: 'Internationally acclaimed motivational mentor unlocking the psychological resilience required to turn township constraints into unstoppable entrepreneurial fuel.',
+      name: 'Tbo Touch',
+      role: 'Media Entrepreneur & Broadcaster',
+      focus: 'Creative Economy & Digital Media',
+      imageUrl: '/past_speakers/tbo-touch.jpg',
+      quote: 'The youth must stop waiting for a seat at the table and build their own industries.',
     },
     {
       name: 'Prof. Tshilidzi Marwala',
-      role: 'AI & Innovation Scholar',
-      topic: 'Fourth Industrial Revolution & African Sovereignty',
-      imageUrl: '/past_speakers/Prof.-Tshilidzi-Marwala.jpg',
-      bio: 'Global AI pioneer and UN Under-Secretary-General advocating for aggressive digital workforce capability across the African continent.',
+      role: 'Rector, United Nations University',
+      focus: '4IR, AI & Scientific Leadership',
+      imageUrl: '/past_speakers/prof-tshilidzi-marwala.jpg',
+      quote: 'Artificial intelligence is not the future; it is the present operating system of productivity.',
+    },
+    {
+      name: 'Dr. Maphefo Anno-Frempong',
+      role: 'CEO, TETA',
+      focus: 'Transport, Logistics & Artisanal Skills',
+      imageUrl: '/past_speakers/dr-maphefo-anno-frempong.jpg',
+      quote: 'Transport and supply chains remain the bedrock of inclusive township economic mobility.',
+    },
+    {
+      name: 'Mr. Buti Manamela',
+      role: 'Deputy Minister, Higher Education & Innovation',
+      focus: 'Technical Vocational Skills & Innovation',
+      imageUrl: '/past_speakers/mr-buti-manamela.jpg',
+      quote: 'Practical skills and technical qualifications are the most direct route to dignified employment.',
+    },
+    {
+      name: 'Bonang Mohale',
+      role: 'Chairman, The Bidvest Group',
+      focus: 'Inclusive Capitalism & Enterprise Leadership',
+      imageUrl: '/past_speakers/bonang-mohale.jpg',
+      quote: 'Business cannot be a bystander in a society defined by widespread youth exclusion.',
     },
   ];
 
-  const currentDayData = programmeDays.find((p) => p.day === activeDay) || programmeDays[0];
+  const currentDayData = programmeDays[activeDay - 1];
 
   return (
-    <main className="max-w-full overflow-x-hidden bg-[var(--pt-ink)] text-[var(--pt-paper)]">
+    <main className="min-h-screen bg-[var(--pt-ink)] text-[var(--pt-paper)] selection:bg-[var(--pt-accent)] selection:text-white">
       {/* ======================================================== */}
-      {/* 1. HERO SECTION: ELEVATED EDITORIAL IMMERSION            */}
+      {/* 1. HERO SECTION (SPLIT EDITORIAL WITH VIBRANT YOUTH HERO) */}
       {/* ======================================================== */}
       <section
-        className="ey-about-hero relative flex max-w-full flex-col justify-end overflow-hidden bg-[var(--pt-ink)] px-[var(--pt-container-pad)] pb-[clamp(44px,7vw,84px)] pt-[clamp(112px,16vh,168px)] text-[var(--pt-paper)] border-b border-[rgba(244,240,232,0.08)]"
-        aria-labelledby="vaal-hero-title"
+        id="hero"
+        className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-gradient-to-b from-[#0e1412] via-[#090d0c] to-[var(--pt-ink)]"
       >
-        {/* Photographic background with layered gradient overlays */}
-        <img
-          src="/images/about-hero-leaders.jpg"
-          alt="EmpowaYouth Summit gathering"
-          className="absolute inset-0 z-0 h-full w-full object-cover object-top opacity-35 filter brightness-[0.7] contrast-[1.1]"
-        />
+        {/* Ambient Warm Underglow */}
         <div
-          className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.4)_0%,rgba(11,15,14,0.65)_35%,rgba(11,15,14,0.92)_70%,rgba(11,15,14,1)_100%)]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,131,42,0.18)_0%,transparent_70%)] pointer-events-none z-[2]"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,131,42,0.2)_0%,transparent_70%)] pointer-events-none z-[2]"
           aria-hidden="true"
         />
 
         <div className="relative z-[3] mx-auto w-full max-w-[var(--pt-container)]">
-          {/* Eyebrow Kicker */}
-          <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
-            <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
-            <span>Flagship Regional Activation &bull; Sebokeng, Zone 14</span>
-          </p>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* Left Column: Headlines, Context & Direct Actions */}
+            <div className="lg:col-span-7">
+              {/* Eyebrow Kicker */}
+              <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
+                <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
+                <span>Flagship Regional Activation &bull; Sebokeng, Zone 14</span>
+              </p>
 
-          {/* Main Display Headline */}
-          <h1
-            id="vaal-hero-title"
-            className="max-w-5xl text-[clamp(2.5rem,6.8vw,6.2rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-[var(--pt-paper)] [text-wrap:balance]"
-          >
-            <span>Vaal EmpowaYouth </span>
-            <span className="ey-heading-italic">Week</span>
-            <span>.</span>
-            <span className="block text-white/90 text-[clamp(1.1rem,2.4vw,2rem)] font-bold tracking-tight mt-3 sm:mt-4">
-              Powering South Africa’s Youth Economy.
-            </span>
-          </h1>
+              {/* Main Display Headline */}
+              <h1
+                id="vaal-hero-title"
+                className="text-[clamp(2.5rem,6.2vw,5.6rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em] text-[var(--pt-paper)] [text-wrap:balance]"
+              >
+                <span>Vaal EmpowaYouth </span>
+                <span className="ey-heading-italic">Week</span>
+                <span>.</span>
+                <span className="block text-white/90 text-[clamp(1.1rem,2.2vw,1.9rem)] font-bold tracking-tight mt-3 sm:mt-4">
+                  Powering South Africa’s Youth Economy.
+                </span>
+              </h1>
 
-          {/* Editorial Subtitle (Direct from CMS source) */}
-          <p className="mt-6 max-w-2xl text-[16px] sm:text-[18px] font-normal leading-[1.7] text-[rgba(244,240,232,0.85)] [text-wrap:pretty]">
-            EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
-          </p>
+              {/* Editorial Subtitle (Direct from CMS source) */}
+              <p className="mt-6 text-[16px] sm:text-[18px] font-normal leading-[1.7] text-[rgba(244,240,232,0.85)] [text-wrap:pretty] max-w-2xl">
+                EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
+              </p>
 
-          {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.65)] p-5 backdrop-blur-md">
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Venue
-              </span>
-              <strong className="text-sm font-bold text-white">Koinonia Bible Church</strong>
-              <span className="text-xs text-[var(--pt-muted)]">Sebokeng, Zone 14</span>
+              {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.7)] p-4 sm:p-5 backdrop-blur-md">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                    <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Venue
+                  </span>
+                  <strong className="text-xs sm:text-sm font-bold text-white">Koinonia Bible Church</strong>
+                  <span className="text-[11px] text-[var(--pt-muted)]">Sebokeng, Zone 14</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                    <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
+                  </span>
+                  <strong className="text-xs sm:text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
+                  <span className="text-[11px] text-[var(--pt-muted)]">5 Action-Packed Days</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                    <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Turnout
+                  </span>
+                  <strong className="text-xs sm:text-sm font-bold text-white">10,000+ Youth</strong>
+                  <span className="text-[11px] text-[var(--pt-muted)]">2,000+ Youth Daily</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                    <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
+                  </span>
+                  <strong className="text-xs sm:text-sm font-bold text-white">NEET &amp; Graduates</strong>
+                  <span className="text-[11px] text-[var(--pt-muted)]">Jobseekers &amp; Founders</span>
+                </div>
+              </div>
+
+              {/* Three Visible Action Paths */}
+              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:items-center">
+                <a
+                  href="#participate"
+                  onClick={() => setActiveFormTab('delegate')}
+                  className="ey-button ey-button-dark-filled inline-flex items-center justify-center gap-2"
+                >
+                  <span>1. Register Free Delegate Pass</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+
+                <a
+                  href="#participate"
+                  onClick={() => setActiveFormTab('partner')}
+                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[var(--pt-accent)] bg-[rgba(232,131,42,0.12)] text-sm font-bold uppercase tracking-wider text-[var(--pt-accent)] transition-all duration-200 hover:bg-[var(--pt-accent)] hover:text-white"
+                >
+                  <span>2. Partner as Employer</span>
+                </a>
+
+                <a
+                  href="#participate"
+                  onClick={() => setActiveFormTab('sponsor')}
+                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[rgba(244,240,232,0.2)] bg-[rgba(244,240,232,0.05)] text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] transition-all duration-200 hover:border-white hover:bg-[rgba(244,240,232,0.12)]"
+                >
+                  <span>3. Enquire for Sponsorship</span>
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
-              </span>
-              <strong className="text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
-              <span className="text-xs text-[var(--pt-muted)]">5 Action-Packed Days</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Attendance
-              </span>
-              <strong className="text-sm font-bold text-white">10,000+ Youth</strong>
-              <span className="text-xs text-[var(--pt-muted)]">2,000+ Youth Daily</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1.5 mb-1">
-                <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
-              </span>
-              <strong className="text-sm font-bold text-white">NEET &amp; Graduates</strong>
-              <span className="text-xs text-[var(--pt-muted)]">Jobseekers &amp; Founders</span>
-            </div>
-          </div>
 
-          {/* Three Visible Action Paths */}
-          <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href="#participate"
-              onClick={() => setActiveFormTab('delegate')}
-              className="ey-button ey-button-dark-filled inline-flex items-center justify-center gap-2"
-            >
-              <span>1. Register Free Delegate Pass</span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            {/* Right Column: Hero Visual Reflecting the Youth */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#182320] to-[var(--pt-ink)] shadow-2xl group">
+                <div className="aspect-[4/5] sm:aspect-[4/4.4] w-full overflow-hidden relative">
+                  <img
+                    src="/images/youth/feature_image_26.jpg"
+                    alt="Young South Africans ready to lead the future economy at EmpowaYouth"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/25 to-black/10" />
 
-            <a
-              href="#participate"
-              onClick={() => setActiveFormTab('partner')}
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[var(--pt-accent)] bg-[rgba(232,131,42,0.12)] text-sm font-bold uppercase tracking-wider text-[var(--pt-accent)] transition-all duration-200 hover:bg-[var(--pt-accent)] hover:text-white"
-            >
-              <span>2. Partner as Employer</span>
-            </a>
+                  {/* Floating Tag Top Right */}
+                  <div className="absolute top-4 right-4 rounded-full bg-[rgba(11,15,14,0.85)] border border-[rgba(244,240,232,0.2)] px-3.5 py-1.5 backdrop-blur-md flex items-center gap-2 shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[11px] font-bold text-white uppercase tracking-wider">
+                      10,000+ Young Leaders
+                    </span>
+                  </div>
 
-            <a
-              href="#participate"
-              onClick={() => setActiveFormTab('sponsor')}
-              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-md border border-[rgba(244,240,232,0.2)] bg-[rgba(244,240,232,0.05)] text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] transition-all duration-200 hover:border-white hover:bg-[rgba(244,240,232,0.12)]"
-            >
-              <span>3. Enquire for Sponsorship</span>
-            </a>
+                  {/* Floating Bottom Card */}
+                  <div className="absolute bottom-4 inset-x-4 rounded-2xl bg-[rgba(11,15,14,0.85)] border border-[rgba(244,240,232,0.18)] p-4 sm:p-5 backdrop-blur-md shadow-xl">
+                    <p className="text-[11px] font-bold text-[var(--pt-accent)] uppercase tracking-wider">
+                      Sebokeng &bull; Zone 14 Flagship Summit
+                    </p>
+                    <p className="text-sm sm:text-base font-extrabold text-white mt-1">
+                      Powering Township Talent into Industry
+                    </p>
+                    <div className="mt-2.5 flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-white/10 text-[11px] text-[var(--pt-muted)]">
+                      <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                        <CheckCircle2 className="w-3.5 h-3.5" /> 100% Free Admission
+                      </span>
+                      <span className="text-white/80 font-medium">Koinonia Bible Church</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -540,7 +632,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 <div className="mt-5 flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--pt-accent)] shrink-0">
                     <img
-                      src="/team/simphiwe-masiza.jpg"
+                      src="/images/youth/summary.jpg"
                       alt="Simphiwe Masiza"
                       className="w-full h-full object-cover object-top"
                     />
@@ -596,64 +688,45 @@ export default function VaalEmpowaYouthWeekPage() {
               </div>
             </div>
 
-            {/* Right Column: Dark Contrast Blueprint Card */}
-            <div className="lg:col-span-5">
-              <div className="sticky top-28 rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[var(--pt-ink)] p-8 sm:p-10 text-[var(--pt-paper)] shadow-2xl">
-                <span className="inline-block rounded-full bg-[var(--pt-accent)]/20 px-3.5 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
-                  The Blueprint
-                </span>
-                <h3 className="mt-4 text-2xl font-extrabold uppercase text-[var(--pt-paper)] leading-tight">
-                  How We Rewrite the Economic Script
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--pt-muted)]">
-                  What began as a one-day jobs summit in Orange Farm has evolved into the country’s most formidable youth economic force, mobilising hundreds of thousands of young people, funding township enterprises, and delivering scalable skills pipelines.
-                </p>
+            {/* Right Column: Visual Storytelling of Real Youth Agency */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Photo 1: Youth Triumph & Agency */}
+              <div className="group relative rounded-3xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-xl bg-black">
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src="/images/youth/feature_image_23.jpg"
+                    alt="Young woman triumphant at EmpowaYouth summit with fists raised"
+                    className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
+                    Youth Agency &bull; Transforming Ambition
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold leading-snug">
+                    Overcoming economic exclusion: Young South Africans claiming their future with dignity and power.
+                  </p>
+                </div>
+              </div>
 
-                <ul className="mt-6 space-y-4">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
-                    <div>
-                      <strong className="block text-sm text-white">Live On-Site Recruitment</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Direct transactions, contracts, and employment offers delivered on the ground.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
-                    <div>
-                      <strong className="block text-sm text-white">Live Pitch Stages &amp; Deal Room</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Youth enterprises go head-to-head, securing venture capital, ESD funding, and market partnerships.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
-                    <div>
-                      <strong className="block text-sm text-white">Sector-Aligned Skills Pipelines</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Certified qualifications that directly meet the demands of the future economy.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--pt-accent)] mt-0.5" />
-                    <div>
-                      <strong className="block text-sm text-white">Auditable B-BBEE &amp; ESD Returns</strong>
-                      <span className="text-xs text-[var(--pt-muted)]">Verifiable socio-economic development documentation and corporate impact evidence.</span>
-                    </div>
-                  </li>
-                </ul>
-
-                <div className="mt-8 pt-6 border-t border-[rgba(244,240,232,0.1)] flex flex-col gap-3">
-                  <a
-                    href="#participate"
-                    onClick={() => setActiveFormTab('partner')}
-                    className="ey-button ey-button-dark-filled w-full text-center"
-                  >
-                    <span>Explore Employer Partnerships</span>
-                  </a>
-                  <a
-                    href="#programme"
-                    className="w-full text-center rounded-md border border-[rgba(244,240,232,0.2)] py-3 px-4 text-xs font-bold uppercase tracking-wider text-[var(--pt-paper)] transition hover:bg-white/5"
-                  >
-                    Explore 5-Day Programme
-                  </a>
+              {/* Photo 2: Mentorship & Executive Access */}
+              <div className="group relative rounded-3xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-xl bg-black">
+                <div className="aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    src="/images/youth/DSC_8709.jpg"
+                    alt="Youth delegate taking selfie with executive mentor"
+                    className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                </div>
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
+                    Direct Access &bull; Bridging Youth into Industry
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold leading-snug">
+                    Connecting township talent directly with CEOs, leaders, and decision makers who hold the keys.
+                  </p>
                 </div>
               </div>
             </div>
@@ -662,61 +735,80 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 4. THE 5-DAY PROGRAMME: FIVE DAYS. FIVE INDUSTRIES.      */}
+      {/* 4. 5-DAY SECTOR BREAKDOWN (INTERACTIVE TABS WITH YOUTH)   */}
       {/* ======================================================== */}
       <section
         id="programme"
-        className="py-20 sm:py-28 px-[var(--pt-container-pad)] bg-[var(--pt-ink)] border-b border-[rgba(244,240,232,0.08)]"
+        className="py-20 sm:py-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#070a09]"
       >
         <div className="mx-auto max-w-[var(--pt-container)]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
                 <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
-                <span>02 / Programme Highlights</span>
+                <span>02 / The 5-Day Framework</span>
               </p>
-              <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
-                <span>Five Days. Five Industries. </span>
-                <span className="ey-heading-italic">One National Reset</span>
+              <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)] [text-wrap:balance]">
+                <span>5 Days. 5 Industries. </span>
+                <span className="ey-heading-italic">Infinite Trajectories</span>
                 <span>.</span>
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-[var(--pt-muted)] max-w-md">
-              Sebokeng becomes South Africa’s most powerful marketplace of opportunity, directly connecting more than 10,000 youth to jobs, funding, training, and supplier networks across the five fastest-growing economic sectors.
+            <p className="text-sm sm:text-base text-[var(--pt-muted)] md:max-w-md">
+              Each day focuses on a distinct economic sector, connecting 2,000+ youth daily with accredited skills, live hiring partners, and venture capital.
             </p>
           </div>
 
-          {/* Interactive Day Tabs */}
-          <div className="flex flex-wrap items-center gap-2 border-b border-[rgba(244,240,232,0.1)] pb-4 mb-8">
-            {programmeDays.map((p) => {
-              const isActive = activeDay === p.day;
-              const IconComp = p.icon;
+          {/* Interactive Day Selection Pills */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-10">
+            {programmeDays.map((item) => {
+              const Icon = item.icon;
+              const isSelected = activeDay === item.day;
+
               return (
                 <button
-                  key={`day-btn-${p.day}`}
+                  key={item.day}
                   type="button"
-                  onClick={() => setActiveDay(p.day)}
-                  className={`inline-flex items-center gap-2.5 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[var(--pt-accent)] text-white shadow-lg shadow-[var(--pt-accent)]/25 scale-[1.02]'
-                      : 'border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] text-[var(--pt-paper)]/70 hover:border-white/30 hover:bg-white/10 hover:text-white'
+                  onClick={() => setActiveDay(item.day)}
+                  className={`group relative flex flex-col p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
+                    isSelected
+                      ? 'border-[var(--pt-accent)] bg-gradient-to-b from-[#1b2521] to-[#0f1614] shadow-lg shadow-[rgba(232,131,42,0.15)] -translate-y-1'
+                      : 'border-[rgba(244,240,232,0.08)] bg-[rgba(244,240,232,0.02)] hover:border-[rgba(244,240,232,0.2)] hover:bg-[rgba(244,240,232,0.04)]'
                   }`}
                 >
-                  <IconComp className="h-4 w-4" />
-                  <span>{p.badge}: {p.tag}</span>
+                  <div className="flex items-center justify-between w-full mb-3">
+                    <span
+                      className={`text-[11px] font-extrabold uppercase tracking-wider ${
+                        isSelected ? 'text-[var(--pt-accent)]' : 'text-[var(--pt-muted)]'
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                    <Icon
+                      className={`h-4 w-4 ${
+                        isSelected ? 'text-[var(--pt-accent)]' : 'text-[var(--pt-muted)] group-hover:text-white'
+                      }`}
+                    />
+                  </div>
+                  <strong className="text-xs sm:text-sm font-bold text-white line-clamp-2 uppercase">
+                    {item.sector}
+                  </strong>
+                  <span className="mt-2 text-[10px] text-[var(--pt-muted)] font-medium">
+                    {item.tag}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active Day Bento Card Panel */}
-          <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 lg:p-12 shadow-2xl transition-all duration-300">
-            <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-start">
-              {/* Left Column: Sector Narrative */}
+          {/* Active Day Detail Display Card with Matching Youth Media */}
+          <div className="rounded-3xl border border-[rgba(244,240,232,0.12)] bg-gradient-to-b from-[#101715] to-[#090d0c] p-6 sm:p-10 lg:p-12 shadow-2xl">
+            <div className="grid lg:grid-cols-12 gap-10 items-start">
+              {/* Left Column: Sector Narrative, Outcomes & Power Statement */}
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
-                  <span className="rounded-full bg-[var(--pt-accent)]/20 border border-[var(--pt-accent)]/40 px-3.5 py-1 text-xs font-extrabold uppercase text-[var(--pt-accent)]">
-                    {currentDayData.badge} &bull; Sector Activation
+                  <span className="rounded-full bg-[var(--pt-accent)]/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] border border-[var(--pt-accent)]/30">
+                    {currentDayData.badge} &bull; {currentDayData.tag}
                   </span>
                   <span className="text-xs font-semibold text-[var(--pt-muted)]">
                     08:00 – 15:00 Daily &bull; Koinonia Bible Church, Sebokeng
@@ -758,8 +850,26 @@ export default function VaalEmpowaYouthWeekPage() {
                 </ul>
               </div>
 
-              {/* Right Column: Delegate Specs & Fast Track CTA */}
-              <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-6 sm:p-8">
+              {/* Right Column: Youth Visual & Fast Track Card */}
+              <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-6 sm:p-7">
+                {/* Sector Youth Photo */}
+                <div className="relative h-48 sm:h-56 w-full rounded-xl overflow-hidden mb-6 border border-[rgba(244,240,232,0.12)]">
+                  <img
+                    src={currentDayData.image}
+                    alt={currentDayData.sector}
+                    className="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/25 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                      {currentDayData.tag}
+                    </span>
+                    <span className="text-[11px] font-bold text-white/90 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
+                      Sebokeng Zone 14
+                    </span>
+                  </div>
+                </div>
+
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)]">
                   Target Audience
                 </span>
@@ -816,7 +926,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 5. 5 CORE DELIVERY PILLARS (EXACT FROM CMS LINK)         */}
+      {/* 5. 5 CORE DELIVERY PILLARS WITH REAL GROUND ATMOSPHERE   */}
       {/* ======================================================== */}
       <section className="py-20 sm:py-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#090d0c]">
         <div className="mx-auto max-w-[var(--pt-container)]">
@@ -834,6 +944,47 @@ export default function VaalEmpowaYouthWeekPage() {
             <p className="mt-4 text-sm sm:text-base text-[var(--pt-muted)]">
               Where innovation meets access, and opportunity becomes tangible. Every day is a live economic activation — transactions, contracts, and employment offers delivered on the ground.
             </p>
+          </div>
+
+          {/* Visual Showcase Banners: Live Festival Immersion & Live Pitch Deal Room */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+            <div className="lg:col-span-7 group relative rounded-3xl overflow-hidden border border-[rgba(244,240,232,0.12)] bg-black shadow-2xl">
+              <div className="aspect-[16/9] w-full overflow-hidden">
+                <img
+                  src="/images/youth/IMG_2727.jpg"
+                  alt="Over 10,000 young South Africans inside the massive EmpowaYouth marquee"
+                  className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/40 to-transparent" />
+              </div>
+              <div className="absolute bottom-5 inset-x-5 p-5 rounded-2xl bg-[rgba(11,15,14,0.85)] border border-white/10 backdrop-blur-md">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
+                  10,000+ Young Leaders &bull; Live Festival Marquee
+                </span>
+                <p className="text-sm sm:text-base font-extrabold text-white">
+                  Sebokeng arena activated with live recruitment pods, industry innovation zones, and executive dialogues.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 group relative rounded-3xl overflow-hidden border border-[rgba(244,240,232,0.12)] bg-black shadow-2xl">
+              <div className="aspect-[16/9] lg:aspect-auto lg:h-full w-full overflow-hidden">
+                <img
+                  src="/images/youth/hundred-thousand.jpg"
+                  alt="Township youth entrepreneur receiving R100,000 Bizniz In A Box cheque on stage"
+                  className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/40 to-transparent" />
+              </div>
+              <div className="absolute bottom-5 inset-x-5 p-5 rounded-2xl bg-[rgba(11,15,14,0.85)] border border-white/10 backdrop-blur-md">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
+                  Live Pitch Stages &bull; Real Enterprise Capital
+                </span>
+                <p className="text-sm sm:text-base font-extrabold text-white">
+                  Over R100k in seed funding, tooling, and supply chain contracts awarded live to youth founders on stage.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -949,81 +1100,65 @@ export default function VaalEmpowaYouthWeekPage() {
               <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
               <span>04 / Pre-Summit Power Labs</span>
             </p>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
-                  <span>Five Power Labs. </span>
-                  <span className="ey-heading-italic">Five Sectors</span>
-                  <span>.</span>
-                </h2>
-                <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-xl">
-                  One Mission: Build the Workforce That Will Own the Future. These are power labs designed to plug youth directly into high-growth industries, equip them with skills that pay, and connect them to decision-makers.
-                </p>
-              </div>
-
-              {/* Masterclass Specs Pill (CMS lines 338-354 - NO CALENDAR DATES) */}
-              <div className="flex flex-wrap items-center gap-4 bg-[rgba(244,240,232,0.04)] border border-[rgba(244,240,232,0.1)] rounded-2xl p-4 text-xs">
-                <div>
-                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Audience</span>
-                  <strong className="font-bold text-white">100 Youth / Session</strong>
-                </div>
-                <div className="w-px h-8 bg-white/10" />
-                <div>
-                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Time</span>
-                  <strong className="font-bold text-white">10:00 – 13:00</strong>
-                </div>
-                <div className="w-px h-8 bg-white/10" />
-                <div>
-                  <span className="block text-[10px] font-bold uppercase text-[var(--pt-muted)]">Format</span>
-                  <strong className="font-bold text-white">Hybrid (Live &amp; Stream)</strong>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
+              <span>Deep-Dive Sector </span>
+              <span className="ey-heading-italic">Masterclasses</span>
+              <span>.</span>
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-[var(--pt-muted)] max-w-2xl">
+              Five high-impact intensive masterclass tracks delivering accredited certifications, practical enterprise tools, and direct employment pipelines.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {masterclasses.map((mc) => (
+            {masterclasses.map((lab) => (
               <div
-                key={mc.number}
-                className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 flex flex-col justify-between transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-xl"
+                key={lab.number}
+                className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-7 flex flex-col justify-between transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-extrabold text-[var(--pt-accent)]">
-                      POWER LAB #{mc.number}
+                      POWER LAB {lab.number}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] bg-[var(--pt-accent)]/10 border border-[var(--pt-accent)]/30 px-2.5 py-1 rounded">
-                      Specialized Cohort
+                    <span className="text-[11px] font-semibold text-[var(--pt-muted)]">
+                      10:00 – 13:00
                     </span>
                   </div>
-                  <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-1">
-                    {mc.title}
+                  <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-2">
+                    {lab.title}
                   </h3>
-                  <p className="text-xs font-semibold text-[var(--pt-accent)] mb-3">
-                    {mc.sector}
+                  <p className="text-xs font-semibold text-[var(--pt-accent)] mb-4">
+                    {lab.sector}
                   </p>
-                  <p className="text-xs italic leading-relaxed text-[var(--pt-paper)]/75 mb-4 border-l-2 border-[var(--pt-accent)] pl-3">
-                    &ldquo;{mc.powerStatement}&rdquo;
+                  <p className="text-xs italic leading-relaxed text-[var(--pt-muted)] mb-5">
+                    &ldquo;{lab.powerStatement}&rdquo;
                   </p>
 
-                  <ul className="space-y-2.5 text-xs text-[rgba(244,240,232,0.85)] border-t border-[rgba(244,240,232,0.1)] pt-4">
-                    {mc.bullets.map((b, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)] mt-1.5 shrink-0" />
+                  <ul className="space-y-2.5 border-t border-[rgba(244,240,232,0.08)] pt-4">
+                    {lab.bullets.map((b, i) => (
+                      <li key={i} className="text-xs text-[var(--pt-paper)]/80 flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--pt-accent)] mt-1.5 shrink-0" />
                         <span>{b}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[rgba(244,240,232,0.1)]">
+                <div className="mt-6 pt-4 border-t border-[rgba(244,240,232,0.08)]">
                   <a
                     href="#participate"
-                    onClick={() => setActiveFormTab('delegate')}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--pt-accent)] hover:text-white transition"
+                    onClick={() => {
+                      setActiveFormTab('delegate');
+                      setDelegateForm((prev) => ({
+                        ...prev,
+                        industries: [lab.title],
+                      }));
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[var(--pt-accent)] hover:underline"
                   >
-                    <span>Apply for this Lab</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Enrol In Lab {lab.number}</span>
+                    <ArrowRight className="h-3 w-3" />
                   </a>
                 </div>
               </div>
@@ -1061,7 +1196,7 @@ export default function VaalEmpowaYouthWeekPage() {
             <article className="group relative rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#131b18] to-[var(--pt-ink)] p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-start shadow-2xl transition-all duration-300 hover:border-[var(--pt-accent)]/50">
               <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 border-2 border-[var(--pt-accent)]/70 shadow-lg">
                 <img
-                  src="/team/simphiwe-masiza.jpg"
+                  src="/images/youth/summary.jpg"
                   alt="Simphiwe Masiza"
                   className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
                 />
@@ -1150,115 +1285,156 @@ export default function VaalEmpowaYouthWeekPage() {
                       className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-[rgba(11,15,14,0.35)] to-transparent pointer-events-none"
                       aria-hidden="true"
                     />
-                    <div
-                      className={`absolute inset-0 rounded-xl sm:rounded-2xl border transition-colors duration-300 pointer-events-none ${
-                        isCurrent
-                          ? 'border-[rgba(232,131,42,0.6)] shadow-[0_0_24px_rgba(232,131,42,0.2)]'
-                          : 'border-[rgba(244,240,232,0.08)] group-hover:border-[rgba(244,240,232,0.2)]'
-                      }`}
-                      aria-hidden="true"
-                    />
 
-                    {/* Collapsed state display (vertical text) */}
+                    {/* Collapsed Vertical Label */}
                     <div
-                      className={`absolute inset-0 flex flex-col justify-between items-center py-3.5 sm:py-5 px-1 pointer-events-none transition-opacity duration-300 ${
+                      className={`absolute inset-0 p-3 flex flex-col justify-between items-center transition-opacity duration-300 ${
                         isCurrent ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
-                      aria-hidden={isCurrent}
                     >
-                      <span className="text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)]">
+                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
                         {String(speakerIndex + 1).padStart(2, '0')}
                       </span>
-                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[rgba(244,240,232,0.7)] [writing-mode:vertical-rl] rotate-180 truncate max-h-[200px] sm:max-h-[260px]">
+                      <span
+                        className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap"
+                        style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                      >
                         {speaker.name}
                       </span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-[rgba(244,240,232,0.3)] group-hover:bg-[var(--pt-accent)] transition-colors" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)]" />
                     </div>
 
-                    {/* Expanded state display */}
+                    {/* Expanded Content Panel */}
                     <div
-                      className={`absolute inset-0 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 pointer-events-none transition-opacity duration-300 ${
-                        isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      className={`absolute bottom-0 inset-x-0 p-5 sm:p-7 flex flex-col justify-end transition-all duration-500 ${
+                        isCurrent
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-4 pointer-events-none'
                       }`}
-                      aria-hidden={!isCurrent}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)] bg-[rgba(11,15,14,0.7)] backdrop-blur-sm px-2.5 py-1 rounded-full border border-[rgba(232,131,42,0.35)]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)] animate-pulse" />
-                          <span>{String(speakerIndex + 1).padStart(2, '0')}</span>
-                        </span>
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--pt-muted)] hidden md:inline">
-                          Featured Keynote
-                        </span>
-                      </div>
-
-                      <div>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1">
-                          {speaker.name}
-                        </h3>
-                        <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
-                          {speaker.role}
-                        </p>
-                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.85)] line-clamp-3 sm:line-clamp-4">
-                          {speaker.bio}
-                        </p>
-                      </div>
+                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
+                        {speaker.focus}
+                      </span>
+                      <h5 className="text-xl sm:text-2xl font-extrabold uppercase text-white tracking-tight mt-1">
+                        {speaker.name}
+                      </h5>
+                      <p className="text-xs sm:text-sm font-medium text-[rgba(244,240,232,0.85)] mt-0.5">
+                        {speaker.role}
+                      </p>
+                      <p className="mt-3 text-xs italic text-[rgba(244,240,232,0.7)] border-l-2 border-[var(--pt-accent)] pl-3 leading-relaxed hidden sm:block">
+                        &ldquo;{speaker.quote}&rdquo;
+                      </p>
                     </div>
                   </article>
                 );
               })}
-            </div>
-
-            {/* Dots Indicator */}
-            <div className="mt-6 flex justify-between items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2" aria-label="Keynote navigation dots">
-                {keynoteSpeakers.map((s, i) => (
-                  <button
-                    key={s.name}
-                    type="button"
-                    onClick={() => setActiveSpeaker(i)}
-                    aria-label={`View speaker ${i + 1}: ${s.name}`}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      currentSpeakerIndex === i
-                        ? 'w-8 bg-[var(--pt-accent)]'
-                        : 'w-2 bg-[rgba(244,240,232,0.25)] hover:bg-[rgba(244,240,232,0.5)]'
-                    }`}
-                  />
-                ))}
-              </div>
-              <p className="text-xs text-[var(--pt-muted)] tracking-wider">
-                {keynoteSpeakers.length} Keynote Leaders Shaping the Youth Discourse
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ======================================================== */}
-      {/* 8. PARTNERSHIP & SPONSORSHIP (EXACT TEXT FROM CMS LINK)  */}
+      {/* 8. VOICES OF YOUTH TRANSFORMATION (AUTHENTIC BENEFICIARIES)*/}
       {/* ======================================================== */}
       <section
-        id="partner-opportunities"
-        className="py-20 sm:py-28 px-[var(--pt-container-pad)] bg-[var(--pt-ink)] border-b border-[rgba(244,240,232,0.08)]"
+        id="voices-of-youth"
+        className="py-20 sm:py-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-gradient-to-b from-[#090d0c] to-[#0f1513]"
       >
         <div className="mx-auto max-w-[var(--pt-container)]">
-          <div className="mb-14 max-w-3xl">
-            <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
-              <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
-              <span>06 / For Employers, Corporates &amp; Funders</span>
-            </p>
-            <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
-              <span>Why Partner </span>
-              <span className="ey-heading-italic">With Us</span>
-              <span>?</span>
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-[var(--pt-muted)] leading-relaxed">
-              This is not an invitation to sponsor an event; it is a catalytic engine of national transformation. A high-impact economic activation designed to bridge township youth into the future economy.
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div>
+              <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
+                <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" />
+                <span>06 / Voices of Youth Transformation</span>
+              </p>
+              <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)] [text-wrap:balance]">
+                <span>From The Ground: </span>
+                <span className="ey-heading-italic">Real Youth Shifts</span>
+                <span>.</span>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[var(--pt-muted)] md:max-w-md">
+              Meet the township entrepreneurs, artisans, and graduates whose livelihoods and enterprises were transformed by EmpowaYouth platforms.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-            {/* Value Prop 1 (Exact from CMS line 321) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {youthTestimonials.map((youth, idx) => (
+              <article
+                key={idx}
+                className="group relative rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <div>
+                  {/* Photo Header */}
+                  <div className="aspect-[4/3] w-full overflow-hidden relative bg-black">
+                    <img
+                      src={youth.image}
+                      alt={`${youth.name} testimonial`}
+                      className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.9)] via-transparent to-transparent" />
+                    <span className="absolute top-3 left-3 rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-md">
+                      {youth.badge}
+                    </span>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-lg font-extrabold uppercase text-[var(--pt-paper)]">
+                      {youth.name}
+                    </h3>
+                    <p className="text-xs text-[var(--pt-accent)] font-semibold mt-0.5">
+                      {youth.role}
+                    </p>
+                    <p className="text-[11px] text-[var(--pt-muted)] mb-4">
+                      {youth.township}
+                    </p>
+
+                    <p className="text-xs leading-relaxed text-[var(--pt-paper)]/85 italic border-l-2 border-[var(--pt-accent)] pl-3">
+                      &ldquo;{youth.quote}&rdquo;
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <div className="pt-4 border-t border-[rgba(244,240,232,0.08)] flex items-center gap-2">
+                    <BadgeCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="text-[11px] font-bold text-white/90">
+                      {youth.outcome}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 9. WHY PARTNER & SPONSOR (B-BBEE, ESG, ESD VALUE PROPS) */}
+      {/* ======================================================== */}
+      <section
+        id="partner"
+        className="py-20 sm:py-28 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[var(--pt-ink)]"
+      >
+        <div className="mx-auto max-w-[var(--pt-container)]">
+          <div className="mb-14 text-center max-w-3xl mx-auto">
+            <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-3">
+              <span className="w-5 h-[2px] bg-[var(--pt-accent)]" />
+              <span>07 / Strategic Partner Proposition</span>
+              <span className="w-5 h-[2px] bg-[var(--pt-accent)]" />
+            </p>
+            <h2 className="text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--pt-paper)]">
+              <span>Why South Africa’s </span>
+              <span className="ey-heading-italic">Boldest Brands</span>
+              <span> Partner.</span>
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-[var(--pt-muted)]">
+              The national rise of EmpowaYouth is not coincidence, it’s corporate courage in action. Transform ESG, CSI, and ESD compliance into measurable, auditable economic dividends.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {/* Value Prop 1 (Exact from CMS line 326) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 01
@@ -1267,33 +1443,33 @@ export default function VaalEmpowaYouthWeekPage() {
                 Strategic ESG, CSI &amp; ESD Impact
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Deliver measurable, mission-aligned transformation where it matters most, in youth employment, enterprise development, and inclusive economic growth. This is not a tick-box exercise. It is high-return, high-visibility impact that directly advances your Environmental, Social &amp; Governance (ESG) priorities, fulfils your Corporate Social Investment (CSI) objectives, and maximises Enterprise and Supplier Development (ESD) scorecard contributions.
+                Directly contribute to high-priority national outcomes in youth employment, township enterprise growth, and skills transformation, all backed by auditable data and compliance documentation.
               </p>
             </article>
 
-            {/* Value Prop 2 (Exact from CMS line 323) */}
+            {/* Value Prop 2 (Exact from CMS line 327) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 02
               </div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-3">
-                Build the Workforce of the Future
+                Build the Workforce of Tomorrow
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                From AI engineers and digital storytellers to skilled artisans and data analysts, this is where tomorrow’s workforce is discovered, shaped, and deployed at scale. Be first in line to access, mentor, and pipeline exceptional young talent into your organisation and sector, ensuring you’re not just meeting future skills demand, but owning the competitive edge in the talent economy.
+                Secure early access to ambitious, pre-screened, and agile youth talent across priority sectors like AI, health tech, logistics, renewable energy, and creative digital industries.
               </p>
             </article>
 
-            {/* Value Prop 3 (Exact from CMS line 326) */}
+            {/* Value Prop 3 (Exact from CMS line 328) */}
             <article className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-8 transition-all hover:border-[var(--pt-accent)]/50 hover:-translate-y-1">
               <div className="w-10 h-10 rounded-xl bg-[var(--pt-accent)]/20 text-[var(--pt-accent)] flex items-center justify-center font-extrabold mb-5 border border-[var(--pt-accent)]/30">
                 03
               </div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)] mb-3">
-                Unrivalled Brand Reach &amp; Stakeholder Engagement
+                Unrivalled Brand &amp; Market Reach
               </h3>
               <p className="text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
-                Position your organisation in front of national ministers, policy architects, investors, funders, and a dynamic youth market ready to engage. Across every touchpoint — media, government, civil society, and community, your brand leads the conversation.
+                Position your organisation in front of 10,000+ live attendees, 2,000+ daily decision-makers, and millions across multi-channel national broadcast and digital coverage.
               </p>
             </article>
 
@@ -1326,7 +1502,7 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 9. BROADCAST & NATIONAL MEDIA AMPLIFICATION (FROM CMS)   */}
+      {/* 10. BROADCAST & NATIONAL MEDIA AMPLIFICATION (FROM CMS)  */}
       {/* ======================================================== */}
       <section className="py-14 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#070a09]">
         <div className="mx-auto max-w-[var(--pt-container)]">
@@ -1354,13 +1530,13 @@ export default function VaalEmpowaYouthWeekPage() {
       </section>
 
       {/* ======================================================== */}
-      {/* 10. INTERACTIVE ACTION HUB: PARTICIPATE / PARTNER / FUND */}
+      {/* 11. INTERACTIVE ACTION HUB: PARTICIPATE / PARTNER / FUND */}
       {/* ======================================================== */}
       <section
         id="participate"
         className="py-20 sm:py-28 px-[var(--pt-container-pad)] bg-[#090d0c] border-b border-[rgba(244,240,232,0.08)]"
       >
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="inline-block rounded-full bg-[var(--pt-accent)]/20 border border-[var(--pt-accent)]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)] mb-3">
               Take Your Next Step
@@ -1376,7 +1552,7 @@ export default function VaalEmpowaYouthWeekPage() {
           </div>
 
           {/* Form Selector Tabs */}
-          <div className="flex rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.04)] p-1.5 mb-8">
+          <div className="flex rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.04)] p-1.5 mb-10">
             <button
               type="button"
               onClick={() => setActiveFormTab('delegate')}
@@ -1412,619 +1588,667 @@ export default function VaalEmpowaYouthWeekPage() {
             </button>
           </div>
 
-          {/* TAB 1: YOUTH DELEGATE REGISTRATION (Exact fields from CMS lines 84-215) */}
-          {activeFormTab === 'delegate' && (
-            <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 shadow-2xl">
-              {delegateSubmitted ? (
-                <div className="py-12 text-center">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-5">
-                    <CheckCircle2 className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-2xl font-extrabold uppercase text-white">Delegate Registration Received!</h3>
-                  <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you, {delegateForm.firstName || 'Delegate'}. Your free pass for Vaal EmpowaYouth Week has been recorded. Our team will contact you with admission confirmation, transport pickup points, and schedule updates.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setDelegateSubmitted(false)}
-                    className="mt-6 rounded-lg border border-white/20 px-6 py-2.5 text-xs font-bold uppercase text-white hover:bg-white/10 cursor-pointer"
-                  >
-                    Submit Another Registration
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleDelegateSubmit} className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">Delegate Registration</h3>
-                    <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Free admission for NEET youth, unemployed graduates, job seekers, entrepreneurs, and matriculants.
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Visual Invitation Side Card */}
+            <div className="lg:col-span-4 rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] p-6 overflow-hidden">
+              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-5 border border-white/10">
+                <img
+                  src="/images/youth/feature_image_27.jpg"
+                  alt="Young woman welcoming delegates to EmpowaYouth"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-[11px] font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
+                  100% Free Delegate Pass
+                </span>
+              </div>
+
+              <h4 className="text-base font-extrabold uppercase text-white mb-2">
+                Why Reserve Your Spot?
+              </h4>
+              <ul className="space-y-3 text-xs text-[rgba(244,240,232,0.8)]">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                  <span>Free access to 100+ C-suite keynote panels &amp; masterclasses.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                  <span>Direct on-site interviews with verified corporate employers.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                  <span>Live pitch stage entry for township founders with seed prizes.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                  <span>Official Certificate of Participation delivered post-event.</span>
+                </li>
+              </ul>
+
+              <div className="mt-6 p-4 rounded-xl bg-[rgba(232,131,42,0.1)] border border-[var(--pt-accent)]/30">
+                <p className="text-[11px] font-bold text-[var(--pt-accent)] uppercase">
+                  Location &amp; Entry
+                </p>
+                <p className="text-xs text-white mt-0.5 font-medium">
+                  Koinonia Bible Church &bull; Sebokeng, Zone 14
+                </p>
+              </div>
+            </div>
+
+            {/* Forms Right Column */}
+            <div className="lg:col-span-8 rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[#101715] p-8 sm:p-10 shadow-2xl">
+              {/* TAB 1: YOUTH DELEGATE FORM (EXACT FIELDS FROM CMS LINK) */}
+              {activeFormTab === 'delegate' && (
+                <div>
+                  <div className="mb-6">
+                    <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
+                      Reserve Your Free Youth Delegate Seat
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
+                      100% Free entry. Fill out your details below to secure your seat at the Koinonia Bible Church, Sebokeng.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        First Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Lerato"
-                        value={delegateForm.firstName}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, firstName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Last Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Mokoena"
-                        value={delegateForm.lastName}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, lastName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Age *
-                      </label>
-                      <input
-                        type="number"
-                        min="16"
-                        max="35"
-                        required
-                        placeholder="e.g. 23"
-                        value={delegateForm.age}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, age: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="lerato@example.co.za"
-                        value={delegateForm.email}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, email: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Contact Number(s) *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="072 123 4567"
-                        value={delegateForm.phone}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, phone: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Address [Township of Residence] *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Sebokeng Zone 14 / Sharpeville / Evaton"
-                        value={delegateForm.township}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, township: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Gender *
-                      </label>
-                      <select
-                        value={delegateForm.gender}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, gender: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                  {delegateSubmitted ? (
+                    <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
+                      <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
+                      <h4 className="text-xl font-extrabold text-white uppercase">
+                        Seat Reserved Successfully!
+                      </h4>
+                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
+                        Welcome, {delegateForm.firstName || 'Delegate'}. Your registration for Vaal EmpowaYouth Week is confirmed. Your digital accreditation and daily schedule have been sent to {delegateForm.email || 'your email'}.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setDelegateSubmitted(false)}
+                        className="mt-6 inline-block text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)] underline cursor-pointer"
                       >
-                        <option value="FEMALE">Female</option>
-                        <option value="MALE">Male</option>
-                        <option value="OTHER">Other / Prefer not to say</option>
-                      </select>
+                        Register another delegate
+                      </button>
                     </div>
-                  </div>
+                  ) : (
+                    <form onSubmit={handleDelegateSubmit} className="space-y-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            First Name *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={delegateForm.firstName}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, firstName: e.target.value })}
+                            placeholder="e.g. Lerato"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Last Name *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={delegateForm.lastName}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, lastName: e.target.value })}
+                            placeholder="e.g. Molefe"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  {/* Motivation field (Direct from CMS line 103) */}
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                      In 50 words tell us why you want to attend EmpowaYouth Week *
-                    </label>
-                    <textarea
-                      rows={2}
-                      required
-                      placeholder="Tell us about your background, career ambition, or business goals..."
-                      value={delegateForm.motivation}
-                      onChange={(e) => setDelegateForm({ ...delegateForm, motivation: e.target.value })}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                    />
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Age *
+                          </label>
+                          <input
+                            type="number"
+                            min="15"
+                            max="35"
+                            required
+                            value={delegateForm.age}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, age: e.target.value })}
+                            placeholder="18 - 34"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div className="sm:col-span-2">
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Township of Residence *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={delegateForm.township}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, township: e.target.value })}
+                            placeholder="e.g. Sebokeng Zone 14, Sharpeville, Evaton, Orange Farm"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  {/* Industry Interests (Direct from CMS line 129) */}
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-2">
-                      Which industries are you most interested in? * (Choose up to 3)
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {[
-                        'Health, Wellness & the Care Economy',
-                        'AI, Tech & the Digital Economy',
-                        'Film, Media & the Creative Economy',
-                        'Green Economy, Sustainability & AgriTech',
-                        'Entrepreneurship, Funding & Innovation Ecosystems',
-                      ].map((ind) => {
-                        const checked = delegateForm.industries.includes(ind);
-                        return (
-                          <button
-                            key={ind}
-                            type="button"
-                            onClick={() => toggleIndustry(ind)}
-                            className={`flex items-center gap-2 rounded-xl border p-3 text-left text-xs font-bold transition cursor-pointer ${
-                              checked
-                                ? 'border-[var(--pt-accent)] bg-[var(--pt-accent)]/20 text-white'
-                                : 'border-white/10 bg-white/5 text-white/70 hover:border-white/30'
-                            }`}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={delegateForm.email}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, email: e.target.value })}
+                            placeholder="lerato@gmail.com"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Mobile Number *
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            value={delegateForm.phone}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, phone: e.target.value })}
+                            placeholder="082 123 4567"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Gender *
+                          </label>
+                          <select
+                            value={delegateForm.gender}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, gender: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
                           >
-                            <span
-                              className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                                checked ? 'border-[var(--pt-accent)] bg-[var(--pt-accent)] text-white' : 'border-white/30'
-                              }`}
-                            >
-                              {checked && '✓'}
-                            </span>
-                            <span className="truncate">{ind}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                            <option value="FEMALE">Female</option>
+                            <option value="MALE">Male</option>
+                            <option value="NON_BINARY">Non-Binary / Prefer not to say</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Are you an entrepreneur? *
+                          </label>
+                          <select
+                            value={delegateForm.isEntrepreneur}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, isEntrepreneur: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="NO">No, seeking jobs/skills</option>
+                            <option value="YES">Yes, running a venture</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Is your company registered? *
+                          </label>
+                          <select
+                            value={delegateForm.isRegistered}
+                            onChange={(e) => setDelegateForm({ ...delegateForm, isRegistered: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="NO">Not Registered / N/A</option>
+                            <option value="YES">Yes, CIPC Registered</option>
+                          </select>
+                        </div>
+                      </div>
 
-                  {/* Entrepreneurship Questions (Direct from CMS lines 165-198) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Are you an entrepreneur? *
-                      </label>
-                      <select
-                        value={delegateForm.isEntrepreneur}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, isEntrepreneur: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                          Which industry tracks interest you? (Select up to 3) *
+                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {[
+                            'Health, Wellness & The Care Economy',
+                            'AI, Tech & the Digital Economy',
+                            'Creative & Film Economy',
+                            'Green Economy, Sustainability & AgriTech',
+                            'Township Entrepreneurship & Innovation',
+                          ].map((ind) => {
+                            const checked = delegateForm.industries.includes(ind);
+                            return (
+                              <button
+                                key={ind}
+                                type="button"
+                                onClick={() => toggleIndustry(ind)}
+                                className={`flex items-center gap-2 p-3 rounded-xl border text-left cursor-pointer transition ${
+                                  checked
+                                    ? 'border-[var(--pt-accent)] bg-[var(--pt-accent)]/15 text-white'
+                                    : 'border-white/10 bg-white/5 text-[var(--pt-muted)] hover:text-white'
+                                }`}
+                              >
+                                <span
+                                  className={`w-4 h-4 rounded flex items-center justify-center border text-[10px] ${
+                                    checked
+                                      ? 'border-[var(--pt-accent)] bg-[var(--pt-accent)] text-white'
+                                      : 'border-white/30'
+                                  }`}
+                                >
+                                  {checked ? '✓' : ''}
+                                </span>
+                                <span>{ind}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                          Your 50-word motivation: Why do you want to attend? *
+                        </label>
+                        <textarea
+                          rows={3}
+                          required
+                          value={delegateForm.motivation}
+                          onChange={(e) => setDelegateForm({ ...delegateForm, motivation: e.target.value })}
+                          placeholder="Tell us what you hope to achieve, learn, or pitch at Vaal EmpowaYouth Week..."
+                          className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
                       >
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Is your company registered? *
-                      </label>
-                      <select
-                        value={delegateForm.isRegistered}
-                        onChange={(e) => setDelegateForm({ ...delegateForm, isRegistered: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                      >
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="ey-button ey-button-dark-filled w-full text-center py-4 flex items-center justify-center gap-2"
-                  >
-                    <span>Submit Free Delegate Registration</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </form>
-              )}
-            </div>
-          )}
-
-          {/* TAB 2: CORPORATE PARTNER REGISTRATION */}
-          {activeFormTab === 'partner' && (
-            <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 shadow-2xl">
-              {partnerSubmitted ? (
-                <div className="py-12 text-center">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-5">
-                    <CheckCircle2 className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-2xl font-extrabold uppercase text-white">Partner Registration Received!</h3>
-                  <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you, {partnerForm.contactName || 'Partner'}. Your partnership expression has been received. Our coordination team will reach out within 24 hours with the exhibition floorplan, employer onboarding pack, and sector options.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setPartnerSubmitted(false)}
-                    className="mt-6 rounded-lg border border-white/20 px-6 py-2.5 text-xs font-bold uppercase text-white hover:bg-white/10 cursor-pointer"
-                  >
-                    Submit Another Enquiry
-                  </button>
+                        <span>Confirm Free Delegate Registration</span>
+                        <ArrowRight className="h-4 w-4 ml-2 inline" />
+                      </button>
+                      <p className="text-[11px] text-center text-[var(--pt-muted)]">
+                        Zero registration fee &bull; 100% Subsidised by Strategic Corporate Partners &bull; Strict capacity controls apply
+                      </p>
+                    </form>
+                  )}
                 </div>
-              ) : (
-                <form onSubmit={handlePartnerSubmit} className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">Partnership Registration</h3>
-                    <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Join South Africa’s leading employers, bold funders, and ecosystem builders to turn vision into measurable economic change.
+              )}
+
+              {/* TAB 2: PARTNER REGISTRATION FORM */}
+              {activeFormTab === 'partner' && (
+                <div>
+                  <div className="mb-6">
+                    <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
+                      Register as an Employer &amp; Ecosystem Partner
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
+                      Activate your brand, conduct live on-site interviews, and recruit vetted youth talent across 5 focus industries.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Company / Organisation *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Standard Bank / Microsoft / ArcelorMittal"
-                        value={partnerForm.companyName}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, companyName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
+                  {partnerSubmitted ? (
+                    <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
+                      <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
+                      <h4 className="text-xl font-extrabold text-white uppercase">
+                        Partner Registration Received!
+                      </h4>
+                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
+                        Thank you, {partnerForm.contactName || 'Partner'}. The Empowaworx partnership desk will contact {partnerForm.email} within 24 hours with floorplan options and hiring hub specifications.
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Key Contact Person *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Thabo Ndlovu (Head of Talent / CSI)"
-                        value={partnerForm.contactName}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, contactName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                  ) : (
+                    <form onSubmit={handlePartnerSubmit} className="space-y-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Company / Organization *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={partnerForm.companyName}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, companyName: e.target.value })}
+                            placeholder="e.g. Standard Bank / Discovery"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Lead Contact Person *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={partnerForm.contactName}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, contactName: e.target.value })}
+                            placeholder="Full name & title"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Business Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="tndlovu@company.co.za"
-                        value={partnerForm.email}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Contact Phone *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+27 11 000 0000"
-                        value={partnerForm.phone}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, phone: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Work Email *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={partnerForm.email}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })}
+                            placeholder="partnerships@company.co.za"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Direct Telephone *
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            value={partnerForm.phone}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, phone: e.target.value })}
+                            placeholder="+27 11 000 0000"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Partnership Format
-                      </label>
-                      <select
-                        value={partnerForm.partnershipType}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, partnershipType: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Partnership Mode *
+                          </label>
+                          <select
+                            value={partnerForm.partnershipType}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, partnershipType: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="Exhibitor Booth">Exhibition Booth &amp; Brand Zone</option>
+                            <option value="Hiring Partner">On-Site HR &amp; Direct Recruitment Pod</option>
+                            <option value="Sector Lab Co-Host">Pre-Summit Masterclass Co-Host</option>
+                            <option value="Deal Room Investor">Deal Room &amp; Pitch Stage Funder</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Estimated Youth Intake / Placements
+                          </label>
+                          <select
+                            value={partnerForm.hiringIntent}
+                            onChange={(e) => setPartnerForm({ ...partnerForm, hiringIntent: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="1-10">1 – 10 Placements</option>
+                            <option value="10-50 Youth Placements">10 – 50 Placements</option>
+                            <option value="50-100">50 – 100 Placements</option>
+                            <option value="100+">100+ Placements (Large Scale)</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                          Specific Requirements or Target Profiles
+                        </label>
+                        <textarea
+                          rows={3}
+                          value={partnerForm.notes}
+                          onChange={(e) => setPartnerForm({ ...partnerForm, notes: e.target.value })}
+                          placeholder="Outline specific skills, qualifications, or roles you are seeking to fill on the ground..."
+                          className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
                       >
-                        <option value="Exhibitor Booth">Exhibitor Booth &bull; Talent Recruitment</option>
-                        <option value="Demo Lab Host">Experiential Demo Lab Host</option>
-                        <option value="Panel Sponsor">Sector Panel Keynote Sponsorship</option>
-                        <option value="Pitch Stage Funder">Dragons’ Den Seed Grant Funder</option>
-                        <option value="Comprehensive Partner">Full 5-Day Headline Partner</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Target Youth Placement Intent
-                      </label>
-                      <select
-                        value={partnerForm.hiringIntent}
-                        onChange={(e) => setPartnerForm({ ...partnerForm, hiringIntent: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                      >
-                        <option value="1-10 Placements">1 – 10 Youth Placements / Internships</option>
-                        <option value="10-50 Youth Placements">10 – 50 Youth Placements</option>
-                        <option value="50-100 Youth Placements">50 – 100 Youth Placements</option>
-                        <option value="100+ Youth Placements">100+ Scaled Workforce Pipeline</option>
-                        <option value="Skills Only">Skills Training &bull; ESD Only</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                      Specific Objectives or Custom Requirements
-                    </label>
-                    <textarea
-                      rows={3}
-                      placeholder="Outline your talent pipeline needs, B-BBEE scorecard goals, or custom activation requirements..."
-                      value={partnerForm.notes}
-                      onChange={(e) => setPartnerForm({ ...partnerForm, notes: e.target.value })}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="ey-button ey-button-dark-filled w-full text-center py-4 flex items-center justify-center gap-2"
-                  >
-                    <span>Submit Partner Registration</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </form>
-              )}
-            </div>
-          )}
-
-          {/* TAB 3: SPONSORSHIP & ESD FUNDING FORM */}
-          {activeFormTab === 'sponsor' && (
-            <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-b from-[#111815] to-[var(--pt-ink)] p-7 sm:p-10 shadow-2xl">
-              {sponsorSubmitted ? (
-                <div className="py-12 text-center">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-5">
-                    <CheckCircle2 className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-2xl font-extrabold uppercase text-white">Sponsorship Prospectus Dispatched</h3>
-                  <p className="mt-3 text-sm text-[var(--pt-muted)] max-w-md mx-auto">
-                    Thank you, {sponsorForm.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza and the EmpowaYouth sponsorship desk. The official B-BBEE ESD, CSI, and branding tiers pack will be delivered to your inbox shortly.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setSponsorSubmitted(false)}
-                    className="mt-6 rounded-lg border border-white/20 px-6 py-2.5 text-xs font-bold uppercase text-white hover:bg-white/10 cursor-pointer"
-                  >
-                    Submit Another Funding Request
-                  </button>
+                        <span>Submit Employer Partnership Enquiry</span>
+                        <ArrowRight className="h-4 w-4 ml-2 inline" />
+                      </button>
+                    </form>
+                  )}
                 </div>
-              ) : (
-                <form onSubmit={handleSponsorSubmit} className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">Sponsorship &amp; ESD Funding Desk</h3>
-                    <p className="text-xs text-[var(--pt-muted)] mt-1">
-                      Direct capital, enterprise supplier development, and CSI contributions into verifiable township transformation.
+              )}
+
+              {/* TAB 3: SPONSORSHIP & B-BBEE ESD/CSI FUNDING */}
+              {activeFormTab === 'sponsor' && (
+                <div>
+                  <div className="mb-6">
+                    <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
+                      Sponsorship &amp; B-BBEE ESD Investment
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
+                      Power transformative socio-economic returns. Request the official Sponsorship &amp; B-BBEE Scorecard Information Pack.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Organisation / Foundation *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. IDC / Anglo American / Naspers Labs"
-                        value={sponsorForm.orgName}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, orgName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
+                  {sponsorSubmitted ? (
+                    <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
+                      <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
+                      <h4 className="text-xl font-extrabold text-white uppercase">
+                        Sponsorship Pack Dispatched!
+                      </h4>
+                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
+                        Thank you, {sponsorForm.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza and the EmpowaYouth sponsorship desk. The official B-BBEE ESD, CSI, and branding tiers pack will be delivered to your inbox shortly.
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Representative Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Nandi Sithole (Executive Director)"
-                        value={sponsorForm.contactName}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, contactName: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                  ) : (
+                    <form onSubmit={handleSponsorSubmit} className="space-y-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Corporate / Funding Entity *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={sponsorForm.orgName}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, orgName: e.target.value })}
+                            placeholder="e.g. Absa / Sasol / Telkom"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Executive Contact Person *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={sponsorForm.contactName}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, contactName: e.target.value })}
+                            placeholder="Full Name & Designation"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Official Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="nsithole@foundation.org.za"
-                        value={sponsorForm.email}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, email: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Phone *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+27 11 000 0000"
-                        value={sponsorForm.phone}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, phone: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                      />
-                    </div>
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Executive Email *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={sponsorForm.email}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, email: e.target.value })}
+                            placeholder="esd@corporate.com"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Mobile / Direct Phone *
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            value={sponsorForm.phone}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, phone: e.target.value })}
+                            placeholder="+27 82 000 0000"
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Target Funding Track
-                      </label>
-                      <select
-                        value={sponsorForm.fundingTrack}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, fundingTrack: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Strategic Funding Track *
+                          </label>
+                          <select
+                            value={sponsorForm.fundingTrack}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, fundingTrack: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="Headline Title Sponsor">Headline Title Sponsor</option>
+                            <option value="Sector Day Presenter">Sector Day Presenter (e.g. AI or Green)</option>
+                            <option value="ESD Scorecard Contribution">ESD / ED B-BBEE Scorecard Allocation</option>
+                            <option value="CSI Social Impact Grant">CSI &amp; Socio-Economic Development Grant</option>
+                            <option value="Skills Bursary Pool">Direct Youth Bursary &amp; Tooling Pool</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                            Indicative Budget Allocation
+                          </label>
+                          <select
+                            value={sponsorForm.budgetRange}
+                            onChange={(e) => setSponsorForm({ ...sponsorForm, budgetRange: e.target.value })}
+                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
+                          >
+                            <option value="R100,000 – R250,000">R100,000 – R250,000</option>
+                            <option value="R250,000 – R500,000">R250,000 – R500,000</option>
+                            <option value="R500,000 – R1,000,000">R500,000 – R1,000,000</option>
+                            <option value="R1,000,000+">R1,000,000+ (Anchor Partner)</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
+                          Specific Mandates or Strategic Objectives
+                        </label>
+                        <textarea
+                          rows={3}
+                          value={sponsorForm.message}
+                          onChange={(e) => setSponsorForm({ ...sponsorForm, message: e.target.value })}
+                          placeholder="Please note any specific reporting requirements, procurement points, or provincial mandates..."
+                          className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
                       >
-                        <option value="ESD Scorecard Contribution">Enterprise &amp; Supplier Development (ESD)</option>
-                        <option value="CSI Social Impact Allocation">Socio-Economic Development (CSI / SED)</option>
-                        <option value="Skills Development Bursary Pool">Skills Development (SETA &amp; Bursary Pool)</option>
-                        <option value="Pitch Stage Seed Grant Sponsor">Dragons’ Den Equity-Free Seed Pool</option>
-                        <option value="Headline Week Sponsor">Headline Title Sponsor</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                        Envisaged Investment Scope
-                      </label>
-                      <select
-                        value={sponsorForm.budgetRange}
-                        onChange={(e) => setSponsorForm({ ...sponsorForm, budgetRange: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-[#141b17] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                      >
-                        <option value="R100,000 – R250,000">R100,000 – R250,000</option>
-                        <option value="R250,000 – R500,000">R250,000 – R500,000</option>
-                        <option value="R500,000 – R1,000,000">R500,000 – R1,000,000</option>
-                        <option value="R1,000,000+ Headline">R1,000,000+ (Headline / Multi-Year)</option>
-                        <option value="Custom In-Kind Value">Custom In-Kind / Tooling / Tech Licenses</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-white/80 mb-1.5">
-                      Funding Objectives &amp; Scorecard Guidelines
-                    </label>
-                    <textarea
-                      rows={3}
-                      placeholder="Detail your target B-BBEE scorecard targets, reporting timelines, or custom branding requirements..."
-                      value={sponsorForm.message}
-                      onChange={(e) => setSponsorForm({ ...sponsorForm, message: e.target.value })}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="ey-button ey-button-dark-filled w-full text-center py-4 flex items-center justify-center gap-2"
-                  >
-                    <span>Request Executive Sponsorship Prospectus</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </form>
+                        <span>Request Official Sponsorship Dossier</span>
+                        <ArrowRight className="h-4 w-4 ml-2 inline" />
+                      </button>
+                    </form>
+                  )}
+                </div>
               )}
             </div>
-          )}
+          </div>
         </div>
       </section>
 
       {/* ======================================================== */}
-      {/* 11. DIRECT COORDINATION DESK & VENUE DIRECTORY (FROM CMS) */}
+      {/* 12. DIRECT COORDINATION DESK & CONTACT DETAILS (FROM CMS) */}
       {/* ======================================================== */}
-      <section className="py-20 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)] bg-[#060807]">
+      <section className="py-20 px-[var(--pt-container-pad)] bg-[#070a09] border-b border-[rgba(244,240,232,0.08)]">
         <div className="mx-auto max-w-[var(--pt-container)]">
-          <div className="rounded-3xl border border-[rgba(244,240,232,0.15)] bg-gradient-to-r from-[#121915] via-[#161f1c] to-[#121915] p-8 sm:p-12 lg:p-14">
-            <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
+          <div className="rounded-3xl border border-[rgba(244,240,232,0.12)] bg-gradient-to-br from-[#121917] to-[#0a0f0d] p-8 sm:p-12 shadow-2xl">
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--pt-accent)]">
-                  Direct Coordination Desk
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase text-[var(--pt-paper)] mt-2">
-                  Connect With The Vaal Week Team
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-2">
+                  Official Programme Secretariat
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-[var(--pt-paper)]">
+                  Empowaworx Coordination Desk
                 </h3>
-                <p className="mt-3 text-sm sm:text-base text-[var(--pt-muted)] leading-relaxed">
-                  Have questions about venue logistics, group transport for delegates, exhibition floorplans, or corporate sponsorship packages? Reach out directly.
+                <p className="mt-3 text-sm text-[var(--pt-muted)] leading-relaxed max-w-xl">
+                  For institutional delegations, municipal protocols, corporate exhibition logistics, and media accreditations, reach the core management desk directly.
                 </p>
 
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                      Event Operations &bull; Media &amp; Partnerships
-                    </span>
-                    <strong className="text-white text-sm block">Empowaworx Team</strong>
-                    <div className="mt-2.5 space-y-1.5 text-[rgba(244,240,232,0.75)]">
-                      <p className="flex items-center gap-2">
-                        <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="tel:+27114827256" className="hover:text-white transition">+27 (0) 11 482 7256</a>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="tel:+27728221840" className="hover:text-white transition">+27 72 822 1840</a>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <Mail className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="mailto:info@empowayouth.co.za" className="hover:text-white transition">info@empowayouth.co.za</a>
-                      </p>
+                <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+                    <Phone className="h-5 w-5 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-[var(--pt-muted)] block">
+                        Telephone Lines
+                      </span>
+                      <a href="tel:+27114827256" className="text-sm font-bold text-white hover:text-[var(--pt-accent)] block">
+                        +27 (0) 11 482 7256
+                      </a>
+                      <a href="tel:+27114827257" className="text-xs text-[var(--pt-muted)] hover:text-white block">
+                        +27 (0) 11 482 7257
+                      </a>
+                      <a href="tel:+27728221840" className="text-xs text-[var(--pt-muted)] hover:text-white block mt-0.5">
+                        Mobile: +27 72 822 1840
+                      </a>
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.03)] p-5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                      National Headquarters &bull; Randburg
-                    </span>
-                    <strong className="text-white text-sm block">Empowaworx House</strong>
-                    <div className="mt-2.5 space-y-1.5 text-[rgba(244,240,232,0.75)]">
-                      <p className="flex items-center gap-2">
-                        <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <span>364 Pine Avenue, Ferndale, Randburg, 2196</span>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <Mail className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="mailto:info@empowaworx.co.za" className="hover:text-white transition">info@empowaworx.co.za</a>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <Phone className="h-3.5 w-3.5 text-[var(--pt-accent)] shrink-0" />
-                        <a href="tel:+27114827257" className="hover:text-white transition">+27 (0) 11 482 7257</a>
-                      </p>
+                  <div className="flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+                    <Mail className="h-5 w-5 text-[var(--pt-accent)] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-[var(--pt-muted)] block">
+                        Official Inquiries
+                      </span>
+                      <a href="mailto:info@empowayouth.co.za" className="text-sm font-bold text-white hover:text-[var(--pt-accent)] block">
+                        info@empowayouth.co.za
+                      </a>
+                      <a href="mailto:info@empowaworx.co.za" className="text-xs text-[var(--pt-muted)] hover:text-white block">
+                        info@empowaworx.co.za
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-5 flex flex-col gap-3.5">
-                <a
-                  href="#participate"
-                  onClick={() => setActiveFormTab('delegate')}
-                  className="ey-button ey-button-dark-filled w-full text-center"
-                >
-                  <span>Register Free Delegate Pass</span>
-                </a>
-                <a
-                  href="#participate"
-                  onClick={() => setActiveFormTab('partner')}
-                  className="w-full text-center rounded-md border border-[var(--pt-accent)] bg-[rgba(232,131,42,0.15)] py-3.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[var(--pt-accent)] hover:bg-[var(--pt-accent)] hover:text-white transition"
-                >
-                  Partner With Us
-                </a>
-                <a
-                  href="mailto:info@empowayouth.co.za?subject=Vaal%20EmpowaYouth%20Week%20Sponsorship%20Enquiry"
-                  className="w-full text-center rounded-md border border-white/20 bg-white/5 py-3.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[var(--pt-paper)] hover:bg-white/10 transition"
-                >
-                  Email Sponsorship Desk
-                </a>
+              <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-6 sm:p-7">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)] block mb-1">
+                  National Headquarters
+                </span>
+                <h4 className="text-base font-extrabold text-white uppercase mb-2">
+                  Empowaworx House
+                </h4>
+                <p className="text-xs sm:text-sm text-[var(--pt-muted)] leading-relaxed mb-4">
+                  364 Pine Avenue, Ferndale<br />
+                  Randburg, Johannesburg, 2196<br />
+                  Gauteng, South Africa
+                </p>
+
+                <div className="pt-4 border-t border-[rgba(244,240,232,0.08)] flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-[var(--pt-muted)]">
+                    Sebokeng Venue Coordinator
+                  </span>
+                  <span className="text-xs font-bold text-[var(--pt-accent)]">
+                    Zone 14 Protocol Desk
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ======================================================== */}
+      {/* 13. BOTTOM NAVIGATION STRIP                              */}
+      {/* ======================================================== */}
+      <div className="py-8 px-[var(--pt-container-pad)] bg-[#040605] text-center border-t border-white/5">
+        <div className="mx-auto max-w-[var(--pt-container)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--pt-muted)]">
+          <p>&copy; EmpowaYouth &bull; A Catalyst for Generational Economic Justice.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/" className="hover:text-white transition">Home</Link>
+            <Link href="/about" className="hover:text-white transition">About Movement</Link>
+            <Link href="/offerings" className="hover:text-white transition">Interventions</Link>
+            <Link href="/contact" className="hover:text-white transition">Contact</Link>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
