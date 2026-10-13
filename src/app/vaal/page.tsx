@@ -27,7 +27,6 @@ import {
   Layers,
   Award,
   Quote,
-  BadgeCheck,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
@@ -220,8 +219,6 @@ export default function VaalEmpowaYouthWeekPage() {
       name: 'Winnie Lamane',
       role: "Owner, 'The Shack' Meat & Grill",
       township: 'Sebokeng, Zone 14',
-      badge: 'EmpowaEntrepreneurs Finalist',
-      outcome: 'R100,000 Seed Capital & Tooling',
       youtubeId: 'jlcnWfviNWw',
       title: "Owner of 'The Shack' Meat & Grill, Winnie Lamane - EmpowaEntrepreneurs",
     },
@@ -229,28 +226,22 @@ export default function VaalEmpowaYouthWeekPage() {
       name: 'Amanda Ncoza',
       role: 'Founder, Amanda Bakery',
       township: 'Drieziek Extension 2, Orange Farm',
-      badge: 'Township Enterprise',
-      outcome: '4 Permanent Township Jobs Created',
       youtubeId: '-h_Uie5ntjQ',
       title: 'EYW week beneficiary Amanda Bakery',
     },
     {
-      name: 'Kelebogile M.',
+      name: 'Kelebogile Koji',
       role: 'Junior Cloud & AI Practitioner',
       township: 'Evaton West, Vaal',
-      badge: 'Tech Masterclass Alum',
-      outcome: 'Accredited Cloud Certification & Placement',
       youtubeId: 'L4DwCepQtC4',
-      title: 'EYW Beneficiary Keolebogile',
+      title: 'EYW Beneficiary Kelebogile Koji',
     },
     {
-      name: 'Bonisiwe S.',
-      role: 'Community Health Coordinator',
+      name: 'Bonisiwe Molakeng',
+      role: 'Founder, Kasi Flavour',
       township: 'Orange Farm, Extension 4',
-      badge: 'Care Economy Graduate',
-      outcome: 'Direct Healthcare Industry Placement',
       youtubeId: '9Z17llSEZFc',
-      title: 'EYW Beneficiary Bonisiwe',
+      title: 'EYW Beneficiary Bonisiwe Molakeng - Kasi Flavour',
     },
   ];
 
@@ -1302,47 +1293,30 @@ export default function VaalEmpowaYouthWeekPage() {
             {testimonialVideos.map((video) => (
               <article
                 key={video.youtubeId}
-                className="group relative rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl"
+                className="group relative rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] overflow-hidden transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl"
               >
-                <div>
-                  {/* YouTube Video Player Embed */}
-                  <div className="relative aspect-video w-full bg-black overflow-hidden">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                      title={video.title}
-                      className="absolute inset-0 w-full h-full border-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="rounded-md bg-[var(--pt-accent)] px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-sm">
-                        {video.badge}
-                      </span>
-                      <span className="text-[11px] text-[var(--pt-muted)] font-medium">
-                        {video.township}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg font-extrabold uppercase text-[var(--pt-paper)] mt-2">
-                      {video.name}
-                    </h3>
-                    <p className="text-xs text-[var(--pt-accent)] font-semibold mt-0.5">
-                      {video.role}
-                    </p>
-                  </div>
+                {/* YouTube Video Player Embed */}
+                <div className="relative aspect-video w-full bg-black overflow-hidden">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="p-6 pt-0">
-                  <div className="pt-4 border-t border-[rgba(244,240,232,0.08)] flex items-center gap-2">
-                    <BadgeCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span className="text-xs font-bold text-white/90">
-                      {video.outcome}
-                    </span>
-                  </div>
+                <div className="p-6">
+                  <span className="text-[11px] font-semibold text-[var(--pt-accent)] uppercase tracking-wider block mb-1">
+                    {video.township}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-extrabold uppercase text-[var(--pt-paper)]">
+                    {video.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[rgba(244,240,232,0.75)] font-medium mt-0.5">
+                    {video.role}
+                  </p>
                 </div>
               </article>
             ))}
