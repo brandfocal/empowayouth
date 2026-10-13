@@ -112,9 +112,12 @@ const years = 5;
 export default function AboutPage() {
   const [activeSpeaker, setActiveSpeaker] = useState<number>(0);
   const [hoveredSpeaker, setHoveredSpeaker] = useState<number | null>(null);
+  const [activeTeamMember, setActiveTeamMember] = useState<number>(0);
+  const [hoveredTeamMember, setHoveredTeamMember] = useState<number | null>(null);
   useEmpowaYouthScrollAnimations();
 
   const currentSpeakerIndex = hoveredSpeaker !== null ? hoveredSpeaker : activeSpeaker;
+  const currentTeamMemberIndex = hoveredTeamMember !== null ? hoveredTeamMember : activeTeamMember;
 
   return (
     <main id="about" className="max-w-full overflow-x-hidden">
@@ -236,7 +239,11 @@ export default function AboutPage() {
       </section>
 
       {/* Team & Voices Section */}
-      <section className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] py-[clamp(80px,9vw,112px)]" id="voices">
+      <section
+        className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] py-[clamp(80px,9vw,112px)]"
+        id="voices"
+        onMouseLeave={() => setHoveredTeamMember(null)}
+      >
         <div className="mx-auto max-w-[var(--pt-container)] px-[var(--pt-container-pad)]">
           <div className="flex flex-col justify-between gap-6 border-b-2 border-[var(--pt-light-divider)] pb-8 md:flex-row md:items-end">
             <div>
@@ -250,48 +257,153 @@ export default function AboutPage() {
                 <span>.</span>
               </h2>
             </div>
-            <p className={`${bodyTextClassName} md:max-w-[420px]`}>
-              A clean, connected collective committed to economic justice.
-            </p>
+            <div className="flex flex-col md:items-end gap-1.5">
+              <p className={`${bodyTextClassName} md:max-w-[420px] md:text-right`}>
+                A clean, connected collective committed to economic justice.
+              </p>
+              <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-[var(--pt-ink)]/60 shrink-0">
+                <span className="hidden sm:inline">Hover or click to expand</span>
+                <span className="sm:hidden">Tap to expand</span> &rarr;
+              </p>
+            </div>
           </div>
 
-          <div className="mt-10 grid max-w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {teamMembers.map((member) => (
-              <article
-                key={member.name}
-                className="group relative overflow-hidden bg-[var(--pt-ink)] border border-[rgba(244,240,232,0.06)] cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-2xl hover:border-[rgba(232,131,42,0.3)]"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <img
-                    src={member.imageUrl}
-                    alt={`${member.name}, ${member.role}`}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,1)] via-[rgba(11,15,14,0.6)] to-transparent"
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="absolute top-0 right-0 w-10 h-10 bg-[var(--pt-accent)] [clip-path:polygon(100%_0,0_0,100%_100%)]"
-                    aria-hidden="true"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-[var(--pt-accent)] mb-1.5">
-                      {member.role}
-                    </p>
-                    <h3 className="text-xl font-extrabold tracking-[-0.04em] uppercase text-[var(--pt-paper)]">
-                      {member.name}
-                    </h3>
-                  </div>
-                </div>
+          {/* Accordion Row: all 4 team members fit across the container */}
+          <div className="mt-10">
+            <div
+              className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] select-none"
+              role="tablist"
+              aria-label="Team members gallery"
+            >
+              {teamMembers.map((member, memberIndex) => {
+                const isCurrent = currentTeamMemberIndex === memberIndex;
 
-                <div className="p-5 border-t border-[rgba(244,240,232,0.06)]">
-                  <p className="text-[13px] leading-relaxed text-[var(--pt-muted)]">
-                    {member.bio}
-                  </p>
-                </div>
-              </article>
-            ))}
+                return (
+                  <article
+                    key={member.name}
+                    role="tab"
+                    aria-selected={isCurrent}
+                    tabIndex={0}
+                    onClick={() => setActiveTeamMember(memberIndex)}
+                    onMouseEnter={() => setHoveredTeamMember(memberIndex)}
+                    onMouseLeave={() => setHoveredTeamMember(null)}
+                    onFocus={() => setActiveTeamMember(memberIndex)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveTeamMember(memberIndex);
+                      }
+                    }}
+                    className={`group relative h-full overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-[flex-grow,flex-basis] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+                      isCurrent
+                        ? 'flex-[3.5] sm:flex-[3] md:flex-[2.8] min-w-0'
+                        : 'flex-[1] min-w-0'
+                    }`}
+                    aria-label={`${member.name}, ${member.role}`}
+                  >
+                    <img
+                      src={member.imageUrl}
+                      alt={`${member.name} portrait`}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-[transform,filter] duration-700 ease-out"
+                      style={{
+                        transform: isCurrent ? 'scale(1.05)' : 'scale(1.0)',
+                        filter: isCurrent
+                          ? 'brightness(0.85) contrast(1.05)'
+                          : 'brightness(0.38) grayscale(0.35)',
+                      }}
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-[rgba(11,15,14,0.35)] to-transparent pointer-events-none"
+                      aria-hidden="true"
+                    />
+                    <div
+                      className={`absolute inset-0 rounded-xl sm:rounded-2xl border transition-colors duration-300 pointer-events-none ${
+                        isCurrent
+                          ? 'border-[rgba(232,131,42,0.6)] shadow-[0_0_24px_rgba(232,131,42,0.2)]'
+                          : 'border-[rgba(244,240,232,0.12)] group-hover:border-[rgba(244,240,232,0.25)]'
+                      }`}
+                      aria-hidden="true"
+                    />
+
+                    {/* Corner accent for current item */}
+                    {isCurrent && (
+                      <div
+                        className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-[var(--pt-accent)] [clip-path:polygon(100%_0,0_0,100%_100%)] pointer-events-none transition-opacity duration-300"
+                        aria-hidden="true"
+                      />
+                    )}
+
+                    {/* Collapsed state display (vertical name on small widths) */}
+                    <div
+                      className={`absolute inset-0 flex flex-col justify-between items-center py-3.5 sm:py-5 px-1 pointer-events-none transition-opacity duration-300 ${
+                        isCurrent ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}
+                      aria-hidden={isCurrent}
+                    >
+                      <span className="text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)]">
+                        {String(memberIndex + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[rgba(244,240,232,0.7)] [writing-mode:vertical-rl] rotate-180 truncate max-h-[200px] sm:max-h-[260px]">
+                        {member.name}
+                      </span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-[rgba(244,240,232,0.3)] group-hover:bg-[var(--pt-accent)] transition-colors" />
+                    </div>
+
+                    {/* Expanded state display */}
+                    <div
+                      className={`absolute inset-0 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 pointer-events-none transition-opacity duration-300 ${
+                        isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      }`}
+                      aria-hidden={!isCurrent}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-[0.14em] text-[var(--pt-accent)] bg-[rgba(11,15,14,0.7)] backdrop-blur-sm px-2.5 py-1 rounded-full border border-[rgba(232,131,42,0.35)]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--pt-accent)] animate-pulse" />
+                          <span>{String(memberIndex + 1).padStart(2, '0')}</span>
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--pt-muted)] hidden md:inline">
+                          Core Team
+                        </span>
+                      </div>
+
+                      <div>
+                        <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
+                          {member.role}
+                        </p>
+                        <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1.5">
+                          {member.name}
+                        </h3>
+                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.85)] line-clamp-3 sm:line-clamp-4">
+                          {member.bio}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* Dots Indicator & Summary */}
+            <div className="mt-6 flex justify-between items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2" aria-label="Team navigation dots">
+                {teamMembers.map((m, i) => (
+                  <button
+                    key={m.name}
+                    type="button"
+                    onClick={() => setActiveTeamMember(i)}
+                    aria-label={`View team member ${i + 1}: ${m.name}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentTeamMemberIndex === i
+                        ? 'w-8 bg-[var(--pt-accent)]'
+                        : 'w-2 bg-[rgba(11,15,14,0.2)] hover:bg-[rgba(11,15,14,0.4)]'
+                    }`}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-[var(--pt-ink)]/60 font-medium tracking-wider uppercase">
+                {teamMembers.length} Leaders Driving Impact &amp; Inclusion
+              </p>
+            </div>
           </div>
         </div>
       </section>
