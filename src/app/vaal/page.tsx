@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
+import { PartnershipForm } from '@/components/PartnershipForm';
 
 export default function VaalEmpowaYouthWeekPage() {
   useEmpowaYouthScrollAnimations();
@@ -45,8 +46,6 @@ export default function VaalEmpowaYouthWeekPage() {
 
   // Form submission feedback states
   const [delegateSubmitted, setDelegateSubmitted] = useState(false);
-  const [partnerSubmitted, setPartnerSubmitted] = useState(false);
-  const [sponsorSubmitted, setSponsorSubmitted] = useState(false);
 
   // Form input states (matching CMS registration fields)
   const [delegateForm, setDelegateForm] = useState({
@@ -63,39 +62,9 @@ export default function VaalEmpowaYouthWeekPage() {
     motivation: '',
   });
 
-  const [partnerForm, setPartnerForm] = useState({
-    companyName: '',
-    contactName: '',
-    email: '',
-    phone: '',
-    partnershipType: 'Exhibitor Booth',
-    hiringIntent: '10-50 Youth Placements',
-    notes: '',
-  });
-
-  const [sponsorForm, setSponsorForm] = useState({
-    orgName: '',
-    contactName: '',
-    email: '',
-    phone: '',
-    fundingTrack: 'ESD Scorecard Contribution',
-    budgetRange: 'R250,000 – R500,000',
-    message: '',
-  });
-
   const handleDelegateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setDelegateSubmitted(true);
-  };
-
-  const handlePartnerSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setPartnerSubmitted(true);
-  };
-
-  const handleSponsorSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSponsorSubmitted(true);
   };
 
   const toggleIndustry = (ind: string) => {
@@ -1737,285 +1706,29 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
               )}
 
-              {/* TAB 2: PARTNER REGISTRATION FORM */}
+              {/* TAB 2: PARTNERSHIP CONSULTATION FORM (MAPPED TO GRAVITY FORMS ID: 48) */}
               {activeFormTab === 'partner' && (
-                <div>
-                  <div className="mb-6">
-                    <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
-                      Register as an Employer &amp; Ecosystem Partner
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
-                      Activate your brand, conduct live on-site interviews, and recruit vetted youth talent across 5 focus industries.
-                    </p>
-                  </div>
-
-                  {partnerSubmitted ? (
-                    <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
-                      <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
-                      <h4 className="text-xl font-extrabold text-white uppercase">
-                        Partner Registration Received!
-                      </h4>
-                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
-                        Thank you, {partnerForm.contactName || 'Partner'}. The Empowaworx partnership desk will contact {partnerForm.email} within 24 hours with floorplan options and hiring hub specifications.
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handlePartnerSubmit} className="space-y-5">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Company / Organization *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={partnerForm.companyName}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, companyName: e.target.value })}
-                            placeholder="e.g. Standard Bank / Discovery"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Lead Contact Person *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={partnerForm.contactName}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, contactName: e.target.value })}
-                            placeholder="Full name & title"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Work Email *
-                          </label>
-                          <input
-                            type="email"
-                            required
-                            value={partnerForm.email}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })}
-                            placeholder="partnerships@company.co.za"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Direct Telephone *
-                          </label>
-                          <input
-                            type="tel"
-                            required
-                            value={partnerForm.phone}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, phone: e.target.value })}
-                            placeholder="+27 11 000 0000"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Partnership Mode *
-                          </label>
-                          <select
-                            value={partnerForm.partnershipType}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, partnershipType: e.target.value })}
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                          >
-                            <option value="Exhibitor Booth">Exhibition Booth &amp; Brand Zone</option>
-                            <option value="Hiring Partner">On-Site HR &amp; Direct Recruitment Pod</option>
-                            <option value="Sector Lab Co-Host">Pre-Summit Masterclass Co-Host</option>
-                            <option value="Deal Room Investor">Deal Room &amp; Pitch Stage Funder</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Estimated Youth Intake / Placements
-                          </label>
-                          <select
-                            value={partnerForm.hiringIntent}
-                            onChange={(e) => setPartnerForm({ ...partnerForm, hiringIntent: e.target.value })}
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                          >
-                            <option value="1-10">1 – 10 Placements</option>
-                            <option value="10-50 Youth Placements">10 – 50 Placements</option>
-                            <option value="50-100">50 – 100 Placements</option>
-                            <option value="100+">100+ Placements (Large Scale)</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                          Specific Requirements or Target Profiles
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={partnerForm.notes}
-                          onChange={(e) => setPartnerForm({ ...partnerForm, notes: e.target.value })}
-                          placeholder="Outline specific skills, qualifications, or roles you are seeking to fill on the ground..."
-                          className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
-                      >
-                        <span>Submit Employer Partnership Enquiry</span>
-                        <ArrowRight className="h-4 w-4 ml-2 inline" />
-                      </button>
-                    </form>
-                  )}
-                </div>
+                <PartnershipForm
+                  idPrefix="vaal-partner"
+                  showHeader={true}
+                  badge="Co-Author the Future"
+                  title="Initiate an Employer & Ecosystem Partnership"
+                  subtitle="This is the official B2B consultation request structured to match your organization with the right strategic mandate and intervention pathway for Vaal EmpowaYouth Week."
+                  defaultIntervention="EmpowaYouth Summits National or Provincial"
+                />
               )}
 
-              {/* TAB 3: SPONSORSHIP & B-BBEE ESD/CSI FUNDING */}
+              {/* TAB 3: SPONSORSHIP & B-BBEE ESD/CSI CONSULTATION (MAPPED TO GRAVITY FORMS ID: 48) */}
               {activeFormTab === 'sponsor' && (
-                <div>
-                  <div className="mb-6">
-                    <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
-                      Sponsorship &amp; B-BBEE ESD Investment
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
-                      Power transformative socio-economic returns. Request the official Sponsorship &amp; B-BBEE Scorecard Information Pack.
-                    </p>
-                  </div>
-
-                  {sponsorSubmitted ? (
-                    <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
-                      <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
-                      <h4 className="text-xl font-extrabold text-white uppercase">
-                        Sponsorship Pack Dispatched!
-                      </h4>
-                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
-                        Thank you, {sponsorForm.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza and the EmpowaYouth sponsorship desk. The official B-BBEE ESD, CSI, and branding tiers pack will be delivered to your inbox shortly.
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSponsorSubmit} className="space-y-5">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Corporate / Funding Entity *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={sponsorForm.orgName}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, orgName: e.target.value })}
-                            placeholder="e.g. Absa / Sasol / Telkom"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Executive Contact Person *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={sponsorForm.contactName}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, contactName: e.target.value })}
-                            placeholder="Full Name & Designation"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Executive Email *
-                          </label>
-                          <input
-                            type="email"
-                            required
-                            value={sponsorForm.email}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, email: e.target.value })}
-                            placeholder="esd@corporate.com"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Mobile / Direct Phone *
-                          </label>
-                          <input
-                            type="tel"
-                            required
-                            value={sponsorForm.phone}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, phone: e.target.value })}
-                            placeholder="+27 82 000 0000"
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Strategic Funding Track *
-                          </label>
-                          <select
-                            value={sponsorForm.fundingTrack}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, fundingTrack: e.target.value })}
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                          >
-                            <option value="Headline Title Sponsor">Headline Title Sponsor</option>
-                            <option value="Sector Day Presenter">Sector Day Presenter (e.g. AI or Green)</option>
-                            <option value="ESD Scorecard Contribution">ESD / ED B-BBEE Scorecard Allocation</option>
-                            <option value="CSI Social Impact Grant">CSI &amp; Socio-Economic Development Grant</option>
-                            <option value="Skills Bursary Pool">Direct Youth Bursary &amp; Tooling Pool</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                            Indicative Budget Allocation
-                          </label>
-                          <select
-                            value={sponsorForm.budgetRange}
-                            onChange={(e) => setSponsorForm({ ...sponsorForm, budgetRange: e.target.value })}
-                            className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
-                          >
-                            <option value="R100,000 – R250,000">R100,000 – R250,000</option>
-                            <option value="R250,000 – R500,000">R250,000 – R500,000</option>
-                            <option value="R500,000 – R1,000,000">R500,000 – R1,000,000</option>
-                            <option value="R1,000,000+">R1,000,000+ (Anchor Partner)</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
-                          Specific Mandates or Strategic Objectives
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={sponsorForm.message}
-                          onChange={(e) => setSponsorForm({ ...sponsorForm, message: e.target.value })}
-                          placeholder="Please note any specific reporting requirements, procurement points, or provincial mandates..."
-                          className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[rgba(244,240,232,0.03)] px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[var(--pt-accent)] focus:outline-none"
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
-                      >
-                        <span>Request Official Sponsorship Dossier</span>
-                        <ArrowRight className="h-4 w-4 ml-2 inline" />
-                      </button>
-                    </form>
-                  )}
-                </div>
+                <PartnershipForm
+                  idPrefix="vaal-sponsor"
+                  showHeader={true}
+                  badge="Strategic Mandate Alignment"
+                  title="Sponsorship & B-BBEE ESD Investment"
+                  subtitle="Power transformative socio-economic returns. Request the official Sponsorship & B-BBEE Scorecard Consultation and structure high-impact investment."
+                  defaultMandates={['General Sponsorship', 'ESD Strategies']}
+                  defaultIntervention="EmpowaYouth Summits National or Provincial"
+                />
               )}
             </div>
           </div>
