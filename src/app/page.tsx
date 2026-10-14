@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, MapPin, Users } from 'lucide-react';
+import { ArrowRight, Users } from 'lucide-react';
 import {
   useEmpowaYouthScrollAnimations,
   useEmpowaYouthImpactCounters,
@@ -472,10 +472,6 @@ export default function Home() {
           <div className="rounded-3xl border border-[rgba(244,240,232,0.14)] bg-gradient-to-br from-[#121917] via-[#0d1412] to-[#070a09] p-8 sm:p-12 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div className="max-w-xl">
-                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)] mb-2">
-                  <MapPin className="h-4 w-4 shrink-0" />
-                  <span>Koinonia Bible Church &bull; Sebokeng, Vaal</span>
-                </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-white leading-tight">
                   Be Part of South Africa&apos;s Most Consequential Youth Summit
                 </h3>
