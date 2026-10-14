@@ -31,6 +31,7 @@ import {
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
 import { PartnershipForm } from '@/components/PartnershipForm';
+import { SponsorshipForm } from '@/components/SponsorshipForm';
 
 export default function VaalEmpowaYouthWeekPage() {
   useEmpowaYouthScrollAnimations();
@@ -1718,16 +1719,14 @@ export default function VaalEmpowaYouthWeekPage() {
                 />
               )}
 
-              {/* TAB 3: SPONSORSHIP & B-BBEE ESD/CSI CONSULTATION (MAPPED TO GRAVITY FORMS ID: 48) */}
+              {/* TAB 3: SPONSORSHIP & FUNDING FORM (MAPPED TO GRAVITY FORMS ID: 49) */}
               {activeFormTab === 'sponsor' && (
-                <PartnershipForm
+                <SponsorshipForm
                   idPrefix="vaal-sponsor"
                   showHeader={true}
                   badge="Strategic Mandate Alignment"
                   title="Sponsorship & B-BBEE ESD Investment"
-                  subtitle="Power transformative socio-economic returns. Request the official Sponsorship & B-BBEE Scorecard Consultation and structure high-impact investment."
-                  defaultMandates={['General Sponsorship', 'ESD Strategies']}
-                  defaultIntervention="EmpowaYouth Summits National or Provincial"
+                  subtitle="Power transformative socio-economic returns. Request the official Sponsorship & B-BBEE Scorecard Information Pack and structure high-impact investment."
                 />
               )}
             </div>
