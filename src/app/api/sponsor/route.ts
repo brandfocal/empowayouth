@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
         success: true,
         message:
           data.confirmation_message ||
-          'Thank you. Your sponsorship inquiry has been received and the executive team will contact you shortly.',
+          'Thank you. Your enquiry has been received.',
         data,
       });
     }

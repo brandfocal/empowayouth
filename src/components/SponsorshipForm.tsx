@@ -174,10 +174,10 @@ export function SponsorshipForm({
         <div className="rounded-2xl border border-emerald-500/40 bg-emerald-950/30 p-8 text-center">
           <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400 mb-3" />
           <h4 className="text-xl font-extrabold text-white uppercase">
-            Sponsorship Pack Dispatched!
+            Enquiry Received
           </h4>
           <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto leading-relaxed">
-            Thank you, {form.contactName || 'Partner'}. Your enquiry has been received by Executive Producer Simphiwe Masiza and the EmpowaYouth sponsorship desk. The official B-BBEE ESD, CSI, and branding tiers pack will be delivered to {form.email || 'your email'} shortly.
+            Thank you, {form.contactName || 'Partner'}. Your enquiry has been received.
           </p>
           <div className="mt-6">
             <button
