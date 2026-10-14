@@ -57,7 +57,7 @@ const teamMembers = [
   {
     name: 'Anita Tirkey',
     role: 'Speaker & Programme Lead',
-    bio: 'Dedicated to empowering South African youth and driving impactful initiatives.',
+    bio: "Anita Tirkey leads speaker acquisition, programme curation, and thought leadership development, shaping conversations that matter to today's and tomorrow's women leaders. She works closely with CEOs, entrepreneurs, policymakers, investors, innovators, and global changemakers to deliver a world-class faculty of speakers whose insights challenge thinking, unlock opportunities, and inspire action.",
     imageUrl: '/team/Anita-Tirkey.jpg',
   },
   {
@@ -69,7 +69,7 @@ const teamMembers = [
   {
     name: 'Carshiefa Sissing',
     role: 'Digital & Audience Growth Lead',
-    bio: 'Passionate about skills alignment, enterprise building, and sustainable youth pathways.',
+    bio: 'Carshiefa Sissing drives the digital growth and influence of EmpowaWomen™, leading audience development, digital strategy, social media engagement, content ecosystems, and brand visibility. She is responsible for building powerful digital communities, amplifying thought leadership, and ensuring the EmpowaWomen™ movement continues to inspire, engage, and influence thousands of women across Africa and beyond.',
     imageUrl: '/team/Carshiefa-Sissing.jpg',
   },
 ];
@@ -373,7 +373,7 @@ export default function AboutPage() {
                         <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1.5">
                           {member.name}
                         </h3>
-                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.85)] line-clamp-3 sm:line-clamp-4">
+                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.85)] line-clamp-6 md:line-clamp-none">
                           {member.bio}
                         </p>
                       </div>
