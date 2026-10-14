@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Sparkles, MapPin, Users } from 'lucide-react';
+import { ArrowRight, MapPin, Users } from 'lucide-react';
 import {
   useEmpowaYouthScrollAnimations,
   useEmpowaYouthImpactCounters,
@@ -313,7 +313,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center mb-14 sm:mb-20">
             <p className="mb-3 inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--pt-accent)]">
               <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
-              <span>Flagship Regional Summit &bull; Sebokeng, Vaal</span>
+              <span>Flagship Regional Summit</span>
               <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
             </p>
             <h2
@@ -325,7 +325,7 @@ export default function Home() {
               <span>.</span>
             </h2>
             <p className="mt-5 text-sm sm:text-base text-[var(--pt-muted)] leading-relaxed max-w-2xl mx-auto">
-              South Africa&apos;s largest youth economic mobilization converges under the iconic Sebokeng Dome.
+              South Africa&apos;s largest youth economic mobilization converges under the iconic Dome.
               Five dedicated industry tracks uniting 10,000+ ambitious young South Africans with corporate hiring pods,
               pitch competitions, and accredited industry pipelines.
             </p>
@@ -338,16 +338,10 @@ export default function Home() {
               <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
                 <img
                   src="/images/youth/IMG_2727.jpg"
-                  alt="Over 10,000 young South Africans gathered inside the massive EmpowaYouth dome marquee in Sebokeng"
+                  alt="Over 10,000 young South Africans gathered inside the massive EmpowaYouth dome marquee"
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--pt-ink)] via-black/40 to-transparent" />
-              </div>
-              <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--pt-accent)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--pt-ink)] shadow-lg">
-                  <Sparkles className="h-3 w-3" />
-                  <span>The Sebokeng Dome</span>
-                </span>
               </div>
               <div className="absolute bottom-5 inset-x-5 p-5 rounded-2xl bg-[rgba(11,15,14,0.85)] border border-white/10 backdrop-blur-md">
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
