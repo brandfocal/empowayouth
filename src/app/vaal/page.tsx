@@ -1485,13 +1485,21 @@ export default function VaalEmpowaYouthWeekPage() {
                       <h4 className="text-xl font-extrabold text-white uppercase">
                         Seat Reserved Successfully!
                       </h4>
-                      <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
-                        Welcome, {delegateForm.firstName || 'Delegate'}. Your registration for Vaal EmpowaYouth Week (3–7 May 2027, 08:00–15:00 daily at Koinonia Bible Church, Sebokeng, Zone 14) is confirmed. Your digital accreditation and daily schedule have been sent to {delegateForm.email || 'your email'}.
-                      </p>
+                      <div className="mt-4 text-sm text-[rgba(244,240,232,0.92)] max-w-lg mx-auto space-y-3 leading-relaxed">
+                        <p>
+                          You&apos;re in for a dope week of EmpowaYouth in Sebokeng, Vaal! We&apos;ll be lit from May 3rd to 7th. Get ready for some serious vibes, kasi-style. See you there, sharp sharp!
+                        </p>
+                        <p className="font-extrabold text-[var(--pt-accent)] text-base">
+                          Get Ready to be Inspired, Connected and Transformed!
+                        </p>
+                        <p className="text-xs uppercase tracking-wider text-[var(--pt-muted)] font-bold">
+                          EmpowaYouth Team
+                        </p>
+                      </div>
                       <button
                         type="button"
                         onClick={() => setDelegateSubmitted(false)}
-                        className="mt-6 inline-block text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)] underline cursor-pointer"
+                        className="mt-6 inline-block text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)] underline cursor-pointer hover:text-white transition"
                       >
                         Register another delegate
                       </button>
@@ -1706,9 +1714,6 @@ export default function VaalEmpowaYouthWeekPage() {
                           </>
                         )}
                       </button>
-                      <p className="text-[11px] text-center text-[var(--pt-muted)]">
-                        Zero registration fee &bull; 100% Subsidised by Strategic Corporate Partners &bull; Strict capacity controls apply
-                      </p>
                     </form>
                   )}
                 </div>

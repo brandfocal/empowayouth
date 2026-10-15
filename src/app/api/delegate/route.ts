@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
         success: true,
         message:
           data.confirmation_message ||
-          'Your registration for Vaal EmpowaYouth Week 2027 is confirmed.',
+          "You're in for a dope week of EmpowaYouth in Sebokeng, Vaal! We'll be lit from May 3rd to 7th. Get ready for some serious vibes, kasi-style. See you there, sharp sharp!\n\nGet Ready to be Inspired, Connected and Transformed!\n\nEmpowaYouth Team",
         data,
       });
     }
