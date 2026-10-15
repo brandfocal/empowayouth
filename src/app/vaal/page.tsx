@@ -27,6 +27,7 @@ import {
   Layers,
   Award,
   Quote,
+  Play,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
@@ -36,6 +37,9 @@ import { PastSpeakersSection } from '@/components/PastSpeakersSection';
 
 export default function VaalEmpowaYouthWeekPage() {
   useEmpowaYouthScrollAnimations();
+
+  // Video playback state
+  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
   // Interactive tab states
   const [activeDay, setActiveDay] = useState<number>(1);
@@ -1094,16 +1098,45 @@ export default function VaalEmpowaYouthWeekPage() {
                 key={video.youtubeId}
                 className="group relative rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(244,240,232,0.02)] overflow-hidden transition-all duration-300 hover:border-[var(--pt-accent)]/50 hover:shadow-2xl"
               >
-                {/* YouTube Video Player Embed */}
+                {/* YouTube Video Player Embed / High-Performance Façade */}
                 <div className="relative aspect-video w-full bg-black overflow-hidden">
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                    title={video.title}
-                    className="absolute inset-0 w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                  />
+                  {playingVideoId === video.youtubeId ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                      title={video.title}
+                      className="absolute inset-0 w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setPlayingVideoId(video.youtubeId)}
+                      className="group/btn relative w-full h-full text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pt-accent)] block"
+                      aria-label={`Play testimonial video of ${video.name}`}
+                    >
+                      {/* High-res poster thumbnail */}
+                      <img
+                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                        alt={video.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/btn:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 group-hover/btn:from-black/70 transition-colors" />
+
+                      {/* Centered Glowing Play Button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-full bg-[var(--pt-accent)] text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover/btn:scale-115">
+                          <Play size={22} className="fill-current ml-1" />
+                        </div>
+                      </div>
+
+                      {/* Video Tag Indicator */}
+                      <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/85 text-[10px] font-bold uppercase tracking-wider text-[var(--pt-paper)] border border-white/10">
+                        Watch Story
+                      </span>
+                    </button>
+                  )}
                 </div>
 
                 <div className="p-6">
