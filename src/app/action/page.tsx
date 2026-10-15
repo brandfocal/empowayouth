@@ -71,7 +71,7 @@ const youthFaqs: FAQItem[] = [
     id: 'events',
     question: 'How do I attend an event?',
     answer:
-      'You can register for upcoming high-energy programmes like the EmpowaYouth Tembisa 2025 or the Vaal EmpowaYouth Week 2026 through our website to gain critical skills, mentorship, and real-world readiness.',
+      'You can register for upcoming high-energy programmes like the EmpowaYouth Vaal Week (3–7 May 2027 at Koinonia Bible Church, Sebokeng, Zone 14 | 08:00–15:00 daily) through our website to gain critical skills, mentorship, and real-world readiness.',
   },
 ];
 

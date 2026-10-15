@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, Users, Calendar, Clock, MapPin } from 'lucide-react';
 import {
   useEmpowaYouthScrollAnimations,
   useEmpowaYouthImpactCounters,
@@ -317,6 +317,25 @@ export default function Home() {
               <span className="ey-heading-italic text-[var(--pt-accent)]">The Dome</span>
               <span>.</span>
             </h2>
+
+            {/* Event Dates, Times & Venue Badge */}
+            <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 rounded-full border border-[rgba(232,93,4,0.35)] bg-[rgba(232,93,4,0.12)] px-4 py-2 text-xs font-semibold text-white backdrop-blur-md shadow-lg shadow-[rgba(232,93,4,0.1)]">
+              <span className="inline-flex items-center gap-1.5 text-[var(--pt-accent)] font-bold">
+                <Calendar className="h-3.5 w-3.5" />
+                <span>3–7 May 2027</span>
+              </span>
+              <span className="text-white/30 hidden sm:inline">•</span>
+              <span className="inline-flex items-center gap-1.5 text-white/90">
+                <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" />
+                <span>08:00–15:00 daily</span>
+              </span>
+              <span className="text-white/30 hidden sm:inline">•</span>
+              <span className="inline-flex items-center gap-1.5 text-white/90">
+                <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" />
+                <span>Koinonia Bible Church, Sebokeng, Zone 14</span>
+              </span>
+            </div>
+
             <p className="mt-5 text-sm sm:text-base text-[var(--pt-muted)] leading-relaxed max-w-2xl mx-auto">
               South Africa&apos;s largest youth economic mobilization converges under the iconic Dome.
               Five dedicated industry tracks uniting 10,000+ ambitious young South Africans with corporate hiring pods,
@@ -465,6 +484,14 @@ export default function Home() {
           <div className="rounded-3xl border border-[rgba(244,240,232,0.14)] bg-gradient-to-br from-[#121917] via-[#0d1412] to-[#070a09] p-8 sm:p-12 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div className="max-w-xl">
+                <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-[rgba(232,93,4,0.15)] border border-[rgba(232,93,4,0.3)] text-xs font-semibold text-[var(--pt-accent)] mb-3">
+                  <span className="font-bold">Next Summit:</span>
+                  <span>3–7 May 2027</span>
+                  <span className="text-white/30">•</span>
+                  <span>08:00–15:00 daily</span>
+                  <span className="text-white/30">•</span>
+                  <span className="text-white/90">Koinonia Bible Church, Sebokeng, Zone 14</span>
+                </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-white leading-tight">
                   Be Part of South Africa&apos;s Most Consequential Youth Summit
                 </h3>

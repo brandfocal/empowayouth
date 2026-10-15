@@ -28,6 +28,7 @@ import {
   Award,
   Quote,
   Play,
+  Calendar,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
@@ -84,6 +85,8 @@ export default function VaalEmpowaYouthWeekPage() {
     {
       day: 1,
       badge: 'Day 01',
+      date: 'Mon 3 May 2027',
+      time: '08:00 – 15:00',
       sector: 'Health, Wellness & The Care Economy',
       theme: 'Healing the Economy: Careers in Care, Health & Humanity',
       icon: HeartPulse,
@@ -104,6 +107,8 @@ export default function VaalEmpowaYouthWeekPage() {
     {
       day: 2,
       badge: 'Day 02',
+      date: 'Tue 4 May 2027',
+      time: '08:00 – 15:00',
       sector: 'AI, Digital Economy & Deep Tech',
       theme: 'Code the Future: AI, Innovation & the 4IR Workforce',
       icon: Cpu,
@@ -124,6 +129,8 @@ export default function VaalEmpowaYouthWeekPage() {
     {
       day: 3,
       badge: 'Day 03',
+      date: 'Wed 5 May 2027',
+      time: '08:00 – 15:00',
       sector: 'Creative & Film Economy',
       theme: 'Frame the Future: Youth in Film, Content & Storytelling',
       icon: Film,
@@ -144,6 +151,8 @@ export default function VaalEmpowaYouthWeekPage() {
     {
       day: 4,
       badge: 'Day 04',
+      date: 'Thu 6 May 2027',
+      time: '08:00 – 15:00',
       sector: 'Green Economy, Sustainability & AgriTech',
       theme: 'Regenerate: Green Jobs, Agribusiness & the Circular Economy',
       icon: Leaf,
@@ -164,6 +173,8 @@ export default function VaalEmpowaYouthWeekPage() {
     {
       day: 5,
       badge: 'Day 05',
+      date: 'Fri 7 May 2027',
+      time: '08:00 – 15:00',
       sector: 'Entrepreneurship, Funding & Innovation Ecosystems',
       theme: 'Fund the Future: From Hustle to High-Growth Startups',
       icon: DollarSign,
@@ -314,11 +325,17 @@ export default function VaalEmpowaYouthWeekPage() {
 
         <div className="relative z-[3] mx-auto w-full max-w-[var(--pt-container)]">
           <div className="max-w-4xl">
-            {/* Eyebrow Kicker */}
-            <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)] mb-4">
-              <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
-              <span>Flagship Regional Activation</span>
-            </p>
+            {/* Eyebrow Kicker & Date Badge */}
+            <div className="flex items-center gap-3 flex-wrap mb-4">
+              <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--pt-accent)]">
+                <span className="inline-block w-8 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
+                <span>Next Activation &bull; 3–7 May 2027</span>
+              </p>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(232,93,4,0.15)] border border-[rgba(232,93,4,0.35)] text-[11px] font-bold uppercase tracking-wider text-[var(--pt-accent)]">
+                <MapPin size={12} />
+                <span>Koinonia Bible Church, Sebokeng, Zone 14</span>
+              </span>
+            </div>
 
             {/* Main Display Headline */}
             <h1
@@ -338,9 +355,23 @@ export default function VaalEmpowaYouthWeekPage() {
               EmpowaYouth is not a programme, it is a national power shift. Born in the townships and scaling across the nation, it is South Africa’s most urgent and unapologetic response to systemic youth exclusion — a catalytic engine bridging township youth into the future economy through employment, enterprise, and education pathways at scale.
             </p>
 
-            {/* Quick Specifications Strip (Glassmorphic Bar - STRICTLY NO DATES) */}
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.7)] p-4 sm:p-5 backdrop-blur-md">
+            {/* Quick Specifications Strip */}
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5 sm:gap-4 rounded-2xl border border-[rgba(244,240,232,0.12)] bg-[rgba(11,15,14,0.7)] p-4 sm:p-5 backdrop-blur-md">
+              <div className="flex flex-col col-span-2 sm:col-span-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <Calendar className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Dates
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-white">3–7 May 2027</strong>
+                <span className="text-[11px] text-[var(--pt-accent)] font-medium">5 Action-Packed Days</span>
+              </div>
               <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
+                  <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
+                <span className="text-[11px] text-[var(--pt-muted)]">Morning &amp; Afternoon</span>
+              </div>
+              <div className="flex flex-col col-span-2 sm:col-span-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
                   <MapPin className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Venue
                 </span>
@@ -349,19 +380,12 @@ export default function VaalEmpowaYouthWeekPage() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
-                  <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Daily Times
-                </span>
-                <strong className="text-xs sm:text-sm font-bold text-white">08:00 – 15:00 Daily</strong>
-                <span className="text-[11px] text-[var(--pt-muted)]">5 Action-Packed Days</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
                   <Users className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Expected Turnout
                 </span>
                 <strong className="text-xs sm:text-sm font-bold text-white">10,000+ Youth</strong>
                 <span className="text-[11px] text-[var(--pt-muted)]">2,000+ Youth Daily</span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col hidden lg:flex">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] flex items-center gap-1 mb-1">
                   <Target className="h-3.5 w-3.5 text-[var(--pt-accent)]" /> Target Audience
                 </span>
@@ -663,6 +687,9 @@ export default function VaalEmpowaYouthWeekPage() {
                     >
                       {item.badge}
                     </span>
+                    <span className="text-[10px] text-white/70 font-semibold bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
+                      {item.date}
+                    </span>
                   </div>
                   <strong className="text-xs sm:text-sm font-bold text-white line-clamp-2 uppercase">
                     {item.sector}
@@ -680,9 +707,20 @@ export default function VaalEmpowaYouthWeekPage() {
             <div className="grid lg:grid-cols-12 gap-10 items-start">
               {/* Left Column: Sector Narrative, Outcomes & Power Statement */}
               <div className="lg:col-span-7">
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                <div className="flex items-center gap-2.5 mb-4 flex-wrap">
                   <span className="rounded-full bg-[var(--pt-accent)]/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] border border-[var(--pt-accent)]/30">
                     {currentDayData.badge} &bull; {currentDayData.tag}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[10px] font-semibold text-white/90">
+                    <Calendar className="h-3 w-3 text-[var(--pt-accent)]" />
+                    <span>{currentDayData.date}</span>
+                    <span className="text-white/40">•</span>
+                    <Clock className="h-3 w-3 text-[var(--pt-accent)]" />
+                    <span>{currentDayData.time}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[10px] font-semibold text-white/90">
+                    <MapPin className="h-3 w-3 text-[var(--pt-accent)]" />
+                    <span>Koinonia Bible Church, Sebokeng</span>
                   </span>
                 </div>
 
@@ -1341,11 +1379,21 @@ export default function VaalEmpowaYouthWeekPage() {
               {activeFormTab === 'delegate' && (
                 <div>
                   <div className="mb-6">
+                    <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-[rgba(232,93,4,0.12)] border border-[rgba(232,93,4,0.3)] text-[11px] font-semibold text-[var(--pt-accent)] mb-3">
+                      <Calendar className="h-3.5 w-3.5" />
+                      <span>3–7 May 2027</span>
+                      <span className="text-white/30">•</span>
+                      <Clock className="h-3.5 w-3.5" />
+                      <span>08:00–15:00 daily</span>
+                      <span className="text-white/30">•</span>
+                      <MapPin className="h-3.5 w-3.5" />
+                      <span className="text-white/90">Koinonia Bible Church, Sebokeng, Zone 14</span>
+                    </div>
                     <h3 className="text-xl sm:text-2xl font-extrabold uppercase text-[var(--pt-paper)]">
                       Reserve Your Free Youth Delegate Seat
                     </h3>
                     <p className="text-xs sm:text-sm text-[var(--pt-muted)] mt-1">
-                      100% Free entry. Fill out your details below to secure your seat at the Koinonia Bible Church, Sebokeng.
+                      100% Free entry &bull; 3–7 May 2027 (08:00–15:00 daily). Fill out your details below to secure your seat at the Koinonia Bible Church, Sebokeng, Zone 14.
                     </p>
                   </div>
 
@@ -1356,7 +1404,7 @@ export default function VaalEmpowaYouthWeekPage() {
                         Seat Reserved Successfully!
                       </h4>
                       <p className="mt-2 text-sm text-[rgba(244,240,232,0.85)] max-w-md mx-auto">
-                        Welcome, {delegateForm.firstName || 'Delegate'}. Your registration for Vaal EmpowaYouth Week is confirmed. Your digital accreditation and daily schedule have been sent to {delegateForm.email || 'your email'}.
+                        Welcome, {delegateForm.firstName || 'Delegate'}. Your registration for Vaal EmpowaYouth Week (3–7 May 2027, 08:00–15:00 daily at Koinonia Bible Church, Sebokeng, Zone 14) is confirmed. Your digital accreditation and daily schedule have been sent to {delegateForm.email || 'your email'}.
                       </p>
                       <button
                         type="button"
@@ -1649,26 +1697,47 @@ export default function VaalEmpowaYouthWeekPage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-6 sm:p-7">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)] block mb-1">
-                  National Headquarters
-                </span>
-                <h4 className="text-base font-extrabold text-white uppercase mb-2">
-                  Empowaworx House
-                </h4>
-                <p className="text-xs sm:text-sm text-[var(--pt-muted)] leading-relaxed mb-4">
-                  364 Pine Avenue, Ferndale<br />
-                  Randburg, Johannesburg, 2196<br />
-                  Gauteng, South Africa
-                </p>
+              <div className="lg:col-span-5 rounded-2xl border border-[rgba(244,240,232,0.1)] bg-[rgba(244,240,232,0.02)] p-6 sm:p-7 space-y-5">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)] block mb-1">
+                    Event Venue &amp; Activation Hub
+                  </span>
+                  <h4 className="text-base font-extrabold text-white uppercase mb-1">
+                    Koinonia Bible Church
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[var(--pt-muted)] leading-relaxed">
+                    Zone 14, Sebokeng, Vaal Region, Gauteng
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold">
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,93,4,0.15)] border border-[rgba(232,93,4,0.3)] px-2.5 py-1 text-[var(--pt-accent)]">
+                      <Calendar className="h-3.5 w-3.5" />
+                      3–7 May 2027
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-white/5 border border-white/10 px-2.5 py-1 text-white/80">
+                      <Clock className="h-3.5 w-3.5 text-[var(--pt-accent)]" />
+                      08:00–15:00 Daily
+                    </span>
+                  </div>
+                </div>
 
-                <div className="pt-4 border-t border-[rgba(244,240,232,0.08)] flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-[var(--pt-muted)]">
-                    Sebokeng Venue Coordinator
+                <div className="pt-4 border-t border-[rgba(244,240,232,0.08)]">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-accent)] block mb-1">
+                    National Headquarters
                   </span>
-                  <span className="text-xs font-bold text-[var(--pt-accent)]">
-                    Zone 14 Protocol Desk
-                  </span>
+                  <h4 className="text-sm font-extrabold text-white uppercase mb-1">
+                    Empowaworx House
+                  </h4>
+                  <p className="text-xs text-[var(--pt-muted)] leading-relaxed mb-3">
+                    364 Pine Avenue, Ferndale, Randburg, 2196
+                  </p>
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-semibold text-[var(--pt-muted)]">
+                      Sebokeng Venue Coordinator
+                    </span>
+                    <span className="font-bold text-[var(--pt-accent)]">
+                      Zone 14 Protocol Desk
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
