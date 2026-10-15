@@ -29,6 +29,7 @@ import {
   Quote,
   Play,
   Calendar,
+  Loader2,
 } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
@@ -48,8 +49,10 @@ export default function VaalEmpowaYouthWeekPage() {
 
   // Form submission feedback states
   const [delegateSubmitted, setDelegateSubmitted] = useState(false);
+  const [isDelegateSubmitting, setIsDelegateSubmitting] = useState(false);
+  const [delegateErrorMessage, setDelegateErrorMessage] = useState<string | null>(null);
 
-  // Form input states (matching CMS registration fields)
+  // Form input states (matching Gravity Forms Form ID: 51)
   const [delegateForm, setDelegateForm] = useState({
     firstName: '',
     lastName: '',
@@ -57,16 +60,110 @@ export default function VaalEmpowaYouthWeekPage() {
     email: '',
     phone: '',
     township: '',
-    gender: 'FEMALE',
+    gender: 'Female',
     industries: ['AI, Tech & the Digital Economy'],
-    isEntrepreneur: 'NO',
-    isRegistered: 'NO',
+    isEntrepreneur: 'No',
+    isRegistered: 'No',
     motivation: '',
   });
 
-  const handleDelegateSubmit = (e: React.FormEvent) => {
+  const handleDelegateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setDelegateSubmitted(true);
+    setIsDelegateSubmitting(true);
+    setDelegateErrorMessage(null);
+
+    // Mapped to Gravity Forms Form ID: 51 (EmpowaYouth Week Vaal 2027)
+    // First Name ID: 1 -> input_1
+    // Last Name ID: 3 -> input_3
+    // Age ID: 4 -> input_4
+    // Township of Residence ID: 5 -> input_5
+    // Email Address ID: 6 -> input_6
+    // Mobile Number ID: 7 -> input_7
+    // Gender ID: 8 -> input_8
+    // Are you an entrepreneur? ID: 9 -> input_9
+    // Is your company registered? ID: 10 -> input_10
+    // Which industry tracks interest you? ID: 11 -> input_11
+    // Why do you want to attend? ID: 12 -> input_12
+    const payload = {
+      input_1: delegateForm.firstName.trim(),
+      input_3: delegateForm.lastName.trim(),
+      input_4: String(delegateForm.age).trim(),
+      input_5: delegateForm.township.trim(),
+      input_6: delegateForm.email.trim(),
+      input_7: delegateForm.phone.trim(),
+      input_8: delegateForm.gender,
+      input_9: delegateForm.isEntrepreneur,
+      input_10: delegateForm.isRegistered,
+      input_11: delegateForm.industries.join(', '),
+      input_12: delegateForm.motivation.trim(),
+    };
+
+    try {
+      // 1. Submit through Next.js proxy route to prevent CORS issues
+      const res = await fetch('/api/delegate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        setDelegateSubmitted(true);
+        return;
+      }
+
+      // If specific validation message was returned by Gravity Forms
+      if (data.error && !data.error.includes('Server error')) {
+        setDelegateErrorMessage(data.error);
+        return;
+      }
+
+      // 2. Direct client-side submission fallback to Gravity Forms endpoint
+      const directRes = await fetch(
+        'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/51/submissions',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
+      const directData = await directRes.json().catch(() => ({}));
+
+      if (directRes.ok && directData.is_valid !== false) {
+        setDelegateSubmitted(true);
+        return;
+      }
+
+      const errMsg =
+        directData.validation_messages
+          ? Object.values(directData.validation_messages).join(', ')
+          : directData.message || data.error || 'Failed to submit delegate registration. Please verify your details.';
+      setDelegateErrorMessage(errMsg);
+    } catch (err) {
+      console.error('Delegate registration error:', err);
+      // Final attempt via direct client call
+      try {
+        const directRes = await fetch(
+          'https://cms.empowayouth.co.za/wp-json/gf/v2/forms/51/submissions',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          }
+        );
+        const directData = await directRes.json().catch(() => ({}));
+        if (directRes.ok && directData.is_valid !== false) {
+          setDelegateSubmitted(true);
+          return;
+        }
+      } catch {
+        // Ignore fallback error
+      }
+      setDelegateErrorMessage('Connection error. Please check your network and try again.');
+    } finally {
+      setIsDelegateSubmitting(false);
+    }
   };
 
   const toggleIndustry = (ind: string) => {
@@ -1360,7 +1457,7 @@ export default function VaalEmpowaYouthWeekPage() {
 
           {/* Forms Centered Container */}
           <div className="max-w-3xl mx-auto rounded-3xl border border-[rgba(244,240,232,0.12)] bg-[#101715] p-6 sm:p-10 shadow-2xl">
-            {/* TAB 1: YOUTH DELEGATE FORM (EXACT FIELDS FROM CMS LINK) */}
+            {/* TAB 1: YOUTH DELEGATE FORM (MAPPED TO GRAVITY FORMS ID: 51) */}
               {activeFormTab === 'delegate' && (
                 <div>
                   <div className="mb-6">
@@ -1401,6 +1498,11 @@ export default function VaalEmpowaYouthWeekPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleDelegateSubmit} className="space-y-5">
+                      {delegateErrorMessage && (
+                        <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-xs font-medium text-red-200">
+                          {delegateErrorMessage}
+                        </div>
+                      )}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-xs font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-2">
@@ -1500,9 +1602,9 @@ export default function VaalEmpowaYouthWeekPage() {
                             onChange={(e) => setDelegateForm({ ...delegateForm, gender: e.target.value })}
                             className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
                           >
-                            <option value="FEMALE">Female</option>
-                            <option value="MALE">Male</option>
-                            <option value="NON_BINARY">Non-Binary / Prefer not to say</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Non-Binary / Prefer not to say">Non-Binary / Prefer not to say</option>
                           </select>
                         </div>
                         <div>
@@ -1514,8 +1616,8 @@ export default function VaalEmpowaYouthWeekPage() {
                             onChange={(e) => setDelegateForm({ ...delegateForm, isEntrepreneur: e.target.value })}
                             className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
                           >
-                            <option value="NO">No, seeking jobs/skills</option>
-                            <option value="YES">Yes, running a venture</option>
+                            <option value="No">No, seeking jobs/skills</option>
+                            <option value="Yes">Yes, running a venture</option>
                           </select>
                         </div>
                         <div>
@@ -1527,8 +1629,8 @@ export default function VaalEmpowaYouthWeekPage() {
                             onChange={(e) => setDelegateForm({ ...delegateForm, isRegistered: e.target.value })}
                             className="w-full rounded-xl border border-[rgba(244,240,232,0.15)] bg-[#141d1a] px-4 py-3 text-sm text-white focus:border-[var(--pt-accent)] focus:outline-none"
                           >
-                            <option value="NO">Not Registered / N/A</option>
-                            <option value="YES">Yes, CIPC Registered</option>
+                            <option value="No">Not Registered / N/A</option>
+                            <option value="Yes">Yes, CIPC Registered</option>
                           </select>
                         </div>
                       </div>
@@ -1589,10 +1691,20 @@ export default function VaalEmpowaYouthWeekPage() {
 
                       <button
                         type="submit"
-                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer"
+                        disabled={isDelegateSubmitting}
+                        className="ey-button ey-button-dark-filled w-full justify-center text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <span>Confirm Free Delegate Registration</span>
-                        <ArrowRight className="h-4 w-4 ml-2 inline" />
+                        {isDelegateSubmitting ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <Loader2 className="h-4 w-4 animate-spin inline" />
+                            <span>Submitting Registration...</span>
+                          </span>
+                        ) : (
+                          <>
+                            <span>Confirm Free Delegate Registration</span>
+                            <ArrowRight className="h-4 w-4 ml-2 inline" />
+                          </>
+                        )}
                       </button>
                       <p className="text-[11px] text-center text-[var(--pt-muted)]">
                         Zero registration fee &bull; 100% Subsidised by Strategic Corporate Partners &bull; Strict capacity controls apply
