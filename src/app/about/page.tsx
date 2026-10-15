@@ -105,6 +105,8 @@ const speakers = [
     topic: 'Digital Africa',
     imageUrl: '/past_speakers/Prof.-Tshilidzi-Marwala.jpg',
   },
+];
+
 export default function AboutPage() {
   const [activeSpeaker, setActiveSpeaker] = useState<number>(0);
   const [hoveredSpeaker, setHoveredSpeaker] = useState<number | null>(null);
