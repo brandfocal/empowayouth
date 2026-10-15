@@ -43,11 +43,32 @@ export default function Home() {
 
   return (
     <main>
-      {/* Standalone Video Showcase Section */}
+      {/* 01. Video Showcase Section */}
       <HomeVideoShowcase />
 
-      {/* Hero Section */}
-      <section className="ey-hero ey-hero--after-video" aria-labelledby="ey-hero-title">
+      {/* 02. From Orange Farm to the Nation Section */}
+      <section
+        id="from-orange-farm-to-the-nation"
+        className="ey-hero ey-hero--after-video relative w-full overflow-hidden bg-[var(--pt-ink)] border-b border-[rgba(244,240,232,0.08)]"
+        aria-labelledby="ey-hero-title"
+      >
+        {/* Background Image: Vaal Week Hero Image */}
+        <img
+          src="/images/youth/IMG_2727.jpg"
+          alt="Young people gathered at EmpowaYouth Week marquee"
+          className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+        />
+        {/* Editorial Dark Overlay for optimal text readability */}
+        <div
+          className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(11,15,14,0.76)_0%,rgba(11,15,14,0.85)_35%,rgba(11,15,14,0.94)_70%,rgba(11,15,14,0.98)_100%)] pointer-events-none"
+          aria-hidden="true"
+        />
+        {/* Ambient Warm Accent Underglow */}
+        <div
+          className="absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(232,93,4,0.20)_0%,transparent_70%)] pointer-events-none z-[1]"
+          aria-hidden="true"
+        />
+
         <div className="ey-hero-inner">
           <div className="ey-hero-content">
             <div className="ey-hero-copy">
@@ -80,23 +101,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Event Invite Banner: EmpowaYouth Vaal Week 2027 */}
-      <section className="bg-[var(--pt-ink)] pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-[var(--pt-container-pad)] -mt-2">
-        <div className="mx-auto max-w-[var(--pt-container)]">
-          <Link
-            href="/vaal"
-            className="group block relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[rgba(244,240,232,0.14)] bg-[#070a09] shadow-2xl transition-all duration-300 hover:border-[var(--pt-accent)] hover:shadow-[0_0_35px_rgba(232,93,4,0.35)]"
-            title="EmpowaYouth Vaal Week 2027 — Click to Explore & Register"
-            aria-label="EmpowaYouth Vaal Week 2027 — 3–7 May 2027 at Koinonia Bible Church, Sebokeng. Click to view event details and register."
-          >
-            <img
-              src="/Vaal-Empowayouth-Week2027-invite.jpg"
-              alt="EmpowaYouth Vaal Week 2027 Official Invitation — 3–7 May 2027 at Koinonia Bible Church, Sebokeng, Zone 14. Jobs, Careers, Funding, Impact. Register Now"
-              className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
-              loading="eager"
-            />
-          </Link>
-        </div>
+      {/* 03. Event Invite Banner Section: EmpowaYouth Vaal Week 2027 (Fullwidth, Edge-to-Edge) */}
+      <section id="event-invite-banner" className="w-full bg-[var(--pt-ink)] p-0 m-0 border-b border-[rgba(244,240,232,0.08)]">
+        <Link
+          href="/vaal"
+          className="group block relative w-full overflow-hidden transition-all duration-300"
+          title="EmpowaYouth Vaal Week 2027 — Click to Explore & Register"
+          aria-label="EmpowaYouth Vaal Week 2027 — 3–7 May 2027 at Koinonia Bible Church, Sebokeng. Click to view event details and register."
+        >
+          <img
+            src="/Vaal-Empowayouth-Week2027-invite.jpg"
+            alt="EmpowaYouth Vaal Week 2027 Official Invitation — 3–7 May 2027 at Koinonia Bible Church, Sebokeng, Zone 14. Jobs, Careers, Funding, Impact. Register Now"
+            className="w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+            loading="eager"
+          />
+        </Link>
       </section>
 
       {/* Key Statistics Banner */}

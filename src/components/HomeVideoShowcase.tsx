@@ -71,7 +71,7 @@ export function HomeVideoShowcase() {
 
   return (
     <section
-      className="ey-standalone-video-section w-full bg-[var(--pt-ink)] pt-[92px] sm:pt-[104px] md:pt-[116px] pb-8 sm:pb-12 px-[var(--pt-container-pad)]"
+      className="ey-standalone-video-section w-full bg-[var(--pt-ink)] pt-[92px] sm:pt-[104px] md:pt-[116px] pb-10 sm:pb-14 px-[var(--pt-container-pad)] border-b border-[rgba(244,240,232,0.08)]"
       aria-label="EmpowaYouth Featured Video Showcase"
     >
       <div className="mx-auto max-w-[var(--pt-container)]">
