@@ -205,7 +205,7 @@ export default function ImpactPage() {
         {/* Hero Section */}
         <section className="ey-hero">
           <img
-            src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8098.jpg"
+            src="https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231019-WA0008.jpg"
             alt="Community members and youth celebrating impact"
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ zIndex: 0 }}

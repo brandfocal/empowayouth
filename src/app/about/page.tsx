@@ -23,8 +23,8 @@ const sectionHeadingClassName =
 const displayHeadingClassName =
   'font-extrabold uppercase leading-[0.95] tracking-[-0.05em] [text-wrap:balance]';
 
-const heroImageUrl = 'https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_5609.jpg';
-const ecosystemImageUrl = 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_7909.jpg';
+const heroImageUrl = 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/DSC_8714.jpg';
+const ecosystemImageUrl = 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231020-WA0008.jpg';
 
 const ecosystemItems = [
   {

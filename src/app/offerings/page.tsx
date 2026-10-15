@@ -79,7 +79,7 @@ export default function OfferingsPage() {
         }}
       >
         <img
-          src="/images/offerings-hero-skills.jpg"
+          src="https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231020-WA0006.jpg"
           alt="Young people in a programme workshop"
           className="absolute inset-0 h-full w-full object-cover object-top"
           style={{ zIndex: 0 }}
