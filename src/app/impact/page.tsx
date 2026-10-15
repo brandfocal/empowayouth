@@ -306,32 +306,32 @@ export default function ImpactPage() {
 
                 <article
                   className="ey-impact-bento-card ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="120"
+                  data-value="2000"
                   data-suffix="+"
                   style={{ transitionDelay: '160ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>120+</span>
+                      <span>2,000+</span>
                     </strong>
-                    <span className="ey-impact-bento-label">Partner Organisations</span>
+                    <span className="ey-impact-bento-label">Accredited Skills Programmes</span>
                   </div>
                 </article>
 
                 <article
                   className="ey-impact-bento-card ey-impact-bento-card-community ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="45"
+                  data-value="150"
                   data-suffix="+"
                   style={{ transitionDelay: '240ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>45+</span>
+                      <span>150+</span>
                     </strong>
-                    <span className="ey-impact-bento-label">Communities Reached</span>
+                    <span className="ey-impact-bento-label">Youth-Owned Businesses Funded</span>
                   </div>
                   <p className="ey-impact-bento-quote">
-                    <span>&ldquo;Every township has talent. Our work is to make sure opportunity can find it.&rdquo;</span>
+                    <span>&ldquo;Confidence restored. Futures redirected. Entire households lifted.&rdquo;</span>
                   </p>
                 </article>
 

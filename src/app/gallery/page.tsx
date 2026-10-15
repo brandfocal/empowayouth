@@ -176,18 +176,18 @@ export default function GalleryPage() {
           {/* Quick Stats Strip */}
           <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6 text-xs text-[var(--pt-muted)]">
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">25,000+</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">98,000+</span>
               <span>Total Youth Activated</span>
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-paper)]">27+ Hours</span>
-              <span>Livestreams &amp; Features</span>
+              <span className="font-extrabold text-[var(--pt-paper)]">690+</span>
+              <span>Job Placements</span>
             </div>
             <span className="text-white/20">&bull;</span>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-[var(--pt-accent)]">8 Editions</span>
-              <span>Vaal, Ekurhuleni, North West, KZN, Limpopo &amp; Orange Farm</span>
+              <span className="font-extrabold text-[var(--pt-accent)]">9 Provinces</span>
+              <span>National Footprint</span>
             </div>
           </div>
         </div>

@@ -466,10 +466,10 @@ export const galleriesData: GalleryEdition[] = [
     heroImage: 'https://img.youtube.com/vi/WY8PxcydrmY/hqdefault.jpg',
     playlistUrl: 'https://www.youtube.com/playlist?list=PLCw2jEjBGMr3TcoMxl0XiwqRjCWrhhBOg',
     stats: [
-      { label: 'Broadcast Days', value: '5 Days' },
-      { label: 'Live Stream Hours', value: '27+ Hours' },
-      { label: 'Broadcast Sessions', value: '12 Streams' },
-      { label: 'Grand Finale Run', value: '6h 20m' },
+      { label: 'Dedicated Sectors', value: '5 Days' },
+      { label: 'Expected Youth', value: '10,000+' },
+      { label: 'Power Panels', value: '100+' },
+      { label: 'Experiential Zones', value: '40+' },
     ],
     videos: vaal2026Videos,
     images: [],
@@ -569,10 +569,10 @@ export const galleriesData: GalleryEdition[] = [
       'The 2023 edition of the TETA Empowayouth Week in Orange Farm united thousands of ambitious youth with direct access to accredited transport bursaries, commercial driver licensing opportunities, tech innovation masterclasses, and entrepreneurial seed capital.',
     heroImage: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/09/BMZ_1453_1.jpg',
     stats: [
-      { label: 'Youth Attendees', value: '7,200+' },
-      { label: 'Accredited Opportunities', value: '450+' },
-      { label: 'Pitch Funding Distributed', value: 'R350,000' },
-      { label: 'Direct Industry Exhibitors', value: '48+' },
+      { label: 'Focus Sector', value: 'Transport & Logistics' },
+      { label: 'Founding Partner', value: 'TETA' },
+      { label: 'Model', value: 'Public-Private' },
+      { label: 'National Footprint', value: 'Gauteng' },
     ],
     videos: [
     {
@@ -956,10 +956,10 @@ export const galleriesData: GalleryEdition[] = [
       'The 2022 TETA EmpowaYouth Week in Orange Farm expanded into a landmark multi-day activation, integrating national stakeholders, NYDA collaboration, skills certification, and immediate corporate intake pipelines.',
     heroImage: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/09/DSC_5674.jpg',
     stats: [
-      { label: 'Young People Activated', value: '5,800+' },
-      { label: 'Learnership Intakes', value: '310+' },
-      { label: 'Enterprises Supported', value: '65+' },
-      { label: 'Bursary Opportunities', value: '180+' },
+      { label: 'Strategic Partners', value: 'TETA & NYDA' },
+      { label: 'Focus', value: 'Transport Economy' },
+      { label: 'Format', value: 'Summit & Expo' },
+      { label: 'Coverage', value: 'SABC News' },
     ],
     videos: [
     {
@@ -1461,10 +1461,10 @@ export const galleriesData: GalleryEdition[] = [
       'The inaugural 2021 TETA Empowayouth Week laid the blueprint for deep-impact township youth intervention. Grounded in resilience, this edition proved that bringing opportunities directly to grassroots communities changes the economic trajectory of thousands.',
     heroImage: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/DSC_6143.jpg',
     stats: [
-      { label: 'Registered Participants', value: '4,200+' },
-      { label: 'Career Masterclasses', value: '24+' },
-      { label: 'Direct Bursary Inquiries', value: '150+' },
-      { label: 'Community Stakeholders', value: '35+' },
+      { label: 'Birthplace', value: 'Orange Farm' },
+      { label: 'Inaugural Partner', value: 'TETA' },
+      { label: 'Origin', value: 'One-Day Summit' },
+      { label: 'Evolution', value: 'National Movement' },
     ],
     videos: [
     {

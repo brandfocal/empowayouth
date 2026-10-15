@@ -105,10 +105,6 @@ const speakers = [
     topic: 'Digital Africa',
     imageUrl: '/past_speakers/Prof.-Tshilidzi-Marwala.jpg',
   },
-];
-
-const years = 5;
-
 export default function AboutPage() {
   const [activeSpeaker, setActiveSpeaker] = useState<number>(0);
   const [hoveredSpeaker, setHoveredSpeaker] = useState<number | null>(null);
@@ -562,7 +558,7 @@ export default function AboutPage() {
               ))}
             </div>
             <p className="text-xs text-[var(--pt-muted)] tracking-wider">
-              {speakers.length} speakers across {years} annual summits
+              Over 500 high-impact voices powered across all 9 provinces
             </p>
           </div>
         </div>

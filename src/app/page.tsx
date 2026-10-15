@@ -104,9 +104,9 @@ export default function Home() {
           </li>
           <li className="ey-hero-stat">
             <strong className="ey-hero-stat-number">
-              <span>10+</span>
+              <span>9</span>
             </strong>
-            <span className="ey-hero-stat-label">Years Rewriting The Youth Economy</span>
+            <span className="ey-hero-stat-label">Provinces Across South Africa</span>
           </li>
         </ul>
       </div>
@@ -244,32 +244,32 @@ export default function Home() {
 
               <li
                 className="ey-impact-bento-card ey-anim-stat-cell"
-                data-value="120"
+                data-value="2000"
                 data-suffix="+"
                 style={{ transitionDelay: '160ms' }}
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>120+</span>
+                    <span>2,000+</span>
                   </strong>
-                  <span className="ey-impact-bento-label">Partner Organisations</span>
+                  <span className="ey-impact-bento-label">Accredited Skills Programmes</span>
                 </div>
               </li>
 
               <li
                 className="ey-impact-bento-card ey-impact-bento-card-community ey-anim-stat-cell"
-                data-value="45"
+                data-value="150"
                 data-suffix="+"
                 style={{ transitionDelay: '240ms' }}
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>45+</span>
+                    <span>150+</span>
                   </strong>
-                  <span className="ey-impact-bento-label">Communities Reached</span>
+                  <span className="ey-impact-bento-label">Youth-Owned Businesses Funded</span>
                 </div>
                 <p className="ey-impact-bento-quote">
-                  <span>&ldquo;Every township has talent. Our work is to make sure opportunity can find it.&rdquo;</span>
+                  <span>&ldquo;Confidence restored. Futures redirected. Entire households lifted.&rdquo;</span>
                 </p>
               </li>
 
@@ -511,12 +511,12 @@ export default function Home() {
                 <span className="text-[11px] uppercase tracking-wider text-[var(--pt-muted)]">Youth Delegates</span>
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-extrabold text-[var(--pt-paper)] block">100% Free</span>
-                <span className="text-[11px] uppercase tracking-wider text-[var(--pt-muted)]">Delegate Entry</span>
+                <span className="text-xl sm:text-2xl font-extrabold text-[var(--pt-paper)] block">100+</span>
+                <span className="text-[11px] uppercase tracking-wider text-[var(--pt-muted)]">Power Panels</span>
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-extrabold text-[var(--pt-accent)] block">R100k+</span>
-                <span className="text-[11px] uppercase tracking-wider text-[var(--pt-muted)]">Pitch Funding</span>
+                <span className="text-xl sm:text-2xl font-extrabold text-[var(--pt-accent)] block">40+</span>
+                <span className="text-[11px] uppercase tracking-wider text-[var(--pt-muted)]">Experiential Zones</span>
               </div>
             </div>
           </div>
@@ -560,8 +560,8 @@ export default function Home() {
                 </div>
                 <div className="ey-partners-trust-divider" aria-hidden="true" />
                 <div className="ey-partners-trust-item">
-                  <span className="ey-partners-trust-num">10+</span>
-                  <span className="ey-partners-trust-label">Years of Trust</span>
+                  <span className="ey-partners-trust-num">500+</span>
+                  <span className="ey-partners-trust-label">High-Impact Voices</span>
                 </div>
               </div>
 
