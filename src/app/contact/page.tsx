@@ -107,7 +107,7 @@ const faqTabs: FAQTab[] = [
         id: 'proven-impact',
         question: 'How has the EmpowaYouth model proven its impact?',
         answer:
-          'To date, our structural, outcome-driven interventions have activated over 98,000 young people, resulting in 690+ job placements, 248 learnerships, 2,000 accredited skills programmes, 300 bursaries, and funding for 150 youth-owned businesses.',
+          'To date, our structural, outcome-driven interventions have activated over 294,000 young people, resulting in 2,070+ job placements, 744 learnerships, 6,000 accredited skills programmes, 900 bursaries, and funding for 450 youth-owned businesses.',
       },
     ],
   },
@@ -375,12 +375,12 @@ export default function ContactPage() {
             </p>
             <div className="ey-contact-stat-grid" aria-label="EmpowaYouth impact highlights">
               <article className="ey-contact-stat-card">
-                <strong>98 000+</strong>
+                <strong>294 000+</strong>
                 <span>Youth Impacted</span>
                 <div aria-hidden="true" />
               </article>
               <article className="ey-contact-stat-card">
-                <strong>200+</strong>
+                <strong>600+</strong>
                 <span>Corporate Partners</span>
                 <div aria-hidden="true" />
               </article>
@@ -712,7 +712,7 @@ export default function ContactPage() {
           </h2>
           <div className="ey-rule" />
           <p>
-            Thousands of young South Africans and 200+ corporate partners are already part of the movement.
+            Thousands of young South Africans and 600+ corporate partners are already part of the movement.
           </p>
           <div className="ey-prefooter-actions">
             <Link href="/action" className="ey-button ey-button-light-filled">

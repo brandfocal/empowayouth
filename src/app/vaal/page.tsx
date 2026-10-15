@@ -443,19 +443,19 @@ export default function VaalEmpowaYouthWeekPage() {
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
             <div className="rounded-2xl border border-[rgba(244,240,232,0.08)] bg-[rgba(244,240,232,0.02)] p-6 transition-all hover:border-[var(--pt-accent)]/40 hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--pt-paper)]">
-                198,000<span className="text-[var(--pt-accent)]">+</span>
+                294,000<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
                 Youth Reached
               </p>
               <p className="mt-1 text-[11px] text-[var(--pt-muted)]">
-                Mobilised across 8 provinces
+                Mobilised across 9 provinces
               </p>
             </div>
 
             <div className="rounded-2xl border border-[rgba(244,240,232,0.08)] bg-[rgba(244,240,232,0.02)] p-6 transition-all hover:border-[var(--pt-accent)]/40 hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--pt-paper)]">
-                690<span className="text-[var(--pt-accent)]">+</span>
+                2,070<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
                 Direct Job Placements
@@ -467,7 +467,7 @@ export default function VaalEmpowaYouthWeekPage() {
 
             <div className="rounded-2xl border border-[rgba(244,240,232,0.08)] bg-[rgba(244,240,232,0.02)] p-6 transition-all hover:border-[var(--pt-accent)]/40 hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--pt-paper)]">
-                150<span className="text-[var(--pt-accent)]">+</span>
+                450<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
                 Township Enterprises Funded
@@ -479,7 +479,7 @@ export default function VaalEmpowaYouthWeekPage() {
 
             <div className="rounded-2xl border border-[rgba(244,240,232,0.08)] bg-[rgba(244,240,232,0.02)] p-6 transition-all hover:border-[var(--pt-accent)]/40 hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--pt-paper)]">
-                2,000<span className="text-[var(--pt-accent)]">+</span>
+                6,000<span className="text-[var(--pt-accent)]">+</span>
               </span>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--pt-paper)]">
                 Accredited Skills Certifications
@@ -497,44 +497,46 @@ export default function VaalEmpowaYouthWeekPage() {
       {/* ======================================================== */}
       <section
         id="purpose"
-        className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] py-[clamp(80px,9vw,112px)]"
+        className="max-w-full overflow-x-hidden bg-[var(--pt-white)] text-[var(--pt-ink)] py-10 sm:py-14 md:py-16"
       >
         <div className="mx-auto max-w-[var(--pt-container)] px-[var(--pt-container-pad)]">
-          <div className="flex flex-col justify-between gap-6 border-b-2 border-[var(--pt-light-divider)] pb-8 md:flex-row md:items-end mb-12">
+          <div className="flex flex-col justify-between gap-4 border-b-2 border-[var(--pt-light-divider)] pb-6 md:flex-row md:items-end mb-8 md:mb-10">
             <div>
               <p className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-[var(--pt-accent)]">
                 <span className="inline-block h-[2px] w-6 bg-[var(--pt-accent)]" />
                 <span>01 / The Mandate &amp; Regional Reality</span>
               </p>
-              <h2 className="mt-3 font-extrabold uppercase leading-[0.95] tracking-[-0.05em] text-[clamp(2.2rem,5vw,4.2rem)] text-inherit [text-wrap:balance]">
+              <h2 className="mt-2 font-extrabold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(1.9rem,4vw,3.2rem)] text-inherit [text-wrap:balance]">
                 <span>Ground Zero For A National </span>
                 <span className="ey-heading-italic">Economic Reset</span>
                 <span>.</span>
               </h2>
             </div>
-            <p className="text-[16px] font-normal leading-[1.7] text-[var(--pt-muted)] md:max-w-[420px]">
-              Why the Vaal? Why now? Transforming abandoned potential into a generation of skilled, employed, and entrepreneurial young South Africans.
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-[var(--pt-muted)] md:max-w-[420px]">
+              Why the Vaal? Transforming abandoned potential into a generation of skilled, employed, and entrepreneurial young South Africans.
             </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-            {/* Left Column: Context, Narrative & Founder Quote (From CMS link) */}
-            <div className="lg:col-span-7">
-              <p className="text-[17px] leading-[1.75] text-[#2c3834] [text-wrap:pretty]">
-                In the Vaal, where unemployment sits above <strong className="text-[var(--pt-ink)] font-extrabold">41%</strong> and some communities endure joblessness exceeding <strong className="text-[var(--pt-accent)] font-extrabold">90%</strong>, we are not facing a standard challenge — we are in an economic state of emergency. EmpowaYouth exists to flip the script, transforming abandoned potential into a generation of skilled, employed, and entrepreneurial young South Africans who will drive the nation’s economic future.
-              </p>
-
-              <p className="mt-4 text-[16px] leading-[1.75] text-[#475751] [text-wrap:pretty]">
-                Once a manufacturing powerhouse, the Vaal has been hit by industrial decline, disinvestment, and broken talent pipelines. But this crisis is also a once-in-a-generation opportunity. In every unemployed graduate, every unlinked artisan, and every disconnected coder lies untapped human capital capable of fuelling sector growth, driving innovation, and generating profitability.
-              </p>
-
-              {/* Founder Quote Card (Exact from CMS link) */}
-              <div className="mt-8 rounded-2xl border-l-4 border-l-[var(--pt-accent)] border border-[rgba(11,15,14,0.08)] bg-[#f9f7f2] p-6 sm:p-7 shadow-sm">
-                <p className="text-base sm:text-lg font-medium italic leading-relaxed text-[var(--pt-ink)]">
-                  &ldquo;This is not about speeches, it’s about economic engineering in real time. Every job secured, every enterprise funded, every skill certified is a direct step towards rebuilding South Africa’s economic future.&rdquo;
+          {/* Top Row: Narrative & Founder Quote + Visual Anchor */}
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10 items-stretch">
+            {/* Left: Punchy Context & Sleek Founder Quote */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <p className="text-base sm:text-[17px] leading-relaxed text-[#2c3834] [text-wrap:pretty]">
+                  In the Vaal, where youth unemployment sits above <strong className="text-[var(--pt-ink)] font-extrabold">41%</strong> and key townships endure joblessness exceeding <strong className="text-[var(--pt-accent)] font-extrabold">90%</strong>, we are in an economic state of emergency. EmpowaYouth exists to flip the script — transforming abandoned potential into real economic agency.
                 </p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--pt-accent)] shrink-0">
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#475751] [text-wrap:pretty]">
+                  Once a national manufacturing powerhouse, the Vaal&apos;s crisis is also a once-in-a-generation opportunity: in every unemployed graduate, unlinked artisan, and self-taught coder lies untapped capital ready to drive sector growth and profitability.
+                </p>
+              </div>
+
+              {/* Compact Founder Quote Card */}
+              <div className="mt-6 rounded-xl border-l-4 border-l-[var(--pt-accent)] border border-[rgba(11,15,14,0.08)] bg-[#f9f7f2] p-4 sm:p-5 shadow-xs">
+                <p className="text-xs sm:text-sm font-medium italic leading-relaxed text-[var(--pt-ink)]">
+                  &ldquo;This is not about speeches, it’s about economic engineering in real time. Every job secured, enterprise funded, and skill certified is a direct step towards rebuilding South Africa’s economic future.&rdquo;
+                </p>
+                <div className="mt-3.5 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[var(--pt-accent)] shrink-0">
                     <img
                       src="/team/simphiwe-masiza.jpg"
                       alt="Simphiwe Masiza"
@@ -542,96 +544,79 @@ export default function VaalEmpowaYouthWeekPage() {
                     />
                   </div>
                   <div>
-                    <span className="block text-sm font-extrabold text-[var(--pt-ink)] uppercase">
+                    <span className="block text-xs font-extrabold text-[var(--pt-ink)] uppercase tracking-wide">
                       Simphiwe Masiza
                     </span>
-                    <span className="text-xs font-semibold text-[var(--pt-accent)]">
+                    <span className="text-[11px] font-semibold text-[var(--pt-accent)]">
                       Founder &amp; Executive Producer, EmpowaYouth
                     </span>
                   </div>
                 </div>
               </div>
-
-              {/* 4 Pillars of Transformation (Exact from CMS link lines 293-304) */}
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Youth
-                  </span>
-                  <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Activating their potential through real platforms, not empty promises.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Jobs
-                  </span>
-                  <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Placing young people into meaningful employment across sectors, industries, and regions.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Township Enterprises
-                  </span>
-                  <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Backing youth-led businesses with capital, mentorship, and market access to scale where it matters most.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-[rgba(11,15,14,0.1)] bg-white p-5 shadow-sm hover:border-[var(--pt-accent)]/50 transition">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--pt-accent)]">
-                    Accredited Skills Certifications
-                  </span>
-                  <p className="mt-2 text-xs sm:text-sm text-[#475751] leading-relaxed">
-                    Equipping unemployed youth and graduates with the tools to enter, thrive, and lead in the economy of tomorrow.
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Right Column: Visual Storytelling of Real Youth Agency */}
-            <div className="lg:col-span-5 space-y-6">
-              {/* Photo 1: Youth Triumph & Agency */}
-              <div className="group relative rounded-3xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-xl bg-black">
-                <div className="aspect-[4/3] w-full overflow-hidden">
-                  <img
-                    src="/images/youth/feature_image_23.jpg"
-                    alt="Young woman triumphant at EmpowaYouth summit with fists raised"
-                    className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                </div>
-                <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
+            {/* Right: High-Impact Visual Anchor */}
+            <div className="lg:col-span-5">
+              <div className="group relative h-full min-h-[260px] sm:min-h-[300px] rounded-2xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-md bg-black">
+                <img
+                  src="/images/youth/feature_image_23.jpg"
+                  alt="Young woman triumphant at EmpowaYouth summit with fists raised"
+                  className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-3 inset-x-3 p-3.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-0.5">
                     Youth Agency &bull; Transforming Ambition
                   </span>
-                  <p className="text-xs sm:text-sm font-bold leading-snug">
+                  <p className="text-xs font-semibold leading-snug">
                     Overcoming economic exclusion: Young South Africans claiming their future with dignity and power.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Photo 2: Mentorship & Executive Access */}
-              <div className="group relative rounded-3xl overflow-hidden border border-[rgba(11,15,14,0.12)] shadow-xl bg-black">
-                <div className="aspect-[16/10] w-full overflow-hidden">
-                  <img
-                    src="/images/youth/DSC_5402.jpg"
-                    alt="Youth delegate taking selfie with executive mentor"
-                    className="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                </div>
-                <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--pt-accent)] block mb-1">
-                    Direct Access &bull; Bridging Youth into Industry
-                  </span>
-                  <p className="text-xs sm:text-sm font-bold leading-snug">
-                    Connecting township talent directly with CEOs, leaders, and decision makers who hold the keys.
-                  </p>
-                </div>
+          {/* Bottom Row: 4 Pillars of Transformation (Streamlined Horizontal Strip) */}
+          <div className="mt-8 pt-7 border-t border-[rgba(11,15,14,0.08)]">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-[var(--pt-muted)] mb-3.5 flex items-center gap-2">
+              <span className="w-4 h-0.5 bg-[var(--pt-accent)]" />
+              Four Pillars of Transformation
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              <div className="rounded-xl border border-[rgba(11,15,14,0.08)] bg-white p-4 shadow-2xs hover:border-[var(--pt-accent)]/50 hover:shadow-xs transition">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block">
+                  01 / Youth
+                </span>
+                <p className="mt-1.5 text-xs text-[#475751] leading-relaxed">
+                  Activating potential through real platforms, direct access, and tangible opportunities.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-[rgba(11,15,14,0.08)] bg-white p-4 shadow-2xs hover:border-[var(--pt-accent)]/50 hover:shadow-xs transition">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block">
+                  02 / Jobs
+                </span>
+                <p className="mt-1.5 text-xs text-[#475751] leading-relaxed">
+                  Direct placement into verified employment across high-growth industries and sectors.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-[rgba(11,15,14,0.08)] bg-white p-4 shadow-2xs hover:border-[var(--pt-accent)]/50 hover:shadow-xs transition">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block">
+                  03 / Enterprises
+                </span>
+                <p className="mt-1.5 text-xs text-[#475751] leading-relaxed">
+                  Backing township businesses with seed capital, mentorship, and ESD market access.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-[rgba(11,15,14,0.08)] bg-white p-4 shadow-2xs hover:border-[var(--pt-accent)]/50 hover:shadow-xs transition">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--pt-accent)] block">
+                  04 / Skills
+                </span>
+                <p className="mt-1.5 text-xs text-[#475751] leading-relaxed">
+                  Equipping delegates with accredited certifications to thrive and lead in tomorrow&apos;s economy.
+                </p>
               </div>
             </div>
           </div>
@@ -916,7 +901,7 @@ export default function VaalEmpowaYouthWeekPage() {
                 <span className="text-xs font-extrabold text-[var(--pt-accent)]">03</span>
               </div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--pt-paper)]">
-                200+ Strategic Partners Activated
+                600+ Strategic Partners Activated
               </h3>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[var(--pt-muted)]">
                 Corporates, government, funders, and ecosystem builders deliver live opportunities, from job placements and bursaries to enterprise funding, mentorship, ESD integration, and digital upskilling.
@@ -1277,7 +1262,7 @@ export default function VaalEmpowaYouthWeekPage() {
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="w-8 h-px bg-[var(--pt-accent)]" />
               <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--pt-muted)]">
-                Trusted by 200+ Strategic Partners Across South Africa
+                Trusted by 600+ Strategic Partners Across South Africa
               </p>
               <span className="w-8 h-px bg-[var(--pt-accent)]" />
             </div>

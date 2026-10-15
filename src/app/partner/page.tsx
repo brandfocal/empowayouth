@@ -22,12 +22,12 @@ import { PartnershipForm } from '@/components/PartnershipForm';
 
 
 const stats = [
-  { value: 98000, suffix: '+', label: 'Young people activated' },
-  { value: 690, suffix: '+', label: 'Job placements' },
-  { value: 248, suffix: '', label: 'Learnerships delivered' },
-  { value: 2000, suffix: '', label: 'Accredited skills programmes' },
-  { value: 300, suffix: '', label: 'Bursaries awarded' },
-  { value: 150, suffix: '', label: 'Youth-owned businesses funded' },
+  { value: 294000, suffix: '+', label: 'Young people activated' },
+  { value: 2070, suffix: '+', label: 'Job placements' },
+  { value: 744, suffix: '', label: 'Learnerships delivered' },
+  { value: 6000, suffix: '', label: 'Accredited skills programmes' },
+  { value: 900, suffix: '', label: 'Bursaries awarded' },
+  { value: 450, suffix: '', label: 'Youth-owned businesses funded' },
 ];
 
 const strategicAvenues = [

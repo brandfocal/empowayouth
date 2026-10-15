@@ -86,7 +86,7 @@ const partnerFaqs: FAQItem[] = [
     id: 'proven-impact',
     question: 'How has the EmpowaYouth model proven its impact?',
     answer:
-      'To date, our structural, outcome-driven interventions have activated over 98,000 young people, resulting in 690+ job placements, 248 learnerships, 2,000 accredited skills programmes, 300 bursaries, and funding for 150 youth-owned businesses.',
+      'To date, our structural, outcome-driven interventions have activated over 294,000 young people, resulting in 2,070+ job placements, 744 learnerships, 6,000 accredited skills programmes, 900 bursaries, and funding for 450 youth-owned businesses.',
   },
 ];
 

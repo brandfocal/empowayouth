@@ -278,13 +278,13 @@ export default function ImpactPage() {
               <div ref={bentoGridRef} className="ey-impact-bento-grid" aria-label="EmpowaYouth impact statistics">
                 <article
                   className="ey-impact-bento-card ey-impact-bento-card-feature ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="98000"
+                  data-value="294000"
                   data-suffix="+"
                   style={{ transitionDelay: '0ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>98,000+</span>
+                      <span>294,000+</span>
                     </strong>
                     <span className="ey-impact-bento-label">Youth Impacted</span>
                   </div>
@@ -292,13 +292,13 @@ export default function ImpactPage() {
 
                 <article
                   className="ey-impact-bento-card ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="690"
+                  data-value="2070"
                   data-suffix="+"
                   style={{ transitionDelay: '80ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>690+</span>
+                      <span>2,070+</span>
                     </strong>
                     <span className="ey-impact-bento-label">Jobs Created</span>
                   </div>
@@ -306,13 +306,13 @@ export default function ImpactPage() {
 
                 <article
                   className="ey-impact-bento-card ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="2000"
+                  data-value="6000"
                   data-suffix="+"
                   style={{ transitionDelay: '160ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>2,000+</span>
+                      <span>6,000+</span>
                     </strong>
                     <span className="ey-impact-bento-label">Accredited Skills Programmes</span>
                   </div>
@@ -320,13 +320,13 @@ export default function ImpactPage() {
 
                 <article
                   className="ey-impact-bento-card ey-impact-bento-card-community ey-impact-bento-stat-card ey-anim-stat-cell"
-                  data-value="150"
+                  data-value="450"
                   data-suffix="+"
                   style={{ transitionDelay: '240ms' }}
                 >
                   <div className="ey-impact-bento-stat">
                     <strong className="ey-impact-number ey-impact-bento-number">
-                      <span>150+</span>
+                      <span>450+</span>
                     </strong>
                     <span className="ey-impact-bento-label">Youth-Owned Businesses Funded</span>
                   </div>

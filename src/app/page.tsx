@@ -123,13 +123,13 @@ export default function Home() {
         <ul className="ey-hero-stats-inner" role="list">
           <li className="ey-hero-stat">
             <strong className="ey-hero-stat-number">
-              <span>98,000+</span>
+              <span>294,000+</span>
             </strong>
             <span className="ey-hero-stat-label">Youth Impacted</span>
           </li>
           <li className="ey-hero-stat">
             <strong className="ey-hero-stat-number">
-              <span>200+</span>
+              <span>600+</span>
             </strong>
             <span className="ey-hero-stat-label">Partner Brands</span>
           </li>
@@ -248,12 +248,12 @@ export default function Home() {
             <ul className="ey-impact-bento-grid" aria-label="EmpowaYouth impact statistics">
               <li
                 className="ey-impact-bento-card ey-impact-bento-card-feature ey-anim-stat-cell"
-                data-value="98000"
+                data-value="294000"
                 data-suffix="+"
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>98,000+</span>
+                    <span>294,000+</span>
                   </strong>
                   <span className="ey-impact-bento-label">Youth Impacted</span>
                 </div>
@@ -261,13 +261,13 @@ export default function Home() {
 
               <li
                 className="ey-impact-bento-card ey-anim-stat-cell"
-                data-value="690"
+                data-value="2070"
                 data-suffix="+"
                 style={{ transitionDelay: '80ms' }}
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>690+</span>
+                    <span>2,070+</span>
                   </strong>
                   <span className="ey-impact-bento-label">Jobs Created</span>
                 </div>
@@ -275,13 +275,13 @@ export default function Home() {
 
               <li
                 className="ey-impact-bento-card ey-anim-stat-cell"
-                data-value="2000"
+                data-value="6000"
                 data-suffix="+"
                 style={{ transitionDelay: '160ms' }}
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>2,000+</span>
+                    <span>6,000+</span>
                   </strong>
                   <span className="ey-impact-bento-label">Accredited Skills Programmes</span>
                 </div>
@@ -289,13 +289,13 @@ export default function Home() {
 
               <li
                 className="ey-impact-bento-card ey-impact-bento-card-community ey-anim-stat-cell"
-                data-value="150"
+                data-value="450"
                 data-suffix="+"
                 style={{ transitionDelay: '240ms' }}
               >
                 <div className="ey-impact-bento-stat">
                   <strong className="ey-impact-number">
-                    <span>150+</span>
+                    <span>450+</span>
                   </strong>
                   <span className="ey-impact-bento-label">Youth-Owned Businesses Funded</span>
                 </div>
@@ -513,7 +513,7 @@ export default function Home() {
                 Audited Scale &amp; Impact
               </h4>
               <p className="text-[11px] text-[var(--pt-muted)] mt-1">
-                Over 98,000 young South Africans mobilised across 9 provinces.
+                Over 294,000 young South Africans mobilised across 9 provinces.
               </p>
             </div>
           </div>
@@ -534,7 +534,7 @@ export default function Home() {
                   Be Part of South Africa&apos;s Most Consequential Youth Summit
                 </h3>
                 <p className="mt-3 text-xs sm:text-sm text-[var(--pt-muted)] leading-relaxed">
-                  Join 10,000+ delegates and 200+ partner brands rewriting the economic narrative.
+                  Join 10,000+ delegates and 600+ partner brands rewriting the economic narrative.
                   Registration is 100% free for youth delegates, with corporate exhibitor pods and ESD sponsorship packages available.
                 </p>
               </div>
@@ -599,7 +599,7 @@ export default function Home() {
             <div className="ey-partners-content">
               <header className="ey-partners-header ey-observe">
                 <p className="ey-kicker">
-                  <strong>200+</strong>
+                  <strong>600+</strong>
                   <span>Brand Partners</span>
                 </p>
                 <h2 id="ey-partners-title" className="ey-section-heading text-[var(--pt-paper)]">
@@ -611,7 +611,7 @@ export default function Home() {
 
               <div className="ey-partners-trust">
                 <div className="ey-partners-trust-item">
-                  <span className="ey-partners-trust-num">200+</span>
+                  <span className="ey-partners-trust-num">600+</span>
                   <span className="ey-partners-trust-label">Corporate Partners</span>
                 </div>
                 <div className="ey-partners-trust-divider" aria-hidden="true" />
@@ -621,7 +621,7 @@ export default function Home() {
                 </div>
                 <div className="ey-partners-trust-divider" aria-hidden="true" />
                 <div className="ey-partners-trust-item">
-                  <span className="ey-partners-trust-num">500+</span>
+                  <span className="ey-partners-trust-num">1,500+</span>
                   <span className="ey-partners-trust-label">High-Impact Voices</span>
                 </div>
               </div>
