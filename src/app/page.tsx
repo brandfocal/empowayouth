@@ -9,6 +9,7 @@ import {
 } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
 import { PastSpeakersSection } from '@/components/PastSpeakersSection';
+import { HomeVideoShowcase } from '@/components/HomeVideoShowcase';
 
 const pillars = [
   {
@@ -42,32 +43,8 @@ export default function Home() {
 
   return (
     <main>
-      {/* Standalone Video Section */}
-      <section
-        className="w-full bg-[var(--pt-ink)] pt-[92px] sm:pt-[104px] md:pt-[112px] pb-6 sm:pb-8 px-[var(--pt-container-pad)]"
-        aria-label="EmpowaYouth Featured Video"
-      >
-        <div className="mx-auto max-w-[var(--pt-container)]">
-          <div className="relative group">
-            {/* Ambient Back Glow */}
-            <div
-              className="absolute -inset-1 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[var(--pt-accent)]/20 via-transparent to-[var(--pt-accent)]/20 opacity-40 blur-xl transition-opacity duration-500 group-hover:opacity-75 pointer-events-none"
-              aria-hidden="true"
-            />
-
-            {/* Standalone 16:9 Video Player */}
-            <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden border border-[rgba(244,240,232,0.12)] bg-black shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/QdYa_TLdgks?autoplay=1&mute=1&loop=1&playlist=QdYa_TLdgks&controls=1&rel=0&modestbranding=1&playsinline=1"
-                title="EmpowaYouth Featured Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Standalone Video Showcase Section */}
+      <HomeVideoShowcase />
 
       {/* Hero Section */}
       <section className="ey-hero ey-hero--after-video" aria-labelledby="ey-hero-title">
