@@ -50,27 +50,39 @@ const ecosystemItems = [
 const teamMembers = [
   {
     name: 'Simphiwe Masiza',
-    role: 'Founder & Executive Producer',
-    bio: 'Architect of the EmpowaYouth movement, turning youth ambition into durable economic velocity.',
+    role: 'Founder & Executive Producer, EmpowaYouth',
+    bio: 'Simphiwe Masiza is a growth strategist, organisational transformation advisor and ecosystem builder specialising in leadership, organisational development, strategic partnerships, governance and enterprise growth. He works with organisations to build future-fit businesses, strengthen leadership capability, unlock new markets, accelerate innovation and create high-performing organisations that deliver measurable commercial, economic and societal impact. Through the EmpowaWorx Group, he has established an integrated ecosystem that connects business, government, investors, development institutions and communities to solve complex challenges and unlock sustainable growth across Africa.',
     imageUrl: '/team/simphiwe-masiza.jpg',
   },
   {
-    name: 'Anita Tirkey',
-    role: 'Speaker & Programme Lead',
-    bio: "Anita Tirkey leads speaker acquisition, programme curation, and thought leadership development, shaping conversations that matter to today's and tomorrow's women leaders. She works closely with CEOs, entrepreneurs, policymakers, investors, innovators, and global changemakers to deliver a world-class faculty of speakers whose insights challenge thinking, unlock opportunities, and inspire action.",
-    imageUrl: '/team/Anita-Tirkey.jpg',
-  },
-  {
     name: 'Bonnie Maponya',
-    role: 'Acting Managing Executive',
-    bio: 'Committed to youth development, economic inclusion, and community transformation.',
+    role: 'Chief of Staff & Acting Managing Executive, EmpowaWomen',
+    bio: 'Bonnie Maponya is an organisational performance and programme leadership executive specialising in strategic execution, programme governance, operational excellence, stakeholder management and organisational effectiveness. She partners with organisations to strengthen execution capability, optimise operating performance, enhance leadership delivery and build resilient systems that transform strategy into measurable business outcomes. Her work enables organisations to improve organisational agility, elevate stakeholder value and deliver sustainable impact through disciplined execution.',
     imageUrl: '/team/Bonnie-Maponya.jpg',
   },
   {
+    name: 'Anita Tirkey, MBA',
+    role: 'Talent, Speakers & Executive Relations',
+    bio: 'Anita Tirkey is an executive engagement and leadership experiences specialist with expertise in speaker strategy, executive relations, stakeholder engagement, protocol and high-impact programme delivery. She partners with global thought leaders, industry experts and executive teams to curate world-class leadership platforms that strengthen organisational influence, elevate stakeholder experiences and create meaningful conversations that inspire transformation, innovation and growth.',
+    imageUrl: '/team/Anita-Tirkey.jpg',
+  },
+  {
     name: 'Carshiefa Sissing',
-    role: 'Digital & Audience Growth Lead',
-    bio: 'Carshiefa Sissing drives the digital growth and influence of EmpowaWomen™, leading audience development, digital strategy, social media engagement, content ecosystems, and brand visibility. She is responsible for building powerful digital communities, amplifying thought leadership, and ensuring the EmpowaWomen™ movement continues to inspire, engage, and influence thousands of women across Africa and beyond.',
+    role: 'Digital Marketing, Social Media & Community Growth',
+    bio: 'Carshiefa Sissing is a digital growth and brand engagement strategist specialising in digital transformation, audience development, content strategy, social media and community ecosystems. She helps organisations build future-ready digital brands by creating integrated engagement strategies that strengthen market relevance, deepen stakeholder relationships, accelerate audience growth and convert digital influence into measurable commercial and organisational impact.',
     imageUrl: '/team/Carshiefa-Sissing.jpg',
+  },
+  {
+    name: 'Neo Mathebe',
+    role: 'Head of The Speakers Firm & Acting Managing Executive, EmpowaMen',
+    bio: 'Neo Mathebe is an executive engagement, strategic partnerships and leadership influence specialist with expertise in thought leadership, talent management, stakeholder engagement, executive experiences and commercial relationship management. He works with organisations, executives and industry leaders to strengthen influence, develop strategic partnerships, amplify leadership visibility and create high-value engagement platforms that advance organisational growth, stakeholder trust and long-term business impact.',
+    imageUrl: '/team/Neo-Mathebe.JPG',
+  },
+  {
+    name: 'Sechaba Motsieloa, CM(SA)',
+    role: 'Senior Marketing Strategist & Managing Executive, EmpowaGrowth',
+    bio: 'Sechaba Motsieloa CM(SA) is a strategic marketing, reputation and growth advisor specialising in brand strategy, executive positioning, stakeholder engagement, strategic communications and market growth. He helps organisations strengthen competitive positioning, build trusted brands, enhance corporate reputation and align marketing, communications and stakeholder strategies with business transformation, organisational performance and sustainable commercial growth.',
+    imageUrl: '/team/Sechaba-Motsieloa.jpeg',
   },
 ];
 
@@ -230,10 +242,10 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Accordion Row: all 4 team members fit across the container */}
+          {/* Accordion Row: all 6 team members fit across the container */}
           <div className="mt-10">
             <div
-              className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] select-none"
+              className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[480px] sm:h-[540px] md:h-[600px] lg:h-[650px] select-none"
               role="tablist"
               aria-label="Team members gallery"
             >
@@ -258,7 +270,7 @@ export default function AboutPage() {
                     }}
                     className={`group relative h-full overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-[flex-grow,flex-basis] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
                       isCurrent
-                        ? 'flex-[3.5] sm:flex-[3] md:flex-[2.8] min-w-0'
+                        ? 'flex-[4] sm:flex-[3.5] md:flex-[3] min-w-0'
                         : 'flex-[1] min-w-0'
                     }`}
                     aria-label={`${member.name}, ${member.role}`}
@@ -275,7 +287,7 @@ export default function AboutPage() {
                       }}
                     />
                     <div
-                      className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.95)] via-[rgba(11,15,14,0.35)] to-transparent pointer-events-none"
+                      className="absolute inset-0 bg-gradient-to-t from-[rgba(11,15,14,0.96)] via-[rgba(11,15,14,0.45)] to-transparent pointer-events-none"
                       aria-hidden="true"
                     />
                     <div
@@ -306,7 +318,7 @@ export default function AboutPage() {
                         {String(memberIndex + 1).padStart(2, '0')}
                       </span>
                       <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[rgba(244,240,232,0.7)] [writing-mode:vertical-rl] rotate-180 truncate max-h-[200px] sm:max-h-[260px]">
-                        {member.name}
+                        {member.name.split(',')[0]}
                       </span>
                       <div className="w-1.5 h-1.5 rounded-full bg-[rgba(244,240,232,0.3)] group-hover:bg-[var(--pt-accent)] transition-colors" />
                     </div>
@@ -324,7 +336,7 @@ export default function AboutPage() {
                           <span>{String(memberIndex + 1).padStart(2, '0')}</span>
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--pt-muted)] hidden md:inline">
-                          Core Team
+                          Executive Leadership
                         </span>
                       </div>
 
@@ -332,10 +344,10 @@ export default function AboutPage() {
                         <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
                           {member.role}
                         </p>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-1.5">
+                        <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-2">
                           {member.name}
                         </h3>
-                        <p className="text-[11px] sm:text-xs leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.85)] line-clamp-6 md:line-clamp-none">
+                        <p className="text-[11px] sm:text-[12.5px] leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.92)] line-clamp-6 md:line-clamp-none max-h-[200px] sm:max-h-[250px] md:max-h-[300px] overflow-y-auto pr-1">
                           {member.bio}
                         </p>
                       </div>
