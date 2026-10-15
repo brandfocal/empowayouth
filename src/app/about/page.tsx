@@ -218,7 +218,7 @@ export default function AboutPage() {
         id="voices"
         onMouseLeave={() => setHoveredTeamMember(null)}
       >
-        <div className="mx-auto max-w-[var(--pt-container)] px-[var(--pt-container-pad)]">
+        <div className="mx-auto max-w-[1520px] px-4 sm:px-6 lg:px-10">
           <div className="flex flex-col justify-between gap-6 border-b-2 border-[var(--pt-light-divider)] pb-8 md:flex-row md:items-end">
             <div>
               <p className={kickerClassName}>
@@ -245,7 +245,7 @@ export default function AboutPage() {
           {/* Accordion Row: all 6 team members fit across the container */}
           <div className="mt-10">
             <div
-              className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3 h-[480px] sm:h-[540px] md:h-[600px] lg:h-[650px] select-none"
+              className="flex w-full gap-1.5 sm:gap-2.5 md:gap-3.5 h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px] select-none"
               role="tablist"
               aria-label="Team members gallery"
             >
@@ -270,7 +270,7 @@ export default function AboutPage() {
                     }}
                     className={`group relative h-full overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-[flex-grow,flex-basis] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
                       isCurrent
-                        ? 'flex-[4] sm:flex-[3.5] md:flex-[3] min-w-0'
+                        ? 'flex-[4.5] sm:flex-[5] md:flex-[5.5] lg:flex-[6] min-w-0'
                         : 'flex-[1] min-w-0'
                     }`}
                     aria-label={`${member.name}, ${member.role}`}
@@ -325,7 +325,7 @@ export default function AboutPage() {
 
                     {/* Expanded state display */}
                     <div
-                      className={`absolute inset-0 flex flex-col justify-between p-3.5 sm:p-5 md:p-6 pointer-events-none transition-opacity duration-300 ${
+                      className={`absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8 lg:p-9 pointer-events-none transition-opacity duration-300 ${
                         isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
                       }`}
                       aria-hidden={!isCurrent}
@@ -340,14 +340,14 @@ export default function AboutPage() {
                         </span>
                       </div>
 
-                      <div>
+                      <div className="max-w-2xl lg:max-w-3xl">
                         <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[var(--pt-accent)] mb-1">
                           {member.role}
                         </p>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-2">
+                        <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-[var(--pt-paper)] mb-2.5">
                           {member.name}
                         </h3>
-                        <p className="text-[11px] sm:text-[12.5px] leading-snug sm:leading-relaxed text-[rgba(244,240,232,0.92)] line-clamp-6 md:line-clamp-none max-h-[200px] sm:max-h-[250px] md:max-h-[300px] overflow-y-auto pr-1">
+                        <p className="text-xs sm:text-[13px] md:text-sm leading-relaxed text-[rgba(244,240,232,0.92)] line-clamp-6 md:line-clamp-none max-h-[220px] sm:max-h-[260px] md:max-h-[320px] overflow-y-auto pr-1">
                           {member.bio}
                         </p>
                       </div>
