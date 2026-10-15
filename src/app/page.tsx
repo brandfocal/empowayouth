@@ -8,6 +8,7 @@ import {
   useEmpowaYouthBentoCardAnimations,
 } from '@/hooks/use-scroll-animations';
 import { PartnerLogoMarquee } from '@/components/PartnerLogoMarquee';
+import { PastSpeakersSection } from '@/components/PastSpeakersSection';
 
 const pillars = [
   {
@@ -522,6 +523,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Previous Speakers Block */}
+      <PastSpeakersSection id="previous-speakers" />
 
       {/* Brand Partners Section */}
       <section id="partners" className="ey-partners" aria-labelledby="ey-partners-title">

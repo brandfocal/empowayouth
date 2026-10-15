@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowDown, Building2, Sparkles, Users } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
-import { PastSpeakersSection } from '@/components/PastSpeakersSection';
 
 const focusRingClassName =
   'focus-visible:outline focus-visible:outline-[2px] focus-visible:outline-offset-[3px] focus-visible:outline-[var(--pt-accent)]';
@@ -370,9 +369,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Previous Speakers Full Gallery Section */}
-      <PastSpeakersSection id="previous-speakers" />
     </main>
   );
 }
