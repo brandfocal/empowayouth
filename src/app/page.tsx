@@ -80,6 +80,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Event Invite Banner: EmpowaYouth Vaal Week 2027 */}
+      <section className="bg-[var(--pt-ink)] pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-[var(--pt-container-pad)] -mt-2">
+        <div className="mx-auto max-w-[var(--pt-container)]">
+          <Link
+            href="/vaal"
+            className="group block relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[rgba(244,240,232,0.14)] bg-[#070a09] shadow-2xl transition-all duration-300 hover:border-[var(--pt-accent)] hover:shadow-[0_0_35px_rgba(232,93,4,0.35)]"
+            title="EmpowaYouth Vaal Week 2027 — Click to Explore & Register"
+            aria-label="EmpowaYouth Vaal Week 2027 — 3–7 May 2027 at Koinonia Bible Church, Sebokeng. Click to view event details and register."
+          >
+            <img
+              src="/Vaal-Empowayouth-Week2027-invite.jpg"
+              alt="EmpowaYouth Vaal Week 2027 Official Invitation — 3–7 May 2027 at Koinonia Bible Church, Sebokeng, Zone 14. Jobs, Careers, Funding, Impact. Register Now"
+              className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+              loading="eager"
+            />
+          </Link>
+        </div>
+      </section>
+
       {/* Key Statistics Banner */}
       <div className="ey-hero-stats" aria-label="Key statistics">
         <ul className="ey-hero-stats-inner" role="list">
