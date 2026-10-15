@@ -1044,25 +1044,24 @@ export default function VaalEmpowaYouthWeekPage() {
               </div>
             </article>
           </div>
-
-          {/* Previous Speakers Gallery */}
-          <div className="pt-12 border-t border-[rgba(244,240,232,0.1)]">
-            <PastSpeakersSection
-              asSection={false}
-              id="vaal-past-speakers"
-              kicker="Previous Speakers"
-              title={
-                <>
-                  <span>Voices That </span>
-                  <span className="ey-heading-italic">Moved</span>
-                  <span> The Room.</span>
-                </>
-              }
-              subtitle="Over 500 high-impact voices have powered the EmpowaYouth movement across South Africa — bringing their insights, networks, and leadership directly into township communities."
-            />
-          </div>
         </div>
       </section>
+
+      {/* ======================================================== */}
+      {/* 7b. PREVIOUS SPEAKERS FULL-WIDTH AUTO-MARQUEE */}
+      {/* ======================================================== */}
+      <PastSpeakersSection
+        id="vaal-past-speakers"
+        kicker="Previous Speakers"
+        title={
+          <>
+            <span>Voices That </span>
+            <span className="ey-heading-italic">Moved</span>
+            <span> The Room.</span>
+          </>
+        }
+        subtitle="Over 500 high-impact voices have powered the EmpowaYouth movement across South Africa — bringing their insights, networks, and leadership directly into township communities."
+      />
 
       {/* ======================================================== */}
       {/* 8. VOICES OF YOUTH TRANSFORMATION (AUTHENTIC BENEFICIARIES)*/}

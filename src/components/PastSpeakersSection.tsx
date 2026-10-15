@@ -160,13 +160,42 @@ export function PastSpeakersSection({
         </div>
       ) : (
         <div className="w-full overflow-hidden">
+          {/* Embedded scoped styles for bulletproof production deployment */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes ey-speakers-marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .ey-speakers-marquee-window {
+              position: relative;
+              width: 100%;
+              overflow: hidden;
+              padding: 16px 0 24px;
+              mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+              -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+            }
+            .ey-speakers-marquee-track {
+              display: flex !important;
+              flex-direction: row !important;
+              flex-wrap: nowrap !important;
+              gap: 20px !important;
+              width: max-content !important;
+              will-change: transform;
+              animation: ey-speakers-marquee var(--marquee-duration, 85s) linear infinite !important;
+            }
+            .ey-speakers-marquee-window:hover .ey-speakers-marquee-track,
+            .ey-speakers-marquee-track:hover {
+              animation-play-state: paused !important;
+            }
+          `}} />
+
           {/* Marquee Window with soft gradient masks on edges */}
           <div
-            className="ey-speakers-marquee-window"
+            className="ey-speakers-marquee-window relative w-full overflow-hidden py-4 select-none"
             aria-label="Past keynote speakers marquee"
           >
             <div
-              className="ey-speakers-marquee-track"
+              className="ey-speakers-marquee-track flex flex-row flex-nowrap w-max gap-5 will-change-transform"
               style={{ '--marquee-duration': `${marqueeDuration}s` } as React.CSSProperties}
             >
               {/* Set A: Initial batch */}

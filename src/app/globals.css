@@ -1427,6 +1427,29 @@ html, body {
   animation-play-state: paused;
 }
 
+/* Past Speakers Full-Width Auto-Marquee */
+.ey-speakers-marquee-window {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0 24px;
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.ey-speakers-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+  animation: ey-marquee var(--marquee-duration, 85s) linear infinite;
+}
+
+.ey-speakers-marquee-window:hover .ey-speakers-marquee-track,
+.ey-speakers-marquee-track:hover {
+  animation-play-state: paused !important;
+}
+
 .ey-logo-card,
 .ey-partner-logo-item {
   width: 140px;
