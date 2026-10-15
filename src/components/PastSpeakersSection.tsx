@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import { pastSpeakers, Speaker } from '@/data/speakers';
-import { Search } from 'lucide-react';
 
 const categories = [
   'All',
@@ -41,20 +40,12 @@ export function PastSpeakersSection({
   asSection = true,
 }: PastSpeakersSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
-  const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter speakers based on category and search query
+  // Filter speakers based on selected category
   const filteredSpeakers = useMemo(() => {
-    return pastSpeakers.filter((speaker) => {
-      const matchesCategory =
-        selectedCategory === 'All' || speaker.category === selectedCategory;
-      const matchesSearch =
-        searchQuery.trim() === '' ||
-        speaker.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        speaker.designation.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery]);
+    if (selectedCategory === 'All') return pastSpeakers;
+    return pastSpeakers.filter((speaker) => speaker.category === selectedCategory);
+  }, [selectedCategory]);
 
   // Ensure enough items exist for a seamless infinite loop across wide screens
   const minCards = 10;
@@ -69,7 +60,7 @@ export function PastSpeakersSection({
 
   const content = (
     <div className="w-full">
-      {/* Header, Categories & Search (Aligned to Container) */}
+      {/* Header & Categories (Aligned to Container) */}
       <div className="max-w-[var(--pt-container)] mx-auto px-[var(--pt-container-pad)] mb-8 sm:mb-12">
         <p className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.16em] uppercase text-[var(--pt-accent)] mb-3">
           <span className="inline-block w-6 h-[2px] bg-[var(--pt-accent)]" aria-hidden="true" />
@@ -92,11 +83,10 @@ export function PastSpeakersSection({
           </div>
         </div>
 
-        {/* Categories Toolbar & Instant Search */}
-        <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-y border-white/10 py-4 sm:py-5">
-          {/* Category Tabs */}
+        {/* Category Pills Spanning The Entire Width */}
+        <div className="mt-8 border-y border-white/10 py-4 sm:py-5 w-full">
           <div
-            className="flex flex-wrap items-center gap-1.5 sm:gap-2"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 w-full"
             role="tablist"
             aria-label="Speaker categories"
           >
@@ -114,29 +104,17 @@ export function PastSpeakersSection({
                   role="tab"
                   aria-selected={isSelected}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`rounded-full px-3 sm:px-3.5 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  className={`w-full flex items-center justify-center text-center rounded-full px-2.5 sm:px-3 py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                     isSelected
                       ? 'bg-[var(--pt-accent)] text-[var(--pt-ink)] shadow-md shadow-[rgba(232,131,42,0.3)]'
-                      : 'border border-white/10 bg-white/[0.03] text-[rgba(244,240,232,0.7)] hover:border-white/20 hover:text-white'
+                      : 'border border-white/10 bg-white/[0.03] text-[rgba(244,240,232,0.7)] hover:border-white/20 hover:text-white hover:bg-white/[0.06]'
                   }`}
                 >
-                  <span>{cat}</span>
-                  <span className="ml-1.5 opacity-65 text-[10px]">({count})</span>
+                  <span className="truncate">{cat}</span>
+                  <span className="ml-1.5 opacity-65 text-[10px] shrink-0">({count})</span>
                 </button>
               );
             })}
-          </div>
-
-          {/* Search Input */}
-          <div className="relative w-full md:w-64 shrink-0">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--pt-muted)] pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search speaker or role..."
-              className="w-full rounded-lg border border-white/10 bg-white/[0.04] pl-9 pr-3 py-1.5 text-xs text-[var(--pt-paper)] placeholder:text-[var(--pt-muted)] focus:border-[var(--pt-accent)] focus:outline-none transition"
-            />
           </div>
         </div>
       </div>
@@ -145,13 +123,10 @@ export function PastSpeakersSection({
       {filteredSpeakers.length === 0 ? (
         <div className="max-w-[var(--pt-container)] mx-auto px-[var(--pt-container-pad)]">
           <div className="text-center py-16 border border-dashed border-white/10 rounded-2xl">
-            <p className="text-sm text-[var(--pt-muted)]">No speakers found matching your search.</p>
+            <p className="text-sm text-[var(--pt-muted)]">No speakers found in this category.</p>
             <button
               type="button"
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('All');
-              }}
+              onClick={() => setSelectedCategory('All')}
               className="mt-3 text-xs font-bold uppercase text-[var(--pt-accent)] underline cursor-pointer"
             >
               Reset Filters
