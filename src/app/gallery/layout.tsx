@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/gallery',
+    siteName: 'EmpowaYouth',
     title: 'Media & Photo Gallery | EmpowaYouth Summits',
     description:
       'Visual storytelling from EmpowaYouth summits, power panels, deal rooms, and township activations nationwide.',
-    images: [
-      {
-        url: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/09/BMZ_1453_1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Summit Main Stage and Youth Delegates',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Media & Photo Gallery | EmpowaYouth Summits',
     description:
       'Visual storytelling of young South Africans claiming their economic power.',
-    images: ['https://cms.empowayouth.co.za/wp-content/uploads/2023/09/BMZ_1453_1.jpg'],
   },
 };
 

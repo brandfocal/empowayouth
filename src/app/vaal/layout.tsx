@@ -20,24 +20,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/vaal',
+    siteName: 'EmpowaYouth',
     title: 'EmpowaYouth Week Vaal 2027 | 3–7 May | Sebokeng, Zone 14',
     description:
       '5 Days. 5 Priority Sectors. 10,000+ Youth Delegates. Direct access to employers, accredited training, and venture funding.',
-    images: [
-      {
-        url: '/Vaal-Empowayouth-Week2027-invite.jpg',
-        width: 1200,
-        height: 675,
-        alt: 'EmpowaYouth Week Vaal 2027 Official Event Invite',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'EmpowaYouth Week Vaal 2027 | 3–7 May | Sebokeng, Zone 14',
     description:
       'Join 10,000+ youth delegates at Koinonia Bible Church for South Africa’s premier youth economic summit. Register for free.',
-    images: ['/Vaal-Empowayouth-Week2027-invite.jpg'],
   },
 };
 

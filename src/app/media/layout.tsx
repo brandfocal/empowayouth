@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/media',
+    siteName: 'EmpowaYouth',
     title: 'Media Hub & Broadcasts | EmpowaYouth',
     description:
       'High-impact video stories, broadcast features, and media moments from EmpowaYouth summits across South Africa.',
-    images: [
-      {
-        url: '/images/media-hero-broadcasting.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Broadcasting and Media Center',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Media Hub & Broadcasts | EmpowaYouth',
     description:
       'Watch keynotes, podcasts, and video coverage from South Africa’s premier youth economic movement.',
-    images: ['/images/media-hero-broadcasting.jpg'],
   },
 };
 

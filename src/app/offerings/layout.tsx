@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/offerings',
+    siteName: 'EmpowaYouth',
     title: 'Strategic Interventions & Offerings | EmpowaYouth',
     description:
       'Bold instruments for systemic change. We create the rooms, routes, and resources that move young people closer to opportunity.',
-    images: [
-      {
-        url: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231020-WA0006.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Delegates engaged in programme workshop',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Strategic Interventions & Offerings | EmpowaYouth',
     description:
       'Summits, Indaba, Pitch Competitions, and Future-Facing Industry Labs across South Africa.',
-    images: ['https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231020-WA0006.jpg'],
   },
 };
 

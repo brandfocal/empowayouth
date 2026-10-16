@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/contact',
+    siteName: 'EmpowaYouth',
     title: 'Contact Us | EmpowaYouth Movement',
     description:
       'We welcome queries from ambitious youth, corporate partners, government stakeholders, and media representatives nationwide.',
-    images: [
-      {
-        url: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/09/BMZ_1231_1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Energetic crowd of young delegates at EmpowaYouth summit',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Contact EmpowaYouth | Enquiries & Partnerships',
     description:
       'Connect with EmpowaYouth headquarters for summit registration, corporate partnerships, and media queries.',
-    images: ['https://cms.empowayouth.co.za/wp-content/uploads/2023/09/BMZ_1231_1.jpg'],
   },
 };
 

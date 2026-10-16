@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/partner',
+    siteName: 'EmpowaYouth',
     title: 'Partner With EmpowaYouth | Strategic Corporate & ESD Opportunities',
     description:
       'Turn ESG and B-BBEE scorecards into authentic national transformation. Secure pre-screened youth talent and co-author Africa’s future workforce.',
-    images: [
-      {
-        url: '/images/youth-partner-portrait.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Corporate Partner and Youth Ambassador collaborating',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Partner With EmpowaYouth | Corporate Partnerships & Sponsorships',
     description:
       'Trusted by 600+ strategic partners across South Africa. Co-create sustainable talent pipelines and enterprise development.',
-    images: ['/images/youth-partner-portrait.jpg'],
   },
 };
 

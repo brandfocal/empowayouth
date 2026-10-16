@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/action',
+    siteName: 'EmpowaYouth',
     title: 'Take Action | EmpowaYouth Inclusion Pathways',
     description:
       'Three lanes to make an impact: Attend as a delegate, volunteer with our ground force, or sponsor life-changing youth interventions.',
-    images: [
-      {
-        url: '/images/youth-community-empowerment.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Delegates taking action together',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Take Action | EmpowaYouth Inclusion Pathways',
     description:
       'Free delegate registration, volunteer opportunities, and corporate partnerships across South Africa.',
-    images: ['/images/youth-community-empowerment.jpg'],
   },
 };
 

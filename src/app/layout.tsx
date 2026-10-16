@@ -7,6 +7,12 @@ const siteUrl = 'https://empowayouth.co.za';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: 'EmpowaYouth',
+  appleWebApp: {
+    capable: true,
+    title: 'EmpowaYouth',
+    statusBarStyle: 'black-translucent',
+  },
   title: {
     default: 'EmpowaYouth | INSPIRED | CONNECTED | TRANSFORMED',
     template: '%s | EmpowaYouth',
@@ -46,20 +52,29 @@ export const metadata: Metadata = {
       'Connecting ambitious young South Africans to the mentors, networks, and accredited skills that turn potential into lasting economic power.',
     images: [
       {
-        url: '/images/summit-crowd-movement.jpg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'EmpowaYouth Summit Delegates celebrating economic transformation',
+        alt: 'EmpowaYouth — INSPIRED | CONNECTED | TRANSFORMED',
+        type: 'image/png',
+      },
+      {
+        url: '/logo/empowayouth-logo-2.png',
+        width: 600,
+        height: 315,
+        alt: 'EmpowaYouth Official Logo',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'EmpowaYouth | INSPIRED | CONNECTED | TRANSFORMED',
     description:
       'Connecting ambitious young South Africans to mentors, networks, and skills that turn potential into lasting economic power.',
-    images: ['/images/summit-crowd-movement.jpg'],
-    creator: '@EmpowaYouth',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -145,6 +160,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta property="og:site_name" content="EmpowaYouth" />
+        <meta property="og:logo" content="https://empowayouth.co.za/logo/empowayouth-logo-2.png" />
+        <link rel="image_src" href="https://empowayouth.co.za/logo/empowayouth-logo-2.png" />
+        <link rel="apple-touch-icon" href="https://empowayouth.co.za/apple-touch-icon.png" />
+        <meta name="application-name" content="EmpowaYouth" />
+        <meta name="apple-mobile-web-app-title" content="EmpowaYouth" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}

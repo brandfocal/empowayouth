@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/impact',
+    siteName: 'EmpowaYouth',
     title: 'Our Impact | EmpowaYouth Verified Metrics Dashboard',
     description:
       'From employment pathways to enterprise capital, see how EmpowaYouth turns access into measurable momentum across South Africa.',
-    images: [
-      {
-        url: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231019-WA0008.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Community members and delegates celebrating impact',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'Our Impact | 294,000+ Youth Impacted Across South Africa',
     description:
       'Verified pathways: 294,000+ youth reached, 2,070+ jobs placed, 6,000+ skills certified, 450+ enterprises funded.',
-    images: ['https://cms.empowayouth.co.za/wp-content/uploads/2023/10/IMG-20231019-WA0008.jpg'],
   },
 };
 

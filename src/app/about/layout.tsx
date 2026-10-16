@@ -10,24 +10,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://empowayouth.co.za/about',
+    siteName: 'EmpowaYouth',
     title: 'About Us | EmpowaYouth Economic Inclusion Movement',
     description:
       'We connect ambitious young South Africans to the mentors, networks, and accredited skills that turn potential into lasting economic power.',
-    images: [
-      {
-        url: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/DSC_8714.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'EmpowaYouth Delegates and Executive Leadership Team',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@EmpowaYouth',
+    creator: '@EmpowaYouth',
     title: 'About Us | EmpowaYouth Economic Inclusion Movement',
     description:
       'From Orange Farm to nationwide: meet the leadership and explore the ecosystem co-authoring South Africa’s economic future.',
-    images: ['https://cms.empowayouth.co.za/wp-content/uploads/2023/10/DSC_8714.jpg'],
   },
 };
 
