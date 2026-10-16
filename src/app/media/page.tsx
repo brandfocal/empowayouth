@@ -58,7 +58,7 @@ const tvItems = [
     id: 'teta-ceo-morning-show',
     title: 'Transport Education Training Authority CEO: Mrs Maphefo Anno-Frempong on The Morning Show',
     outlet: 'SABC NEWS',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3222.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_3222.jpg',
     youtubeId: null,
   },
   */
@@ -140,7 +140,7 @@ const printItems = [
     headline: 'INSETA launches first ever Insurance Skills Indaba',
     publication: 'RANDBURG SUN',
     url: 'https://www.citizen.co.za/randburg-sun/news-headlines/2025/04/02/insetas-skills-indaba-tackles-youth-unemployment-issues/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8155.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8155.jpg',
   },
   {
     id: 'proagrimedia-unemployment-call',
@@ -148,7 +148,7 @@ const printItems = [
       'EmpowaYouth Addresses the Urgent Issue of Youth Unemployment in South Africa: A Call For Collaborative Action',
     publication: 'PROAGRIMEDIA',
     url: 'https://www.proagrimedia.com/news-events/empowayouth-addresses-the-urgent-issue-of-youth-unemployment-in-south-africa-a-call-for-collaborative-action/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8141.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8141.jpg',
   },
   {
     id: 'future-sa-unemployment-call',
@@ -156,28 +156,28 @@ const printItems = [
       'EmpowaYouth Addresses the Urgent Issue of Youth Unemployment in South Africa: A Call For Collaborative Action',
     publication: 'FUTURE SA',
     url: 'https://www.futuresa.co.za/whats-new/empowayouth-addresses-the-urgent-issue-of-youth-unemployment-in-south-africa-a-call-for-collaborative-action/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8143.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8143.jpg',
   },
   {
     id: 'future-filmmakers-masterclass',
     headline: 'EmpowaYouth Masterclass Empowers Future Filmmakers',
     publication: 'RANDBURG SUN',
     url: 'https://www.citizen.co.za/randburg-sun/news-headlines/2025/04/29/youth-in-film-gain-insights-at-empowayouth-event/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8148.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8148.jpg',
   },
   {
     id: 'ekurhuleni-tangible-opportunities',
     headline: 'EmpowaYouth Heads to Ekurhuleni: Connecting Young People with Tangible Opportunities',
     publication: 'ONLINE MAGAZINE',
     url: 'https://www.onlinemag.co.za/empowayouth-heads-to-ekurhuleni-connecting-young-people-with-tangible-opportunities/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8126.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8126.jpg',
   },
   {
     id: 'leaders-shape-job-solutions',
     headline: 'EmpowaYouth Gathers Leaders to Shape Job Solutions',
     publication: 'RANDBURG SUN',
     url: 'https://www.citizen.co.za/randburg-sun/news-headlines/2025/03/03/empowayouth-indaba-tackles-youth-unemployment-crisis/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8138.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8138.jpg',
   },
   {
     id: 'stokvel-talk-indaba',
@@ -185,7 +185,7 @@ const printItems = [
       'EmpowaYouth and Minister Sindisiwe Chikunga Reimagine Livelihoods to Recover Lost Ground at Inaugural EmpowaYouth Indaba',
     publication: 'STOKVEL TALK',
     url: 'https://stokveltalk.co.za/empowayouth-and-minister-sindisiwe-chikunga-reimagine-livelihoods-to-recover-lost-ground-at-inaugural-empowayouth-indaba/',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_8109.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_8109.jpg',
   },
 ];
 
@@ -194,55 +194,55 @@ const radioItems = [
     id: 'smg-workers-month',
     title: 'SMG – Celebrating Workers Month with Mookho Rich Aunty Mhlayivana',
     station: 'LIGWALAGWALA FM',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2025/07/SMG-CELEBRATING-WORKERS-MONTH-WITH-MOOKHO-RICH-AUNTY-MHLAYIVANA-1.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/SMG-CELEBRATING-WORKERS-MONTH-WITH-MOOKHO-RICH-AUNTY-MHLAYIVANA-1.mp3',
   },
   {
     id: 'life-in-balance-unemployment',
     title: '#LifeInBalance Practical Solutions to Unemployment in South Africa',
     station: 'RADIO 2000',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2025/07/LifeInBalance-Practical-Solutions-to-Unemployment-in-South-Africa.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/LifeInBalance-Practical-Solutions-to-Unemployment-in-South-Africa.mp3',
   },
   {
     id: 'indaba-youth-unemployment',
     title: 'EmpowaYouth Indaba – Youth Unemployment',
     station: 'SA FM',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2025/07/EmpowaYouth-Indaba_-youth-unemployment-.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/EmpowaYouth-Indaba_-youth-unemployment-.mp3',
   },
   {
     id: 'yfm-podcast',
     title: 'YFM Podcast',
     station: 'YFM',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/YFM-PODCAST.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/YFM-PODCAST.mp3',
   },
   {
     id: 'tut-podcast',
     title: 'TUT Podcast',
     station: 'TUT',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/TUT-PODCAST.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/TUT-PODCAST.mp3',
   },
   {
     id: 'radio-2000-podcast',
     title: 'RADIO 2000 Podcast',
     station: 'RADIO 2000',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/Zaz-Molo-Empowaworx-Project-Lead.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/Zaz-Molo-Empowaworx-Project-Lead.mp3',
   },
   {
     id: 'safm-educational-conversations',
     title: 'SA FM Educational Conversations – Youth Need More Than Promises',
     station: 'SAFM',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/SA-FM-Educational-conversations_-YOUTH-NEED-MORE-THAN-PROMISES-THEY-NEED-REAL-AND-RELEVANT-WORK-OPPORTUNITIES.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/SA-FM-Educational-conversations_-YOUTH-NEED-MORE-THAN-PROMISES-THEY-NEED-REAL-AND-RELEVANT-WORK-OPPORTUNITIES.mp3',
   },
   {
     id: 'jozi-fm-podcast',
     title: 'Jozi FM Podcast',
     station: 'JOZI FM',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/JOZI-FM.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/JOZI-FM.mp3',
   },
   {
     id: '702-podcast',
     title: '702 Podcast',
     station: '702',
-    src: 'https://empowayouth.co.za/wp-content/uploads/2023/10/702-PODCAST.mp3',
+    src: 'https://cms.empowayouth.co.za/wp-content/uploads/2023/10/702-PODCAST.mp3',
   },
 ];
 
@@ -254,12 +254,12 @@ const horizontalRadioFeatureItems = [
   {
     ...featuredRadioItems[1],
     visualIndex: '02',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2906.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_2906.jpg',
   },
   {
     ...featuredRadioItems[2],
     visualIndex: '03',
-    image: 'https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_2893.jpg',
+    image: 'https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_2893.jpg',
   },
 ];
 
@@ -560,7 +560,7 @@ export default function MediaPage() {
           {/* Featured Hero Radio Item */}
           <article className="group relative mt-10 flex min-h-[clamp(340px,56vw,680px)] items-end overflow-hidden rounded-2xl border border-[rgba(244,240,232,0.12)] md:mt-14">
             <img
-              src="https://empowayouth.co.za/wp-content/uploads/2025/07/DSC_3374.jpg"
+              src="https://cms.empowayouth.co.za/wp-content/uploads/2025/07/DSC_3374.jpg"
               alt="EmpowaYouth radio interview feature"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105 group-hover:scale-105"
             />
