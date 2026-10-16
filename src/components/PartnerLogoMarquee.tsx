@@ -38,7 +38,7 @@ export function PartnerLogoMarquee({
       <div className="ey-marquee-row ey-marquee-row-left">
         {partners.map((partner) => (
           <figure key={`marquee-a-${partner.id}`} className="ey-logo-card" title={partner.name}>
-            <img src={partner.image} alt={`${partner.name} logo`} loading="lazy" />
+            <img src={partner.image} alt={`${partner.name} logo`} loading="eager" decoding="async" />
           </figure>
         ))}
         {partners.map((partner) => (
@@ -48,7 +48,7 @@ export function PartnerLogoMarquee({
             title={partner.name}
             aria-hidden="true"
           >
-            <img src={partner.image} alt="" loading="lazy" />
+            <img src={partner.image} alt="" loading="eager" decoding="async" />
           </figure>
         ))}
       </div>

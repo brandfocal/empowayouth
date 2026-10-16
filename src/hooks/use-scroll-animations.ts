@@ -16,7 +16,7 @@ export function useEmpowaYouthScrollAnimations() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.05, rootMargin: '0px 0px 60px 0px' }
     );
 
     elements.forEach((element) => observer.observe(element));

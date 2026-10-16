@@ -1297,6 +1297,11 @@ html, body {
   gap: 64px;
 }
 
+.ey-partners-content {
+  min-width: 0;
+  width: 100%;
+}
+
 .ey-partners-portrait {
   width: 100%;
   min-height: 480px;
@@ -1756,7 +1761,10 @@ html, body {
     border-bottom: 1px solid rgba(244, 240, 232, 0.1);
   }
   .ey-impact-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ey-partners-layout { grid-template-columns: 1fr; }
+  .ey-partners-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
 }
 
 @media(max-width: 767px) {
@@ -1783,6 +1791,90 @@ html, body {
   .ey-impact-bento-card-feature, .ey-impact-bento-card-community { grid-column: span 1; }
   .ey-footer-grid { grid-template-columns: 1fr; }
   .ey-footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* Brand Partners Mobile Optimization */
+  .ey-partners {
+    padding: clamp(40px, 8vw, 56px) 0;
+  }
+  .ey-partners-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .ey-partners-content {
+    order: 1;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .ey-partners-portrait {
+    order: 2;
+    min-height: 0;
+    max-height: 260px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+  }
+  .ey-partners-portrait img {
+    min-height: 0;
+    max-height: 260px;
+    height: 100%;
+  }
+  .ey-partners .ey-observe,
+  .ey-partners-header {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ey-partners-header {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  .ey-partners-trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 28px 0;
+    border: 1px solid var(--pt-dark-divider);
+    border-radius: 12px;
+    background: rgba(244, 240, 232, 0.02);
+  }
+  .ey-partners-trust-item {
+    padding: 12px 6px;
+    gap: 3px;
+  }
+  .ey-partners-trust-item:not(:last-child) {
+    border-right: 1px solid var(--pt-dark-divider);
+  }
+  .ey-partners-trust-divider {
+    display: none;
+  }
+  .ey-partners-trust-num {
+    font-size: 19px;
+  }
+  .ey-partners-trust-label {
+    font-size: 9px;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+  .ey-marquee-window:before,
+  .ey-marquee-window:after {
+    width: 28px;
+  }
+  .ey-marquee-row {
+    gap: 14px;
+  }
+  .ey-logo-card,
+  .ey-partner-logo-item {
+    width: 108px;
+    min-height: 56px;
+    padding: 4px 6px;
+  }
+  .ey-logo-card img,
+  .ey-partner-logo-img {
+    height: 36px;
+    max-height: 36px;
+    opacity: 1;
+  }
 }
 
 /* Contact Us Page Specific Styles */
