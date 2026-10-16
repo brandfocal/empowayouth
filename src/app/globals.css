@@ -1318,6 +1318,7 @@ html, body {
   min-height: 480px;
   display: block;
   object-fit: cover;
+  object-position: center 15%;
   transition: transform 700ms cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -1786,7 +1787,19 @@ html, body {
   .ey-pillar-list { flex-direction: column; }
   .ey-pillar-item { min-height: 380px; }
   .ey-pillar-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--pt-dark-divider); }
-  .ey-impact-bento-layout { grid-template-columns: 1fr; }
+  .ey-impact-bento-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .ey-impact-bento-copy {
+    position: static;
+    top: auto;
+    max-width: 100%;
+  }
+  .ey-impact-bento-cta {
+    margin-top: 24px;
+    margin-bottom: 36px;
+  }
   .ey-impact-bento-grid { grid-template-columns: 1fr; }
   .ey-impact-bento-card-feature, .ey-impact-bento-card-community { grid-column: span 1; }
   .ey-footer-grid { grid-template-columns: 1fr; }
@@ -1810,14 +1823,19 @@ html, body {
   .ey-partners-portrait {
     order: 2;
     min-height: 0;
-    max-height: 260px;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
+    max-height: 380px;
+    aspect-ratio: 4/5;
+    border-radius: 16px;
+    width: 100%;
+    margin-top: 12px;
   }
   .ey-partners-portrait img {
     min-height: 0;
-    max-height: 260px;
+    max-height: 380px;
     height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 15%;
   }
   .ey-partners .ey-observe,
   .ey-partners-header {
