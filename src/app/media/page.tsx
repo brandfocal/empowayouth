@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Play, X } from 'lucide-react';
+import { ArrowUpRight, Play, X, FileText, ArrowRight } from 'lucide-react';
 import { useEmpowaYouthScrollAnimations } from '@/hooks/use-scroll-animations';
+import { PressReleaseSection } from '@/components/PressReleaseSection';
 
 const focusRingClass =
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[var(--pt-accent)]';
@@ -402,6 +403,17 @@ export default function MediaPage() {
         />
 
         <div className="relative z-[2] mx-auto w-full max-w-[var(--pt-container)]">
+          {/* Latest Press Release Anchor Badge */}
+          <a
+            href="#press-releases"
+            className="mb-5 inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-[rgba(232,131,42,0.45)] bg-[rgba(232,131,42,0.14)] px-3.5 py-1.5 text-xs font-semibold text-[var(--pt-accent)] transition-all duration-200 hover:border-[var(--pt-accent)] hover:bg-[rgba(232,131,42,0.24)] md:mb-6"
+          >
+            <span className="flex h-2 w-2 shrink-0 rounded-full bg-[var(--pt-accent)] animate-pulse" />
+            <span className="font-bold uppercase tracking-wider text-[var(--pt-accent)]">Latest Release:</span>
+            <span className="truncate text-[var(--pt-paper)] font-medium">Vaal EmpowaYouth Week 2027</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+
           <p className="mb-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--pt-accent)] md:mb-6">
             <span className="inline-block h-[2px] w-6 shrink-0 bg-[var(--pt-accent)]" aria-hidden="true" />
             <span>Media &amp; Insights</span>
@@ -412,24 +424,34 @@ export default function MediaPage() {
             <span>.</span>
           </h1>
           <p className="mb-8 max-w-[560px] text-[15px] font-normal leading-[1.7] tracking-[0.005em] text-[var(--pt-muted)] [text-wrap:pretty] md:mb-9">
-            <span>Media coverage, data, behavioural insights, and policy analysis.</span>
+            <span>Official press statements, broadcast TV archives, print features, and audio stories across South Africa.</span>
           </p>
           <div className="flex w-full flex-col flex-wrap items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
-            <a href="#media" className={primaryButtonClass} style={buttonFontStyle}>
-              <span>Read More Stories</span>
+            <a href="#press-releases" className={primaryButtonClass} style={buttonFontStyle}>
+              <FileText size={16} className="mr-2" aria-hidden="true" />
+              <span>Official Releases</span>
             </a>
-            <Link href="/contact" className={ghostIconButtonClass} style={buttonFontStyle}>
-              <span>Get Involved</span>
-            </Link>
+            <a href="#media" className={ghostIconButtonClass} style={buttonFontStyle}>
+              <span>TV &amp; Broadcast</span>
+            </a>
+            <a href="#print-features" className={ghostIconButtonClass} style={buttonFontStyle}>
+              <span>Print Features</span>
+            </a>
+            <a href="#radio-interviews" className={ghostIconButtonClass} style={buttonFontStyle}>
+              <span>Radio &amp; Podcasts</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Section 1: TV Coverage */}
+      {/* Section 01: Official Press Release */}
+      <PressReleaseSection />
+
+      {/* Section 02: TV Coverage */}
       <section id="media" className={`bg-[var(--pt-ink)] text-[var(--pt-paper)] ${standardSectionClass}`}>
         <div className="mx-auto w-full max-w-[var(--pt-container)]">
           <SectionHeader
-            kicker="01 / TV coverage"
+            kicker="02 / TV coverage"
             title={
               <span>
                 Broadcast by the <span className="ey-heading-italic">movement.</span>
@@ -487,11 +509,11 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Section 2: Print Features */}
+      {/* Section 03: Print Features */}
       <section id="print-features" className={standardSectionClass}>
         <div className="mx-auto w-full max-w-[var(--pt-container)]">
           <SectionHeader
-            kicker="02 / Print features"
+            kicker="03 / Print features"
             title={
               <span>
                 Reported in <span className="ey-heading-italic">detail.</span>
@@ -543,11 +565,11 @@ export default function MediaPage() {
         </div>
       </section>
 
-      {/* Section 3: Radio & Podcasts */}
+      {/* Section 04: Radio & Podcasts */}
       <section id="radio-interviews" className={`${standardSectionClass} bg-[var(--pt-ink)] text-[var(--pt-paper)]`}>
         <div className="mx-auto w-full max-w-[var(--pt-container)]">
           <SectionHeader
-            kicker="03 / Radio & Podcasts"
+            kicker="04 / Radio & Podcasts"
             title={
               <span>
                 Voices on <span className="ey-heading-italic">Air.</span>

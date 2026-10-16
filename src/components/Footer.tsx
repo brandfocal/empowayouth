@@ -30,6 +30,7 @@ export const defaultFooterColumns: FooterColumn[] = [
     heading: 'Connect',
     links: [
       { id: 'register', label: 'Register', href: '/#events' },
+      { id: 'press-releases', label: 'Media & Press Releases', href: '/media#press-releases' },
       { id: 'volunteer', label: 'Volunteer', href: '/action#youth' },
       { id: 'partner-with-us', label: 'Partner with Us', href: '/partner' },
       { id: 'contact', label: 'Contact', href: '/contact' },
