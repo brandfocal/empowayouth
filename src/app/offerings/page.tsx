@@ -295,35 +295,6 @@ const pageStyles = `
     z-index: 1;
     background: linear-gradient(to bottom, rgba(11, 15, 14, .25) 0%, rgba(11, 15, 14, .45) 30%, rgba(11, 15, 14, .80) 65%, rgba(11, 15, 14, .97) 100%);
   }
-  .ey-hero-ring {
-    position: absolute;
-    right: -8%;
-    top: 18%;
-    z-index: 1;
-    width: 420px;
-    height: 420px;
-    border: 70px solid color-mix(in srgb, var(--pt-accent) 20%, transparent);
-    pointer-events: none;
-  }
-  .ey-hero-mark {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    border: 1px solid color-mix(in srgb, var(--pt-accent) 24%, transparent);
-  }
-  .ey-hero-mark-large {
-    right: -8vw;
-    top: 18%;
-    width: 42vw;
-    height: 42vw;
-  }
-  .ey-hero-mark-small {
-    right: 8vw;
-    top: 31%;
-    width: 20vw;
-    height: 20vw;
-    border-color: color-mix(in srgb, var(--pt-accent) 34%, transparent);
-  }
   .ey-hero-inner {
     position: relative;
     z-index: 2;
@@ -741,9 +712,6 @@ const pageStyles = `
 
   @media (min-width: 768px) and (max-width: 1279px) {
     .ey-hero-title { font-size: clamp(2.5rem, 6vw, 5rem); }
-    .ey-hero-ring { right: -12%; top: 20%; width: 320px; height: 320px; border-width: 52px; }
-    .ey-hero-mark-large { right: -12vw; top: 20%; width: 38vw; height: 38vw; }
-    .ey-hero-mark-small { right: 7vw; top: 34%; width: 18vw; height: 18vw; }
     .ey-intro-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 64px); }
     .ey-platform-card { grid-template-columns: minmax(0, .45fr) minmax(0, .55fr); min-height: 0; }
     .ey-platform-card-reverse { grid-template-columns: minmax(0, .55fr) minmax(0, .45fr); }
@@ -767,7 +735,6 @@ const pageStyles = `
     .ey-section-container { padding-inline: var(--pt-container-pad); }
     .ey-hero { min-height: 100svh; padding: calc(72px + clamp(40px, 6vw, 80px)) 20px clamp(40px, 6vw, 80px); }
     .ey-hero-title { font-size: clamp(2rem, 9vw, 3.2rem); }
-    .ey-hero-ring, .ey-hero-mark { display: none; }
     .ey-hero-content { text-align: left; }
     .ey-button { width: auto; min-height: 48px; }
     .ey-intro-grid { grid-template-columns: 1fr; }
@@ -801,9 +768,6 @@ const pageStyles = `
     .ey-hero { padding: 104px 16px 48px; }
     .ey-hero-title { font-size: clamp(2.65rem, 14vw, 3.5rem); }
     .ey-hero-descriptor { max-width: 100%; margin-bottom: 28px; }
-    .ey-hero-ring { right: -48vw; top: 16%; width: 86vw; height: 86vw; border-width: 52px; }
-    .ey-hero-mark-large { right: -44vw; top: 15%; width: 86vw; height: 86vw; }
-    .ey-hero-mark-small { right: 4vw; top: 26%; width: 42vw; height: 42vw; }
     .ey-hero-cta-row, .ey-impact-final-actions { width: 100%; align-items: stretch; }
     .ey-button { width: 100%; padding-inline: 24px; }
     .ey-intro, .ey-platforms, .ey-partners, .ey-outcomes, .ey-impact-final { padding-block: 40px; }
@@ -845,9 +809,6 @@ export default function OfferingsPage() {
             style={{ zIndex: 0 }}
           />
           <div className="ey-hero-overlay" aria-hidden="true" />
-          <div className="ey-hero-ring" aria-hidden="true" />
-          <div className="ey-hero-mark ey-hero-mark-large" aria-hidden="true" />
-          <div className="ey-hero-mark ey-hero-mark-small" aria-hidden="true" />
 
           {/* Established Decorative Brand Icon Watermark */}
           <img
